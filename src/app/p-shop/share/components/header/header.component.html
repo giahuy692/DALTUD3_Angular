@@ -1,0 +1,28 @@
+<div class="header-wrapper">
+  <div class="header-right">
+    <div class="logo">HK2T</div>
+    <div class="menu">
+      <div *ngFor="let item of itemMenu">
+        <kendo-button
+          class="btn-primary"
+          imageUrl="{{ item.img }}"
+          themeColor="primary"
+          >{{ item.text }}</kendo-button
+        >
+        <kendo-dropdownbutton
+          class="btn-primary"
+          *ngIf="item.arrDropDown && item.arrDropDown.length > 0"
+          [data]="item.arrDropDown"
+          fillMode="outline"
+        >
+          {{ item.text }}
+        </kendo-dropdownbutton>
+      </div>
+    </div>
+  </div>
+  <div class="header-left">
+    <kendo-button
+      imageUrl="https://demos.telerik.com/kendo-ui/content/shared/icons/sports/snowboarding.png"
+    ></kendo-button>
+  </div>
+</div>

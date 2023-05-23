@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import "./assets/scss/variable";
+@import "./assets/scss/mixin";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary;
+  font-weight: 800;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.btn-primary {
+  @include btn();
+  background-color: $primary;
+  font-weight: 800;
+  color: $white;
+}
+
+.btn-yellow {
+  background-color: $yellow;
+  color: $primary;
+}
+
+.btn-primary_outline {
+  border: 1px solid $primary;
+  color: $primary;
+  background-color: $white;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding: 50px;
+
+  .header-right {
+    display: flex;
+    column-gap: 150px;
+    align-items: center;
+    .logo {
+      font-size: 20px;
+      color: $primary;
+    }
+    .menu {
+      display: flex;
+      column-gap: 5px;
+      align-items: center;
+    }
+  }
+  .header-left {
+    margin-left: auto;
+  }
+}

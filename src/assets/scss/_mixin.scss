@@ -1,0 +1,7 @@
+@import "./variable";
+
+$default-padding: 10px;
+
+@mixin btn($px: $default-padding, $py: $default-padding) {
+  padding: $px $py;
+}
