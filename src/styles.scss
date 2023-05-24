@@ -58,16 +58,37 @@ p {
     column-gap: 150px;
     align-items: center;
     .logo {
-      font-size: 20px;
+      font-size: 35px;
+      font-weight: 700;
       color: $primary;
     }
     .menu {
       display: flex;
       column-gap: 5px;
       align-items: center;
+      .k-dropdown-button {
+        .k-button {
+          @include btn-primary;
+          padding: 7px 15px !important;
+        }
+      }
     }
   }
   .header-left {
+    display: flex;
+    column-gap: 10px;
     margin-left: auto;
+    .fa-search {
+      background-color: $secondary;
+      padding: 8px;
+      border-radius: 30px;
+      color: $white;
+    }
+    .fa-shopping-cart {
+      background-color: $primary;
+      padding: 8px;
+      border-radius: 30px;
+      color: $white;
+    }
   }
 }

@@ -5,3 +5,9 @@ $default-padding: 10px;
 @mixin btn($px: $default-padding, $py: $default-padding) {
   padding: $px $py;
 }
+
+@mixin btn-primary {
+  background-color: $primary !important;
+  font-weight: 800;
+  color: $white;
+}

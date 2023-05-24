@@ -21,14 +21,11 @@ import { ChangelogComponent } from './p-shop/pages/changelog/changelog.component
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 import { HeaderComponent } from './p-shop/share/components/header/header.component';
 import { FooterComponent } from './p-shop/share/components/footer/footer.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
-
-
-
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -50,7 +47,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
     ChangelogComponent,
     PasswordProtectComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,9 +55,9 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
     ButtonsModule,
     BrowserAnimationsModule,
     InputsModule,
-    LayoutModule
+    LayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
