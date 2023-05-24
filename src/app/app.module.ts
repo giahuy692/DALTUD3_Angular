@@ -26,6 +26,9 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconsModule } from '@progress/kendo-angular-icons';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { MapService } from './p-shop/share/services/-map.service';
 
 @NgModule({
   declarations: [
@@ -56,8 +59,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     InputsModule,
     LayoutModule,
+    FontAwesomeModule,
+    IconsModule,
+    LabelModule,
   ],
-  providers: [],
+  providers: [MapService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,8 +3,16 @@
     <div class="logo">LOGO</div>
     <div class="menu">
       <div *ngFor="let item of itemMenu">
-        <kendo-dropdownbutton [data]="item.arrDropDown" fillMode="flat">
-          <div [style]="dFlex">
+        <kendo-dropdownbutton
+          [data]="item.arrDropDown"
+          fillMode="flat"
+          (itemClick)="onItemClick(item)"
+        >
+          <div
+            [style]="dFlex"
+            routerLink="{{ item.link }}"
+            routerLinkActive="active-link"
+          >
             <span>{{ item.text }}</span>
             <i
               class="fa fa-chevron-down"

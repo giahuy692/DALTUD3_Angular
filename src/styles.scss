@@ -8,6 +8,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 body {
@@ -90,5 +92,58 @@ p {
       border-radius: 30px;
       color: $white;
     }
+  }
+}
+
+.footer-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  .footer-sub {
+    width: 60%;
+    height: 200px;
+    border-radius: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid $primary;
+    background-image: url(assets/img/product/banner_footer2.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .footer-text {
+      width: 30%;
+      font-weight: bold;
+      color: $primary;
+    }
+    .input-subscribe {
+      width: 84px;
+      height: 46px;
+      .icon-search {
+        font-size: 16px;
+      }
+    }
+
+    .btn-subscribe {
+      width: 84px;
+      height: 46px;
+      background-color: $primary;
+      font-weight: 800;
+      color: $white;
+    }
+  }
+
+  .arrContact {
+    padding-bottom: 10px;
+  }
+
+  .title-footer {
+    padding-bottom: 10px;
+    font-weight: 900;
+  }
+
+  .f-bold {
+    font-weight: 800;
   }
 }

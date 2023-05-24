@@ -1,1 +1,54 @@
-<p>footer works!</p>
+<div class="footer-wrapper">
+  <div class="footer-sub">
+    <h1 class="footer-text">Subscribe to our Newsletter</h1>
+    <div>
+      <kendo-textbox
+        class="input-subscribe"
+        [style.width.px]="200"
+        placeholder="Your email address"
+      >
+      </kendo-textbox>
+      <button kendoButton class="btn-subscribe">Subscribe</button>
+    </div>
+  </div>
+  <kendo-gridlayout
+    [cols]="['auto', '50%', 'auto']"
+    style="margin: 50px 0 20px 0"
+  >
+    <kendo-gridlayout-item
+      style="border-right: 1px solid #000; padding: 0 30px 0 0; text-align: end"
+    >
+      <h2 class="title-footer">Contact Us</h2>
+      <div *ngFor="let i of arrContact" class="arrContact">
+        <div class="f-bold">{{ i.title }}</div>
+        <span>{{ i.text }}</span>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item class="" style="padding: 0 15px; text-align: center">
+      <h2 class="title-footer">LOGO</h2>
+      <div>
+        Simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        simply dummy text of the printing
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      style="
+        border-left: 1px solid #000;
+        padding: 0 0 0 30px;
+        text-align: start;
+      "
+    >
+      <h2 class="title-footer">Utility Pages</h2>
+      <ul>
+        <li
+          *ngFor="let i of arrHeader"
+          routerLink="{{ i.link }}"
+          routerLinkActive="active-link"
+          style="padding-bottom: 10px"
+        >
+          {{ i.text }}
+        </li>
+      </ul>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>
