@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { ShopApiService } from '../../share/services/shop-api.service';
 
+export interface Item {
+  title?: string;
+  url?: string;
+}
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -35,5 +39,31 @@ export class HomepageComponent implements OnInit {
     this.apiService.getListProductLimit(5).subscribe((v: any) => {
       this.listProductLimit = v;
     });
+  }
+
+  // =====================================================================
+@ViewChild("sv") private scrollView: any;
+
+  myData:any =  [
+    { title: "Flower", url: "https://bit.ly/2cJjYuB" },
+    { title: "Mountain", url: "https://bit.ly/2cTBNaL" },
+    { title: "Sky", url: "https://bit.ly/2cJl3Cx" },
+  ];
+  public paused = false;
+  public items: Item[] = this.myData;
+  public width = "100%";
+  public height = "500px";
+  private interval: any;
+
+  public ngAfterViewInit(): void {
+    this.interval = setInterval(() => {
+      
+        this.scrollView.next();
+      
+    }, 3000);
+  }
+
+  public ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 }

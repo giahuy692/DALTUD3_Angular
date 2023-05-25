@@ -31,6 +31,7 @@
     "@progress/kendo-angular-layout": "^12.1.0",
     "@progress/kendo-angular-popup": "12.1.0",
     "@progress/kendo-angular-progressbar": "12.1.0",
+    "@progress/kendo-angular-scrollview": "^12.1.0",
     "@progress/kendo-angular-upload": "12.1.0",
     "@progress/kendo-data-query": "^1.6.0",
     "@progress/kendo-drawing": "^1.17.2",
