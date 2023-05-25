@@ -1,1 +1,37 @@
-<p>homepage works!</p>
+<!-- GetListProduct -->
+<ul style="display: flex; flex-wrap: wrap">
+  <li *ngFor="let i of data" style="width: 200px">
+    <h6>id:{{ i.id }}</h6>
+    <h6>title: {{ i.title }}</h6>
+    <h6>price: {{ i.price }}</h6>
+    <h6>description: {{ i.description }}</h6>
+    <h6>category: {{ i.category }}</h6>
+    <img src="{{ i.image }}" alt="" style="width: 100px" />
+    <h6>rate: {{ i.rating.rate }}</h6>
+    <h6>count: {{ i.rating.count }}</h6>
+  </li>
+</ul>
+<br />
+<br />
+<br />
+<!-- GetProduct  -->
+<div style="color: brown">Product-single: {{ productSingle | json }}</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- GetListProductLimit -->
+<ul style="display: flex; flex-wrap: wrap">
+  <li *ngFor="let i of listProductLimit" style="width: 200px">
+    <h6>id:{{ i.id }}</h6>
+    <h6>title: {{ i.title }}</h6>
+    <h6>price: {{ i.price }}</h6>
+    <h6>description: {{ i.description }}</h6>
+    <h6>category: {{ i.category }}</h6>
+    <img src="{{ i.image }}" alt="" style="width: 100px" />
+    <h6>rate: {{ i.rating.rate }}</h6>
+    <h6>count: {{ i.rating.count }}</h6>
+  </li>
+</ul>

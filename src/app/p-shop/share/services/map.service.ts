@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,5 +8,5 @@ import { Subject } from 'rxjs';
 export class MapService {
   arrHeader = new Subject<any>();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 }

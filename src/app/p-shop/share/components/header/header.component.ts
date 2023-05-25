@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MapService } from 'src/app/p-shop/share/services/-map.service';
+import { MapService } from 'src/app/p-shop/share/services/map.service';
 
 class btnMenu {
   id: number = 0;

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { LabelModule } from '@progress/kendo-angular-label';
-import { MapService } from './p-shop/share/services/-map.service';
+import { MapService } from './p-shop/share/services/map.service';
+import { ShopApiService } from './p-shop/share/services/shop-api.service';
 
 @NgModule({
   declarations: [
@@ -62,8 +64,9 @@ import { MapService } from './p-shop/share/services/-map.service';
     FontAwesomeModule,
     IconsModule,
     LabelModule,
+    HttpClientModule,
   ],
-  providers: [MapService],
+  providers: [MapService, ShopApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

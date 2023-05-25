@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MapService } from 'src/app/p-shop/share/services/-map.service';
+import { MapService } from 'src/app/p-shop/share/services/map.service';
 
 @Component({
   selector: 'app-footer',
