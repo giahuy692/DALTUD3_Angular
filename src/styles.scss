@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "./assets/scss/variable";
 @import "./assets/scss/mixin";
 
@@ -108,7 +108,7 @@ p {
     align-items: center;
     justify-content: space-around;
     border: 1px solid $primary;
-    background-image: url(assets/img/product/banner_footer2.jfif);
+    background-image: url(assets/img/product/3.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -146,5 +146,61 @@ p {
 
   .f-bold {
     font-weight: 800;
+  }
+}
+
+.line-through {
+  text-decoration: line-through;
+  color: $slateGray;
+  font-size: 13px;
+}
+
+.k-button-solid-primary {
+  flex-direction: row-reverse;
+  background-color: $primary;
+  color: $white;
+  align-items: center;
+  border-color: $primary;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+}
+
+.k-button-solid-secondary {
+  flex-direction: row-reverse;
+  background-color: $yellow;
+  color: $white;
+  align-items: center;
+  border-color: $yellow;
+  font-size: 16px;
+
+  .k-button-icon {
+    color: $primary;
+  }
+
+  &:hover {
+    background-color: $yellow-hover;
+    border-color: $yellow-hover;
+
+    .k-button-icon {
+      color: $primary-hover;
+    }
+  }
+}
+
+.k-button-outline-primary {
+  flex-direction: row-reverse;
+  color: $primary;
+  align-items: center;
+  border-color: $primary;
+  font-size: 16px;
+
+  &:hover {
+    border-color: $primary;
+    color: $white;
+    background-color: $primary;
   }
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,8 +31,7 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
-import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
-
+import { ProductComponent } from './p-shop/share/components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +54,7 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
     PasswordProtectComponent,
     HeaderComponent,
     FooterComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,9 +67,12 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
     IconsModule,
     LabelModule,
     HttpClientModule,
-    ScrollViewModule,
   ],
-  providers: [MapService, ShopApiService],
+  providers: [
+    MapService,
+    ShopApiService,
+    { provide: LOCALE_ID, useValue: 'vi-VN' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

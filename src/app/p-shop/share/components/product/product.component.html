@@ -1,0 +1,16 @@
+<div class="container-product">
+  <div class="category">{{ category }}</div>
+  <img src="{{ imgProduct }}" alt="imgProduct" />
+  <div class="title-product">{{ titleProduct }}</div>
+  <div class="sales">
+    <div [class]="{ 'line-through': discount > 0, price: discount < 0 }">
+      {{ price | number : "1.0-0" : "en-VN" }} VNĐ
+    </div>
+    <div class="discount" *ngIf="discount > 0">
+      {{ discount | number : "1.0-0" : "en-VN" }} VNĐ
+    </div>
+  </div>
+  <div class="review">
+    <i class="fa fa-star" *ngFor="let i of review"></i>
+  </div>
+</div>

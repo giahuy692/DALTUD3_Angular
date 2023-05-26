@@ -39,16 +39,22 @@
       "
     >
       <h2 class="title-footer">Utility Pages</h2>
-      <ul style="display: flex; flex-wrap: wrap">
-        <li
+      <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
+        <kendo-gridlayout-item
+          style="text-align: start"
           *ngFor="let i of arrHeader"
-          routerLink="{{ i.link }}"
-          routerLinkActive="active-link"
-          style="padding-bottom: 10px"
         >
-          {{ i.text }}
-        </li>
-      </ul>
+          <span
+            routerLink="{{ i.link }}"
+            routerLinkActive="active-link"
+            style="font-weight: 800; color: #d4d4d4"
+            kendoButton
+            [fillMode]="'flat'"
+          >
+            {{ i.text }}</span
+          >
+        </kendo-gridlayout-item>
+      </kendo-gridlayout>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
 </div>
