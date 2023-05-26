@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,6 +31,7 @@ import { IconsModule } from '@progress/kendo-angular-icons';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
+import { ProductComponent } from './p-shop/share/components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ShopApiService } from './p-shop/share/services/shop-api.service';
     PasswordProtectComponent,
     HeaderComponent,
     FooterComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,11 @@ import { ShopApiService } from './p-shop/share/services/shop-api.service';
     LabelModule,
     HttpClientModule,
   ],
-  providers: [MapService, ShopApiService],
+  providers: [
+    MapService,
+    ShopApiService,
+    { provide: LOCALE_ID, useValue: 'vi-VN' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
