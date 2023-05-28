@@ -35,17 +35,30 @@ p {
   background-color: $primary;
   font-weight: 800;
   color: $white;
+
+  &:hover {
+    background-color: $primary-hover;
+    color: $white;
+  }
 }
 
 .btn-yellow {
   background-color: $yellow;
   color: $primary;
+  &:hover {
+    background-color: $yellow-hover;
+    color: $primary;
+  }
 }
 
 .btn-primary_outline {
   border: 1px solid $primary;
   color: $primary;
   background-color: $white;
+  &:hover {
+    background-color: $primary;
+    color: $white;
+  }
 }
 
 .header-wrapper {
@@ -202,5 +215,22 @@ p {
     border-color: $primary;
     color: $white;
     background-color: $primary;
+  }
+}
+
+.k-notification-container {
+  height: 70px;
+  padding: 10px;
+
+  .k-notification {
+    .k-icon {
+      font-size: 30px;
+      border-right: 1px solid #fff;
+      padding: 20px;
+    }
+  }
+
+  .k-notification-content {
+    font-size: 20px;
   }
 }

@@ -1,27 +1,22 @@
 <div class="header-wrapper">
   <div class="header-right">
     <div class="logo">LOGO</div>
-    <div class="menu">
-      <div *ngFor="let item of itemMenu">
-        <kendo-dropdownbutton
-          [data]="item.arrDropDown"
-          fillMode="flat"
-          (itemClick)="onItemClick(item)"
-        >
-          <div
-            [style]="dFlex"
-            routerLink="{{ item.link }}"
-            routerLinkActive="active-link"
-          >
-            <span>{{ item.text }}</span>
-            <i
-              class="fa fa-chevron-down"
-              *ngIf="item.arrDropDown && item.arrDropDown.length > 0"
-            ></i>
-          </div>
-        </kendo-dropdownbutton>
-      </div>
-    </div>
+    <kendo-buttongroup selection="single" class="menu">
+      <button
+        *ngFor="let item of itemMenu"
+        kendoButton
+        [toggleable]="true"
+        title="{{ item.text }}"
+        routerLink="{{ item.link }}"
+        routerLinkActive="active-link"
+      >
+        {{ item.text }}
+        <i
+          class="fa fa-chevron-down"
+          *ngIf="item.arrDropDown && item.arrDropDown.length > 0"
+        ></i>
+      </button>
+    </kendo-buttongroup>
   </div>
   <div class="header-left">
     <kendo-button

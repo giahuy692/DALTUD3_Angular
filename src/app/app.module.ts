@@ -32,6 +32,10 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+
+
 
 @NgModule({
   declarations: [
@@ -67,6 +71,8 @@ import { ProductComponent } from './p-shop/share/components/product/product.comp
     IconsModule,
     LabelModule,
     HttpClientModule,
+    NotificationModule,
+    TooltipsModule,
   ],
   providers: [
     MapService,

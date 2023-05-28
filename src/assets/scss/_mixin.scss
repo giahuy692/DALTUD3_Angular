@@ -14,7 +14,9 @@ $clamp: 1;
 }
 
 @mixin limitTitle($clamp) {
+  display: -webkit-box;
   -webkit-line-clamp: $clamp;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  overflow: hidden;
 }
