@@ -15,7 +15,6 @@ import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },

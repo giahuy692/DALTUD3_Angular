@@ -34,8 +34,7 @@ import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
-
-
+import { GroupComponent } from './p-shop/share/components/group/group.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +58,7 @@ import { TooltipsModule } from '@progress/kendo-angular-tooltip';
     HeaderComponent,
     FooterComponent,
     ProductComponent,
+    GroupComponent,
   ],
   imports: [
     BrowserModule,

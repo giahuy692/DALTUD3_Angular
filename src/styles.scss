@@ -234,3 +234,38 @@ p {
     font-size: 20px;
   }
 }
+
+.active-link {
+  border-color: $primary !important;
+  color: $primary !important;
+}
+
+.socical {
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+
+  .k-button {
+    border-radius: 50px !important;
+    color: $primary;
+    background-color: transparent;
+    border: 1px solid $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid $primary;
+    }
+  }
+
+  .k-selected {
+    background-color: $primary;
+    color: $white;
+    border: 1px solid $primary;
+  }
+}
+
+.k-focus {
+  outline: none !important;
+  border-color: transparent !important;
+}

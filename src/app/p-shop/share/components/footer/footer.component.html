@@ -26,10 +26,24 @@
     </kendo-gridlayout-item>
     <kendo-gridlayout-item class="" style="padding: 0 15px; text-align: center">
       <h2 class="title-footer">LOGO</h2>
-      <div>
+      <div style="margin-bottom: 20px">
         Simply dummy text of the printing and typesetting industry. Lorem Ipsum
         simply dummy text of the printing
       </div>
+      <kendo-buttongroup selection="single" class="socical">
+        <button kendoButton [toggleable]="true">
+          <span class="fab fa-instagram"></span>
+        </button>
+        <button kendoButton [toggleable]="true">
+          <span class="fab fa-facebook-square"></span>
+        </button>
+        <button kendoButton [toggleable]="true">
+          <span class="fab fa-twitter"></span>
+        </button>
+        <button kendoButton [toggleable]="true">
+          <span class="fab fa-pinterest"></span>
+        </button>
+      </kendo-buttongroup>
     </kendo-gridlayout-item>
     <kendo-gridlayout-item
       style="
@@ -40,20 +54,16 @@
     >
       <h2 class="title-footer">Utility Pages</h2>
       <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
-        <kendo-gridlayout-item
-          style="text-align: start"
+        <button
           *ngFor="let i of arrHeader"
+          routerLink="{{ i.link }}"
+          routerLinkActive="active-link"
+          style="font-weight: 800; color: #d4d4d4"
+          kendoButton
+          [fillMode]="'flat'"
         >
-          <span
-            routerLink="{{ i.link }}"
-            routerLinkActive="active-link"
-            style="font-weight: 800; color: #d4d4d4"
-            kendoButton
-            [fillMode]="'flat'"
-          >
-            {{ i.text }}</span
-          >
-        </kendo-gridlayout-item>
+          {{ i.text }}
+        </button>
       </kendo-gridlayout>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
