@@ -11,11 +11,9 @@ export interface Item {
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  data: any;
-  productSingle: any;
-  listProductLimit: any;
-  constructor(private apiService: ShopApiService) {}
+  constructor() {}
 
+<<<<<<< HEAD
   ngOnInit(): void {
     this.getData();
     this.getProductSingle();
@@ -66,4 +64,7 @@ export class HomepageComponent implements OnInit {
   public ngOnDestroy(): void {
     clearInterval(this.interval);
   }
+=======
+  ngOnInit(): void {}
+>>>>>>> main
 }

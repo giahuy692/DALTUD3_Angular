@@ -1,0 +1,18 @@
+<div class="team-wrapper">
+  <img src="{{ image }}" alt="img" />
+  <div class="name">{{ name }}</div>
+  <div class="footer-team">
+    <span class="role">{{ role }}</span>
+    <kendo-buttongroup selection="single" class="socical">
+      <button kendoButton [toggleable]="true" routerLink="{{ instagram }}">
+        <span class="fab fa-instagram"></span>
+      </button>
+      <button kendoButton [toggleable]="true">
+        <span class="fab fa-facebook-square" routerLink="{{ facebook }}"></span>
+      </button>
+      <button kendoButton [toggleable]="true" routerLink="{{ twitter }}">
+        <span class="fab fa-twitter"></span>
+      </button>
+    </kendo-buttongroup>
+  </div>
+</div>

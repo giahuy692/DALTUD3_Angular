@@ -1,1 +1,52 @@
-<p>error works!</p>
+<!-- GetListProduct -->
+<div style="padding: 10px; display: flex; column-gap: 10px">
+  <button kendoButton [fillMode]="'outline'" [themeColor]="'primary'">
+    Default button
+  </button>
+
+  <button
+    kendoButton
+    [themeColor]="'primary'"
+    iconClass="fa fa-arrow-circle-right"
+  >
+    Default button
+  </button>
+  <button
+    kendoButton
+    [themeColor]="'secondary'"
+    iconClass="fa fa-arrow-circle-right"
+  >
+    Default button
+  </button>
+</div>
+<div style="padding: 10px">
+  <app-group
+    [image]="
+      '../../../../../assets/img/product/ao-polo-nam-apm3519-xng-9-yodyvn.jpg'
+    "
+    [name]="'Giovani Bacardo'"
+    [role]="'Farmer'"
+  ></app-group>
+</div>
+<div
+  style="
+    display: flex;
+    width: 100%;
+    column-gap: 10px;
+    padding: 40px 20px 20px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+  "
+>
+  <app-product
+    *ngFor="let i of data"
+    [category]="i.category"
+    [discount]="0"
+    [price]="i.price"
+    [review]="i.rating.rate"
+    [titleProduct]="i.title"
+    [imgProduct]="i.image"
+    [countRate]="i.rating.count"
+  ></app-product>
+</div>

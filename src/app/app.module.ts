@@ -32,8 +32,14 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
+<<<<<<< HEAD
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 
+=======
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { GroupComponent } from './p-shop/share/components/group/group.component';
+>>>>>>> main
 
 @NgModule({
   declarations: [
@@ -57,6 +63,10 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
     HeaderComponent,
     FooterComponent,
     ProductComponent,
+<<<<<<< HEAD
+=======
+    GroupComponent,
+>>>>>>> main
   ],
   imports: [
     BrowserModule,
@@ -69,7 +79,12 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
     IconsModule,
     LabelModule,
     HttpClientModule,
+<<<<<<< HEAD
     ScrollViewModule,
+=======
+    NotificationModule,
+    TooltipsModule,
+>>>>>>> main
   ],
   providers: [
     MapService,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-product">
   <div class="category">{{ category }}</div>
   <img src="{{ imgProduct }}" alt="imgProduct" />
@@ -12,5 +13,24 @@
   </div>
   <div class="review">
     <i class="fa fa-star" *ngFor="let i of review"></i>
+=======
+<div class="container-product" kendoTooltip>
+  <div class="category" title="{{ category }}">{{ category }}</div>
+  <img src="{{ imgProduct }}" alt="imgProduct" />
+  <div class="title-product" title="{{ titleProduct }}">{{ titleProduct }}</div>
+  <div class="sales">
+    <div [class]="{ 'line-through': discount > 0, price: discount < 0 }">
+      ${{ price }}
+    </div>
+    <div class="rating">
+      <div class="discount" *ngIf="discount > 0">${{ discount }}</div>
+      <div *ngIf="countRate > 0 && countRate < 6">
+        review: ({{ countRate }})
+      </div>
+    </div>
+  </div>
+  <div class="review">
+    <i class="fa fa-star" *ngFor="let i of [].constructor(review)"></i>
+>>>>>>> main
   </div>
 </div>

@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit {
     { id: 5, text: 'Team', link: '/team' },
     { id: 6, text: 'Blog', link: '/blog' },
     { id: 7, text: 'Contact', link: '/contact' },
-    { id: 8, text: 'Password-protect', link: '/password-protect' },
   ];
 
   // handle xử lý việc bấm vào item nào
@@ -63,9 +62,6 @@ export class HeaderComponent implements OnInit {
         this.router.navigate([item.link]);
         break;
       case 'Contact':
-        this.router.navigate([item.link]);
-        break;
-      case 'Password-protect':
         this.router.navigate([item.link]);
         break;
     }
