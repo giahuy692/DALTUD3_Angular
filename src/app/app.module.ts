@@ -32,6 +32,8 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
+import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
+
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { ProductComponent } from './p-shop/share/components/product/product.comp
     IconsModule,
     LabelModule,
     HttpClientModule,
+    ScrollViewModule,
   ],
   providers: [
     MapService,
