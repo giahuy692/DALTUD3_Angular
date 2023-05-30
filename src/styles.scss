@@ -215,8 +215,10 @@ p {
     background-color: $primary;
   }
 }
-<<<<<<< HEAD
-=======
+// Accept Current: giữ lại bản cũ 
+// Accept Incoming: thay bản mới cho bản cũ
+// Accept Both changes: thêm bản mới và giữ lại bản cũ
+// Compare Changes: so sanh giữ bản cũ với bản mới 
 
 .k-notification-container {
   height: 70px;
@@ -269,4 +271,3 @@ p {
   outline: none !important;
   border-color: transparent !important;
 }
->>>>>>> main

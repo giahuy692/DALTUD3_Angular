@@ -65,4 +65,10 @@ export class HomepageComponent implements OnInit {
   public ngOnDestroy(): void {
     clearInterval(this.interval);
   }
+//=========================================================================
+  public onButtonClick(): void {
+    console.log("click");
+  }
+
+
 }

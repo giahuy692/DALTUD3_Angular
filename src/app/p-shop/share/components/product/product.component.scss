@@ -35,10 +35,7 @@
       }
 
       .title-product {
-<<<<<<< HEAD
-=======
         height: 40px;
->>>>>>> main
         font-size: 16px;
         color: $primary;
         font-weight: 600;
@@ -50,23 +47,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-<<<<<<< HEAD
-=======
         margin-top: 10px;
->>>>>>> main
         .price {
           font-size: 16px;
           color: $primary;
           font-weight: 700;
         }
 
-<<<<<<< HEAD
-=======
         .rating {
           text-align: end;
         }
 
->>>>>>> main
         .discount {
           color: $primary;
           font-size: 16px;
@@ -77,12 +68,8 @@
       .review {
         display: block;
         text-align: end;
-<<<<<<< HEAD
-        margin-top: 5px;
-=======
         padding-top: 5px;
         border-top: 1px solid $gray;
->>>>>>> main
         i {
           color: $yellow;
         }

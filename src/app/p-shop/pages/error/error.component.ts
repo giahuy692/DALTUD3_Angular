@@ -21,7 +21,7 @@ export class ErrorComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getProductSingle();
-    this.getListProductLimit();z
+    this.getListProductLimit();
   }
 
   getData() {

@@ -17,11 +17,11 @@
     margin-bottom: 4em;
 }
 
-.header-main{
+.header-header{
  display: flex;
  margin: 70px 0px 70px 0px;
 }
-.img-head-main-lef {
+.img-head-header-left {
   background: url(../../../../assets/img/product/1301-cafe-01.jpg) no-repeat;
   background-size: cover;
   height: 15em;
@@ -30,13 +30,129 @@
   border-radius: 20px;
 }
 
-.img-head-main-right {
+.img-head-header-right {
   background: url(../../../../assets/img/product/1301-cafe-01.jpg) no-repeat;
   background-size: cover;
   height: 15em;
   width: 40%;
   margin: auto;
   border-radius: 20px;
-  
+}
+
+.header-main{
+  display: flex;
+  background: #F9F8F8;
+  height: 46em;
+}
+
+.header-main-left{
+  background: url(../../../../assets/img/product/278124072-2130887237090292-2532495583793881986-n-ad88a10f-f20f-40fb-abcf-033dd06bd095.jpg) no-repeat;
+  background-size: cover;
+  height: 40em;
+  width: 45%;
+  margin: auto;
+}
+
+.header-main-right{
+  height: 40em;
+  //background-color: aqua;
+  width: 45%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-head{
+  font-family: 'Yellowtail';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 49px;
+
+  color: #7EB693;
 
 }
+
+.text-main{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 59px;
+
+  color: #274C5B;
+
+}
+
+.text-footer{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 165.4%;
+/* or 30px */
+
+
+  color: #525C60;
+
+}
+
+.header-main-under-text{
+  flex-direction: column;
+}
+
+.under-text-1 {
+  display: flex;
+  flex-direction: row;
+  margin: 45px 0 0 0;
+}
+
+.under-text-2 {
+  display: flex;
+  flex-direction: row;
+  margin: 45px 0 0 0;
+}
+
+
+.icon{
+  background-color: aqua;
+  width: 95px;
+  height: 95px;
+  padding: 22px 0px 0px 22px;
+  margin: 0px 25px 0px 0px;
+}
+
+.in-icon{
+  height: 50px;
+  width: 50px;
+  background: url(../../../../assets/img/product/278124072-2130887237090292-2532495583793881986-n-ad88a10f-f20f-40fb-abcf-033dd06bd095.jpg);
+}
+
+
+.under-icon-text-1{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 29px;
+
+  color: #274C5B;
+}
+
+.under-icon-text-2{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 165.4%;
+  /* or 30px */
+
+
+  color: #525C60;
+}
+
+.button-header-main-right{
+  margin: 105px 0 0 0;
+}
+
+
