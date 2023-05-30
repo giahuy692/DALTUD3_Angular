@@ -1,1 +1,45 @@
-<p>about works!</p>
+<div class="example-wrapper">
+    <div class="page">
+        <div class="content">
+            <kendo-gridlayout [rows]="[300, 500, 90, 90, 90]" [cols]="['auto','auto']">
+                <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="2" class="box box-about">
+                    <div class="title">
+                        <h1>About Us</h1>
+                    </div>
+                    <div class="title-img"><img src="../../../../assets/img/product/2.png" alt=""></div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="2" class="box box-content">
+                    <div class="content-img"><img src="../../../../assets/img/product/img_about.jpg" alt=""></div>
+                    <div class="content-text">
+                        <div class="content-text-cate">About Us</div>
+                        <div class="content-text-title">We do Creative <br> Things for Success</div>
+                        <div class="content-text-detail">
+                            <p>Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the
+                                industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley.</p><br>
+                            <p>Simply dummy text of the printing and typesetting industry. Lorem had ceased to been the
+                                industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley.</p>
+                        </div><br>
+                        <div class="content-text-list">
+                            <div class="content-text-list-left">
+                                <span class="k-icon k-i-cut"></span>
+                                <div class="content-text-list-detail">Modern Agriculture Equipment</div>
+                            </div>
+                            <div class="content-text-list-right">
+                                <span class="k-icon k-i-cut"></span>
+                                <div class="content-text-list-detail">No growth hormones are used</div>
+                            </div>
+                        </div>
+                        <div class="content-text-btn">
+                            <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="primary">Explore
+                                More</kendo-button>
+                        </div>
+                    </div>
+                </kendo-gridlayout-item>
+
+            </kendo-gridlayout>
+        </div>
+    </div>
+</div>
