@@ -11,9 +11,10 @@ export interface Item {
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
+  apiService: any;
+  data: any;
   constructor() {}
 
-<<<<<<< HEAD
   ngOnInit(): void {
     this.getData();
     this.getProductSingle();
@@ -29,13 +30,13 @@ export class HomepageComponent implements OnInit {
 
   getProductSingle() {
     this.apiService.getProduct(1).subscribe((v: any) => {
-      this.productSingle = v;
+      this.getProductSingle = v;
     });
   }
 
   getListProductLimit() {
     this.apiService.getListProductLimit(5).subscribe((v: any) => {
-      this.listProductLimit = v;
+      this.getListProductLimit = v;
     });
   }
 
@@ -64,7 +65,4 @@ export class HomepageComponent implements OnInit {
   public ngOnDestroy(): void {
     clearInterval(this.interval);
   }
-=======
-  ngOnInit(): void {}
->>>>>>> main
 }

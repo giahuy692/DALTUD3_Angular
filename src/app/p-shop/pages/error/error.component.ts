@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
-import { NotificationService } from '@progress/kendo-angular-notification';
+import { NotificationService } from '@progress/kendo-angular-notification'; // cái lỗi này thì npm i
 
 @Component({
   selector: 'app-error',
@@ -21,7 +21,7 @@ export class ErrorComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getProductSingle();
-    this.getListProductLimit();
+    this.getListProductLimit();z
   }
 
   getData() {
