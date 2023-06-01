@@ -1,7 +1,7 @@
 <div class="example-wrapper">
     <div class="page">
         <div class="content">
-            <kendo-gridlayout [rows]="[300, 500, 90, 90, 90]" [cols]="['auto','auto']">
+            <kendo-gridlayout [rows]="[300, 'auto', 'auto', 'auto', 90]" [cols]="['auto','auto']">
                 <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="2" class="box box-about">
                     <div class="title">
                         <h1>About Us</h1>
@@ -9,7 +9,7 @@
                     <div class="title-img"><img src="../../../../assets/img/product/2.png" alt=""></div>
                 </kendo-gridlayout-item>
 
-                <kendo-gridlayout-item [col]="1" [row]="2" class="box box-content">
+                <kendo-gridlayout-item [col]="1" [row]="2" [colSpan]="2" class="box box-content">
                     <div class="content-img"><img src="../../../../assets/img/product/img_about.jpg" alt=""></div>
                     <div class="content-text">
                         <div class="content-text-cate">About Us</div>
@@ -35,6 +35,75 @@
                         <div class="content-text-btn">
                             <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="primary">Explore
                                 More</kendo-button>
+                        </div>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="3" [colSpan]="2" class="box box-gist-bg">
+                    <div class="box-gist">
+                        <div class="content-text-line-2">
+                            <div class="content-item">Why Choose us?</div>
+                            <div class="content-title">We do not buy from the
+                                open market & traders.</div><br>
+                            <div class="content-detail">
+                                <p>Simply dummy text of the printing and typesetting industry. Lorem had ceased to been
+                                    the
+                                    industry's standard the 1500s, when an unknown</p>
+                            </div><br>
+                            <div class="content-textlist-line-2">
+                                <div class="content-textlist-line-2-left">
+                                    <div class="title-bar"><span class="k-icon k-i-radiobutton"></span>
+                                        <div>100% Natural Product</div>
+                                    </div>
+                                    <div class="content-textlist-line-2-detail">Simply dummy text of the printing and
+                                        typesetting industry Lorem Ipsum
+                                    </div>
+                                </div>
+                                <div class="content-textlist-line-2-right">
+                                    <div class="title-bar"><span class="k-icon k-i-radiobutton"></span>
+                                        <div>Increases resistance</div>
+                                    </div>
+                                    <div class="content-textlist-line-2-detail">Filling, and temptingly healthy, our
+                                        Biona
+                                        Organic Granola with Wild Berries is just the thing
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-img"><img src="../../../../assets/img/product/img-about.webp" alt=""></div>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="4" [colSpan]="2" class="box box-bg">
+                    <div class="box-list-card">
+                        <div class="box-card-item">
+                            <span class="k-icon k-i-cart"></span>
+                            <div class="box-card-title">Return Policy</div>
+                            <div class="box-card-content">
+                                Simply dummy text of the print in type setting industry.
+                            </div>
+                        </div>
+                        <div class="box-card-item">
+                            <span class="k-icon k-i-cart"></span>
+                            <div class="box-card-title">100% Fresh</div>
+                            <div class="box-card-content">
+                                Simply dummy text of the print in type setting industry.
+                            </div>
+                        </div>
+                        <div class="box-card-item">
+                            <span class="k-icon k-i-cart"></span>
+                            <div class="box-card-title">Support 24/7</div>
+                            <div class="box-card-content">
+                                Simply dummy text of the print in typesetting industry.
+                            </div>
+                        </div>
+                        <div class="box-card-item">
+                            <span class="k-icon k-i-cart"></span>
+                            <div class="box-card-title">Secured Payment
+                            </div>
+                            <div class="box-card-content">
+                                Simply dummy text of the print in typesetting industry.
+                            </div>
                         </div>
                     </div>
                 </kendo-gridlayout-item>
