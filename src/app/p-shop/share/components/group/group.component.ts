@@ -6,10 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./group.component.scss'],
 })
 export class GroupComponent {
-  @Input() image: string =
-    '../../../../../assets/img/product/ao-polo-nam-apm3519-xng-9-yodyvn.jpg';
-  @Input() name: string = 'Giovani Bacardo';
-  @Input() role: string = 'Farmer';
+  @Input() image: string = '';
+  @Input() name: string = '';
+  @Input() role: string = '';
   @Input() facebook: string = '';
   @Input() instagram: string = '';
   @Input() twitter: string = '';

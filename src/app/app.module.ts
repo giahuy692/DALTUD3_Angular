@@ -35,6 +35,7 @@ import { ProductComponent } from './p-shop/share/components/product/product.comp
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import { GroupComponent } from './p-shop/share/components/group/group.component';
+import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { GroupComponent } from './p-shop/share/components/group/group.component'
     FooterComponent,
     ProductComponent,
     GroupComponent,
+    BlogGroupComponent,
   ],
   imports: [
     BrowserModule,
