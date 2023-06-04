@@ -1,82 +1,130 @@
 <kendo-scrollview
-      #sv
-      [data]="items"
-      [width]="width"
-      [height]="height"
-      [arrows]="true"
-      [endless]="true"
-    >
-      <ng-template let-item="item">
-        <h2 class="demo-title">{{ item.title }}</h2>
-        <img
-          src="{{ item.url }}"
-          alt="{{ item.title }}"
-          [ngStyle]="{ minWidth: width }"
-          draggable="false"
-        />
-      </ng-template>
-    </kendo-scrollview>
+  #sv
+  [data]="items"
+  [width]="width"
+  [height]="height"
+  [arrows]="true"
+  [endless]="true"
+>
+  <ng-template let-item="item">
+    <h2 class="demo-title">{{ item.title }}</h2>
+    <img
+      src="{{ item.url }}"
+      alt="{{ item.title }}"
+      [ngStyle]="{ minWidth: width }"
+      draggable="false"
+    />
+  </ng-template>
+</kendo-scrollview>
 
-    <div class="header-header">
-      <div class="img-head-header-left"></div>
-      <div class="img-head-header-right"></div>
+<div class="header-header">
+  <div class="img-head-header-left">
+    <p class="text-img-left-1">Chất lượng!!</p>
+    <p class="text-img-left-2">
+      "Chất liệu tự nhiên - Sự mềm mại và an toàn cho da"
+    </p>
+  </div>
+  <div class="img-head-header-right">
+    <p class="text-img-left-3">Trách nhiệm!!</p>
+    <p class="text-img-left-4">
+      "Chất liệu bền vững - Góp phần vào môi trường xanh."
+    </p>
+  </div>
+</div>
 
+<div class="header-main">
+  <div class="header-main-left"></div>
+
+  <div class="header-main-right">
+    <div class="header-main-text">
+      <p class="text-head">About Us</p>
+      <p class="text-main">
+        "Chất lượng đích thực đến từ sự khéo léo và kỹ thuật tinh tế."
+      </p>
+      <p class="text-footer">
+        "Khám phá không gian thời trang của chúng tôi và cùng chinh phục những
+        phong cách mới nhất, đảm bảo bạn luôn trở thành tâm điểm của sự chú ý."
+      </p>
     </div>
-
-    <div class="header-main">
-
-      <div class="header-main-left"></div>
-
-
-      <div class="header-main-right">
-
-        <div class="header-main-text">
-          <p class="text-head">About Us</p>
-          <p class="text-main">We Believe in Working
-            Accredited Farmers</p>
-          <p class="text-footer">Simply dummy text of the printing and typesetting industry. Lorem had ceased to 
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
-        </div>
-        <div class="header-main-under-text">
-          <div class="under-text-1">
-            <div class="icon">
-              <div class="in-icon"></div>
-            </div>
-
-            <div class="under-icon">
-              <p class="under-icon-text-1">Organic Foods Only</p>
-              <p class="under-icon-text-2">Simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
-            </div>
-
-          </div>
-
-
-
-          <div class="under-text-2">
-            <div class="icon">
-              <div class="in-icon"></div>
-            </div>
-
-            <div class="under-icon">
-              <p class="under-icon-text-1">Organic Foods Only</p>
-              <p class="under-icon-text-2">Simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
-            </div>
-          </div>
-
+    <div class="header-main-under-text">
+      <div class="under-text-1">
+        <div class="icon">
+          <div class="in-icon"></div>
         </div>
 
-        <button class="button-header-main-right" kendoButton (click)="onButtonClick()">Show shop</button>
-
-
+        <div class="under-icon">
+          <p class="under-icon-text-1">
+            "Sự chu đáo - Đem đến trải nghiệm mua sắm tuyệt vời."
+          </p>
+          <p class="under-icon-text-2">
+            "Chúng tôi không đặt giới hạn cho chất lượng - chúng tôi luôn nỗ lực
+            vượt xa sự mong đợi."
+          </p>
+        </div>
       </div>
 
+      <div class="under-text-2">
+        <div class="icon">
+          <div class="in-icon"></div>
+        </div>
 
-
-
-
+        <div class="under-icon">
+          <p class="under-icon-text-1">
+            "Phục vụ với nụ cười - Tạo cảm giác thoải mái và vui vẻ."
+          </p>
+          <p class="under-icon-text-2">
+            "Sự tận tụy và kiên nhẫn trong từng giai đoạn sản xuất đem lại chất
+            lượng không thể phủ nhận."
+          </p>
+        </div>
+      </div>
     </div>
 
-    
+    <button
+      kendoButton
+      [themeColor]="'primary'"
+      iconClass="fa fa-arrow-circle-right"
+    >
+      Default button
+    </button>
+  </div>
+</div>
 
+<div class="products-main">
+  <p class="text-head">Categories</p>
+  <p class="text-main">Our Products</p>
+  <div
+    style="
+      display: flex;
+      width: 100%;
+      column-gap: 10px;
+      padding: 40px 20px 20px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 10px;
+    "
+  >
+    <app-product
+      *ngFor="let i of data"
+      [category]="i.category"
+      [discount]="0"
+      [price]="i.price"
+      [review]="i.rating.rate"
+      [titleProduct]="i.title"
+      [imgProduct]="i.image"
+      [countRate]="i.rating.count"
+    ></app-product>
+
+    <div class="button">
+      <button
+        kendoButton
+        [themeColor]="'primary'"
+        iconClass="fa fa-arrow-circle-right"
+      >
+        Default button
+      </button>
+    </div>
+  </div>
+</div>
 
 <div style="height: 300px">Home pafe work!</div>
