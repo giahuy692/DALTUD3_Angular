@@ -1,29 +1,86 @@
-<div style="display: block; width: 100%; margin: 10px auto">
-  <app-product
-    [category]="'T-Shirt'"
-    [discount]="900000"
-    [price]="1000000"
-    [review]="review"
-    [titleProduct]="'T-Shirt 325'"
-    [imgProduct]="
-      '../../../../assets/img/product/ao-polo-cafe-apm3635-nav-4-yodyvn.jpg'
-    "
-  ></app-product>
+<div class="example-wrapper">
+    <div class="page">
+        <div class="content">
+            <kendo-gridlayout [rows]="[350, 'auto', 'auto', 'auto']" [cols]="['auto']">
+                <kendo-gridlayout-item [col]="1" [row]="1" class="box box-service">
+                    <div class="bg-service">Services</div>
+                    <div class="bg-service-img"><img src="../../../../assets/img/product/service-banner2.avif" alt="">
+                    </div>
+                </kendo-gridlayout-item>
+            </kendo-gridlayout>
+        </div>
+    </div>
 </div>
 
-<div style="display: flex; column-gap: 5px; padding: 10px">
-  <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="primary"
-    >Default button</kendo-button
-  >
 
-  <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="secondary"
-    >Default button</kendo-button
-  >
 
-  <kendo-button
-    iconClass="fa fa-arrow-circle-right"
-    fillMode="outline"
-    themeColor="primary"
-    >Default button</kendo-button
-  >
+
+<div class="example-wrapper">
+    <div class="page-subject">
+        <div class="service-list-content">
+            <div class="service-title">What we Grow</div>
+            <div class="service-topoic">Better Agriculture for Better Future</div>
+        </div>
+        <div class="subject">
+            <kendo-gridlayout [rows]="['auto', 'auto', 'auto']" [cols]="['auto', 'auto','auto']" [gap]="5">
+
+                <kendo-gridlayout-item [col]="1" [row]="1" class="box box-subject-ct-left">
+                    <div class="sb-left-img"><img src="" alt=""></div>
+                    <div class="sb-left-title">Dairy Products</div>
+                    <div class="sb-left-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium. Sed ut perspiciatis</div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="2" [row]="1" [rowSpan]="3" class="box box-subject-ct-mid">
+                    <div class="sb-mid-img"><img src="../../../../assets/img/product/service-tshirt.webp" alt=""></div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="3" [row]="1" class="box box-subject-ct-right">
+                    <div class="sb-right-img"><img src="" alt=""></div>
+                    <div class="sb-right-title">Agricultural Services</div>
+                    <div class="sb-right-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium. Sed ut perspiciatis.
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="2" class="box box-subject-ct-left">
+                    <div class="sb-left-img"><img src="" alt=""></div>
+                    <div class="sb-left-title">Store Services</div>
+                    <div class="sb-left-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium Sed ut perspiciatis.</div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="3" [row]="2" class="box box-subject-ct-right">
+                    <div class="sb-right-img"><img src="" alt=""></div>
+                    <div class="sb-right-title">Organic Products</div>
+                    <div class="sb-right-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium. Sed ut perspiciatis.
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="3" class="box box-subject-ct-left">
+                    <div class="sb-left-img"><img src="" alt=""></div>
+                    <div class="sb-left-title">Dairy Products</div>
+                    <div class="sb-left-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium. Sed ut perspiciatis</div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="3" [row]="3" class="box box-subject-ct-right">
+                    <div class="sb-right-img"><img src="" alt=""></div>
+                    <div class="sb-right-title">Agricultural Services</div>
+                    <div class="sb-right-content">Sed ut perspiciatis unde omnis iste natus error sit voluptat
+                        accusantium doloremqlaudantium. Sed ut perspiciatis.
+                    </div>
+                </kendo-gridlayout-item>
+
+
+
+            </kendo-gridlayout>
+
+        </div>
+        <div class="sb-btn"> <button kendoButton [fillMode]="'outline'" [themeColor]="'primary'"
+                iconClass="fa fa-arrow-circle-right">
+                Default button
+            </button></div>
+    </div>
 </div>

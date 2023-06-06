@@ -1,10 +1,10 @@
 <div class="example-wrapper">
     <div class="page">
         <div class="content">
-            <kendo-gridlayout [rows]="[300, 'auto', 'auto', 'auto', 90]" [cols]="['auto','auto']">
+            <kendo-gridlayout [rows]="[350, 'auto', 'auto', 'auto', 'auto', 'auto']" [cols]="['auto','auto']">
                 <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="2" class="box box-about">
                     <div class="title">
-                        <h1>About Us</h1>
+                        About Us
                     </div>
                     <div class="title-img"><img src="../../../../assets/img/product/2.png" alt=""></div>
                 </kendo-gridlayout-item>
@@ -103,6 +103,64 @@
                             </div>
                             <div class="box-card-content">
                                 Simply dummy text of the print in typesetting industry.
+                            </div>
+                        </div>
+                    </div>
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="5" [colSpan]="2" class="box box-group">
+                    <div class="box-list-g-r">
+                        <div class="box-list-g-r-list">
+                            <div class="box-list-g-r-title">Team</div>
+                            <div class="box-list-g-r-topic">Our Organic Experts</div><br>
+                            <div class="box-list-g-r-content">Simply dummy text of the printing and typesetting
+                                industry.
+                                Lorem had ceased to been the industry's standard dummy text ever since the 1500s, when
+                                an
+                                unknown printer took a galley.</div><br>
+                        </div>
+                        <div class="box-list-g-r-list-card">
+                            <app-group [image]="'../../../../assets/img/product/about-card2.jpg'" [name]="'Linh Đàm'"
+                                [role]="'Founder'">
+                            </app-group>
+                            <app-group [image]="'../../../../assets/img/product/about-card3.jpg'"
+                                [name]="'Angela Minh Tú'" [role]="'Designer'">
+                            </app-group>
+                            <app-group [image]="'../../../../assets/img/product/about-card4.webp'"
+                                [name]="'DGun Tiến Đạt'" [role]="'Model'">
+                            </app-group>
+                        </div>
+                    </div>
+
+                </kendo-gridlayout-item>
+
+                <kendo-gridlayout-item [col]="1" [row]="6" [colSpan]="2" class="box box-offer-bg">
+                    <div class="box-offer-list-ct">
+                        <div class="box-offer-ct-title">About Us</div>
+                        <div class="box-offer-ct-topic">What We Offer for You</div>
+                        <div class="box-offer-ct-list-card">
+                            <div class="box-offer-ct-img">
+                                <div class="ct-card-img"><img src="../../../../assets/img/product/about-vat-lieu.jpg"
+                                        alt=""></div>
+                                <span class="ct-text">Material</span>
+                            </div>
+
+                            <div class="box-offer-ct-img">
+                                <div class="ct-card-img"><img src="../../../../assets/img/product/about-ban-ve.jpg"
+                                        alt=""></div>
+                                <span class="ct-text">Inspiration</span>
+                            </div>
+
+                            <div class="box-offer-ct-img">
+                                <div class="ct-card-img"><img src="../../../../assets/img/product/about-chat-luong.jpg"
+                                        alt=""></div>
+                                <span class="ct-text">Quality</span>
+                            </div>
+
+                            <div class="box-offer-ct-img">
+                                <div class="ct-card-img"><img src="../../../../assets/img/product/about-doi-ngu.jpg"
+                                        alt=""></div>
+                                <span class="ct-text">Spacious printing workshop</span>
                             </div>
                         </div>
                     </div>
