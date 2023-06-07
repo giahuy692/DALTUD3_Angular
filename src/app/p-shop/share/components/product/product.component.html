@@ -1,7 +1,9 @@
 <div class="container-product" kendoTooltip>
   <div class="category" title="{{ category }}">{{ category }}</div>
-  <img src="{{ imgProduct }}" alt="imgProduct" />
-  <div class="title-product" title="{{ titleProduct }}">{{ titleProduct }}</div>
+  <img src="{{ imgProduct }}" alt="imgProduct" (click)="onClick()" />
+  <div class="title-product" title="{{ titleProduct }}" (click)="onClick()">
+    {{ titleProduct }}
+  </div>
   <div class="sales">
     <div [class]="{ 'line-through': discount > 0, price: discount < 0 }">
       ${{ price }}

@@ -172,6 +172,7 @@ p {
   color: $white;
   align-items: center;
   border-color: $primary;
+  font-weight: 700;
   font-size: 16px;
 
   &:hover {
@@ -186,6 +187,7 @@ p {
   color: $white;
   align-items: center;
   border-color: $yellow;
+  font-weight: 700;
   font-size: 16px;
 
   .k-button-icon {
@@ -208,6 +210,7 @@ p {
   align-items: center;
   border-color: $primary;
   font-size: 16px;
+  font-weight: 700;
 
   &:hover {
     border-color: $primary;
@@ -219,6 +222,21 @@ p {
 // Accept Incoming: thay bản mới cho bản cũ
 // Accept Both changes: thêm bản mới và giữ lại bản cũ
 // Compare Changes: so sanh giữ bản cũ với bản mới 
+
+.k-button-flat-primary {
+  flex-direction: row-reverse;
+  color: $primary;
+  align-items: center;
+  border-color: $primary;
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+    background-color: $primary;
+  }
+}
 
 .k-notification-container {
   height: 70px;

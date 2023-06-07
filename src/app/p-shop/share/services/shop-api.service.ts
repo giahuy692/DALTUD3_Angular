@@ -83,7 +83,7 @@ export class ShopApiService {
   getAllCategories() {
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .get<DTOProduct>(`https://fakestoreapi.com/products/categories`)
+        .get<any>(`https://fakestoreapi.com/products/categories`)
         .subscribe(
           (res) => {
             obs.next(res);

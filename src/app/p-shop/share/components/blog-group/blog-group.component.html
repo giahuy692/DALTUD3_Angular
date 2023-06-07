@@ -1,0 +1,27 @@
+<div class="blog-group">
+  <div
+    class="wrapper"
+    [style.background-image]="'url(' + backgroundImage + ')'"
+  >
+    <span class="date">{{ myDate | date : "mediumDate" }}</span>
+    <div class="content-wrapper">
+      <div style="padding: 0 10px">
+        <span class="actor"><i class="fa fa-user"></i>{{ actor }}</span>
+        <p class="title">{{ title }}</p>
+        <p class="content">
+          {{ content }}
+        </p>
+      </div>
+      <button
+        kendoButton
+        [themeColor]="'primary'"
+        fillMode="flat"
+        iconClass="fa fa-arrow-circle-right"
+        [routerLink]="link"
+        routerLinkActive="active-block"
+      >
+        {{ contentBtn }}
+      </button>
+    </div>
+  </div>
+</div>

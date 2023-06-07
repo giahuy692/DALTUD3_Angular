@@ -64,7 +64,7 @@ export class HomepageComponent implements OnInit {
   }
 
   getListProductLimit() {
-    this.apiService.getListProductLimit(5).subscribe((v: any) => {
+    this.apiService.getListProductLimit(8).subscribe((v: any) => {
       this.listProductLimit = v;
     });
   }

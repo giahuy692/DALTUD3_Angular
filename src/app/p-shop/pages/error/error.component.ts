@@ -58,4 +58,8 @@ export class ErrorComponent implements OnInit {
       this.listProductLimit = v;
     });
   }
+
+  onClickProduct(data: DTOProduct) {
+    console.log(data);
+  }
 }

@@ -37,6 +37,8 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 import { NotificationModule } from '@progress/kendo-angular-notification';// cái lỗi này thì npm i
 import { TooltipsModule } from '@progress/kendo-angular-tooltip'; // cái lỗi này thì npm i
 import { GroupComponent } from './p-shop/share/components/group/group.component';
+import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { GroupComponent } from './p-shop/share/components/group/group.component'
     FooterComponent,
     ProductComponent,
     GroupComponent,
+    BlogGroupComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { GroupComponent } from './p-shop/share/components/group/group.component'
     ScrollViewModule,
     NotificationModule,
     TooltipsModule,
+    DatePipe,
   ],
   providers: [
     MapService,
