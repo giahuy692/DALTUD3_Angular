@@ -1,22 +1,26 @@
-<div
-  class="blog-group"
-  [style.background-image]="'url(' + backgroundImage + ')'"
->
-  <div class="wrapper">
-    <span class="date">25 Nov</span>
+<div class="blog-group">
+  <div
+    class="wrapper"
+    [style.background-image]="'url(' + backgroundImage + ')'"
+  >
+    <span class="date">{{ myDate | date : "mediumDate" }}</span>
     <div class="content-wrapper">
-      <span class="actor"><i class="fa fa-user"></i>Admin</span>
-      <p class="title">The Benefits of Vitamin D & How to Get It</p>
-      <p class="content">
-        Simply dummy text of the printing and typesetting industry. Lorem Ipsum
-      </p>
+      <div style="padding: 0 10px">
+        <span class="actor"><i class="fa fa-user"></i>{{ actor }}</span>
+        <p class="title">{{ title }}</p>
+        <p class="content">
+          {{ content }}
+        </p>
+      </div>
       <button
         kendoButton
         [themeColor]="'primary'"
         fillMode="flat"
         iconClass="fa fa-arrow-circle-right"
+        [routerLink]="link"
+        routerLinkActive="active-block"
       >
-        Default button
+        {{ contentBtn }}
       </button>
     </div>
   </div>

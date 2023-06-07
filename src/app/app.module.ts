@@ -36,6 +36,7 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
 import { TooltipsModule } from '@progress/kendo-angular-tooltip';
 import { GroupComponent } from './p-shop/share/components/group/group.component';
 import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-gr
     HttpClientModule,
     NotificationModule,
     TooltipsModule,
+    DatePipe,
   ],
   providers: [
     MapService,

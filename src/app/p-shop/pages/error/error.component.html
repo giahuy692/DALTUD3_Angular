@@ -48,5 +48,21 @@
     [titleProduct]="i.title"
     [imgProduct]="i.image"
     [countRate]="i.rating.count"
+    [rate]="i.rating.rate"
+    [id]="i.id"
+    (clickItem)="onClickProduct($event)"
   ></app-product>
 </div>
+
+<app-blog-group
+  [actor]="'Admin'"
+  [content]="
+    'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
+  "
+  [contentBtn]="'Read more'"
+  [title]="'The Benefits of Vitamin D & How to Get It'"
+  [backgroundImage]="
+    '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
+  "
+  [myDate]="'06/20/2023'"
+></app-blog-group>
