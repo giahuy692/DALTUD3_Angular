@@ -113,6 +113,9 @@
       [titleProduct]="i.title"
       [imgProduct]="i.image"
       [countRate]="i.rating.count"
+      [rate]="i.rating.rate"
+      [id]="i.id"
+      (clickItem)="getProductSingle($event)"
     ></app-product>
 
     <div class="button">
@@ -127,4 +130,6 @@
   </div>
 </div>
 
-<div style="height: 300px">Home pafe work!</div>
+<span>{{ productSingle?.title }}</span>
+<span>{{ productSingle?.price }}</span>
+<span>{{ productSingle | json }}</span>

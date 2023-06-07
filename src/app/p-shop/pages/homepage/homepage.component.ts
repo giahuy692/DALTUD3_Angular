@@ -20,7 +20,7 @@ export interface Item {
 })
 export class HomepageComponent implements OnInit {
   data: DTOProduct[];
-  productSingle: any;
+  productSingle: DTOProduct;
   listProductLimit: any;
 
   constructor(
@@ -30,7 +30,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    this.getProductSingle();
     this.getListProductLimit();
   }
 
@@ -57,9 +56,13 @@ export class HomepageComponent implements OnInit {
     );
   }
 
-  getProductSingle() {
-    this.apiService.getProduct(1).subscribe((v: any) => {
-      this.productSingle = v;
+  // Handle lấy product detail
+  getProductSingle(data: DTOProduct) {
+    // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
+    this.apiService.getProduct(data.id).subscribe((v: any) => {
+      // Api getProduct truyền (data.id )
+      this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data.id gán vào biến productSingle
+      console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
     });
   }
 
@@ -67,6 +70,9 @@ export class HomepageComponent implements OnInit {
     this.apiService.getListProductLimit(8).subscribe((v: any) => {
       this.listProductLimit = v;
     });
+  }
+  onClickProduct(data: DTOProduct) {
+    console.log(data);
   }
 
   // =====================================================================

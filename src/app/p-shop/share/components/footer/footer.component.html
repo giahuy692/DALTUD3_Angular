@@ -54,22 +54,6 @@
     >
       <h2 class="title-footer">Utility Pages</h2>
       <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
-<<<<<<< HEAD
-        <kendo-gridlayout-item
-          style="text-align: start"
-          *ngFor="let i of arrHeader"
-        >
-          <span
-            routerLink="{{ i.link }}"
-            routerLinkActive="active-link"
-            style="font-weight: 800; color: #d4d4d4"
-            kendoButton
-            [fillMode]="'flat'"
-          >
-            {{ i.text }}</span
-          >
-        </kendo-gridlayout-item>
-=======
         <button
           *ngFor="let i of arrHeader"
           routerLink="{{ i.link }}"
@@ -80,7 +64,6 @@
         >
           {{ i.text }}
         </button>
->>>>>>> main
       </kendo-gridlayout>
     </kendo-gridlayout-item>
   </kendo-gridlayout>

@@ -26,9 +26,6 @@ export class ProductComponent {
   constructor() {}
 
   ngOnInit() {}
-<<<<<<< HEAD
-}
-=======
 
   onClick() {
     this.clickItem.emit({
@@ -46,4 +43,3 @@ export class ProductComponent {
     });
   }
 }
->>>>>>> main
