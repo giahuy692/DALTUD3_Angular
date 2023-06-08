@@ -41,25 +41,104 @@
 .page-subject {
     margin: 0 auto;
     max-width: 1320px;
+    margin-top: 150px;
 
     .service-list-content {
         text-align: center;
+
+        .service-title {
+            font-family: 'Yellowtail';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 49px;
+            color: #7EB693;
+        }
+
+        .service-topoic {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 50px;
+            line-height: 59px;
+            text-align: center;
+
+            color: #274C5B;
+
+        }
     }
 
     .subject {
+        margin-top: 50px;
+
         .box-subject-ct-left {
             text-align: right;
+
+            span {
+                color: #7EB693;
+                font-size: 30px;
+            }
+
+            .sb-left-title {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 29px;
+
+                color: #274C5B;
+
+            }
+
+            .sb-left-content {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 165.4%;
+                /* or 30px */
+
+                color: #525C60;
+            }
         }
 
         .box-subject-ct-right {
             text-align: left;
+
+            span {
+                color: #7EB693;
+                font-size: 30px;
+            }
+
+            .sb-right-title {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 25px;
+                line-height: 29px;
+
+                color: #274C5B;
+            }
+
+            .sb-right-content {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 165.4%;
+                /* or 30px */
+
+                color: #525C60;
+            }
         }
 
         .box-subject-ct-mid {
             width: 600px;
+            margin-bottom: -50px;
 
             .sb-mid-img {
                 height: 100%;
+                margin-top: -50px;
 
                 img {
                     width: 100%;

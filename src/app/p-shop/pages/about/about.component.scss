@@ -73,11 +73,11 @@
                 .content-text-list-left {
                     display: flex;
 
-                    .k-icon {
+                    .fa-truck {
                         height: auto;
-                        font-size: 40px;
+                        font-size: 35px;
                         padding-right: 10px;
-                        color: #555555;
+                        color: #7EB693;
                     }
 
                     .content-text-list-detail {
@@ -94,11 +94,11 @@
                 .content-text-list-right {
                     display: flex;
 
-                    .k-icon {
+                    .fa-industry {
                         height: auto;
-                        font-size: 40px;
+                        font-size: 35px;
                         padding-right: 10px;
-                        color: #555555;
+                        color: #7EB693;
                     }
 
                     .content-text-list-detail {
@@ -260,12 +260,13 @@
                             background: #ECECEC;
                             border-radius: 49px;
 
-
                         }
 
                         .content-textlist-line-2-detail {
-                            width: 444px;
+                            width: 450px;
                             height: 60px;
+                            margin-top: 7px;
+                            margin-bottom: 7px;
 
                             font-family: 'Open Sans';
                             font-style: normal;
@@ -304,8 +305,11 @@
                         }
 
                         .content-textlist-line-2-detail {
-                            width: 444px;
+                            width: 450px;
                             height: 60px;
+                            margin-top: 7px;
+                            margin-bottom: 7px;
+
                             font-family: 'Open Sans';
                             font-style: normal;
                             font-weight: 400;
