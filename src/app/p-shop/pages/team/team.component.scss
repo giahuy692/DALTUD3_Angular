@@ -19,6 +19,7 @@
 .main-main {
   display: flex;
   justify-content: center;
+  margin-top: 60px;
 }
 
 .main-footer {
@@ -53,6 +54,7 @@
 .img-detail-product {
   height: 100%;
   width: 100%;
+  border-radius: 30px;
 }
 .quantity-mode {
   display: flex;
@@ -85,4 +87,36 @@
   display: flex;
   justify-content: center;
   /* align-items: center;*/
+}
+.buttonMode {
+  border-radius: 16px;
+}
+
+.but-DesAdd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+kendo-gridlayout-item.box.big.DesAdd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonDes {
+  height: 50px;
+  padding: 0px 20px 0 20px;
+  border-radius: 16px;
+}
+.text-DesAdd {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 165.4%;
+  text-align: center;
+  color: #525c60;
 }
