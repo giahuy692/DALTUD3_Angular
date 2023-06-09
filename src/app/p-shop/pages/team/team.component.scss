@@ -120,3 +120,22 @@ kendo-gridlayout-item.box.big.DesAdd {
   text-align: center;
   color: #525c60;
 }
+
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.Rel-Products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  /* font-size: 50px; */
+  line-height: 59px;
+}

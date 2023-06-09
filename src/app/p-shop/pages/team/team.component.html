@@ -122,4 +122,47 @@
     </kendo-gridlayout>
   </div>
 </div>
-<div class="main-footer"></div>
+<div class="main-footer">
+  <kendo-gridlayout
+    [rows]="[140, 140, 140, 140]"
+    [cols]="[140, 140, 140, 140, 140, 140]"
+    [gap]="5"
+  >
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="1"
+      [colSpan]="6"
+      [rowSpan]="1"
+      class="box big"
+    >
+      <div class="Rel-Products">Related Products</div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="2"
+      [colSpan]="2"
+      [rowSpan]="3"
+      class="box rect"
+    >
+      <span>Box</span>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="3"
+      [row]="2"
+      [colSpan]="2"
+      [rowSpan]="3"
+      class="box rect"
+    >
+      <span>Box</span>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="5"
+      [row]="2"
+      [colSpan]="2"
+      [rowSpan]="3"
+      class="box rect"
+    >
+      <span>Box</span>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
+</div>
