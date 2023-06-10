@@ -22,7 +22,7 @@
             <div class="service-topoic">Better Agriculture for <br> Better Future</div>
         </div>
         <div class="subject">
-            <kendo-gridlayout [rows]="['auto', 'auto', 'auto']" [cols]="['auto', 'auto','auto']" [gap]="5">
+            <kendo-gridlayout [rows]="['auto', 'auto', 'auto', 'auto']" [cols]="['auto', 'auto','auto']" [gap]="5">
 
                 <kendo-gridlayout-item [col]="1" [row]="1" class="box box-subject-ct-left">
                     <div><span class="fas fa-box"></span></div>
@@ -81,6 +81,19 @@
         <div class="sb-btn"> <button kendoButton [fillMode]="'outline'" [themeColor]="'primary'"
                 iconClass="fa fa-arrow-circle-right">
                 Default button
-            </button></div>
+            </button>
+        </div>
+
     </div>
+
+    <kendo-gridlayout [rows]="['auto']" [cols]="['auto', 'auto','auto']">
+        <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="3" class="box box-ct-vd">
+            <div class="video-container">
+                <video autoplay muted>
+                    <source src="../../../../assets/img/product/FUTURISM 2 0.mp4" type="video/mp4">
+                </video>
+            </div>
+        </kendo-gridlayout-item>
+    </kendo-gridlayout>
+
 </div>
