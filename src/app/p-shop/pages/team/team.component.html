@@ -3,125 +3,114 @@
 </div>
 
 <div class="main-main">
-  <!-- <div style="padding: 10px">
-    <app-group
-      [image]="
-        '../../../../../assets/img/product/ao-polo-nam-apm3519-xng-9-yodyvn.jpg'
-      "
-      [name]="'Giovani Bacardo'"
-      [role]="'Farmer'"
-    ></app-group>
-  </div> -->
-  <!-- =============================================== -->
-  <div class="main-main">
-    <kendo-gridlayout
-      [rows]="[140, 140, 140, 140, 140]"
-      [cols]="[140, 140, 140, 140, 140, 140]"
-      [gap]="5"
+  <kendo-gridlayout
+    [rows]="[140, 140, 140, 140, 140]"
+    [cols]="[140, 140, 140, 140, 140, 140]"
+    [gap]="5"
+  >
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="1"
+      [colSpan]="3"
+      [rowSpan]="3"
+      class="box rect"
     >
-      <kendo-gridlayout-item
-        [col]="1"
-        [row]="1"
-        [colSpan]="3"
-        [rowSpan]="3"
-        class="box rect"
-      >
-        <img
-          class="img-detail-product"
-          src="../../../../assets/img/product/2.png"
-          alt=""
-        />
-      </kendo-gridlayout-item>
-      <kendo-gridlayout-item
-        [col]="4"
-        [row]="1"
-        [colSpan]="3"
-        [rowSpan]="1"
-        class="box big"
-      >
-        <h2>{{ product.title }}</h2>
-        {{ product.rating.rate }}
-        <br />
-        {{ product.price }}
-      </kendo-gridlayout-item>
-      <kendo-gridlayout-item
-        [col]="4"
-        [row]="2"
-        [colSpan]="3"
-        [rowSpan]="1"
-        class="box big"
-      >
+      <img
+        class="img-detail-product"
+        src="../../../../assets/img/product/2.png"
+        alt=""
+      />
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="4"
+      [row]="1"
+      [colSpan]="3"
+      [rowSpan]="1"
+      class="box big"
+    >
+      <h2>{{ product.title }}</h2>
+      {{ product.rating.rate }}
+      <br />
+      {{ product.price }}
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="4"
+      [row]="2"
+      [colSpan]="3"
+      [rowSpan]="1"
+      class="box big"
+    >
+      <p>{{ product.description }}</p>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="4"
+      [row]="3"
+      [colSpan]="3"
+      [rowSpan]="1"
+      class="box big"
+    >
+      <div class="quantity-mode">
+        <div class="inp-QuantMode">
+          <span>Quantity</span>
+          <input class="inputQuantMode" type="number" />
+        </div>
+        <div class="but-QuantMode">
+          <button
+            class="buttonMode"
+            kendoButton
+            [themeColor]="'primary'"
+            iconClass="fa fa-arrow-circle-right"
+          >
+            Add to card
+          </button>
+        </div>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="4"
+      [colSpan]="6"
+      [rowSpan]="1"
+      class="box big DesAdd"
+    >
+      <div class="but-DesAdd">
+        <div class="but-Des">
+          <button
+            class="buttonDes"
+            kendoButton
+            [themeColor]="'primary'"
+            iconClass="fa fa-arrow-circle-right"
+          >
+            Product Description
+          </button>
+        </div>
+        <div class="but-Add">
+          <button
+            class="buttonDes"
+            kendoButton
+            [fillMode]="'outline'"
+            [themeColor]="'primary'"
+            iconClass="fa fa-arrow-circle-right"
+          >
+            Additional Info
+          </button>
+        </div>
+      </div>
+    </kendo-gridlayout-item>
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="5"
+      [colSpan]="6"
+      [rowSpan]="1"
+      class="box big"
+    >
+      <div class="text-DesAdd">
         <p>{{ product.description }}</p>
-      </kendo-gridlayout-item>
-      <kendo-gridlayout-item
-        [col]="4"
-        [row]="3"
-        [colSpan]="3"
-        [rowSpan]="1"
-        class="box big"
-      >
-        <div class="quantity-mode">
-          <div class="inp-QuantMode">
-            <span>Quantity</span>
-            <input class="inputQuantMode" type="number" />
-          </div>
-          <div class="but-QuantMode">
-            <button
-              class="buttonMode"
-              kendoButton
-              [themeColor]="'primary'"
-              iconClass="fa fa-arrow-circle-right"
-            >
-              Add to card
-            </button>
-          </div>
-        </div>
-      </kendo-gridlayout-item>
-      <kendo-gridlayout-item
-        [col]="1"
-        [row]="4"
-        [colSpan]="6"
-        [rowSpan]="1"
-        class="box big DesAdd"
-      >
-        <div class="but-DesAdd">
-          <div class="but-Des">
-            <button
-              class="buttonDes"
-              kendoButton
-              [themeColor]="'primary'"
-              iconClass="fa fa-arrow-circle-right"
-            >
-              Product Description
-            </button>
-          </div>
-          <div class="but-Add">
-            <button
-              class="buttonDes"
-              kendoButton
-              [fillMode]="'outline'"
-              [themeColor]="'primary'"
-              iconClass="fa fa-arrow-circle-right"
-            >
-              Additional Info
-            </button>
-          </div>
-        </div>
-      </kendo-gridlayout-item>
-      <kendo-gridlayout-item
-        [col]="1"
-        [row]="5"
-        [colSpan]="6"
-        [rowSpan]="1"
-        class="box big"
-      >
-        <div class="text-DesAdd">
-          <p>{{ product.description }}</p>
-        </div>
-      </kendo-gridlayout-item>
-    </kendo-gridlayout>
-  </div>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
 </div>
+
 <div class="main-footer">
   <kendo-gridlayout
     [rows]="[140, 140, 140, 140]"
@@ -165,4 +154,11 @@
       <span>Box</span>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
+</div>
+<div class="main-main1">
+  <div *ngFor="let i of listProductLimit.slice(0, 3)">
+    <h3>{{ i.title }}</h3>
+    <img [src]="i.image" alt="Product Image" />
+    <p>{{ i.description }}</p>
+  </div>
 </div>
