@@ -11,18 +11,37 @@ export class TeamComponent {
   constructor(private serviceApi: ShopApiService) {}
   data: DTOProduct[];
   product: DTOProduct;
-  listProductLimit: any[];
+  listProductLimit: DTOProduct[] = [];
+  arrProductTogetherCategory: DTOProduct[] = [];
 
   ngOnInit() {
-    // this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
-    //   this.product = v;
-    // });
+    this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
+      this.product = v;
+    });
     this.getListProductLimit();
+
+    console.log(this.listProductLimit);
   }
 
+  // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
+  // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
-    this.serviceApi.getListProductLimit(5).subscribe((v: any) => {
-      this.listProductLimit = v.slide(0, 3);
+    // this.serviceApi.getListProductLimit(3).subscribe((a: any) => {
+    //   this.listProductLimit = a;
+    //   this.listProductLimit.forEach((item: DTOProduct) => {
+    //     if (item.category == this.product.category) {
+    //       this.arrProductTogetherCategory.push(item);
+    //     }
+    //   });
+    // });
+
+    this.serviceApi.getListProduct().subscribe((a: any) => {
+      this.listProductLimit = a;
+      this.listProductLimit.forEach((item: DTOProduct) => {
+        if (item.category == this.product.category) {
+          this.arrProductTogetherCategory.push(item);
+        }
+      });
     });
   }
 

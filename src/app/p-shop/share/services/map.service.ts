@@ -8,5 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class MapService {
   arrHeader = new Subject<any>();
 
+  itemDetailProduct = new Subject<any>(); // trao đổi dữ liệu 2 bên
+
   constructor(private http: HttpClient) {}
 }

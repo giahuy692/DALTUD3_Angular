@@ -8,6 +8,8 @@ import {
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
+import { Route, Router } from '@angular/router';
+import { MapService } from '../../share/services/map.service';
 
 export interface Item {
   title?: string;
@@ -25,7 +27,9 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private apiService: ShopApiService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private mapService: MapService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,17 +62,21 @@ export class HomepageComponent implements OnInit {
 
   // Handle lấy product detail
   getProductSingle(data: DTOProduct) {
-    // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
-    this.apiService.getProduct(data.id).subscribe((v: any) => {
-      // Api getProduct truyền (data.id )
-      this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data.id gán vào biến productSingle
-      console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
-    });
+    this.mapService.itemDetailProduct.next(data);
+    this.router.navigate(['shop/shop-detail']);
+    //=============================================================================
+    // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
+    // this.apiService.getProduct(data.id).subscribe((v: any) => {
+    //   // Api getProduct truyền (data.id )
+    //   this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data.id gán vào biến productSingle
+    //   console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
+
+    // });
   }
 
   getListProductLimit() {
     this.apiService.getListProductLimit(8).subscribe((v: any) => {
-      this.listProductLimit = v.slide(0, 3);
+      this.listProductLimit = v;
     });
   }
   onClickProduct(data: DTOProduct) {

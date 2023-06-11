@@ -28,10 +28,12 @@
       [rowSpan]="1"
       class="box big"
     >
-      <h2>{{ product.title }}</h2>
-      {{ product.rating.rate }}
+      <h2>{{ product?.title }}</h2>
+      {{ product.rating?.rate }}
       <br />
-      {{ product.price }}
+      {{ product?.category }}
+      <br />
+      {{ product?.price }}
     </kendo-gridlayout-item>
     <kendo-gridlayout-item
       [col]="4"
@@ -40,7 +42,7 @@
       [rowSpan]="1"
       class="box big"
     >
-      <p>{{ product.description }}</p>
+      <p>{{ product?.description }}</p>
     </kendo-gridlayout-item>
     <kendo-gridlayout-item
       [col]="4"
@@ -131,34 +133,13 @@
       [row]="2"
       [colSpan]="2"
       [rowSpan]="3"
-      class="box rect"
+      class="box rect RelProducts"
     >
-      <span>Box</span>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item
-      [col]="3"
-      [row]="2"
-      [colSpan]="2"
-      [rowSpan]="3"
-      class="box rect"
-    >
-      <span>Box</span>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item
-      [col]="5"
-      [row]="2"
-      [colSpan]="2"
-      [rowSpan]="3"
-      class="box rect"
-    >
-      <span>Box</span>
+      <div *ngFor="let i of arrProductTogetherCategory.slice(0, 3)">
+        <h3>{{ i?.title }}</h3>
+        <img [src]="i?.image" width="300px" alt="Product Image" />
+        <p>{{ i?.description }}</p>
+      </div>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
-</div>
-<div class="main-main1">
-  <div *ngFor="let i of listProductLimit.slice(0, 3)">
-    <h3>{{ i.title }}</h3>
-    <img [src]="i.image" alt="Product Image" />
-    <p>{{ i.description }}</p>
-  </div>
 </div>
