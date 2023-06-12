@@ -1,3 +1,6 @@
+@import "../../../../assets/scss/variable";
+@import "../../../../assets/scss/mixin";
+
 .main-header {
   height: 250px;
   background-color: aqua;
@@ -151,4 +154,33 @@ kendo-gridlayout-item.box.big.DesAdd {
   font-weight: 800;
   /* font-size: 50px; */
   line-height: 59px;
+}
+
+img.img-Rel-Pro {
+  width: 250px;
+  height: 300px;
+}
+
+.container-img-Rel-Pro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 55px;
+}
+
+.category {
+  display: -webkit-box;
+  width: fit-content;
+  max-width: 50%;
+  background-color: $primary;
+  color: $white;
+  font-weight: 600;
+  padding: 5px 10px;
+  overflow: hidden;
+  @include limitTitle(1);
+  border-radius: 10px;
+  position: absolute;
+  margin: 15px 0px 0 15px;
+  //top: 16px;
+  //left: 15px;
 }

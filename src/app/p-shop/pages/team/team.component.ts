@@ -18,9 +18,12 @@ export class TeamComponent {
     this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
       this.product = v;
     });
-    this.getListProductLimit();
 
     console.log(this.listProductLimit);
+  }
+
+  ngAfterContentInit(): void {
+    this.getListProductLimit();
   }
 
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]

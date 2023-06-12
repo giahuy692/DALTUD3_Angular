@@ -15,6 +15,9 @@
       [rowSpan]="3"
       class="box rect"
     >
+      <div class="category" title="{{ product?.category }}">
+        {{ product?.category }}
+      </div>
       <img
         class="img-detail-product"
         src="../../../../assets/img/product/2.png"
@@ -135,10 +138,14 @@
       [rowSpan]="3"
       class="box rect RelProducts"
     >
-      <div *ngFor="let i of arrProductTogetherCategory.slice(0, 3)">
-        <h3>{{ i?.title }}</h3>
-        <img [src]="i?.image" width="300px" alt="Product Image" />
-        <p>{{ i?.description }}</p>
+      <div class="container-img-Rel-Pro">
+        <div class="" *ngFor="let i of arrProductTogetherCategory.slice(0, 3)">
+          <div class="category" title="{{ i.category }}">{{ i.category }}</div>
+          <img class="img-Rel-Pro" [src]="i?.image" alt="Product Image" />
+          <h3>{{ i?.title }}</h3>
+          <p>{{ i?.price }}</p>
+          {{ i.rating?.rate }}
+        </div>
       </div>
     </kendo-gridlayout-item>
   </kendo-gridlayout>

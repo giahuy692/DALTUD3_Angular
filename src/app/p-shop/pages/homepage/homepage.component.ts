@@ -62,8 +62,9 @@ export class HomepageComponent implements OnInit {
 
   // Handle lấy product detail
   getProductSingle(data: DTOProduct) {
-    this.mapService.itemDetailProduct.next(data);
-    this.router.navigate(['shop/shop-detail']);
+    this.apiService.getProduct(data.id).subscribe((v) => {
+      this.productSingle = v;
+    });
     //=============================================================================
     // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
     // this.apiService.getProduct(data.id).subscribe((v: any) => {
@@ -80,7 +81,7 @@ export class HomepageComponent implements OnInit {
     });
   }
   onClickProduct(data: DTOProduct) {
-    console.log(data);
+    this.mapService.id.next(data.id);
   }
 
   // =====================================================================

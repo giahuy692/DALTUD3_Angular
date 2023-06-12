@@ -39,6 +39,7 @@ import { TooltipsModule } from '@progress/kendo-angular-tooltip'; // cái lỗi 
 import { GroupComponent } from './p-shop/share/components/group/group.component';
 import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
 import { DatePipe } from '@angular/common';
+import { NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
