@@ -40,6 +40,9 @@ import { GroupComponent } from './p-shop/share/components/group/group.component'
 import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
 import { DatePipe } from '@angular/common';
 import { NgModel } from '@angular/forms';
+import { DateFormatPipePipe } from './p-shop/share/pipe/date-format-pipe.pipe';
+import { LoginComponent } from './p-shop/pages/login/login.component';
+import { RegisterComponent } from './p-shop/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { NgModel } from '@angular/forms';
     ProductComponent,
     GroupComponent,
     BlogGroupComponent,
+    DateFormatPipePipe,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
