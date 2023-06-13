@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MapService {
   arrHeader = new Subject<any>();
+  id = new Subject<number>();
 
   constructor(private http: HttpClient) {}
 }

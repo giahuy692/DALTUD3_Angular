@@ -12,8 +12,7 @@
   list-style-type: none;
 }
 
-body {
-}
+body {}
 
 h1,
 h2,
@@ -60,15 +59,18 @@ p {
     display: flex;
     column-gap: 150px;
     align-items: center;
+
     .logo {
       font-size: 35px;
       font-weight: 700;
       color: $primary;
     }
+
     .menu {
       display: flex;
       column-gap: 5px;
       align-items: center;
+
       .k-dropdown-button {
         .k-button {
           @include btn-primary;
@@ -77,16 +79,19 @@ p {
       }
     }
   }
+
   .header-left {
     display: flex;
     column-gap: 10px;
     margin-left: auto;
+
     .fa-search {
       background-color: $secondary;
       padding: 8px;
       border-radius: 30px;
       color: $white;
     }
+
     .fa-shopping-cart {
       background-color: $primary;
       padding: 8px;
@@ -99,6 +104,7 @@ p {
 .footer-wrapper {
   width: 80%;
   margin: 0 auto;
+
   .footer-sub {
     width: 60%;
     height: 200px;
@@ -118,9 +124,11 @@ p {
       font-weight: bold;
       color: $primary;
     }
+
     .input-subscribe {
       width: 84px;
       height: 46px;
+
       .icon-search {
         font-size: 16px;
       }
@@ -161,6 +169,7 @@ p {
   color: $white;
   align-items: center;
   border-color: $primary;
+  font-weight: 700;
   font-size: 16px;
 
   &:hover {
@@ -175,6 +184,7 @@ p {
   color: $white;
   align-items: center;
   border-color: $yellow;
+  font-weight: 700;
   font-size: 16px;
 
   .k-button-icon {
@@ -197,10 +207,26 @@ p {
   align-items: center;
   border-color: $primary;
   font-size: 16px;
+  font-weight: 700;
 
   &:hover {
     border-color: $primary;
     color: $white;
+    background-color: $primary;
+  }
+}
+
+.k-button-flat-primary {
+  flex-direction: row-reverse;
+  color: $primary;
+  align-items: center;
+  border-color: $primary;
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
     background-color: $primary;
   }
 }

@@ -15,11 +15,11 @@ import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '', component: HomepageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
-  { path: 'shop/shop-detail', component: ShopSingleComponent },
+  { path: 'shopDetail/:productID', component: ShopSingleComponent },
   { path: 'service', component: ServiceComponent },
   { path: 'service/service-detail', component: ServiceSingleComponent },
   { path: 'portfolio', component: PortfolioComponent },

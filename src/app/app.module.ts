@@ -32,6 +32,15 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { GroupComponent } from './p-shop/share/components/group/group.component';
+import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
+import { DatePipe } from '@angular/common';
+import { NgModel } from '@angular/forms';
+import { DateFormatPipePipe } from './p-shop/share/pipe/date-format-pipe.pipe';
+import { LoginComponent } from './p-shop/pages/login/login.component';
+import { RegisterComponent } from './p-shop/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +64,11 @@ import { ProductComponent } from './p-shop/share/components/product/product.comp
     HeaderComponent,
     FooterComponent,
     ProductComponent,
+    GroupComponent,
+    BlogGroupComponent,
+    DateFormatPipePipe,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +81,9 @@ import { ProductComponent } from './p-shop/share/components/product/product.comp
     IconsModule,
     LabelModule,
     HttpClientModule,
+    NotificationModule,
+    TooltipsModule,
+    DatePipe,
   ],
   providers: [
     MapService,

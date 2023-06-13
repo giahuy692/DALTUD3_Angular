@@ -42,48 +42,51 @@
                     </div>
                 </kendo-gridlayout-item>
             </kendo-gridlayout>
-            <kendo-tilelayout [columns]="1" style="padding: 0;" class="portfolio-list">
-                <kendo-tilelayout-item [col]="1" title="About The Farm:">
-                    <kendo-tilelayout-item-body>
-                        <div class="content-news">It is a long established fact that a reader will be distracted by the
-                            readable content of a
-                            page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less
-                            normal distribution of letters, as opposed to using 'Content here, content here', making it
-                            look like readable English.
-
-                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default
-                            model text, and auncover many web sites still in their infancy. Various versions have
-                            evolved over the years</div>
-                        <div class="img-new"><img src="../../../../assets/img/product/portfolio-ct.avif" alt=""></div>
-                    </kendo-tilelayout-item-body>
-                </kendo-tilelayout-item>
-                <kendo-tilelayout-item [col]="1" title="About The Farm:">
-                    <kendo-tilelayout-item-body>
-                        <div class="content-news">It is a long established fact that a reader will be distracted by the
-                            readable content of a
-                            page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less
-                            normal distribution of letters, as opposed to using 'Content here, content here', making it
-                            look like readable English.
-
-                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default
-                            model text, and auncover many web sites still in their infancy. Various versions have
-                            evolved over the years</div>
-                    </kendo-tilelayout-item-body>
-                </kendo-tilelayout-item>
-                <kendo-tilelayout-item [col]="1" title="About The Farm:">
-                    <kendo-tilelayout-item-body>
-                        <div class="content-news">It is a long established fact that a reader will be distracted by the
-                            readable content of a
-                            page when looking a layout. The point of using Lorem Ipsum is that it has a more-or-less
-                            normal distribution of letters, as opposed to using 'Content here, content here', making it
-                            look like readable English.
-
-                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default
-                            model text, and auncover many web sites still in their infancy. Various versions have
-                            evolved over the years</div>
-                    </kendo-tilelayout-item-body>
-                </kendo-tilelayout-item>
-            </kendo-tilelayout>
         </div>
     </div>
+</div>
+
+<div class="portfolio-list-ct">
+    <kendo-tilelayout [columns]="1" [gap]="gap" style="padding: 0; max-width: 900px;">
+
+        <kendo-tilelayout-item [col]="1" style="border: none; padding-block: 0;">
+            <kendo-tilelayout-item-body>
+                <div class="portfolio-list-ct-title">
+                    <h3>About The Farm:</h3>
+                </div>
+                <div class="portfolio-list-ct-content">
+                    {{ firstTileContent }}
+                </div>
+                <div class="portfolio-list-ct-img">
+                    <div class="img-detail"><img src="../../../../assets/img/product/portfolio-detail.webp"
+                            alt="The organic"></div>
+                    <span>Image</span>
+                </div>
+            </kendo-tilelayout-item-body>
+            <kendo-tilelayout-item [col]="1" style="border: none; padding-block: 0;">
+                <kendo-tilelayout-item-body>
+                    <div class="portfolio-list-ct-title">
+                        <h3>How To Farm:</h3>
+                    </div>
+                    <div class="portfolio-list-ct-content">
+                        {{ secondTileContent }}
+                    </div>
+                </kendo-tilelayout-item-body>
+            </kendo-tilelayout-item>
+
+            <kendo-tilelayout-item [col]="1" style="border: none; padding: 0;">
+                <kendo-tilelayout-item-body>
+                    <div class="portfolio-list-ct-title">
+                        <h3>Conclusion:</h3>
+                    </div>
+                    <div class="portfolio-list-ct-content">
+                        {{ secondTileContent }}
+                    </div>
+                </kendo-tilelayout-item-body>
+            </kendo-tilelayout-item>
+        </kendo-tilelayout-item>
+
+
+    </kendo-tilelayout>
+
 </div>
