@@ -1,77 +1,46 @@
 ::ng-deep {
   app-login {
-    display: flex;
-    height: calc(100vh - 335px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .titleForm {
-      text-align: center;
-      font-size: 50px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .input-container {
-      position: relative;
-      margin: 20px auto;
-      width: 30%;
-    }
-
-    .input-container input[type="text"] {
-      font-size: 20px;
-      width: 100%;
-      border: none;
-      border-bottom: 2px solid #ccc;
-      padding: 5px 0;
-      background-color: transparent;
-      outline: none;
-    }
-
-    .input-container .label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: #ccc;
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-
-    .input-container input[type="text"]:focus ~ .label,
-    .input-container input[type="text"]:valid ~ .label {
-      top: -20px;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .input-container .underline {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background-color: #333;
-      transform: scaleX(0);
-      transition: all 0.3s ease;
-    }
-
-    .input-container input[type="text"]:focus ~ .underline,
-    .input-container input[type="text"]:valid ~ .underline {
-      transform: scaleX(1);
-    }
-
-    .option {
-      width: 30%;
+    .login-container {
       display: flex;
-      justify-content: space-between;
+      height: calc(100vh - 335px);
+      flex-direction: column;
       align-items: center;
-      padding: 15px 0;
-      span {
-        cursor: pointer;
+      justify-content: center;
+      .titleForm {
+        text-align: center;
+        font-size: 50px;
+        font-weight: 800;
+        margin-bottom: 10px;
       }
-    }
 
-    .btnSubmit {
-      width: 30%;
+      .formLogin {
+        width: 500px;
+        display: flex;
+        margin: 0 auto;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+
+        .k-form-field {
+          width: 100%;
+        }
+      }
+
+      .option {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          cursor: pointer;
+        }
+      }
+
+      .btnSubmit {
+        width: 100%;
+      }
     }
   }
 }

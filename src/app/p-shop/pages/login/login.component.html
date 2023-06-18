@@ -1,16 +1,38 @@
-<h3 class="titleForm">LOGIN</h3>
-<div class="input-container">
-  <input type="text" id="input" required="true" />
-  <label for="input" class="label">Username</label>
-  <div class="underline"></div>
+<div class="login-container">
+  <h3 class="titleForm">LOGIN</h3>
+  <form [formGroup]="form" class="formLogin">
+    <kendo-formfield>
+      <kendo-label class="k-form" text="Username">
+        <kendo-textbox
+          formControlName="username"
+          placeholder="Enter username"
+          showSuccessIcon="initial"
+          showErrorIcon="initial"
+        ></kendo-textbox>
+      </kendo-label>
+      <div class="underline"></div>
+      <kendo-formhint>Please, enter your username</kendo-formhint>
+      <kendo-formerror>Error: Username is required.</kendo-formerror>
+    </kendo-formfield>
+    <kendo-formfield>
+      <kendo-label class="k-form" text="Password">
+        <kendo-textbox
+          formControlName="password"
+          placeholder="Enter password"
+          showSuccessIcon="initial"
+          showErrorIcon="initial"
+        ></kendo-textbox>
+      </kendo-label>
+      <div class="underline"></div>
+      <kendo-formhint>Please, enter your password</kendo-formhint>
+      <kendo-formerror>Error: Password is required.</kendo-formerror>
+    </kendo-formfield>
+    <div class="option">
+      <button kendoButton fillMode="link">Forgot password?</button>
+      <button kendoButton fillMode="link">Register</button>
+    </div>
+    <button kendoButton [themeColor]="'primary'" class="btnSubmit">
+      Submit
+    </button>
+  </form>
 </div>
-<div class="input-container">
-  <input type="text" id="input" required="true" />
-  <label for="input" class="label">Password</label>
-  <div class="underline"></div>
-</div>
-<div class="option">
-  <span>Forgot password?</span>
-  <span>Register</span>
-</div>
-<button kendoButton [themeColor]="'primary'" class="btnSubmit">Submit</button>

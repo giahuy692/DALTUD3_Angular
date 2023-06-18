@@ -11,6 +11,7 @@ import { DTOCart } from '../dtos/DTOCart';
 export class ShopApiService {
   constructor(private http: HttpClient) {}
 
+  //#region product
   // API lấy tất cả các sản phẩm
   getListProduct() {
     return new Observable<DTOProduct>((obs) => {
@@ -81,44 +82,6 @@ export class ShopApiService {
     });
   }
 
-  // Lấy tất cả categories của sản phẩm
-  getAllCategories() {
-    return new Observable<DTOProduct>((obs) => {
-      this.http
-        .get<any>(`https://fakestoreapi.com/products/categories`)
-        .subscribe(
-          (res) => {
-            obs.next(res);
-            obs.complete();
-          },
-          (error) => {
-            obs.error(error);
-            obs.complete();
-          }
-        );
-    });
-  }
-
-  // Lấy tất cả các sản phẩm cùng loại
-  GetProductsInASpecificCategory(category: string) {
-    return new Observable<DTOProduct>((obs) => {
-      this.http
-        .get<DTOProduct>(
-          `https://fakestoreapi.com/products/category/${category}`
-        )
-        .subscribe(
-          (res) => {
-            obs.next(res);
-            obs.complete();
-          },
-          (error) => {
-            obs.error(error);
-            obs.complete();
-          }
-        );
-    });
-  }
-
   // Thêm sản phẩm mới - chỉ là thêm giả sản phẩm và sẽ không có sản phẩm náo thực sự được tạo mới trong database
   // Cần truyền 1 dự liệu dưới dạng object - api trả về một đối tượng được thêm mới
   AddNewProduct(dataObject: string) {
@@ -162,6 +125,47 @@ export class ShopApiService {
         );
     });
   }
+  //#endregion
+
+  //#region category
+  // Lấy tất cả categories của sản phẩm
+  getAllCategories() {
+    return new Observable<DTOProduct>((obs) => {
+      this.http
+        .get<any>(`https://fakestoreapi.com/products/categories`)
+        .subscribe(
+          (res) => {
+            obs.next(res);
+            obs.complete();
+          },
+          (error) => {
+            obs.error(error);
+            obs.complete();
+          }
+        );
+    });
+  }
+
+  // Lấy tất cả các sản phẩm cùng loại
+  GetProductsInASpecificCategory(category: string) {
+    return new Observable<DTOProduct>((obs) => {
+      this.http
+        .get<DTOProduct>(
+          `https://fakestoreapi.com/products/category/${category}`
+        )
+        .subscribe(
+          (res) => {
+            obs.next(res);
+            obs.complete();
+          },
+          (error) => {
+            obs.error(error);
+            obs.complete();
+          }
+        );
+    });
+  }
+  //#endregion
 
   //#region Users
   // API lấy tất cả user của hệ thống
