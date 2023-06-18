@@ -33,8 +33,10 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
-import { NotificationModule } from '@progress/kendo-angular-notification';
-import { TooltipsModule } from '@progress/kendo-angular-tooltip';
+import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
+
+import { NotificationModule } from '@progress/kendo-angular-notification';// cái lỗi này thì npm i
+import { TooltipsModule } from '@progress/kendo-angular-tooltip'; // cái lỗi này thì npm i
 import { GroupComponent } from './p-shop/share/components/group/group.component';
 import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
 import { DatePipe } from '@angular/common';
@@ -82,6 +84,7 @@ import { RegisterComponent } from './p-shop/pages/register/register.component';
     IconsModule,
     LabelModule,
     HttpClientModule,
+    ScrollViewModule,
     NotificationModule,
     TooltipsModule,
     DatePipe,

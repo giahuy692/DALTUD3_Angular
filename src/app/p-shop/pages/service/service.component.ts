@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.scss'],
 })
-export class ServiceComponent {}
+export class ServiceComponent {
+  review: number[] = Array.from({ length: 5 });
+}

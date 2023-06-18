@@ -15,12 +15,32 @@ export class ShopSingleComponent {
     private apiService: ShopApiService,
     private route: ActivatedRoute
   ) {}
+  listProductLimit: DTOProduct[] = [];
+  arrProductTogetherCategory: DTOProduct[] = [];
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('productID'));
     this.apiService.getProduct(id).subscribe((a) => {
       this.product = a;
       console.log(this.product);
+    });
+    //======================================================================
+    this.apiService.getProduct(1).subscribe((v: DTOProduct) => {
+      this.product = v;
+    });
+    this.getListProductLimit();
+
+    console.log(this.listProductLimit);
+  }
+
+  getListProductLimit(): void {
+    this.apiService.getListProduct().subscribe((a: any) => {
+      this.listProductLimit = a;
+      this.listProductLimit.forEach((item: DTOProduct) => {
+        if (item.category == this.product.category) {
+          this.arrProductTogetherCategory.push(item);
+        }
+      });
     });
   }
 }

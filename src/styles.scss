@@ -12,8 +12,6 @@
   list-style-type: none;
 }
 
-body {
-}
 
 h1,
 h2,
@@ -220,6 +218,10 @@ p {
     background-color: $primary;
   }
 }
+// Accept Current: giữ lại bản cũ 
+// Accept Incoming: thay bản mới cho bản cũ
+// Accept Both changes: thêm bản mới và giữ lại bản cũ
+// Compare Changes: so sanh giữ bản cũ với bản mới 
 
 .k-button-flat-primary {
   flex-direction: row-reverse;
