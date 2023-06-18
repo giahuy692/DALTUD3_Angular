@@ -13,9 +13,11 @@ import { BlogComponent } from './p-shop/pages/blog/blog.component';
 import { BlogSingleComponent } from './p-shop/pages/blog-single/blog-single.component';
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
+import { LoginComponent } from './p-shop/pages/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
