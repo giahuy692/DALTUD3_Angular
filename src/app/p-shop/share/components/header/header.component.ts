@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     arrDropDown?: btnMenu[];
     link?: string;
   }> = [
-    { id: 0, text: 'Home', link: '/' },
+    { id: 0, text: 'Home', link: '/home' },
     { id: 1, text: 'About', link: '/about' },
     { id: 2, text: 'Shop', link: '/shop' },
     { id: 3, text: 'Service', link: '/service' },

@@ -2,22 +2,13 @@
   <div class="footer-sub">
     <h1 class="footer-text">Subscribe to our Newsletter</h1>
     <div>
-      <kendo-textbox
-        class="input-subscribe"
-        [style.width.px]="200"
-        placeholder="Your email address"
-      >
+      <kendo-textbox class="input-subscribe" [style.width.px]="200" placeholder="Your email address">
       </kendo-textbox>
       <button kendoButton class="btn-subscribe">Subscribe</button>
     </div>
   </div>
-  <kendo-gridlayout
-    [cols]="['auto', '50%', 'auto']"
-    style="margin: 50px 0 20px 0"
-  >
-    <kendo-gridlayout-item
-      style="border-right: 1px solid #000; padding: 0 30px 0 0; text-align: end"
-    >
+  <kendo-gridlayout [cols]="['auto', '50%', 'auto']" style="margin: 50px 0 20px 0">
+    <kendo-gridlayout-item style="border-right: 1px solid #000; padding: 0 30px 0 0; text-align: end">
       <h2 class="title-footer">Contact Us</h2>
       <div *ngFor="let i of arrContact" class="arrContact">
         <div class="f-bold">{{ i.title }}</div>
@@ -31,29 +22,19 @@
         simply dummy text of the printing
       </div>
     </kendo-gridlayout-item>
-    <kendo-gridlayout-item
-      style="
+    <kendo-gridlayout-item style="
         border-left: 1px solid #000;
         padding: 0 0 0 30px;
         text-align: start;
-      "
-    >
+      ">
       <h2 class="title-footer">Utility Pages</h2>
       <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
-        <kendo-gridlayout-item
-          style="text-align: start"
-          *ngFor="let i of arrHeader"
-        >
-          <span
-            routerLink="{{ i.link }}"
-            routerLinkActive="active-link"
-            style="font-weight: 800; color: #d4d4d4"
-            kendoButton
-            [fillMode]="'flat'"
-          >
-            {{ i.text }}</span
-          >
-        </kendo-gridlayout-item>
+        <kendo-buttongroup selection="single" class="menu">
+          <button *ngFor="let i of arrHeader" routerLink="{{ i.link }}" style="font-weight: 800; color: #d4d4d4"
+            kendoButton [fillMode]="'outline'" themeColor="primary" [toggleable]="true">
+            {{ i.text }}
+          </button>
+        </kendo-buttongroup>
       </kendo-gridlayout>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
