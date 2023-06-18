@@ -54,16 +54,19 @@
     >
       <h2 class="title-footer">Utility Pages</h2>
       <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
-        <button
-          *ngFor="let i of arrHeader"
-          routerLink="{{ i.link }}"
-          routerLinkActive="active-link"
-          style="font-weight: 800; color: #d4d4d4"
-          kendoButton
-          [fillMode]="'flat'"
-        >
-          {{ i.text }}
-        </button>
+        <kendo-buttongroup selection="single" class="menu">
+          <button
+            *ngFor="let i of arrHeader"
+            routerLink="{{ i.link }}"
+            style="font-weight: 800; color: #d4d4d4"
+            kendoButton
+            [fillMode]="'outline'"
+            themeColor="primary"
+            [toggleable]="true"
+          >
+            {{ i.text }}
+          </button>
+        </kendo-buttongroup>
       </kendo-gridlayout>
     </kendo-gridlayout-item>
   </kendo-gridlayout>

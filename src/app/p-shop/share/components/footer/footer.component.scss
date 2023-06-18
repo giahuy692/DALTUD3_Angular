@@ -2,4 +2,18 @@
 @import "../../../../../assets/scss/mixin";
 
 ::ng-deep {
+  .menu {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: flex-start;
+
+    .k-button {
+      min-width: 80px;
+      border-radius: 5px !important;
+    }
+  }
+  .k-button-group > .k-button:first-child:not(:only-child) {
+    border-radius: 0;
+  }
 }
