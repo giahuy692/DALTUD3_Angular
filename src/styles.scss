@@ -289,3 +289,28 @@ p {
   outline: none !important;
   border-color: transparent !important;
 }
+
+.k-form,
+.k-form-inline {
+  font-size: 16px;
+  color: $label;
+
+  .k-label {
+    padding: 5px 0;
+  }
+}
+
+.k-input-solid {
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid $primary;
+  border-radius: 0;
+  &:hover {
+    border-bottom-color: $secondary;
+  }
+
+  &:focus {
+    border: 2px solid $primary !important;
+    outline: $primary;
+  }
+}

@@ -2,7 +2,7 @@
   <div class="page">
     <div class="content">
       <kendo-gridlayout
-        [rows]="[300, 'auto', 'auto', 'auto', 90]"
+        [rows]="[350, 'auto', 'auto', 'auto', 'auto', 'auto']"
         [cols]="['auto', 'auto']"
       >
         <kendo-gridlayout-item
@@ -11,9 +11,7 @@
           [colSpan]="2"
           class="box box-about"
         >
-          <div class="title">
-            <h1>About Us</h1>
-          </div>
+          <div class="title">About Us</div>
           <div class="title-img">
             <img src="../../../../assets/img/product/2.png" alt="" />
           </div>
@@ -36,27 +34,29 @@
             </div>
             <div class="content-text-detail">
               <p>
-                Simply dummy text of the printing and typesetting industry.
-                Lorem had ceased to been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley.
+                In creativity, no matter how valuable it is to explore, there is
+                still inheritance, still influenced by things that have existed
+                before, from nature or evaluating what we see, see and
+                experience.
               </p>
               <br />
               <p>
-                Simply dummy text of the printing and typesetting industry.
-                Lorem had ceased to been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley.
+                So the difference in our creative process is not in the way or
+                the method of making it; but rather the "mind" of the Dharma in
+                the development process of each member of the TOBI team,
+                starting from the spirit of young Vietnamese people.
               </p>
             </div>
             <br />
             <div class="content-text-list">
               <div class="content-text-list-left">
-                <span class="k-icon k-i-cut"></span>
+                <span class="fa fa-truck"></span>
                 <div class="content-text-list-detail">
                   Modern Agriculture Equipment
                 </div>
               </div>
               <div class="content-text-list-right">
-                <span class="k-icon k-i-cut"></span>
+                <span class="fa fa-industry"></span>
                 <div class="content-text-list-detail">
                   No growth hormones are used
                 </div>
@@ -87,9 +87,8 @@
               <br />
               <div class="content-detail">
                 <p>
-                  Simply dummy text of the printing and typesetting industry.
-                  Lorem had ceased to been the industry's standard the 1500s,
-                  when an unknown
+                  We won't launch anything without pride and vibes That is the
+                  motto of creating products.
                 </p>
               </div>
               <br />
@@ -97,21 +96,23 @@
                 <div class="content-textlist-line-2-left">
                   <div class="title-bar">
                     <span class="k-icon k-i-radiobutton"></span>
-                    <div>100% Natural Product</div>
+                    <div>100% Cotton Product</div>
                   </div>
                   <div class="content-textlist-line-2-detail">
-                    Simply dummy text of the printing and typesetting industry
-                    Lorem Ipsum
+                    With more than 5 years of experience in the industry,
+                    working with the right factories to create high-quality
+                    garments.
                   </div>
                 </div>
                 <div class="content-textlist-line-2-right">
                   <div class="title-bar">
                     <span class="k-icon k-i-radiobutton"></span>
-                    <div>Increases resistance</div>
+                    <div>God Is In The Details</div>
                   </div>
                   <div class="content-textlist-line-2-detail">
-                    Filling, and temptingly healthy, our Biona Organic Granola
-                    with Wild Berries is just the thing
+                    In fashion, the aesthetic aspect of "minimalism" is
+                    expressed by our utmost focus on high-quality materials and
+                    exquisite craftsmanship hidden within the product.
                   </div>
                 </div>
               </div>
@@ -130,31 +131,125 @@
         >
           <div class="box-list-card">
             <div class="box-card-item">
-              <span class="k-icon k-i-cart"></span>
+              <span class="fa fa-cart-arrow-down"></span>
               <div class="box-card-title">Return Policy</div>
               <div class="box-card-content">
-                Simply dummy text of the print in type setting industry.
+                Within 07 days from receipt of goods.
               </div>
             </div>
             <div class="box-card-item">
-              <span class="k-icon k-i-cart"></span>
-              <div class="box-card-title">100% Fresh</div>
+              <span class="fa fa-leaf"></span>
+              <div class="box-card-title">100% Cotton</div>
               <div class="box-card-content">
-                Simply dummy text of the print in type setting industry.
+                woven from 100% natural cotton yarn.
               </div>
             </div>
             <div class="box-card-item">
-              <span class="k-icon k-i-cart"></span>
+              <span class="fa fa-history"></span>
               <div class="box-card-title">Support 24/7</div>
               <div class="box-card-content">
-                Simply dummy text of the print in typesetting industry.
+                ensure quick customer response.
               </div>
             </div>
             <div class="box-card-item">
-              <span class="k-icon k-i-cart"></span>
+              <span class="fa fa-credit-card-alt"></span>
               <div class="box-card-title">Secured Payment</div>
               <div class="box-card-content">
-                Simply dummy text of the print in typesetting industry.
+                Do not store credit card information online
+              </div>
+            </div>
+          </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item
+          [col]="1"
+          [row]="5"
+          [colSpan]="2"
+          class="box box-group"
+        >
+          <div class="box-list-g-r">
+            <div class="box-list-g-r-list">
+              <div class="box-list-g-r-title">Team</div>
+              <div class="box-list-g-r-topic">Our Young Team</div>
+              <br />
+              <div class="box-list-g-r-content">
+                With a team of young people who are always curious to draw the
+                future with aspiration, passion and enthusiasm. "Dare to think,
+                dare to lead, dare to be different".
+              </div>
+              <br />
+            </div>
+            <div class="box-list-g-r-list-card">
+              <app-group
+                [image]="'../../../../assets/img/product/about-card2.jpg'"
+                [name]="'Linh Đàm'"
+                [role]="'Founder'"
+              >
+              </app-group>
+              <app-group
+                [image]="'../../../../assets/img/product/about-card3.jpg'"
+                [name]="'Angela Minh Tú'"
+                [role]="'Designer'"
+              >
+              </app-group>
+              <app-group
+                [image]="'../../../../assets/img/product/about-card4.webp'"
+                [name]="'DGun Tiến Đạt'"
+                [role]="'Model'"
+              >
+              </app-group>
+            </div>
+          </div>
+        </kendo-gridlayout-item>
+
+        <kendo-gridlayout-item
+          [col]="1"
+          [row]="6"
+          [colSpan]="2"
+          class="box box-offer-bg"
+        >
+          <div class="box-offer-list-ct">
+            <div class="box-offer-ct-title">About Us</div>
+            <div class="box-offer-ct-topic">What We Offer for You</div>
+            <div class="box-offer-ct-list-card">
+              <div class="box-offer-ct-img">
+                <div class="ct-card-img">
+                  <img
+                    src="../../../../assets/img/product/about-vat-lieu.jpg"
+                    alt=""
+                  />
+                </div>
+                <span class="ct-text">Material</span>
+              </div>
+
+              <div class="box-offer-ct-img">
+                <div class="ct-card-img">
+                  <img
+                    src="../../../../assets/img/product/about-ban-ve.jpg"
+                    alt=""
+                  />
+                </div>
+                <span class="ct-text">Inspiration</span>
+              </div>
+
+              <div class="box-offer-ct-img">
+                <div class="ct-card-img">
+                  <img
+                    src="../../../../assets/img/product/about-chat-luong.jpg"
+                    alt=""
+                  />
+                </div>
+                <span class="ct-text">Quality</span>
+              </div>
+
+              <div class="box-offer-ct-img">
+                <div class="ct-card-img">
+                  <img
+                    src="../../../../assets/img/product/about-doi-ngu.jpg"
+                    alt=""
+                  />
+                </div>
+                <span class="ct-text">Spacious printing workshop</span>
               </div>
             </div>
           </div>

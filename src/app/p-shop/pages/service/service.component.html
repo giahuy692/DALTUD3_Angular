@@ -9,10 +9,11 @@
           <div class="bg-service">Services</div>
           <div class="bg-service-img">
             <img
-              src="../../../../assets/img/product/service-banner2.avif"
+              src="../../../../assets/img/product/service-banner-b.avif"
               alt=""
             />
           </div>
+          <div class="bg-service-banner"></div>
         </kendo-gridlayout-item>
       </kendo-gridlayout>
     </div>
@@ -23,11 +24,14 @@
   <div class="page-subject">
     <div class="service-list-content">
       <div class="service-title">What we Grow</div>
-      <div class="service-topoic">Better Agriculture for Better Future</div>
+      <div class="service-topoic">
+        Better Agriculture for <br />
+        Better Future
+      </div>
     </div>
     <div class="subject">
       <kendo-gridlayout
-        [rows]="['auto', 'auto', 'auto']"
+        [rows]="['auto', 'auto', 'auto', 'auto']"
         [cols]="['auto', 'auto', 'auto']"
         [gap]="5"
       >
@@ -36,7 +40,7 @@
           [row]="1"
           class="box box-subject-ct-left"
         >
-          <div class="sb-left-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-box"></span></div>
           <div class="sb-left-title">Dairy Products</div>
           <div class="sb-left-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -63,7 +67,7 @@
           [row]="1"
           class="box box-subject-ct-right"
         >
-          <div class="sb-right-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-dolly"></span></div>
           <div class="sb-right-title">Agricultural Services</div>
           <div class="sb-right-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -76,7 +80,7 @@
           [row]="2"
           class="box box-subject-ct-left"
         >
-          <div class="sb-left-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-home"></span></div>
           <div class="sb-left-title">Store Services</div>
           <div class="sb-left-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -89,7 +93,7 @@
           [row]="2"
           class="box box-subject-ct-right"
         >
-          <div class="sb-right-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-clipboard-check"></span></div>
           <div class="sb-right-title">Organic Products</div>
           <div class="sb-right-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -102,7 +106,7 @@
           [row]="3"
           class="box box-subject-ct-left"
         >
-          <div class="sb-left-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-shipping-fast"></span></div>
           <div class="sb-left-title">Dairy Products</div>
           <div class="sb-left-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -115,7 +119,7 @@
           [row]="3"
           class="box box-subject-ct-right"
         >
-          <div class="sb-right-img"><img src="" alt="" /></div>
+          <div><span class="fas fa-bullhorn"></span></div>
           <div class="sb-right-title">Agricultural Services</div>
           <div class="sb-right-content">
             Sed ut perspiciatis unde omnis iste natus error sit voluptat
@@ -135,4 +139,22 @@
       </button>
     </div>
   </div>
+
+  <kendo-gridlayout [rows]="['auto']" [cols]="['auto', 'auto', 'auto']">
+    <kendo-gridlayout-item
+      [col]="1"
+      [row]="1"
+      [colSpan]="3"
+      class="box box-ct-vd"
+    >
+      <div class="video-container">
+        <video autoplay muted>
+          <source
+            src="../../../../assets/img/product/FUTURISM 2 0.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </kendo-gridlayout-item>
+  </kendo-gridlayout>
 </div>
