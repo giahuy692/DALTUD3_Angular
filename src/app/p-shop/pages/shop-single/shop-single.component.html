@@ -3,8 +3,8 @@
 </div>
 <div class="main-main">
   <kendo-gridlayout
-    [rows]="[140, 140, 140, 140, 140]"
-    [cols]="[140, 140, 140, 140, 140, 140]"
+    [rows]="['auto', 'auto', 'auto', 'auto', 'auto']"
+    [cols]="['auto', 'auto', 'auto', 'auto', 'auto', 'auto']"
     [gap]="5"
   >
     <kendo-gridlayout-item
@@ -27,7 +27,12 @@
       class="box big"
     >
       <h2>{{ product.title }}</h2>
-      {{ product.rating.rate }}
+      <div class="review">
+        <i
+          class="fa fa-star"
+          *ngFor="let i of getStarArray(product.rating.rate)"
+        ></i>
+      </div>
       <br />
       {{ product.category }}
       <br />
@@ -118,9 +123,9 @@
 <!-- =================================================================== -->
 <div class="main-footer">
   <kendo-gridlayout
-    [rows]="[140, 140, 140, 140]"
-    [cols]="[140, 140, 140, 140, 140, 140]"
-    [gap]="5"
+    [rows]="['auto', 'auto', 'auto', 'auto']"
+    [cols]="['auto', 'auto', 'auto', 'auto', 'auto', 'auto']"
+    [gap]="0"
   >
     <kendo-gridlayout-item
       [col]="1"
@@ -138,12 +143,20 @@
       [rowSpan]="3"
       class="box rect RelProducts"
     >
-      <div *ngFor="let i of arrProductTogetherCategory.slice(0, 3)">
-        <div class="category" title="{{ i.category }}">{{ i.category }}</div>
-        <img class="img-Rel-Pro" [src]="i.image" alt="Product Image" />
-        <h3>{{ i.title }}</h3>
-        <p>{{ i.price }}</p>
-        {{ i.rating.rate }}
+      <div class="container-img-Rel-Pro">
+        <app-product
+          *ngFor="let i of arrProductTogetherCategory.slice(0, 3)"
+          [category]="i.category"
+          [discount]="0"
+          [price]="i.price"
+          [review]="i.rating.rate"
+          [titleProduct]="i.title"
+          [imgProduct]="i.image"
+          [countRate]="i.rating.count"
+          [rate]="i.rating.rate"
+          [id]="i.id"
+          (clickItem)="getProductSingle($event)"
+        ></app-product>
       </div>
     </kendo-gridlayout-item>
   </kendo-gridlayout>
