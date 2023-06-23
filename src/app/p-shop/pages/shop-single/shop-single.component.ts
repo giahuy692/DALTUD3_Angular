@@ -54,6 +54,8 @@ export class ShopSingleComponent {
   getProductSingle(data: DTOProduct) {
     this.serviceApi.getProduct(data.id).subscribe((v: any) => {
       this.productSingle = v;
+      window.location.reload();
+      //reload() => refresh lại trang khi click vào sản phẩm liên quan
     });
   }
   //xử lí sổ lể của vòng lặp *ngFor
@@ -84,9 +86,23 @@ export class ShopSingleComponent {
       }
     );
   }
+  // refreshPage() {
+  //   this.serviceApi.getListProduct().subscribe((a: any) => {
+  //     this.listProductLimit = a;
+  //     this.listProductLimit.forEach((item: DTOProduct) => {
+  //       if (item.category == this.product.category) {
+  //         this.arrProductTogetherCategory.push(item);
+  //       }
+  //     });
+  //   });
+  //   window.location.reload();
+  // }
 
   onClickProduct(data: DTOProduct) {
     this.mapService.id.next(data.id);
     // this.router.navigate(['/shop-detail']);
   }
+  // onClickRelatedProduct() {
+  //   this.refreshPage();
+  // }
 }
