@@ -1,68 +1,48 @@
-<!-- GetListProduct -->
-<div style="padding: 10px; display: flex; column-gap: 10px">
-  <button kendoButton [fillMode]="'outline'" [themeColor]="'primary'">
-    Default button
-  </button>
-
-  <button
-    kendoButton
-    [themeColor]="'primary'"
-    iconClass="fa fa-arrow-circle-right"
-  >
-    Default button
-  </button>
-  <button
-    kendoButton
-    [themeColor]="'secondary'"
-    iconClass="fa fa-arrow-circle-right"
-  >
-    Default button
-  </button>
-</div>
-<div style="padding: 10px">
-  <app-group
-    [image]="
-      '../../../../../assets/img/product/ao-polo-nam-apm3519-xng-9-yodyvn.jpg'
-    "
-    [name]="'Giovani Bacardo'"
-    [role]="'Farmer'"
-  ></app-group>
-</div>
-<div
-  style="
-    display: flex;
-    width: 100%;
-    column-gap: 10px;
-    padding: 40px 20px 20px 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 10px;
-  "
->
-  <app-product
-    *ngFor="let i of data"
-    [category]="i.category"
-    [discount]="0"
-    [price]="i.price"
-    [review]="i.rating.rate"
-    [titleProduct]="i.title"
-    [imgProduct]="i.image"
-    [countRate]="i.rating.count"
-    [rate]="i.rating.rate"
-    [id]="i.id"
-    (clickItem)="onClickProduct($event)"
-  ></app-product>
-</div>
-
-<app-blog-group
-  [actor]="'Admin'"
-  [content]="
-    'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
-  "
-  [contentBtn]="'Read more'"
-  [title]="'The Benefits of Vitamin D & How to Get It'"
-  [backgroundImage]="
-    '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
-  "
-  [myDate]="'06/20/2023'"
-></app-blog-group>
+<body>
+  <div class="container-all">
+    <div class="container">
+      <div class="shadow"></div>
+      <div class="ears">
+        <div class="ears__left"></div>
+        <div class="ears__right"></div>
+      </div>
+      <div class="totoro">
+        <div class="body"></div>
+        <div class="pattern">
+          <div class="arrow arrow__1"></div>
+          <div class="arrow arrow__2"></div>
+          <div class="arrow arrow__3"></div>
+          <div class="arrow arrow__4"></div>
+          <div class="arrow arrow__5"></div>
+          <div class="arrow arrow__6"></div>
+          <div class="arrow arrow__7"></div>
+        </div>
+        <div class="eyes">
+          <div class="eyes__left"></div>
+          <div class="eyes__right"></div>
+        </div>
+        <div class="nose"></div>
+        <div class="whiskers">
+          <div class="whiskers__left"></div>
+          <div class="whiskers__right"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container-404">
+      <p class="text-404">404</p>
+      <p class="text title">Page not found</p>
+      <p class="text comment">
+        The page you are looking for doesn't exist or has been moved
+      </p>
+      <button
+        class="button-404"
+        kendoButton
+        [themeColor]="'primary'"
+        iconClass="fa fa-arrow-circle-right"
+        routerLink="/home"
+      >
+        Go to homepage
+      </button>
+    </div>
+  </div>
+</body>
