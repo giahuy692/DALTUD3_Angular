@@ -16,12 +16,14 @@
     </kendo-formfield>
     <kendo-formfield>
       <kendo-label class="k-form" text="Password">
-        <kendo-textbox
+        <input
           formControlName="password"
           placeholder="Enter password"
           showSuccessIcon="initial"
           showErrorIcon="initial"
-        ></kendo-textbox>
+          kendoTextBox
+          type="password"
+        />
       </kendo-label>
       <div class="underline"></div>
       <kendo-formhint>Please, enter your password</kendo-formhint>
@@ -31,7 +33,12 @@
       <button kendoButton fillMode="link">Forgot password?</button>
       <button kendoButton fillMode="link">Register</button>
     </div>
-    <button kendoButton [themeColor]="'primary'" class="btnSubmit">
+    <button
+      kendoButton
+      [themeColor]="'primary'"
+      class="btnSubmit"
+      (click)="handleLogin()"
+    >
       Submit
     </button>
   </form>

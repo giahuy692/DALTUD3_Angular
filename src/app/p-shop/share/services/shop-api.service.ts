@@ -282,9 +282,9 @@ export class ShopApiService {
     };
     return new Observable<any>((obs) => {
       this.http
-        .post<DTOProduct>(
+        .post<any>(
           `https://fakestoreapi.com/auth/login`,
-          JSON.stringify(account)
+          account // Đưa đối tượng account vào JSON.stringify
         )
         .subscribe(
           (res) => {

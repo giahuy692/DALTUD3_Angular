@@ -14,23 +14,38 @@ import { BlogSingleComponent } from './p-shop/pages/blog-single/blog-single.comp
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 import { LoginComponent } from './p-shop/pages/login/login.component';
+import { ErrorComponent } from './p-shop/pages/error/error.component';
+import { CanActivate, Router } from '@angular/router';
+import { AuthGuard } from './AuthGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomepageComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'shop', component: ShopComponent },
-  { path: 'shopDetail/:productID', component: ShopSingleComponent },
-  { path: 'service', component: ServiceComponent },
-  { path: 'service/service-detail', component: ServiceSingleComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'portfolio/portfolio-detail', component: PortfolioSingleComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'shop', component: ShopComponent, canActivate: [AuthGuard] },
+  {
+    path: 'shopDetail/:productID',
+    component: ShopSingleComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'portfolio',
+    component: PortfolioComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'portfolio/portfolio-detail',
+    component: PortfolioSingleComponent,
+    canActivate: [],
+  },
   { path: 'team', component: TeamComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog/blog-detail', component: BlogSingleComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'password-protect', component: PasswordProtectComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
