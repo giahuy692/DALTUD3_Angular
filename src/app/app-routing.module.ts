@@ -14,6 +14,7 @@ import { BlogSingleComponent } from './p-shop/pages/blog-single/blog-single.comp
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 import { LoginComponent } from './p-shop/pages/login/login.component';
+import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
 import { AuthGuard } from './AuthGuard';
 
@@ -28,12 +29,7 @@ const routes: Routes = [
     component: ShopSingleComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'service', component: ServiceComponent, canActivate: [AuthGuard] },
-  {
-    path: 'service/service-detail',
-    component: ServiceSingleComponent,
-    canActivate: [AuthGuard],
-  },
+
   {
     path: 'portfolio',
     component: PortfolioComponent,
@@ -49,6 +45,7 @@ const routes: Routes = [
   { path: 'blog/blog-detail', component: BlogSingleComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'password-protect', component: PasswordProtectComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
