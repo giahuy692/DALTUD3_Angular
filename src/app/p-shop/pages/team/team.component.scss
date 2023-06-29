@@ -17,7 +17,7 @@
       font-family: "Roboto";
       font-style: normal;
       font-weight: 800;
-      font-size: 70px;
+      font-size: 50px;
       line-height: 250px;
       /* identical to box height */
 
@@ -38,7 +38,7 @@
       font-style: italic;
       font-weight: 400;
       font-size: 36px;
-      line-height: 49px;
+      line-height: 20px;
 
       color: #7eb693;
     }
@@ -47,7 +47,7 @@
       font-style: normal;
       font-weight: 800;
       font-size: 50px;
-      line-height: 59px;
+      line-height: 50px;
 
       color: #274c5b;
     }
@@ -62,7 +62,10 @@
       color: #525c60;
     }
     .title {
-      font-size: 16px;
+      font-size: 18px;
+    }
+    .title1 {
+      font-size: 24px;
     }
     .text-box {
       font-size: 13px;
