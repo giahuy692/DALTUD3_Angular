@@ -72,7 +72,12 @@
     }
     .our-team {
       display: flex;
+      flex-direction: column;
       margin: 40px 0;
+      gap: 40px;
+    }
+    .container-infor {
+      display: flex;
       gap: 40px;
     }
   }

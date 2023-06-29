@@ -172,10 +172,10 @@
     }
 
     button.k-button.k-button-md.k-rounded-md.k-button-solid-primary.k-button-solid {
-      margin: 100px 0 60px 0px;
+      margin: 50px 0;
       width: 160px;
       /* height: 32px; */
-      padding: 15px 0 15px 0;
+      padding: 5px 0;
       border-radius: 15px;
     }
 
@@ -275,15 +275,20 @@
       justify-content: space-around;
     }
     .foo-main-button {
-      margin: 100px 0 60px 0px;
+      margin: 50px 0px;
       width: 160px;
       padding: 15px 0 15px 0;
       border-radius: 15px;
     }
 
     button.button-f-m.k-button.k-button-md.k-rounded-md.k-button-outline-primary.k-button-outline {
-      padding: 15px 10px 15px 10px;
+      padding: 10px;
       border-radius: 16px;
+    }
+
+    .button-homepage {
+      margin: 50px 0;
+      padding: 5px 0;
     }
 
     .footer-footer {
