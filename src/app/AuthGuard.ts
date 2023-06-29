@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const token = localStorage.getItem('token');
+    console.log(token);
     if (token != null) {
       const tokenData: any = jwtDecode(token);
       const loginTime = tokenData.iat * 1000; // Thời gian đăng nhập (được chuyển đổi thành milliseconds)
