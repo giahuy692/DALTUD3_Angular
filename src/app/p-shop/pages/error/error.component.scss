@@ -3,6 +3,8 @@ $grey: #919191;
 $black: #282828;
 $yellow: #ffecb5;
 $brown: #4c352f;
+@import "../../../../assets/scss/variable";
+@import "../../../../assets/scss/mixin";
 
 * {
   position: relative;
@@ -13,7 +15,7 @@ $brown: #4c352f;
 body {
   height: 100%;
   width: 100%;
-  background: rgba($pink, 1);
+  background: rgba(#959db3, 1);
 }
 
 .container {
@@ -388,42 +390,46 @@ body {
 }
 .container-404 {
   //background: #ffecb5;
-  height: 400px;
   width: 35%;
   margin: auto;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  text-align: center;
 }
 
 .text {
   font-family: Roboto;
 }
 .text-404 {
+  display: block;
   font-family: Roboto;
-  font-size: 130px;
+  font-size: 180px;
   font-weight: 800;
-  line-height: 130px;
-  letter-spacing: 0em;
   text-align: center;
-  color: rgb(143, 168, 168);
+  color: $white;
+  letter-spacing: 0em;
+  height: 190px;
 }
 .title {
+  display: block;
   font-family: Roboto;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 800;
-  line-height: 82px;
   letter-spacing: 0em;
-  text-align: center;
+  color: $white;
 }
 .comment {
+  display: block;
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 800;
-  line-height: 82px;
   letter-spacing: 0em;
-  text-align: center;
+  color: $white;
 }
 
 .button-404 {
   padding: 10px;
   border-radius: 15px;
+  font-size: 13px;
 }
