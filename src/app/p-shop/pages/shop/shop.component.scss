@@ -1,0 +1,25 @@
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/variable";
+
+::ng-deep{
+    app-shop{
+        .header{
+            background: url(../../../../assets/img/product/Shop-header.jpg);
+            background-size: cover;
+        height: 300px;
+        width: auto;
+        line-height: 300px;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 800;
+        }
+        .main{
+            margin: auto;
+            width: 90%;
+        }
+        .footer{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
