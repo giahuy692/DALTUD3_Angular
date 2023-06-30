@@ -12,7 +12,6 @@
   list-style-type: none;
 }
 
-body {}
 
 h1,
 h2,
@@ -216,6 +215,11 @@ p {
   }
 }
 
+// Accept Current: giữ lại bản cũ 
+// Accept Incoming: thay bản mới cho bản cũ
+// Accept Both changes: thêm bản mới và giữ lại bản cũ
+// Compare Changes: so sanh giữ bản cũ với bản mới 
+
 .k-button-flat-primary {
   flex-direction: row-reverse;
   color: $primary;
@@ -228,5 +232,83 @@ p {
     border-color: $primary;
     color: $primary;
     background-color: $primary;
+  }
+}
+
+.k-notification-container {
+  height: 70px;
+  padding: 10px;
+
+  .k-notification {
+    .k-icon {
+      font-size: 30px;
+      border-right: 1px solid #fff;
+      padding: 20px;
+    }
+  }
+
+  .k-notification-content {
+    font-size: 20px;
+  }
+}
+
+.active-link {
+  border-color: $primary !important;
+  color: $primary !important;
+}
+
+.socical {
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+
+  .k-button {
+    border-radius: 50px !important;
+    color: $primary;
+    background-color: transparent;
+    border: 1px solid $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid $primary;
+    }
+  }
+
+  .k-selected {
+    background-color: $primary;
+    color: $white;
+    border: 1px solid $primary;
+  }
+}
+
+.k-focus {
+  outline: none !important;
+  border-color: transparent !important;
+}
+
+.k-form,
+.k-form-inline {
+  font-size: 16px;
+  color: $label;
+
+  .k-label {
+    padding: 5px 0;
+  }
+}
+
+.k-input-solid {
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid $primary;
+  border-radius: 0;
+
+  &:hover {
+    border-bottom-color: $secondary;
+  }
+
+  &:focus {
+    border: 2px solid $primary !important;
+    outline: $primary;
   }
 }

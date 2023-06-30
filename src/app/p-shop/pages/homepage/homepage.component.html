@@ -1,37 +1,192 @@
-<!-- GetListProduct -->
-<ul style="display: flex; flex-wrap: wrap">
-  <li *ngFor="let i of data" style="width: 200px">
-    <h6>id:{{ i.id }}</h6>
-    <h6>title: {{ i.title }}</h6>
-    <h6>price: {{ i.price }}</h6>
-    <h6>description: {{ i.description }}</h6>
-    <h6>category: {{ i.category }}</h6>
-    <img src="{{ i.image }}" alt="" style="width: 100px" />
-    <h6>rate: {{ i.rating.rate }}</h6>
-    <h6>count: {{ i.rating.count }}</h6>
-  </li>
-</ul>
-<br />
-<br />
-<br />
-<!-- GetProduct  -->
-<div style="color: brown">Product-single: {{ productSingle | json }}</div>
-<br />
-<br />
-<br />
-<br />
-<br />
+<!-- <kendo-scrollview
+  #sv
+  [data]="items"
+  [width]="width"
+  [height]="height"
+  [arrows]="true"
+  [endless]="true"
+>
+  <ng-template let-item="item">
+    <h2 class="demo-title">{{ item.title }}</h2>
+    <img
+      src="{{ item.url }}"
+      alt="{{ item.title }}"
+      [ngStyle]="{ minWidth: width }"
+      draggable="false"
+    />
+  </ng-template>
+</kendo-scrollview> -->
 
-<!-- GetListProductLimit -->
-<ul style="display: flex; flex-wrap: wrap">
-  <li *ngFor="let i of listProductLimit" style="width: 200px">
-    <h6>id:{{ i.id }}</h6>
-    <h6>title: {{ i.title }}</h6>
-    <h6>price: {{ i.price }}</h6>
-    <h6>description: {{ i.description }}</h6>
-    <h6>category: {{ i.category }}</h6>
-    <img src="{{ i.image }}" alt="" style="width: 100px" />
-    <h6>rate: {{ i.rating.rate }}</h6>
-    <h6>count: {{ i.rating.count }}</h6>
-  </li>
-</ul>
+<div class="header-img"></div>
+
+<div class="header-header">
+  <div class="img-head-header kid">
+    <div class="text-header-header">
+      <p class="text-img-left-1">Kid</p>
+      <p class="text-img-left-2">SHOP ALL KIDS' STYLES</p>
+    </div>
+  </div>
+  <div class="img-head-header women">
+    <div class="text-header-header">
+      <p class="text-img-left-1">Women</p>
+      <p class="text-img-left-2">SHOP ALL WOMEN' STYLES</p>
+    </div>
+  </div>
+  <div class="img-head-header men">
+    <div class="text-header-header">
+      <p class="text-img-left-1">Men</p>
+      <p class="text-img-left-2">SHOP ALL MEM' STYLES</p>
+    </div>
+  </div>
+</div>
+
+<div class="header-main">
+  <div class="header-main-left">
+    <img src="../../../../assets/img/product/pexels-veronika-bykovich-12185571.jpg" alt="" />
+  </div>
+
+  <div class="header-main-right">
+    <div class="header-main-text">
+      <p class="text-head">About Us</p>
+      <p class="text-main title">
+        "Chất lượng đích thực đến từ sự khéo léo và kỹ thuật tinh tế."
+      </p>
+      <p class="text-footer text-box">
+        "Khám phá không gian thời trang của chúng tôi và cùng chinh phục những
+        phong cách mới nhất, đảm bảo bạn luôn trở thành tâm điểm của sự chú ý."
+      </p>
+    </div>
+    <div class="header-main-under-text">
+      <div class="under-text-1">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door"
+            viewBox="0 0 16 16">
+            <path
+              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+          </svg>
+        </div>
+
+        <div class="under-icon">
+          <p class="under-icon-text-1 title">
+            "Sự chu đáo - Đem đến trải nghiệm mua sắm tuyệt vời."
+          </p>
+          <p class="under-icon-text-2 text-box">
+            "Chúng tôi không đặt giới hạn cho chất lượng - chúng tôi luôn nỗ lực
+            vượt xa sự mong đợi."
+          </p>
+        </div>
+      </div>
+
+      <div class="under-text-1">
+        <div class="icon">
+          <div class="in-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="under-icon">
+          <p class="under-icon-text-1 title">
+            "Phục vụ với nụ cười - Tạo cảm giác thoải mái và vui vẻ."
+          </p>
+          <p class="under-icon-text-2 text-box">
+            "Sự tận tụy và kiên nhẫn trong từng giai đoạn sản xuất đem lại chất
+            lượng không thể phủ nhận."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/shop">
+      Shop Now
+    </button>
+  </div>
+</div>
+
+<div class="products-main">
+  <p class="text-head">Categories</p>
+  <p class="text-main">Our Products</p>
+  <div style="
+      display: flex;
+      width: 100%;
+      column-gap: 10px;
+      padding: 40px 20px 20px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 10px;
+    ">
+    <app-product *ngFor="let i of data" [category]="i.category" [discount]="0" [price]="i.price"
+      [review]="i.rating.rate" [titleProduct]="i.title" [imgProduct]="i.image" [countRate]="i.rating.count"
+      [rate]="i.rating.rate" [id]="i.id" (clickItem)="getProductSingle($event)"></app-product>
+
+    <div class="button">
+      <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/shop">
+        Load More
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="footer-header">
+  <div class="foo-head-left"></div>
+  <div class="foo-head-right">
+    <div class="foo-head-right-text">
+      <p class="text-head-1 title">2THK Friendly</p>
+      <p class="text-main-1 title">2THK is fashion store</p>
+      <p class="under-icon-text-1 text-box">Start with Our Company First</p>
+      <p class="under-icon-text-2 text-box">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium
+        doloremque laudantium. Sed ut perspiciatis.
+      </p>
+      <p class="under-icon-text-3 text-box">Learn How to Grow Yourself</p>
+      <p class="under-icon-text-4 text-box">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium
+        doloremque laudantium. Sed ut perspiciatis.
+      </p>
+      <p class="under-icon-text-3 text-box">Farming Strategies of Today</p>
+      <p class="under-icon-text-4 text-box">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptat accusantium
+        doloremque laudantium. Sed ut perspiciatis.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="footer-main">
+  <div class="foo-main-left">
+    <p class="text-head-1 title">News</p>
+    <p class="text-main-1 text-box">Discover famous brands in our store</p>
+  </div>
+  <div class="foo-main-right">
+    <div class="foo-main-button">
+      <button class="button-f-m" kendoButton [fillMode]="'outline'" [themeColor]="'primary'"
+        iconClass="fa fa-arrow-circle-right" routerLink="/blog">
+        More News
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="footer-footer">
+  <div class="">
+    <app-blog-group [actor]="'Admin'" [content]="
+        'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
+      " [contentBtn]="'Read more'" [title]="'The Benefits of Vitamin D & How to Get It'" [backgroundImage]="
+        '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
+      " [myDate]="'06/20/2023'"></app-blog-group>
+  </div>
+  <div class="">
+    <app-blog-group [actor]="'Admin'" [content]="
+        'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
+      " [contentBtn]="'Read more'" [title]="'The Benefits of Vitamin D & How to Get It'" [backgroundImage]="
+        '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
+      " [myDate]="'06/20/2023'"></app-blog-group>
+  </div>
+</div>
+
+<!-- <span>{{ productSingle?.title }}</span>
+<span>{{ productSingle?.price }}</span>
+<span>{{ productSingle | json }}</span> -->

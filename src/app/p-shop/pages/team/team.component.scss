@@ -1,0 +1,76 @@
+@import "../../../../assets/scss/variable";
+@import "../../../../assets/scss/mixin";
+
+// css của angular dùng để ghi để lên css
+// của các compomnet được sử dụng lại trong phần thực hiện
+// cuả mình
+::ng-deep {
+  app-team {
+    .header-header {
+      height: 250px;
+      background: url(../../../../assets/img/product/team-background.jpg);
+      background-size: cover;
+      background-position-y: center;
+    }
+    .text-header-header {
+      text-align: center;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 70px;
+      line-height: 250px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+    .main-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 120px;
+    }
+    .header-main-text {
+      width: 36%;
+      text-align: center;
+    }
+    .text-head {
+      font-family: "Yellowtail";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 49px;
+
+      color: #7eb693;
+    }
+    .text-main {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 59px;
+
+      color: #274c5b;
+    }
+    .text-footer {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 165.4%;
+      /* or 30px */
+
+      color: #525c60;
+    }
+    .title {
+      font-size: 16px;
+    }
+    .text-box {
+      font-size: 13px;
+    }
+    .our-team {
+      display: flex;
+      margin: 40px 0;
+      gap: 40px;
+    }
+  }
+}
