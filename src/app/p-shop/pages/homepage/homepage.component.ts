@@ -10,6 +10,7 @@ import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Route, Router } from '@angular/router';
 import { MapService } from '../../share/services/map.service';
+import { Subscription } from 'rxjs';
 
 export interface Item {
   title?: string;
@@ -24,6 +25,18 @@ export class HomepageComponent implements OnInit {
   data: DTOProduct[];
   productSingle: DTOProduct;
   listProductLimit: any;
+  arrUnsubscribe: Subscription[] = [];
+
+  @ViewChild('sv') private scrollView: any;
+  public paused = false;
+  public items: Item[] = [
+    { title: 'Flower', url: 'https://bit.ly/2cJjYuB' },
+    { title: 'Mountain', url: 'https://bit.ly/2cTBNaL' },
+    { title: 'Sky', url: 'https://bit.ly/2cJl3Cx' },
+  ];
+  public width = '100%';
+  public height = '500px';
+  private interval: any;
 
   constructor(
     private apiService: ShopApiService,
@@ -37,8 +50,15 @@ export class HomepageComponent implements OnInit {
     this.getListProductLimit();
   }
 
+  public ngAfterViewInit(): void {
+    this.interval = setInterval(() => {
+      this.scrollView.next();
+    }, 3000);
+  }
+
+  //#region Our product
   getData() {
-    this.apiService.getListProduct().subscribe(
+    let getData = this.apiService.getListProduct().subscribe(
       (v: any) => {
         this.data = v;
         this.notificationService.show({
@@ -58,13 +78,17 @@ export class HomepageComponent implements OnInit {
         });
       }
     );
+
+    this.arrUnsubscribe.push(getData);
   }
 
   // Handle lấy product detail
   getProductSingle(data: DTOProduct) {
-    this.apiService.getProduct(data.id).subscribe((v) => {
-      this.productSingle = v;
-    });
+    let getProductSingle = this.apiService
+      .getProduct(data.id)
+      .subscribe((v) => {
+        this.productSingle = v;
+      });
     //=============================================================================
     // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
     // this.apiService.getProduct(data.id).subscribe((v: any) => {
@@ -73,6 +97,7 @@ export class HomepageComponent implements OnInit {
     //   console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
 
     // });
+    this.arrUnsubscribe.push(getProductSingle);
   }
 
   getListProductLimit() {
@@ -84,31 +109,15 @@ export class HomepageComponent implements OnInit {
     this.mapService.id.next(data.id);
   }
 
-  // =====================================================================
-  @ViewChild('sv') private scrollView: any;
-
-  myData: any = [
-    { title: 'Flower', url: 'https://bit.ly/2cJjYuB' },
-    { title: 'Mountain', url: 'https://bit.ly/2cTBNaL' },
-    { title: 'Sky', url: 'https://bit.ly/2cJl3Cx' },
-  ];
-  public paused = false;
-  public items: Item[] = this.myData;
-  public width = '100%';
-  public height = '500px';
-  private interval: any;
-
-  public ngAfterViewInit(): void {
-    this.interval = setInterval(() => {
-      this.scrollView.next();
-    }, 3000);
+  public onButtonClick(): void {
+    console.log('click');
   }
+  //#endregion
 
   public ngOnDestroy(): void {
     clearInterval(this.interval);
-  }
-  //=========================================================================
-  public onButtonClick(): void {
-    console.log('click');
+    this.arrUnsubscribe.forEach((s) => {
+      s?.unsubscribe();
+    });
   }
 }

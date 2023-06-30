@@ -9,7 +9,6 @@ import { HomepageComponent } from './p-shop/pages/homepage/homepage.component';
 import { AboutComponent } from './p-shop/pages/about/about.component';
 import { ShopComponent } from './p-shop/pages/shop/shop.component';
 import { ShopSingleComponent } from './p-shop/pages/shop-single/shop-single.component';
-import { ServiceComponent } from './p-shop/pages/service/service.component';
 import { ServiceSingleComponent } from './p-shop/pages/service-single/service-single.component';
 import { PortfolioComponent } from './p-shop/pages/portfolio/portfolio.component';
 import { PortfolioSingleComponent } from './p-shop/pages/portfolio-single/portfolio-single.component';
@@ -35,7 +34,7 @@ import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 
-import { NotificationModule } from '@progress/kendo-angular-notification';// cái lỗi này thì npm i
+import { NotificationModule } from '@progress/kendo-angular-notification'; // cái lỗi này thì npm i
 import { TooltipsModule } from '@progress/kendo-angular-tooltip'; // cái lỗi này thì npm i
 import { GroupComponent } from './p-shop/share/components/group/group.component';
 import { BlogGroupComponent } from './p-shop/share/components/blog-group/blog-group.component';
@@ -52,7 +51,6 @@ import { RegisterComponent } from './p-shop/pages/register/register.component';
     AboutComponent,
     ShopComponent,
     ShopSingleComponent,
-    ServiceComponent,
     ServiceSingleComponent,
     PortfolioComponent,
     PortfolioSingleComponent,
