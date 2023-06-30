@@ -1,326 +1,336 @@
-@import '../../../../assets/scss/variable';
+@import "../../../../assets/scss/variable";
+@import "../../../../assets/scss/mixin";
 
-.k-scrollview-wrap {
-  margin: 0 auto;
-}
+::ng-deep {
+  app-homepage {
+    .k-scrollview-wrap {
+      margin: 0 auto;
+    }
 
-.demo-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 15px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  font-size: 24px;
-}
+    .demo-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 15px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      font-size: 24px;
+    }
 
-kendo-scrollview.ng-tns-c334316679-0.k-scrollview.ng-star-inserted {
-  margin-bottom: 4em;
-}
+    kendo-scrollview.ng-tns-c334316679-0.k-scrollview.ng-star-inserted {
+      margin-bottom: 4em;
+    }
 
-.header-img {
-  height: 300px;
-  background: url(../../../../assets/img/product/pexels-vinta-supply-co-_-nyc-842963.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+    .header-img {
+      height: 300px;
+      background: url(../../../../assets/img/product/pexels-josue-velasquez-16564585.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
 
-  &::before {
-    content: 'HOME';
-    color: $yellow;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    font-weight: 700;
+      &::before {
+        content: 'HOME';
+        font-size: 50px;
+        font-weight: 700;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50px);
+        color: $yellow;
+      }
+    }
+
+    .header-header {
+      display: flex;
+      /* margin: 70px 0px 70px 0px; */
+      width: 90%;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .img-head-header {
+      //background: url(../../../../assets/img/product/1301-cafe-01.jpg) no-repeat;
+      background-color: antiquewhite;
+      background-size: cover;
+      height: 240px;
+      width: 30%;
+      margin: auto;
+      border-radius: 20px;
+      gap: 2%;
+    }
+
+    .header-main {
+      display: flex;
+      background: #f9f8f8;
+      height: auto;
+    }
+
+    .header-main-left {
+      width: 500px;
+      margin: auto;
+      padding: 25px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .header-main-right {
+      height: auto;
+      //background-color: aqua;
+      width: 45%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-head {
+      font-family: "Yellowtail";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 49px;
+
+      color: #7eb693;
+    }
+
+    .text-main {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 59px;
+
+      color: #274c5b;
+    }
+
+    .text-footer {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 165.4%;
+      /* or 30px */
+
+      color: #525c60;
+    }
+
+    .header-main-under-text {
+      flex-direction: column;
+    }
+
+    .under-text-1 {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      margin: 45px 0 0 0;
+    }
+
+    .icon {
+      display: flex;
+      column-gap: 5px;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .under-icon-text-1 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 29px;
+
+      color: #274c5b;
+    }
+
+    .under-icon-text-2 {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 165.4%;
+      /* or 30px */
+
+      color: #525c60;
+    }
+
+    .button-header-main-right {
+      margin: 105px 0 0 0;
+    }
+
+    .text-img-left-1 {
+      font-family: "Yellowtail";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 49px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+
+    .text-img-left-2 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 47px;
+
+      color: #ffffff;
+    }
+
+    .text-header-header {
+      width: 65%;
+      margin: 60px 0px 0px 15px;
+    }
+
+    button.k-button.k-button-md.k-rounded-md.k-button-solid-primary.k-button-solid {
+      margin: 50px 0;
+      width: 160px;
+      /* height: 32px; */
+      padding: 5px 0;
+      border-radius: 15px;
+    }
+
+    .products-main {
+      margin: auto;
+      margin-top: 140px;
+      width: 80%;
+      text-align: center;
+    }
+
+    .kid {
+      background: url(../../../../assets/img/product/child-817373_1280.jpg);
+      background-size: cover;
+    }
+
+    .women {
+      background: url(../../../../assets/img/product/woman-1284029_1280.jpg);
+      background-size: cover;
+    }
+
+    .men {
+      background: url(../../../../assets/img/product/man-1845814_1280.jpg);
+      background-size: cover;
+    }
+
+    .footer-header {
+      height: 600px;
+      width: auto;
+      //background: #7eb693;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .foo-head-left {
+      height: 600px;
+      width: 50%;
+      background: url(../../../../assets/img/product/PUMA-x-Mercedes-AMG-Motorsport-02.jpg);
+      background-size: cover;
+      position: absolute;
+      left: 160px;
+    }
+
+    .foo-head-right {
+      display: flex;
+      height: 500px;
+      width: 40%;
+      background: rgb(255, 255, 255);
+      position: absolute;
+      right: 70px;
+      z-index: 3;
+      border-radius: 30px;
+    }
+
+    .foo-head-right-text {
+      display: flex;
+      flex-direction: column;
+
+      width: 80%;
+      margin: auto;
+    }
+
+    .under-icon-text-3 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 17px;
+      line-height: 29px;
+      color: #274c5b;
+    }
+
+    .under-icon-text-4 {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 165.4%;
+      color: #525c60;
+    }
+
+    .text-head-1 {
+      font-family: "Yellowtail";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 49px;
+      color: #7eb693;
+    }
+
+    .text-main-1 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 59px;
+      color: #274c5b;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .foo-main-button {
+      margin: 50px 0px;
+      width: 160px;
+      padding: 15px 0 15px 0;
+      border-radius: 15px;
+    }
+
+    button.button-f-m.k-button.k-button-md.k-rounded-md.k-button-outline-primary.k-button-outline {
+      padding: 10px;
+      border-radius: 16px;
+    }
+
+    .button-homepage {
+      margin: 50px 0;
+      padding: 5px 0;
+    }
+
+    .footer-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2%;
+      margin-bottom: 80px;
+    }
+
+    .title {
+      font-size: 16px;
+    }
+
+    .text-box {
+      font-size: 13px;
+    }
   }
-}
-
-.header-header {
-  display: flex;
-  /* margin: 70px 0px 70px 0px; */
-  width: 90%;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.img-head-header {
-  //background: url(../../../../assets/img/product/1301-cafe-01.jpg) no-repeat;
-  background-color: antiquewhite;
-  background-size: cover;
-  height: 240px;
-  width: 30%;
-  margin: auto;
-  border-radius: 20px;
-  gap: 2%;
-}
-
-.header-main {
-  display: flex;
-  background: #f9f8f8;
-  height: auto;
-}
-
-.header-main-left {
-  width: 500px;
-  margin: auto;
-  padding: 25px;
-
-  img {
-    width: 100%;
-  }
-}
-
-.header-main-right {
-  height: auto;
-  //background-color: aqua;
-  width: 45%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.text-head {
-  font-family: "Yellowtail";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 49px;
-
-  color: #7eb693;
-}
-
-.text-main {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 50px;
-  line-height: 59px;
-
-  color: #274c5b;
-}
-
-.text-footer {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 165.4%;
-  /* or 30px */
-
-  color: #525c60;
-}
-
-.header-main-under-text {
-  flex-direction: column;
-}
-
-.under-text-1 {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin: 45px 0 0 0;
-}
-
-.icon {
-  display: flex;
-  column-gap: 5px;
-  align-items: center;
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.under-icon-text-1 {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 25px;
-  line-height: 29px;
-
-  color: #274c5b;
-}
-
-.under-icon-text-2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 165.4%;
-  /* or 30px */
-
-  color: #525c60;
-}
-
-.button-header-main-right {
-  margin: 105px 0 0 0;
-}
-
-.text-img-left-1 {
-  font-family: "Yellowtail";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 36px;
-  line-height: 49px;
-  /* identical to box height */
-
-  color: #ffffff;
-}
-
-.text-img-left-2 {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 25px;
-  line-height: 47px;
-
-  color: #ffffff;
-}
-
-.text-header-header {
-  width: 65%;
-  margin: 60px 0px 0px 15px;
-}
-
-button.k-button.k-button-md.k-rounded-md.k-button-solid-primary.k-button-solid {
-  margin: 100px 0 60px 0px;
-  width: 160px;
-  /* height: 32px; */
-  padding: 15px 0 15px 0;
-  border-radius: 15px;
-}
-
-.products-main {
-  margin: auto;
-  margin-top: 140px;
-  width: 80%;
-  text-align: center;
-}
-
-.kid {
-  background: url(../../../../assets/img/product/child-817373_1280.jpg);
-  background-size: cover;
-}
-
-.women {
-  background: url(../../../../assets/img/product/woman-1284029_1280.jpg);
-  background-size: cover;
-}
-
-.men {
-  background: url(../../../../assets/img/product/man-1845814_1280.jpg);
-  background-size: cover;
-}
-
-.footer-header {
-  height: 600px;
-  width: auto;
-  //background: #7eb693;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-.foo-head-left {
-  height: 600px;
-  width: 50%;
-  background: url(../../../../assets/img/product/PUMA-x-Mercedes-AMG-Motorsport-02.jpg);
-  background-size: cover;
-  position: absolute;
-  left: 160px;
-}
-
-.foo-head-right {
-  display: flex;
-  height: 500px;
-  width: 40%;
-  background: rgb(255, 255, 255);
-  position: absolute;
-  right: 70px;
-  z-index: 3;
-  border-radius: 30px;
-}
-
-.foo-head-right-text {
-  display: flex;
-  flex-direction: column;
-
-  width: 80%;
-  margin: auto;
-}
-
-.under-icon-text-3 {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 17px;
-  line-height: 29px;
-  color: #274c5b;
-}
-
-.under-icon-text-4 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 165.4%;
-  color: #525c60;
-}
-
-.text-head-1 {
-  font-family: "Yellowtail";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 49px;
-  color: #7eb693;
-}
-
-.text-main-1 {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 40px;
-  line-height: 59px;
-  color: #274c5b;
-}
-
-.footer-main {
-  display: flex;
-  justify-content: space-around;
-}
-
-.foo-main-button {
-  margin: 100px 0 60px 0px;
-  width: 160px;
-  padding: 15px 0 15px 0;
-  border-radius: 15px;
-}
-
-button.button-f-m.k-button.k-button-md.k-rounded-md.k-button-outline-primary.k-button-outline {
-  padding: 15px 10px 15px 10px;
-  border-radius: 16px;
-}
-
-.footer-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2%;
-  margin-bottom: 80px;
-}
-
-.title {
-  font-size: 16px;
-}
-
-.text-box {
-  font-size: 13px;
 }

@@ -12,45 +12,51 @@
       background-size: cover;
       background-position-y: center;
     }
+
     .text-header-header {
       text-align: center;
       font-family: "Roboto";
       font-style: normal;
       font-weight: 800;
-      font-size: 70px;
+      font-size: 50px;
       line-height: 250px;
       /* identical to box height */
 
       color: #ffffff;
     }
+
     .main-main {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 120px;
     }
+
     .header-main-text {
       width: 36%;
       text-align: center;
     }
+
     .text-head {
       font-family: "Yellowtail";
       font-style: italic;
       font-weight: 400;
       font-size: 36px;
-      line-height: 49px;
+      line-height: 20px;
 
       color: #7eb693;
     }
+
     .text-main {
       font-family: "Roboto";
       font-style: normal;
       font-weight: 800;
       font-size: 50px;
-      line-height: 59px;
+      line-height: 50px;
 
       color: #274c5b;
     }
+
     .text-footer {
       font-family: "Open Sans";
       font-style: normal;
@@ -61,15 +67,28 @@
 
       color: #525c60;
     }
+
     .title {
-      font-size: 30px;
+      font-size: 18px;
     }
+
+    .title1 {
+      font-size: 24px;
+    }
+
     .text-box {
       font-size: 13px;
     }
+
     .our-team {
       display: flex;
+      flex-direction: column;
       margin: 40px 0;
+      gap: 40px;
+    }
+
+    .container-infor {
+      display: flex;
       gap: 40px;
     }
   }
