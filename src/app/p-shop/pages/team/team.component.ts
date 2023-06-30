@@ -8,7 +8,7 @@ import { MapService } from '../../share/services/map.service';
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss'],
+  styleUrls: ['./team.component.scss']
 })
 export class TeamComponent {
   constructor(

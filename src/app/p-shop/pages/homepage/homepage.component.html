@@ -42,10 +42,7 @@
 
 <div class="header-main">
   <div class="header-main-left">
-    <img
-      src="../../../../assets/img/product/pexels-veronika-bykovich-12185571.jpg"
-      alt=""
-    />
+    <img src="../../../../assets/img/product/pexels-veronika-bykovich-12185571.jpg" alt="" />
   </div>
 
   <div class="header-main-right">
@@ -62,17 +59,10 @@
     <div class="header-main-under-text">
       <div class="under-text-1">
         <div class="icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="currentColor"
-            class="bi bi-house-door"
-            viewBox="0 0 16 16"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door"
+            viewBox="0 0 16 16">
             <path
-              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"
-            />
+              d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
           </svg>
         </div>
 
@@ -90,17 +80,10 @@
       <div class="under-text-1">
         <div class="icon">
           <div class="in-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-envelope"
-              viewBox="0 0 16 16"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope"
+              viewBox="0 0 16 16">
               <path
-                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
-              />
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
             </svg>
           </div>
         </div>
@@ -117,12 +100,7 @@
       </div>
     </div>
 
-    <button
-      kendoButton
-      [themeColor]="'primary'"
-      iconClass="fa fa-arrow-circle-right"
-      routerLink="/shop"
-    >
+    <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/shop">
       Shop Now
     </button>
   </div>
@@ -131,8 +109,7 @@
 <div class="products-main">
   <p class="text-head">Categories</p>
   <p class="text-main">Our Products</p>
-  <div
-    style="
+  <div style="
       display: flex;
       width: 100%;
       column-gap: 10px;
@@ -140,29 +117,13 @@
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 10px;
-    "
-  >
-    <app-product
-      *ngFor="let i of data"
-      [category]="i.category"
-      [discount]="0"
-      [price]="i.price"
-      [review]="i.rating.rate"
-      [titleProduct]="i.title"
-      [imgProduct]="i.image"
-      [countRate]="i.rating.count"
-      [rate]="i.rating.rate"
-      [id]="i.id"
-      (clickItem)="getProductSingle($event)"
-    ></app-product>
+    ">
+    <app-product *ngFor="let i of data" [category]="i.category" [discount]="0" [price]="i.price"
+      [review]="i.rating.rate" [titleProduct]="i.title" [imgProduct]="i.image" [countRate]="i.rating.count"
+      [rate]="i.rating.rate" [id]="i.id" (clickItem)="getProductSingle($event)"></app-product>
 
     <div class="button">
-      <button
-        kendoButton
-        [themeColor]="'primary'"
-        iconClass="fa fa-arrow-circle-right"
-        routerLink="/shop"
-      >
+      <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/shop">
         Load More
       </button>
     </div>
@@ -201,14 +162,8 @@
   </div>
   <div class="foo-main-right">
     <div class="foo-main-button">
-      <button
-        class="button-f-m"
-        kendoButton
-        [fillMode]="'outline'"
-        [themeColor]="'primary'"
-        iconClass="fa fa-arrow-circle-right"
-        routerLink="/blog"
-      >
+      <button class="button-f-m" kendoButton [fillMode]="'outline'" [themeColor]="'primary'"
+        iconClass="fa fa-arrow-circle-right" routerLink="/blog">
         More News
       </button>
     </div>
@@ -217,32 +172,18 @@
 
 <div class="footer-footer">
   <div class="">
-    <app-blog-group
-      [actor]="'Admin'"
-      [content]="
+    <app-blog-group [actor]="'Admin'" [content]="
         'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
-      "
-      [contentBtn]="'Read more'"
-      [title]="'The Benefits of Vitamin D & How to Get It'"
-      [backgroundImage]="
+      " [contentBtn]="'Read more'" [title]="'The Benefits of Vitamin D & How to Get It'" [backgroundImage]="
         '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
-      "
-      [myDate]="'06/20/2023'"
-    ></app-blog-group>
+      " [myDate]="'06/20/2023'"></app-blog-group>
   </div>
   <div class="">
-    <app-blog-group
-      [actor]="'Admin'"
-      [content]="
+    <app-blog-group [actor]="'Admin'" [content]="
         'Simply dummy text of the printing and typesetting industry. Lorem Ipsum'
-      "
-      [contentBtn]="'Read more'"
-      [title]="'The Benefits of Vitamin D & How to Get It'"
-      [backgroundImage]="
+      " [contentBtn]="'Read more'" [title]="'The Benefits of Vitamin D & How to Get It'" [backgroundImage]="
         '../../../../../assets/img/product/chat-lieu-ao-polo-airycool.jpg'
-      "
-      [myDate]="'06/20/2023'"
-    ></app-blog-group>
+      " [myDate]="'06/20/2023'"></app-blog-group>
   </div>
 </div>
 

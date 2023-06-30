@@ -35,7 +35,6 @@
       }
 
       .title-product {
-        height: 40px;
         font-size: 16px;
         color: $primary;
         font-weight: 600;
@@ -47,15 +46,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 10px;
         .price {
           font-size: 16px;
           color: $primary;
           font-weight: 700;
-        }
-
-        .rating {
-          text-align: end;
         }
 
         .discount {
@@ -68,8 +62,7 @@
       .review {
         display: block;
         text-align: end;
-        padding-top: 5px;
-        border-top: 1px solid $gray;
+        margin-top: 5px;
         i {
           color: $yellow;
         }

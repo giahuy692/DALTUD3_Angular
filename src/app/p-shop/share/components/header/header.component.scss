@@ -2,36 +2,37 @@
 @import "../../../../../assets/scss/mixin";
 
 ::ng-deep {
-  app-header {
-    .border {
-      border-left: 1px solid $gray;
-      border-right: 1px solid $gray;
-    }
-
-    .k-button-group {
-      .k-button {
-        color: $primary;
-        font-weight: 800;
-        font-size: 18px;
-        background-color: transparent;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 5px !important;
-        &:first-child:not(:only-child),
-        &:last-child:not(:only-child) {
-          border-radius: 5px;
+    app-header {
+        .border {
+            border-left: 1px solid $gray;
+            border-right: 1px solid $gray;
         }
-      }
 
-      .k-selected {
-        background-color: $primary;
-        border: 1px solid $primary;
-        color: $white;
-      }
+        .k-button-group {
+            .k-button {
+                color: $primary;
+                font-weight: 800;
+                font-size: 18px;
+                background-color: transparent;
+                background-image: none;
+                border: 1px solid transparent;
+                border-radius: 5px !important;
 
-      .k-focus {
-        box-shadow: $primary;
-      }
+                &:first-child:not(:only-child),
+                &:last-child:not(:only-child) {
+                    border-radius: 5px;
+                }
+            }
+
+            .k-selected {
+                background-color: $primary;
+                border: 1px solid $primary;
+                color: $white;
+            }
+
+            .k-focus {
+                box-shadow: $primary;
+            }
+        }
     }
-  }
 }

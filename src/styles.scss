@@ -33,30 +33,17 @@ p {
   background-color: $primary;
   font-weight: 800;
   color: $white;
-
-  &:hover {
-    background-color: $primary-hover;
-    color: $white;
-  }
 }
 
 .btn-yellow {
   background-color: $yellow;
   color: $primary;
-  &:hover {
-    background-color: $yellow-hover;
-    color: $primary;
-  }
 }
 
 .btn-primary_outline {
   border: 1px solid $primary;
   color: $primary;
   background-color: $white;
-  &:hover {
-    background-color: $primary;
-    color: $white;
-  }
 }
 
 .header-wrapper {
@@ -71,15 +58,18 @@ p {
     display: flex;
     column-gap: 150px;
     align-items: center;
+
     .logo {
       font-size: 35px;
       font-weight: 700;
       color: $primary;
     }
+
     .menu {
       display: flex;
       column-gap: 5px;
       align-items: center;
+
       .k-dropdown-button {
         .k-button {
           @include btn-primary;
@@ -88,16 +78,19 @@ p {
       }
     }
   }
+
   .header-left {
     display: flex;
     column-gap: 10px;
     margin-left: auto;
+
     .fa-search {
       background-color: $secondary;
       padding: 8px;
       border-radius: 30px;
       color: $white;
     }
+
     .fa-shopping-cart {
       background-color: $primary;
       padding: 8px;
@@ -110,6 +103,7 @@ p {
 .footer-wrapper {
   width: 80%;
   margin: 0 auto;
+
   .footer-sub {
     width: 60%;
     height: 200px;
@@ -129,9 +123,11 @@ p {
       font-weight: bold;
       color: $primary;
     }
+
     .input-subscribe {
       width: 84px;
       height: 46px;
+
       .icon-search {
         font-size: 16px;
       }
@@ -218,6 +214,7 @@ p {
     background-color: $primary;
   }
 }
+
 // Accept Current: giữ lại bản cũ 
 // Accept Incoming: thay bản mới cho bản cũ
 // Accept Both changes: thêm bản mới và giữ lại bản cũ
@@ -305,6 +302,7 @@ p {
   border: none;
   border-bottom: 1px solid $primary;
   border-radius: 0;
+
   &:hover {
     border-bottom-color: $secondary;
   }

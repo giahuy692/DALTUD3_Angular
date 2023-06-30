@@ -5,10 +5,9 @@
   app-portfolio {
     .header {
       height: 250px;
-      background: url(../../../../assets/img/product/background-header-profolio.jpeg);
-      background-size: cover;
-      background-position: bottom;
+      background: bisque;
     }
+
     .text-header {
       text-align: center;
       font-family: "Roboto";
@@ -20,21 +19,25 @@
 
       color: #274c5b;
     }
-    .main {
-    }
+
+    .main {}
+
     .main-logo {
       display: flex;
       justify-content: center;
       gap: 20px;
     }
+
     .container-logo {
       display: flex;
       flex-direction: column;
     }
+
     .header-main-text {
       position: absolute;
       top: 610px;
     }
+
     .header-main-text-1 {
       position: absolute;
       top: 960px;
@@ -43,6 +46,7 @@
     .img-logo {
       width: 350px;
     }
+
     .text-head {
       font-family: "Yellowtail";
       font-style: italic;
@@ -50,6 +54,7 @@
       font-size: 36px;
       color: #7eb693;
     }
+
     .text-main {
       font-family: "Roboto";
       font-style: normal;
@@ -57,9 +62,11 @@
       font-size: 50px;
       color: #274c5b;
     }
+
     .title {
       font-size: 16px;
     }
+
     .text-box {
       font-size: 13px;
     }

@@ -28,6 +28,7 @@ export class FooterComponent implements OnInit {
   constructor(private mapService: MapService) {
     this.mapService.arrHeader.subscribe((v) => {
       this.arrHeader = v;
+      console.log(v);
     });
   }
 
