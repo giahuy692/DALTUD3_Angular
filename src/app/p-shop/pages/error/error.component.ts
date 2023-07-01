@@ -32,13 +32,13 @@ export class ErrorComponent implements OnInit {
     this.apiService.getListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        this.notificationService.show({
-          content: 'Get list product success',
-          hideAfter: 600,
-          position: { horizontal: 'left', vertical: 'bottom' },
-          animation: { type: 'fade', duration: 400 },
-          type: { style: 'success', icon: true },
-        });
+        // this.notificationService.show({
+        //   content: 'Get list product success',
+        //   hideAfter: 600,
+        //   position: { horizontal: 'left', vertical: 'bottom' },
+        //   animation: { type: 'fade', duration: 400 },
+        //   type: { style: 'success', icon: true },
+        // });
       },
       (error) => {
         this.notificationService.show({

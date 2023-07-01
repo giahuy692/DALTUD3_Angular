@@ -1,23 +1,27 @@
 @import "../../../../assets/scss/mixin";
 @import "../../../../assets/scss/variable";
 
-::ng-deep{
-    app-shop{
-        .header{
-            background: url(../../../../assets/img/product/Shop-header.jpg);
+::ng-deep {
+    app-shop {
+        .header {
+            background: url(../../../../assets/img/product/pexels-nino-sanger-16633998.jpg);
             background-size: cover;
-        height: 300px;
-        width: auto;
-        line-height: 300px;
-        text-align: center;
-        font-size: 50px;
-        font-weight: 800;
+            height: 300px;
+            width: auto;
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 800;
+            background-position-y: -396px;
+            color: $secondary;
         }
-        .main{
+
+        .main {
             margin: auto;
             width: 90%;
         }
-        .footer{
+
+        .footer {
             display: flex;
             justify-content: center;
         }

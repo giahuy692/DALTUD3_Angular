@@ -7,7 +7,7 @@
 ::ng-deep {
   app-team {
     .header-header {
-      height: 250px;
+      height: 300px;
       background: url(../../../../assets/img/product/team-background.jpg);
       background-size: cover;
       background-position-y: center;
@@ -19,10 +19,10 @@
       font-style: normal;
       font-weight: 800;
       font-size: 50px;
-      line-height: 250px;
+      line-height: 300px;
       /* identical to box height */
 
-      color: #ffffff;
+      color: $secondary;
     }
 
     .main-main {
@@ -69,11 +69,11 @@
     }
 
     .title {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .title1 {
-      font-size: 24px;
+      font-size: 30px;
     }
 
     .text-box {
