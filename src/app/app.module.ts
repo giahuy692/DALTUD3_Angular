@@ -2,23 +2,17 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './p-shop/pages/homepage/homepage.component';
 import { AboutComponent } from './p-shop/pages/about/about.component';
 import { ShopComponent } from './p-shop/pages/shop/shop.component';
 import { ShopSingleComponent } from './p-shop/pages/shop-single/shop-single.component';
-import { ServiceSingleComponent } from './p-shop/pages/service-single/service-single.component';
 import { PortfolioComponent } from './p-shop/pages/portfolio/portfolio.component';
 import { PortfolioSingleComponent } from './p-shop/pages/portfolio-single/portfolio-single.component';
 import { TeamComponent } from './p-shop/pages/team/team.component';
-import { BlogComponent } from './p-shop/pages/blog/blog.component';
-import { BlogSingleComponent } from './p-shop/pages/blog-single/blog-single.component';
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
-import { LicensesComponent } from './p-shop/pages/licenses/licenses.component';
-import { ChangelogComponent } from './p-shop/pages/changelog/changelog.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 import { HeaderComponent } from './p-shop/share/components/header/header.component';
 import { FooterComponent } from './p-shop/share/components/footer/footer.component';
@@ -43,6 +37,8 @@ import { NgModel } from '@angular/forms';
 import { DateFormatPipePipe } from './p-shop/share/pipe/date-format-pipe.pipe';
 import { LoginComponent } from './p-shop/pages/login/login.component';
 import { RegisterComponent } from './p-shop/pages/register/register.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { CartComponent } from './p-shop/pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -51,16 +47,11 @@ import { RegisterComponent } from './p-shop/pages/register/register.component';
     AboutComponent,
     ShopComponent,
     ShopSingleComponent,
-    ServiceSingleComponent,
     PortfolioComponent,
     PortfolioSingleComponent,
     TeamComponent,
-    BlogComponent,
-    BlogSingleComponent,
     ContactComponent,
     ErrorComponent,
-    LicensesComponent,
-    ChangelogComponent,
     PasswordProtectComponent,
     HeaderComponent,
     FooterComponent,
@@ -70,6 +61,7 @@ import { RegisterComponent } from './p-shop/pages/register/register.component';
     DateFormatPipePipe,
     LoginComponent,
     RegisterComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,12 +80,9 @@ import { RegisterComponent } from './p-shop/pages/register/register.component';
     DatePipe,
     FormsModule,
     ReactiveFormsModule,
+    GridModule,
   ],
-  providers: [
-    MapService,
-    ShopApiService,
-    { provide: LOCALE_ID, useValue: 'vi-VN' },
-  ],
+  providers: [MapService, ShopApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
     { id: 2, text: 'Shop', link: '/shop' },
     { id: 4, text: 'Portfolio', link: '/portfolio' },
     { id: 5, text: 'Team', link: '/team' },
-    { id: 6, text: 'Blog', link: '/blog' },
     { id: 7, text: 'Contact', link: '/contact' },
   ];
 
