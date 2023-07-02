@@ -14,6 +14,9 @@ import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
 import { AuthGuard } from './AuthGuard';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
+import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
+import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
+import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -37,6 +40,21 @@ const routes: Routes = [
   { path: 'team', component: TeamComponent },
   { path: 'cart', component: CartComponent },
   { path: 'contact', component: ContactComponent },
+  {
+    path: 'admin/user',
+    component: ManagerUserComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/cart',
+    component: ManagerCartComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/product',
+    component: ManagerProductComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'password-protect',
     component: PasswordProtectComponent,

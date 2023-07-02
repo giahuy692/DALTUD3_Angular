@@ -39,6 +39,9 @@ import { LoginComponent } from './p-shop/pages/login/login.component';
 import { RegisterComponent } from './p-shop/pages/register/register.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
+import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
+import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
+import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { CartComponent } from './p-shop/pages/cart/cart.component';
     LoginComponent,
     RegisterComponent,
     CartComponent,
+    ManagerUserComponent,
+    ManagerProductComponent,
+    ManagerCartComponent,
   ],
   imports: [
     BrowserModule,

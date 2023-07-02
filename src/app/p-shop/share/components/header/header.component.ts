@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { MapService } from 'src/app/p-shop/share/services/map.service';
 
 class btnMenu {
@@ -16,7 +16,17 @@ class btnMenu {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private mapService: MapService) {}
+  constructor(public router: Router, private mapService: MapService) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (this.isAdminPage()) {
+          this.itemMenu = this.Login;
+        } else {
+          this.itemMenu = this.NotLogin;
+        }
+      }
+    });
+  }
 
   @Input() Count?: number = 0;
   dFlex = 'display: flex; column-gap: 10px; align-items: center;';
@@ -26,7 +36,9 @@ export class HeaderComponent implements OnInit {
     img?: string;
     arrDropDown?: btnMenu[];
     link?: string;
-  }> = [
+  }>;
+
+  NotLogin = [
     { id: 0, text: 'Home', link: '/home' },
     { id: 1, text: 'About', link: '/about' },
     { id: 2, text: 'Shop', link: '/shop' },
@@ -35,35 +47,19 @@ export class HeaderComponent implements OnInit {
     { id: 7, text: 'Contact', link: '/contact' },
   ];
 
+  Login = [
+    { id: 0, text: 'User', link: 'admin/user' },
+    { id: 1, text: 'Product', link: 'admin/product' },
+    { id: 2, text: 'Cart', link: 'admin/cart' },
+  ];
+
+  isAdminPage(): boolean {
+    return this.router.url.includes('/admin');
+  }
+
   // handle xử lý việc bấm vào item nào
   onItemClick(item: any) {
-    switch (item.text) {
-      case 'Home':
-        this.router.navigate([item.link]);
-        break;
-      case 'About':
-        this.router.navigate([item.link]);
-        break;
-      case 'Shop':
-        this.router.navigate([item.link]);
-        break;
-      case 'Service':
-        this.router.navigate([item.link]);
-        break;
-      case 'Portfolio':
-        this.router.navigate([item.link]);
-        break;
-      case 'Team':
-        this.router.navigate([item.link]);
-        break;
-      case 'Blog':
-        this.router.navigate([item.link]);
-        break;
-      case 'Contact':
-        this.router.navigate([item.link]);
-        break;
-    }
-    this.router.navigate(['/other-route']);
+    this.router.navigate([item.link]);
   }
 
   ngOnInit() {

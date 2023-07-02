@@ -25,10 +25,6 @@ export class AuthGuard implements CanActivate {
       const loginTime = tokenData.iat * 1000; // Thời gian đăng nhập (được chuyển đổi thành milliseconds)
       const currentTime = Date.now(); // Thời gian hiện tại
       const expirationTime = loginTime + 1 * 60 * 60 * 1000; // Thời gian hết hạn (1 giờ sau thời gian đăng nhập)
-
-      console.log(loginTime);
-      console.log(currentTime);
-      console.log(expirationTime);
       if (currentTime > expirationTime) {
         localStorage.removeItem('token');
         this.router.navigate(['/login']);
