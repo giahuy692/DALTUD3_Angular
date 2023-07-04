@@ -1,0 +1,172 @@
+@import '../../../../assets/scss/variable';
+
+::ng-deep {
+    app-cart {
+        .header {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 50px;
+
+            .title {
+                position: absolute;
+                text-align: center;
+                z-index: 3;
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: 800;
+                font-size: 50px;
+                line-height: 82px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $secondary;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .grid {
+            padding: 0 50px;
+            display: flex;
+            column-gap: 10px;
+
+            .left {
+                width: 70%;
+
+                .k-grid {
+                    border: none;
+                    box-shadow: 0 0 2px 0 rgba(39, 76, 91, 0.20);
+                    min-height: 300px;
+
+                    .k-grid-aria-root {
+                        border: none;
+
+                        .k-grid-header {
+                            .k-grid-header-wrap {
+                                .k-grid-header-table {
+                                    .k-table-thead {
+                                        background-color: rgba(39, 76, 91, 0.40);
+                                        color: $white;
+                                        font-weight: 700;
+
+                                        .k-table-row {
+                                            .k-table-th {
+                                                .k-cell-inner {
+
+                                                    .k-link {
+                                                        justify-content: center;
+                                                    }
+
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .k-grid-container {
+                            .k-grid-content {
+                                .k-grid-table-wrap {
+                                    .k-grid-table {
+                                        .k-table-tbody {
+                                            text-align: center;
+
+                                            &:first-child {
+                                                text-align: left !important;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .btnCheckout {
+                    width: 100%;
+                    text-align: end;
+                    margin: 15px auto;
+
+                    kendo-button {}
+                }
+
+                .component-container {
+                    .title {
+                        color: $primary;
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+
+            .right {
+                width: 30%;
+                text-align: center;
+                background-color: rgba(39, 76, 91, 0.2);
+                padding: 10px;
+                height: 360px;
+
+                .title {
+                    font-size: 16px;
+                    color: $primary;
+                    font-weight: 700;
+                    padding: 15px 10px;
+                    border-bottom: 1px solid $primary;
+                }
+
+                .container-product {
+                    height: calc(360px - 150px);
+                    overflow-y: scroll;
+
+                    .product {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px;
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 4px;
+                        height: 4px;
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: $primary;
+                        border-radius: 30px;
+                    }
+                }
+
+                .pay {
+                    padding: 10px 0;
+                    border-top: 1px solid $primary;
+                    position: sticky;
+                    bottom: 0;
+
+                    .totalProduct {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        &:not(&:first-child) {
+                            padding: 5px 0;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        kendo-label {
+            display: block;
+            margin: 20px auto;
+        }
+    }
+}

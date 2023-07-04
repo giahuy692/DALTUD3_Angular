@@ -4,62 +4,72 @@
 ::ng-deep {
   app-portfolio {
     .header {
-      height: 250px;
-      background: bisque;
+      height: 300px;
+      background-image: url(../../../../assets/img/product/pexels-daria-liudnaya-8166851.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
+
     .text-header {
       text-align: center;
       font-family: "Roboto";
       font-style: normal;
       font-weight: 800;
-      font-size: 70px;
-      line-height: 250px;
+      font-size: 50px;
+      line-height: 300px;
       /* identical to box height */
 
-      color: #274c5b;
-    }
-    .main {
-    }
-    .main-logo {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .container-logo {
-      display: flex;
-      flex-direction: column;
-    }
-    .header-main-text {
-      position: absolute;
-      top: 610px;
-    }
-    .header-main-text-1 {
-      position: absolute;
-      top: 960px;
+      color: $secondary;
     }
 
-    .img-logo {
-      width: 350px;
-    }
-    .text-head {
-      font-family: "Yellowtail";
-      font-style: italic;
-      font-weight: 400;
-      font-size: 36px;
-      color: #7eb693;
-    }
-    .text-main {
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 800;
-      font-size: 50px;
-      color: #274c5b;
-    }
-    .title {
-      font-size: 16px;
-    }
-    .text-box {
-      font-size: 13px;
+    .main {
+      min-height: 100vh;
+      margin: 42px;
+
+      .main-logo {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .container-logo {
+          width: 356px;
+          box-shadow: 0 0 8px 0px gray;
+          padding: 10px;
+          border-radius: 10px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .header-main-text {
+          .text-main {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 800;
+            font-size: 50px;
+            color: #274c5b;
+          }
+
+          .text-head {
+            font-family: "Yellowtail";
+            font-style: italic;
+            font-weight: 400;
+            font-size: 36px;
+            color: #7eb693;
+          }
+
+          .title {
+            font-size: 16px;
+          }
+
+          .text-box {
+            font-size: 13px;
+          }
+        }
+      }
     }
   }
 }

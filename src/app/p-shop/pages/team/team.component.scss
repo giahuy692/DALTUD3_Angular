@@ -7,32 +7,36 @@
 ::ng-deep {
   app-team {
     .header-header {
-      height: 250px;
+      height: 300px;
       background: url(../../../../assets/img/product/team-background.jpg);
       background-size: cover;
       background-position-y: center;
     }
+
     .text-header-header {
       text-align: center;
       font-family: "Roboto";
       font-style: normal;
       font-weight: 800;
       font-size: 50px;
-      line-height: 250px;
+      line-height: 300px;
       /* identical to box height */
 
-      color: #ffffff;
+      color: $secondary;
     }
+
     .main-main {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 120px;
     }
+
     .header-main-text {
       width: 36%;
       text-align: center;
     }
+
     .text-head {
       font-family: "Yellowtail";
       font-style: italic;
@@ -42,6 +46,7 @@
 
       color: #7eb693;
     }
+
     .text-main {
       font-family: "Roboto";
       font-style: normal;
@@ -51,6 +56,7 @@
 
       color: #274c5b;
     }
+
     .text-footer {
       font-family: "Open Sans";
       font-style: normal;
@@ -61,21 +67,26 @@
 
       color: #525c60;
     }
+
     .title {
-      font-size: 18px;
+      font-size: 20px;
     }
+
     .title1 {
-      font-size: 24px;
+      font-size: 30px;
     }
+
     .text-box {
       font-size: 13px;
     }
+
     .our-team {
       display: flex;
       flex-direction: column;
       margin: 40px 0;
       gap: 40px;
     }
+
     .container-infor {
       display: flex;
       gap: 40px;

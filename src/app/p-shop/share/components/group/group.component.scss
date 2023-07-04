@@ -10,19 +10,23 @@
       border-radius: 10px;
       box-shadow: 0 0 20px 0 $gray;
       overflow: hidden;
+
       &:hover {
         transform: scale(1);
       }
+
       img {
         width: 250px;
         height: 300px;
       }
+
       .name {
         color: $primary;
         font-size: 16px;
         font-weight: 700;
         padding: 10px 10px 0px 10px;
       }
+
       .footer-team {
         display: flex;
         justify-content: space-between;

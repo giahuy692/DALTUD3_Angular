@@ -7,14 +7,16 @@ import { ShopSingleComponent } from './p-shop/pages/shop-single/shop-single.comp
 import { PortfolioComponent } from './p-shop/pages/portfolio/portfolio.component';
 import { PortfolioSingleComponent } from './p-shop/pages/portfolio-single/portfolio-single.component';
 import { TeamComponent } from './p-shop/pages/team/team.component';
-import { BlogComponent } from './p-shop/pages/blog/blog.component';
-import { BlogSingleComponent } from './p-shop/pages/blog-single/blog-single.component';
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
 import { LoginComponent } from './p-shop/pages/login/login.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
 import { AuthGuard } from './AuthGuard';
+import { CartComponent } from './p-shop/pages/cart/cart.component';
+import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
+import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
+import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -36,12 +38,23 @@ const routes: Routes = [
     component: PortfolioSingleComponent,
   },
   { path: 'team', component: TeamComponent },
-  { path: 'blog', component: BlogComponent },
-  {
-    path: 'blog/blog-detail',
-    component: BlogSingleComponent,
-  },
+  { path: 'cart', component: CartComponent },
   { path: 'contact', component: ContactComponent },
+  {
+    path: 'admin/user',
+    component: ManagerUserComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/cart',
+    component: ManagerCartComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/product',
+    component: ManagerProductComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'password-protect',
     component: PasswordProtectComponent,

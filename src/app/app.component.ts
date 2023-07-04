@@ -11,4 +11,9 @@ export class AppComponent {
   title = 'DALTUD3-Angular';
 
   constructor(private router: Router) {}
+
+  // Hàm kiểm tra xem trang có phải là trang admin hay không
+  isAdminPage(): boolean {
+    return this.router.url.includes('/admin');
+  }
 }

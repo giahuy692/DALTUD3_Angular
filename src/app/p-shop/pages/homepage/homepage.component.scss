@@ -6,6 +6,7 @@
     .k-scrollview-wrap {
       margin: 0 auto;
     }
+
     .demo-title {
       position: absolute;
       top: 0;
@@ -18,13 +19,29 @@
       text-align: center;
       font-size: 24px;
     }
+
     kendo-scrollview.ng-tns-c334316679-0.k-scrollview.ng-star-inserted {
       margin-bottom: 4em;
     }
+
     .header-img {
-      height: 520px;
-      background: url(../../../../assets/img/product/tshirt-2428521_1280.jpg);
+      height: 300px;
+      background: url(../../../../assets/img/product/pexels-josue-velasquez-16564585.jpg);
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+
+      &::before {
+        content: 'HOME';
+        font-size: 50px;
+        font-weight: 700;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50px);
+        color: $secondary;
+      }
     }
 
     .header-header {
@@ -35,6 +52,7 @@
       margin-top: 50px;
       margin-bottom: 50px;
     }
+
     .img-head-header {
       //background: url(../../../../assets/img/product/1301-cafe-01.jpg) no-repeat;
       background-color: antiquewhite;
@@ -56,6 +74,7 @@
       width: 500px;
       margin: auto;
       padding: 25px;
+
       img {
         width: 100%;
       }
@@ -166,6 +185,7 @@
 
       color: #ffffff;
     }
+
     .text-header-header {
       width: 65%;
       margin: 60px 0px 0px 15px;
@@ -219,6 +239,7 @@
       position: absolute;
       left: 160px;
     }
+
     .foo-head-right {
       display: flex;
       height: 500px;
@@ -229,6 +250,7 @@
       z-index: 3;
       border-radius: 30px;
     }
+
     .foo-head-right-text {
       display: flex;
       flex-direction: column;
@@ -245,6 +267,7 @@
       line-height: 29px;
       color: #274c5b;
     }
+
     .under-icon-text-4 {
       font-family: "Open Sans";
       font-style: normal;
@@ -253,6 +276,7 @@
       line-height: 165.4%;
       color: #525c60;
     }
+
     .text-head-1 {
       font-family: "Yellowtail";
       font-style: italic;
@@ -261,6 +285,7 @@
       line-height: 49px;
       color: #7eb693;
     }
+
     .text-main-1 {
       font-family: "Roboto";
       font-style: normal;
@@ -274,6 +299,7 @@
       display: flex;
       justify-content: space-around;
     }
+
     .foo-main-button {
       margin: 50px 0px;
       width: 160px;

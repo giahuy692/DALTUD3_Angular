@@ -1,0 +1,101 @@
+<div class="header">
+    <div class="title">CART</div>
+    <img src="../../../../assets/img/product/pexels-godisable-jacob-949670.jpg">
+</div>
+
+<div class="grid" kendoTooltip>
+    <div class="left">
+        <kendo-grid [data]="gridData" *ngIf="!isCheckout">
+            <kendo-grid-column field="ProductName" title="Name"></kendo-grid-column>
+            <kendo-grid-column field="ProductName" title="Price"> </kendo-grid-column>
+            <kendo-grid-column field="Category.CategoryName" title="Quantity">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                    <kendo-numerictextbox [format]="'n0'" [autoCorrect]="true" [min]="0"
+                        [value]="1"></kendo-numerictextbox>
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="UnitPrice" title="Total"></kendo-grid-column>
+            <kendo-grid-column field="UnitPrice">
+                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                    <i class="fa fa-trash" style="color: crimson;"></i>
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+        <div class="btnCheckout" *ngIf="!isCheckout">
+            <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="primary" (click)="onCheckout()">Procced to
+                checkout</kendo-button>
+        </div>
+        <div class="btnCheckout" *ngIf="isCheckout">
+            <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="primary" fillMode="outline"
+                (click)="isCheckout = false">Back to cart</kendo-button>
+        </div>
+        <div class="component-container" kendoTooltip *ngIf="isCheckout">
+            <div class="title">BILLING DETAILS</div>
+            <kendo-label text="Fullname">
+                <kendo-textbox placeholder="Enter name" title="{{inforOrder.fullname}}"
+                    [(value)]="inforOrder.fullname"></kendo-textbox>
+            </kendo-label>
+
+            <kendo-label text="Email">
+                <kendo-textbox placeholder="Enter email" title="{{inforOrder.email}}"
+                    [(value)]="inforOrder.email"></kendo-textbox>
+            </kendo-label>
+
+
+            <kendo-label text="Phone">
+                <kendo-numerictextbox placeholder="Enter Phome" title="{{inforOrder.phone}}"
+                    [(value)]="inforOrder.phone" [spinners]="false"></kendo-numerictextbox>
+            </kendo-label>
+            <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="secondary">Place order</kendo-button>
+
+        </div>
+    </div>
+    <div class="right">
+        <div class="title">CART TOTAL</div>
+        <div class="container-product">
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+            <div class="product">
+                <span>ÁO THÔ KẺ XANH TRẮNG PK GẤU</span>
+                <span>2</span>
+            </div>
+        </div>
+
+        <div class="pay">
+            <div class="totalProduct">
+                <span>4 product</span>
+                <span>$540</span>
+            </div>
+            <div class="totalProduct">
+                <span>Ship</span>
+                <span>$10</span>
+            </div>
+            <div class="totalProduct">
+                <span>Total</span>
+                <span>$550</span>
+            </div>
+        </div>
+    </div>
+</div>

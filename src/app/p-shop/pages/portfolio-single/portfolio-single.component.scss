@@ -115,42 +115,58 @@
         }
     }
 
-    .portfolio-list {
-        margin-top: 10rem;
+}
 
-        title {
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 800;
-            font-size: 35px;
-            line-height: 41px;
-            /* identical to box height */
+.portfolio-list-ct {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+
+    .portfolio-list-ct-title {
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 41px;
+        /* identical to box height */
 
 
-            color: #274C5B;
-
-        }
-
-        kendo-tilelayout-item {
-            max-width: 1200px;
-            margin: 0 auto;
-
-            .content-news {
-                font-weight: 700;
-            }
-
-            .img-new {
-                width: 100%;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
+        color: #274C5B;
     }
 
+    .portfolio-list-ct-content {
+
+        line-height: 165.4%;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        color: #525C60;
+    }
+
+    .portfolio-list-ct-img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+
+        .img-detail {
+            height: 25rem;
+            width: 100%;
 
 
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+                object-fit: fill;
+            }
+        }
+
+        span {
+            padding-top: 15px;
+        }
+
+    }
 }

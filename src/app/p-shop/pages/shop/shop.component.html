@@ -1,1 +1,24 @@
-<p style="height: 300px">shop works!</p>
+<div class="header">Shop</div>
+
+<div class="main">
+  <div style="
+      display: flex;
+      width: 100%;
+      column-gap: 10px;
+      padding: 40px 20px 20px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 10px;
+    ">
+    <app-product *ngFor="let i of data" [category]="i.category" [discount]="0" [price]="i.price"
+      [review]="i.rating.rate" [titleProduct]="i.title" [imgProduct]="i.image" [countRate]="i.rating.count"
+      [rate]="i.rating.rate" [id]="i.id" (clickItem)="getProductSingle($event)"></app-product>
+  </div>
+</div>
+<div class="footer">
+  <div class="button">
+    <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/home">
+      Back page
+    </button>
+  </div>
+</div>

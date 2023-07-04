@@ -13,7 +13,8 @@
       border-radius: 5px !important;
     }
   }
-  .k-button-group > .k-button:first-child:not(:only-child) {
+
+  .k-button-group>.k-button:first-child:not(:only-child) {
     border-radius: 0;
   }
 }
