@@ -108,3 +108,212 @@
         }
     }
 }
+
+$heightTable: 74px;
+
+.wrapper_table {
+    min-height: 63vh;
+}
+
+.lineHeight {
+    line-height: $heightTable;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+}
+
+.subgroups span {
+    display: block;
+}
+
+.subgroups span:nth-child(1) {
+    color: #5a6276;
+    font-weight: 700;
+}
+
+.subgroups span:nth-child(3) {
+    font-style: italic;
+}
+
+.title-product {
+    display: flex;
+    // justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    column-gap: 10px;
+
+    img {
+        height: 65px;
+    }
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-style: none;
+}
+
+th:nth-child(1) {
+    width: 23%;
+}
+
+.sub-title span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+th:nth-child(2) th:nth-child(6) th:nth-child(7) {
+    width: 15%;
+}
+
+th:nth-child(4) {
+    width: 12%;
+}
+
+th:nth-child(3) {
+    width: 20%;
+}
+
+th:nth-child(5) {
+    width: 12%;
+}
+
+td:nth-child(3) {
+    margin: 0 6px;
+}
+
+.ncode {
+    display: flex;
+    position: relative;
+    color: #5a6276;
+    font-weight: 700;
+}
+
+.ncode span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.ncode span:nth-child(1)::after {
+    content: "";
+    width: 2px;
+    height: 20px;
+    margin: auto 10px 0;
+    background-color: #c4c4c4;
+}
+
+thead tr th,
+tbody tr td {
+    text-align: center;
+    padding: 0 5px;
+}
+
+thead tr th:nth-child(1),
+thead tr th:nth-child(3),
+thead tr td:nth-child(1),
+thead tr td:nth-child(3) {
+    text-align: start;
+}
+
+tbody tr {
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.sub-title {
+    text-align: start;
+}
+
+.ActionInTable {
+    border: none;
+    background-color: transparent;
+    color: #bdc2d2;
+}
+
+.dropdown_item .btn-check:checked+.btn,
+:not(.btn-check)+.btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+    color: #ffffff !important;
+    background-color: #bdc2d2;
+    border-color: none;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 2px 6px 5px rgb(0 0 0 / 20%);
+}
+
+.dropdown-menu-lg-end {
+    padding: 0;
+    top: 34px;
+    border-radius: 5px 0 5px 0;
+    border: none;
+    background-color: #bdc2d2;
+    box-shadow: 2px 6px 5px rgb(0 0 0 / 20%);
+    color: #fff !important;
+}
+
+.dropdown_item-ul li {
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+.dropdown_item-ul li button {
+    display: flex;
+    height: 30px;
+    align-items: center;
+    column-gap: 8px;
+    color: #fff;
+}
+
+.dropdown_item-ul li button:active,
+.dropdown_item-ul li button:hover {
+    background-color: #959db3;
+}
+
+.brand {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 104px;
+}
+
+.title {
+    width: 230px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.seller {
+    width: 114px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.subClass {
+    width: 248px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.origin {
+    width: 79px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
