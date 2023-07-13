@@ -3,7 +3,7 @@
     <div class="logo">LOGO</div>
     <kendo-buttongroup selection="single" class="menu">
       <button *ngFor="let item of itemMenu" kendoButton [toggleable]="true" title="{{ item.text }}"
-        routerLink="{{ item.link }}">
+        routerLink="{{ item.link }}" routerLinkActive="">
         {{ item.text }}
         <i class="fa fa-chevron-down" *ngIf="item.arrDropDown && item.arrDropDown.length > 0"></i>
       </button>
