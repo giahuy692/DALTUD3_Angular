@@ -46,7 +46,11 @@
                 <kendo-numerictextbox placeholder="Enter Phome" title="{{inforOrder.phone}}"
                     [(value)]="inforOrder.phone" [spinners]="false"></kendo-numerictextbox>
             </kendo-label>
-            <kendo-button iconClass="fa fa-arrow-circle-right" themeColor="secondary">Place order</kendo-button>
+            <!-- {{arrOrder | json}} <br /> -->
+            <!-- <kendo-button (click)="UpdateOrder(inforOrder)" iconClass="fa fa-arrow-circle-right"
+                themeColor="secondary">Place order</kendo-button> -->
+            <kendo-button (click)="UpdateOrder(inforOrder)" iconClass="fa fa-arrow-circle-right"
+                themeColor="secondary">Place order</kendo-button>
 
         </div>
     </div>

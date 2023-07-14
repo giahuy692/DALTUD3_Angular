@@ -121,7 +121,7 @@
     <app-product *ngFor="let i of data" [category]="i.category" [discount]="0" [price]="i.price"
       [review]="i.rating.rate" [titleProduct]="i.title" [imgProduct]="i.image" [countRate]="i.rating.count"
       [rate]="i.rating.rate" [id]="i.id" (clickItem)="getProductSingle($event)"></app-product>
-
+    <button (click)="lickme()">sdasd</button>
     <div class="button">
       <button kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right" routerLink="/shop">
         Load More

@@ -13,9 +13,14 @@ export class ShopApiService {
 
   //#region product
   // API lấy tất cả các sản phẩm
-  getListProduct() {
-    return new Observable<DTOProduct>((obs) => {
-      this.http.get<DTOProduct>('https://fakestoreapi.com/products').subscribe(
+  getListProduct(page?: number, pageSize?: number, sort?: string) {
+    let a = {
+      page: page,
+      pageSize: pageSize,
+      sort: sort,
+    };
+    return new Observable<any>((obs) => {
+      this.http.post('http://localhost:3000/api/GetListProduct', a).subscribe(
         (res) => {
           obs.next(res);
           obs.complete();
@@ -84,13 +89,10 @@ export class ShopApiService {
 
   // Thêm sản phẩm mới - chỉ là thêm giả sản phẩm và sẽ không có sản phẩm náo thực sự được tạo mới trong database
   // Cần truyền 1 dự liệu dưới dạng object - api trả về một đối tượng được thêm mới
-  AddNewProduct(dataObject: string) {
+  AddNewProduct(dto: any) {
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .post<DTOProduct>(
-          `https://fakestoreapi.com/products`,
-          JSON.stringify(dataObject)
-        )
+        .post<any>(`http://localhost:3000/api/CreateProduct`, dto)
         .subscribe(
           (res) => {
             obs.next(res);
