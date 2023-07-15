@@ -1,41 +1,88 @@
-<div class="footer-wrapper">
-  <div class="footer-sub">
-    <h1 class="footer-text">Subscribe to our Newsletter</h1>
-    <div>
-      <kendo-textbox class="input-subscribe" [style.width.px]="200" placeholder="Your email address">
-      </kendo-textbox>
-      <button kendoButton class="btn-subscribe">Subscribe</button>
+<!-- footer -->
+<div class="footer-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-box about-widget">
+          <h2 class="widget-title">About us</h2>
+          <p>
+            Ut enim ad minim veniam perspiciatis unde omnis iste natus error
+            sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam, eaque ipsa quae.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-box get-in-touch">
+          <h2 class="widget-title">Get in Touch</h2>
+          <ul>
+            <li>Your address</li>
+            <li>support@email.com</li>
+            <li>+00 111 222 3333</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-box pages">
+          <h2 class="widget-title">Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-box subscribe">
+          <h2 class="widget-title">Subscribe</h2>
+          <p>Subscribe to our mailing list to get the latest updates.</p>
+          <form action="index.html">
+            <input type="email" placeholder="Email" />
+            <button type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-  <kendo-gridlayout [cols]="['auto', '50%', 'auto']" style="margin: 50px 0 20px 0">
-    <kendo-gridlayout-item style="border-right: 1px solid #000; padding: 0 30px 0 0; text-align: end">
-      <h2 class="title-footer">Contact Us</h2>
-      <div *ngFor="let i of arrContact" class="arrContact">
-        <div class="f-bold">{{ i.title }}</div>
-        <span>{{ i.text }}</span>
-      </div>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item class="" style="padding: 0 15px; text-align: center">
-      <h2 class="title-footer">LOGO</h2>
-      <div>
-        Simply dummy text of the printing and typesetting industry. Lorem Ipsum
-        simply dummy text of the printing
-      </div>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item style="
-        border-left: 1px solid #000;
-        padding: 0 0 0 30px;
-        text-align: start;
-      ">
-      <h2 class="title-footer">Utility Pages</h2>
-      <kendo-gridlayout [cols]="['auto', 'auto', 'auto']" [gap]="5">
-        <kendo-buttongroup selection="single" class="menu">
-          <button *ngFor="let i of arrHeader" routerLink="{{ i.link }}" style="font-weight: 800; color: #d4d4d4"
-            kendoButton [fillMode]="'outline'" themeColor="primary" [toggleable]="true">
-            {{ i.text }}
-          </button>
-        </kendo-buttongroup>
-      </kendo-gridlayout>
-    </kendo-gridlayout-item>
-  </kendo-gridlayout>
 </div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <p>
+          Copyrights &copy; 2022 -
+          <a href="#">Gia Huy</a>
+        </p>
+      </div>
+      <div class="col-lg-6 text-right col-md-12">
+        <div class="social-icons">
+          <ul>
+            <li>
+              <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end copyright -->

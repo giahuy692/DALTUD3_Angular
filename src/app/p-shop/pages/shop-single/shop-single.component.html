@@ -1,66 +1,100 @@
-<div class="main-header">
-  <p class="text-main-header">Shop Single</p>
+<!-- search area -->
+<div class="search-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <span class="close-btn"><i class="fas fa-window-close"></i></span>
+        <div class="search-bar">
+          <div class="search-bar-tablecell">
+            <h3>Search For:</h3>
+            <input type="text" placeholder="Keywords">
+            <button type="submit">Search <i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="main-main">
-  <kendo-gridlayout [rows]="['auto', 'auto', 'auto', 'auto', 'auto']"
-    [cols]="['auto', 'auto', 'auto', 'auto', 'auto', 'auto']" [gap]="5">
-    <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="3" [rowSpan]="3" class="box rect">
-      <div class="category" title="{{ product.category }}">
-        {{ product.category }}
-      </div>
-      <img class="img-detail-product" [src]="product.image" alt="" />
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item [col]="4" [row]="1" [colSpan]="3" [rowSpan]="1" class="box big">
-      <h2>{{ product.title }}</h2>
-      <div class="review">
-        <i class="fa fa-star" *ngFor="let i of getStarArray(product.rating.rate)"></i>
-      </div>
-      <br />
+<!-- end search arewa -->
 
-      {{ product.price }} $
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item [col]="4" [row]="2" [colSpan]="3" [rowSpan]="1" class="box big">
-      <p class="text-des">{{ product.description }}</p>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item [col]="4" [row]="3" [colSpan]="3" [rowSpan]="1" class="box big">
-      <div class="quantity-mode">
-        <div class="inp-QuantMode">
-          <span>Quantity</span>
-          <input class="inputQuantMode" type="number" />
-        </div>
-        <div class="but-QuantMode">
-          <button class="buttonMode" kendoButton [themeColor]="'primary'" iconClass="fa fa-arrow-circle-right">
-            Add to card
-          </button>
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="breadcrumb-text">
+          <p>See more Details</p>
+          <h1>Single Product</h1>
         </div>
       </div>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item [col]="1" [row]="5" [colSpan]="6" [rowSpan]="1" class="box big">
-      <div class="text-DesAdd">
-        <p>
-          "Thế giới của chúng tôi được tạo nên từ những dòng sản phẩm quần áo đa
-          dạng, từ những bộ trang phục hàng ngày đến những bộ trang phục đặc
-          biệt. Hãy khám phá và biến những giấc mơ thời trang của bạn thành hiện
-          thực cùng chúng tôi."
-        </p>
-      </div>
-    </kendo-gridlayout-item>
-  </kendo-gridlayout>
+    </div>
+  </div>
 </div>
-<!-- =================================================================== -->
-<div class="main-footer">
-  <kendo-gridlayout [rows]="['auto', 'auto', 'auto', 'auto']" [cols]="['auto', 'auto', 'auto', 'auto', 'auto', 'auto']"
-    [gap]="0">
-    <kendo-gridlayout-item [col]="1" [row]="1" [colSpan]="6" [rowSpan]="1" class="box big">
-      <div class="Rel-Products">Related Products</div>
-    </kendo-gridlayout-item>
-    <kendo-gridlayout-item [col]="1" [row]="2" [colSpan]="2" [rowSpan]="3" class="box rect RelProducts">
-      <div class="container-img-Rel-Pro">
-        <app-product *ngFor="let i of arrProductTogetherCategory.slice(0, 3)" [category]="i.category" [discount]="0"
-          [price]="i.price" [review]="i.rating.rate" [titleProduct]="i.title" [imgProduct]="i.image"
-          [countRate]="i.rating.count" [rate]="i.rating.rate" [id]="i.id"
-          (clickItem)="getProductSingle($event)"></app-product>
+<!-- end breadcrumb section -->
+
+<!-- single product -->
+<div class="single-product mt-150 mb-150">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="single-product-img">
+          <img [src]="product.image" alt="">
+        </div>
       </div>
-    </kendo-gridlayout-item>
-  </kendo-gridlayout>
+      <div class="col-md-7">
+        <div class="single-product-content">
+          <h3>Title: {{ product.title }}</h3>
+          <p class="single-product-pricing"><span>S M L</span> {{ product.price }}</p>
+          <p>{{ product.description }}</p>
+          <div class="single-product-form">
+            <form action="index.html">
+              <input type="number" placeholder="0">
+            </form>
+            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <p><strong>Categories: </strong>{{ product.category }}</p>
+          </div>
+          <h4>Share:</h4>
+          <ul class="product-share">
+            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<!-- end single product -->
+
+<!-- more products -->
+<div class="more-products mb-150">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">
+          <h3><span class="orange-text">Related</span> Products</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 text-center">
+        <div class="single-product-item">
+          <div class="product-image">
+            <a href="single-product.html"><img
+                src="assets/img/container/fas12519_-_798k__fqb028_-_768k__3__0bf85c29f4a64ee2bb01847b594760a2.jpg"
+                alt="" /></a>
+          </div>
+          <h3>Women Product 1</h3>
+          <p class="product-price"><span>S M L</span> 85$</p>
+          <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end more products -->

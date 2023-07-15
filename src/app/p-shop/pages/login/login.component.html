@@ -1,45 +1,33 @@
-<div class="login-container">
-  <h3 class="titleForm">LOGIN</h3>
-  <form [formGroup]="form" class="formLogin">
-    <kendo-formfield>
-      <kendo-label class="k-form" text="Username">
-        <kendo-textbox
-          formControlName="username"
-          placeholder="Enter username"
-          showSuccessIcon="initial"
-          showErrorIcon="initial"
-        ></kendo-textbox>
-      </kendo-label>
-      <div class="underline"></div>
-      <kendo-formhint>Please, enter your username</kendo-formhint>
-      <kendo-formerror>Error: Username is required.</kendo-formerror>
-    </kendo-formfield>
-    <kendo-formfield>
-      <kendo-label class="k-form" text="Password">
-        <input
-          formControlName="password"
-          placeholder="Enter password"
-          showSuccessIcon="initial"
-          showErrorIcon="initial"
-          kendoTextBox
-          type="password"
-        />
-      </kendo-label>
-      <div class="underline"></div>
-      <kendo-formhint>Please, enter your password</kendo-formhint>
-      <kendo-formerror>Error: Password is required.</kendo-formerror>
-    </kendo-formfield>
-    <div class="option">
-      <button kendoButton fillMode="link">Forgot password?</button>
-      <button kendoButton fillMode="link">Register</button>
+<!-- login form -->
+<div class="contact-from-section mt-150 mb-150">
+  <div class="container box-shadown p-4 border-radius_15 login">
+    <div class="row">
+      <div class="col-lg-12 mb-5 mb-lg-0">
+        <div class="form-title">
+          <h1 class="text-center pt-4">Login</h1>
+        </div>
+        <div id="form_status"></div>
+        <div class="contact-form">
+          <form type="POST" id="" onSubmit="return valid_datas( this );">
+
+            <div class="input-focus-effect">
+              <input type="text" placeholder=" " />
+              <label>Username</label>
+            </div>
+            <div class="input-focus-effect mt-3">
+              <input type="text" placeholder=" " />
+              <label>Password</label>
+            </div>
+
+            <div class="text-right p-2 d-flex justify-content-between">
+              <a href="./register.html">Register</a>
+              <a href="#">Forget Password ?</a>
+            </div>
+            <input class="submit" type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
     </div>
-    <button
-      kendoButton
-      [themeColor]="'primary'"
-      class="btnSubmit"
-      (click)="handleLogin()"
-    >
-      Submit
-    </button>
-  </form>
+  </div>
 </div>
+<!-- end contact form -->

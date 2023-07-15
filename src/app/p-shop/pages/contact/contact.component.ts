@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { ColumnComponent, GridComponent } from '@progress/kendo-angular-grid';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import * as $ from 'jquery';
+import { DTOContact } from '../../share/dtos/DTOContact';
 
 @Component({
   selector: 'app-contact',
@@ -30,6 +31,18 @@ export class ContactComponent {
   currentPage: number = 1;
   total_Pages: number = 0;
   public buttonCount = 4;
+
+  data = [
+    {
+      Fullname: 'Anh Teo :v',
+      Email: 'Teo21@w',
+      Phone: '01234567678',
+      Message: 'demo',
+      IsRead: false,
+    },
+  ];
+
+  contact = new DTOContact();
 
   constructor(
     private productService: ShopApiService,
