@@ -949,6 +949,11 @@ h2.widget-title:after {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   color: #fff;
+  height: 55px;
+
+  &:focus-visible {
+    border: none;
+  }
 }
 
 .footer-box.subscribe form button {
@@ -1163,6 +1168,7 @@ a.tof-btn:hover i {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  height: 55px;
 }
 
 .footer-box.subscribe form button:hover {
