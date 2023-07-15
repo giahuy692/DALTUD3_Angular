@@ -40,21 +40,9 @@ export class ShopComponent {
     let getData = this.apiService.getListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        // this.notificationService.show({
-        //   content: 'Get list product success',
-        //   hideAfter: 600,
-        //   position: { horizontal: 'left', vertical: 'bottom' },
-        //   animation: { type: 'fade', duration: 400 },
-        //   type: { style: 'success', icon: true },
-        // });
       },
       (error) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        console.log(error);
       }
     );
 

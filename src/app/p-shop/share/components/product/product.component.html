@@ -1,4 +1,4 @@
-<div class="container-product" kendoTooltip>
+<!-- <div class="container-product" kendoTooltip>
   <div class="category" title="{{ category }}">{{ category }}</div>
   <img routerLink="/shopDetail/{{ id }}" src="{{ imgProduct }}" alt="imgProduct" (click)="onClick()" />
   <div class="title-product" title="{{ titleProduct }}" (click)="onClick()">
@@ -18,4 +18,13 @@
   <div class="review">
     <i class="fa fa-star" *ngFor="let i of [].constructor(review)"></i>
   </div>
+</div> -->
+
+<div class="single-product-item" kendoTooltip>
+  <div class="product-image">
+    <img routerLink="/shopDetail/{{ id }}" src="{{ imgProduct }}" alt="" (click)="onClick()" />
+  </div>
+  <h3 title="{{ titleProduct }}" (click)="onClick()">{{ titleProduct }}</h3>
+  <p class="product-price"><span>S M L</span> ${{ price }}</p>
+  <a routerLink="/cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 </div>

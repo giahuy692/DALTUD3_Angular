@@ -71,12 +71,13 @@ export class HomepageComponent implements OnInit {
         // });
       },
       (error) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        // this.notificationService.show({
+        //   content: error,
+        //   animation: { type: 'slide', duration: 400 },
+        //   position: { horizontal: 'center', vertical: 'bottom' },
+        //   type: { style: 'error', icon: true },
+        // });
+        console.log(error);
       }
     );
 

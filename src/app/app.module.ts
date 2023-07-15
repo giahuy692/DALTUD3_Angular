@@ -8,9 +8,9 @@ import { HomepageComponent } from './p-shop/pages/homepage/homepage.component';
 import { AboutComponent } from './p-shop/pages/about/about.component';
 import { ShopComponent } from './p-shop/pages/shop/shop.component';
 import { ShopSingleComponent } from './p-shop/pages/shop-single/shop-single.component';
-import { PortfolioComponent } from './p-shop/pages/portfolio/portfolio.component';
+import { NewsComponent } from './p-shop/pages/news/news.component';
 import { PortfolioSingleComponent } from './p-shop/pages/portfolio-single/portfolio-single.component';
-import { TeamComponent } from './p-shop/pages/team/team.component';
+import { ManComponent } from './p-shop/pages/man/man.component';
 import { ContactComponent } from './p-shop/pages/contact/contact.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { PasswordProtectComponent } from './p-shop/pages/password-protect/password-protect.component';
@@ -42,6 +42,9 @@ import { CartComponent } from './p-shop/pages/cart/cart.component';
 import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
 import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
+import { WomenComponent } from './p-shop/pages/women/women.component';
+import { CoupleComponent } from './p-shop/pages/couple/couple.component';
+import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +53,9 @@ import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.c
     AboutComponent,
     ShopComponent,
     ShopSingleComponent,
-    PortfolioComponent,
+    NewsComponent,
     PortfolioSingleComponent,
-    TeamComponent,
+    ManComponent,
     ContactComponent,
     ErrorComponent,
     PasswordProtectComponent,
@@ -68,6 +71,9 @@ import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.c
     ManagerUserComponent,
     ManagerProductComponent,
     ManagerCartComponent,
+    WomenComponent,
+    CoupleComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

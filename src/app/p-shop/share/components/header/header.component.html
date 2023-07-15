@@ -1,16 +1,68 @@
-<div class="header-wrapper">
-  <div class="header-right">
-    <div class="logo">LOGO</div>
-    <kendo-buttongroup selection="single" class="menu">
-      <button *ngFor="let item of itemMenu" kendoButton [toggleable]="true" title="{{ item.text }}"
-        routerLink="{{ item.link }}" routerLinkActive="">
-        {{ item.text }}
-        <i class="fa fa-chevron-down" *ngIf="item.arrDropDown && item.arrDropDown.length > 0"></i>
-      </button>
-    </kendo-buttongroup>
-  </div>
-  <div class="header-left">
-    <kendo-button iconClass="fa fa-search" fillMode="flat" rounded="full"></kendo-button>
-    <kendo-button iconClass="fa fa-shopping-cart" rounded="full" routerLink="cart">Cart ({{ Count }})</kendo-button>
+<div class="top-header-area" id="sticker">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 text-center">
+        <div class="main-menu-wrap">
+          <!-- logo -->
+          <div class="site-logo">
+            <a routerLink="/home" routerLinkActive="active-link">
+              <img src="../../../../../assets/img/logo.png" alt="" />
+            </a>
+          </div>
+          <!-- logo -->
+
+          <!-- menu start -->
+          <nav class="main-menu">
+            <ul>
+              <li>
+                <a routerLink="/home" routerLinkActive="active-link">Home</a>
+              </li>
+              <li>
+                <a routerLink="/shop" routerLinkActive="active-link">Shop</a>
+                <ul class="sub-menu">
+                  <li><a routerLink="/man" routerLinkActive="active-link">Man</a></li>
+                  <li><a routerLink="/women" routerLinkActive="active-link">Women</a></li>
+                  <li><a routerLink="/couple" routerLinkActive="active-link">Couple</a></li>
+                </ul>
+              </li>
+              <li><a routerLink="/news" routerLinkActive="active-link">News</a></li>
+              <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+              <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+              <li>
+                <div class="header-icons">
+                  <a class="shopping-cart" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
+                  <a class="mobile-hide search-bar-icon"><i class="fas fa-search"></i></a>
+                  <a routerLink="/login">Login</a>
+                  <a routerLink="/register">Register</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <a class="mobile-show search-bar-icon"><i class="fas fa-search"></i></a>
+          <div class="mobile-menu"></div>
+          <!-- menu end -->
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- end header -->
+
+<!-- search area -->
+<div class="search-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <span class="close-btn"><i class="fas fa-window-close"></i></span>
+        <div class="search-bar">
+          <div class="search-bar-tablecell">
+            <h3>Search For:</h3>
+            <input type="text" placeholder="Keywords">
+            <button type="submit">Search <i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end search arewa -->

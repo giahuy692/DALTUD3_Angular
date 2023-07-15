@@ -2,36 +2,34 @@ import { Component } from '@angular/core';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MapService } from '../../share/services/map.service';
+
 @Component({
-  selector: 'app-shop-single',
-  templateUrl: './shop-single.component.html',
-  styleUrls: ['./shop-single.component.scss'],
+  selector: 'app-women',
+  templateUrl: './women.component.html',
+  styleUrls: ['./women.component.scss'],
 })
-export class ShopSingleComponent {
-  public product: any;
+export class WomenComponent {
   constructor(
     private serviceApi: ShopApiService,
     private notificationService: NotificationService,
     private router: Router,
-    private route: ActivatedRoute,
     private mapService: MapService
   ) {}
+
   data: DTOProduct[];
-  //product: DTOProduct;
+  product: DTOProduct;
   listProductLimit: DTOProduct[] = [];
   arrProductTogetherCategory: DTOProduct[] = [];
   productSingle: any;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('productID'));
-    this.serviceApi.getProduct(id).subscribe((v: DTOProduct) => {
+    this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
       this.product = v;
-      console.log(this.product);
     });
     console.log(this.listProductLimit);
-    //======================================================================
+
     this.getData();
     this.getListProductLimit();
   }
@@ -39,6 +37,7 @@ export class ShopSingleComponent {
   ngAfterContentInit(): void {
     this.getListProductLimit();
   }
+
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
   // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
@@ -51,18 +50,25 @@ export class ShopSingleComponent {
       });
     });
   }
-  getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
-      this.productSingle = v;
-      window.location.reload();
-      //reload() => refresh lại trang khi click vào sản phẩm liên quan
-    });
-  }
-  //xử lí sổ lể của vòng lặp *ngFor
+
   getStarArray(rate: number): number[] {
     const roundedRate = Math.round(rate);
     return Array(roundedRate).fill(0);
   }
+
+  // onClickProduct(data: DTOProduct) {
+  //   console.log(data);
+  // }
+
+  //Lấy chi tiết sản phẩm
+  // getProductSingle(data: DTOProduct) {
+  //   // data: DTOProduct là giá trị nhận được khi click vào 1 sản phẩm
+  //   this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+  //     // Api getProduct truyền (data.id)
+  //     this.product = v; //Nhận được product detail từ api trả về dựa vào id được truyền là data.id gán vào biến product
+  //     console.log('ProductSingle', this.product); //console ra giá trị hiện tại của product thông qua id
+  //   });
+  // }
 
   getData() {
     this.serviceApi.getListProduct().subscribe(
@@ -81,23 +87,21 @@ export class ShopSingleComponent {
       }
     );
   }
-  // refreshPage() {
-  //   this.serviceApi.getListProduct().subscribe((a: any) => {
-  //     this.listProductLimit = a;
-  //     this.listProductLimit.forEach((item: DTOProduct) => {
-  //       if (item.category == this.product.category) {
-  //         this.arrProductTogetherCategory.push(item);
-  //       }
-  //     });
+
+  getProductSingle(data: DTOProduct) {
+    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+      this.productSingle = v;
+    });
+  }
+
+  // getListProductLimit() {
+  //   this.apiService.getListProductLimit(5).subscribe((v: any) => {
+  //     this.listProductLimit = v;
   //   });
-  //   window.location.reload();
   // }
 
   onClickProduct(data: DTOProduct) {
     this.mapService.id.next(data.id);
     // this.router.navigate(['/shop-detail']);
   }
-  // onClickRelatedProduct() {
-  //   this.refreshPage();
-  // }
 }

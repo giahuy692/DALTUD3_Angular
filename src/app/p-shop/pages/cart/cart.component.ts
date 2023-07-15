@@ -80,20 +80,20 @@ export class CartComponent {
   CreateProduct(dto: any) {
     let CreateProduct = this.apiService.AddNewProduct(dto).subscribe(
       (v) => {
-        this.notificationService.show({
-          content: 'Thêm sản phẩm thành công',
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        // this.notificationService.show({
+        //   content: 'Thêm sản phẩm thành công',
+        //   animation: { type: 'slide', duration: 400 },
+        //   position: { horizontal: 'center', vertical: 'bottom' },
+        //   type: { style: 'error', icon: true },
+        // });
       },
       (err) => {
-        this.notificationService.show({
-          content: 'Thêm sản phẩm thất bại',
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        // this.notificationService.show({
+        //   content: 'Thêm sản phẩm thất bại',
+        //   animation: { type: 'slide', duration: 400 },
+        //   position: { horizontal: 'center', vertical: 'bottom' },
+        //   type: { style: 'error', icon: true },
+        // });
       }
     );
 
