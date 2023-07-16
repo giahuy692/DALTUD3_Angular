@@ -48,6 +48,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.getListProductLimit();
+    this.GetListProduct(1, 5, undefined);
   }
 
   public ngAfterViewInit(): void {
@@ -70,12 +71,13 @@ export class HomepageComponent implements OnInit {
         // });
       },
       (error) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        // this.notificationService.show({
+        //   content: error,
+        //   animation: { type: 'slide', duration: 400 },
+        //   position: { horizontal: 'center', vertical: 'bottom' },
+        //   type: { style: 'error', icon: true },
+        // });
+        console.log(error);
       }
     );
 
@@ -113,6 +115,27 @@ export class HomepageComponent implements OnInit {
     console.log('click');
   }
   //#endregion
+
+  lickme() {
+    this.GetListProduct(1, 5, undefined);
+    console.log(this.ListProduct);
+  }
+
+  ListProduct = [];
+  GetListProduct(page?: number, pageSize?: number, sort?: string) {
+    let GetListProduct = this.apiService
+      .getListProduct(page, pageSize, sort)
+      .subscribe(
+        (v: any) => {
+          this.ListProduct = v;
+        },
+        (errr) => {
+          console.log(errr);
+        }
+      );
+
+    this.arrUnsubscribe.push(GetListProduct);
+  }
 
   public ngOnDestroy(): void {
     clearInterval(this.interval);

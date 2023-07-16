@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { MapService } from '../../share/services/map.service';
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss'],
+  selector: 'app-couple',
+  templateUrl: './couple.component.html',
+  styleUrls: ['./couple.component.scss'],
 })
-export class TeamComponent {
+export class CoupleComponent {
   constructor(
     private serviceApi: ShopApiService,
     private notificationService: NotificationService,
