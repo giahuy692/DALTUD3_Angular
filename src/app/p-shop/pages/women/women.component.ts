@@ -25,11 +25,6 @@ export class WomenComponent {
   productSingle: any;
 
   ngOnInit() {
-    this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
-      this.product = v;
-    });
-    console.log(this.listProductLimit);
-
     this.getData();
     this.getListProductLimit();
   }
@@ -44,7 +39,7 @@ export class WomenComponent {
     this.serviceApi.getListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
-        if (item.category == this.product.category) {
+        if (item.CatalogName == this.product.CatalogName) {
           this.arrProductTogetherCategory.push(item);
         }
       });
@@ -89,7 +84,7 @@ export class WomenComponent {
   }
 
   getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+    this.serviceApi.getProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
     });
   }
@@ -101,7 +96,7 @@ export class WomenComponent {
   // }
 
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data.id);
+    this.mapService.id.next(data._id);
     // this.router.navigate(['/shop-detail']);
   }
 }

@@ -43,9 +43,7 @@
       justify-content: center;
       row-gap: 10px;
     ">
-    <app-product *ngFor="let i of data" [price]="i.price" [titleProduct]="i.title" [imgProduct]="i.image"
-      [countRate]="i.rating.count" [rate]="i.rating.rate" [id]="i.id"
-      (clickItem)="getProductSingle($event)"></app-product>
+
   </div>
 </div>
 <!-- End product -->

@@ -34,10 +34,13 @@ export class ShopApiService {
   }
 
   //API lấy chi tiết một sản phẩm
-  getProduct(id: number) {
+  getProduct(id: string) {
+    let a = {
+      id: id,
+    };
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .get<DTOProduct>(`https://fakestoreapi.com/products/${id}`)
+        .post<DTOProduct>(`http://localhost:3000/api/GetProduct/${id}`, a)
         .subscribe(
           (res) => {
             obs.next(res);
@@ -108,7 +111,7 @@ export class ShopApiService {
 
   // Cập nhật sản phẩm lưu ý cũng là api giả cập nhật nên cũng sẽ không có data nào thực sự được cập nhật trong data base
   // api trả về đối tượng được cập nhật
-  UpdateAProduct(id: number, dataObject: any) {
+  UpdateAProduct(id: string, dataObject: any) {
     return new Observable<DTOProduct>((obs) => {
       this.http
         .put<DTOProduct>(
@@ -127,6 +130,24 @@ export class ShopApiService {
         );
     });
   }
+
+  DeleteProduct(dataObject: any) {
+    return new Observable<DTOProduct>((obs) => {
+      this.http
+        .post<DTOProduct>(`http://localhost:3000/api/DeleteProduct`, dataObject)
+        .subscribe(
+          (res) => {
+            obs.next(res);
+            obs.complete();
+          },
+          (error) => {
+            obs.error(error);
+            obs.complete();
+          }
+        );
+    });
+  }
+
   //#endregion
 
   //#region category
@@ -187,7 +208,7 @@ export class ShopApiService {
   }
 
   // Lấy chi tiết về user nào đó theo id, cần truyền id cho api này.
-  GetASingleUser(id: number) {
+  GetASingleUser(id: string) {
     return new Observable<DTOUser>((obs) => {
       this.http.get<DTOUser>(`https://fakestoreapi.com/users/${id}`).subscribe(
         (res) => {
@@ -238,7 +259,7 @@ export class ShopApiService {
     });
   }
 
-  UpdateAUsers(id: number, dataObject: DTOUser) {
+  UpdateAUsers(id: string, dataObject: DTOUser) {
     return new Observable<DTOUser>((obs) => {
       this.http
         .put<DTOUser>(
@@ -258,7 +279,7 @@ export class ShopApiService {
     });
   }
 
-  DeleteAUser(id: number) {
+  DeleteAUser(id: string) {
     return new Observable<DTOUser>((obs) => {
       this.http
         .delete<DTOUser>(`https://fakestoreapi.com/users/${id}`)
@@ -321,7 +342,7 @@ export class ShopApiService {
   }
 
   // Lấy chi tiết của một giỏ hàng
-  GetASingleCart(id: number) {
+  GetASingleCart(id: string) {
     return new Observable<DTOCart>((obs) => {
       this.http.get<DTOCart>(`https://fakestoreapi.com/carts/${id}`).subscribe(
         (res) => {
@@ -398,7 +419,7 @@ export class ShopApiService {
   }
 
   //API lấy giỏ hảng theo một user nào đó
-  GetUserCarts(id: number) {
+  GetUserCarts(id: string) {
     return new Observable<DTOCart>((obs) => {
       this.http
         .get<DTOCart>(`https://fakestoreapi.com/carts/user/${id}`)

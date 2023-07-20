@@ -25,11 +25,6 @@ export class CoupleComponent {
   productSingle: any;
 
   ngOnInit() {
-    this.serviceApi.getProduct(1).subscribe((v: DTOProduct) => {
-      this.product = v;
-    });
-    console.log(this.listProductLimit);
-
     this.getData();
     this.getListProductLimit();
   }
@@ -44,7 +39,7 @@ export class CoupleComponent {
     this.serviceApi.getListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
-        if (item.category == this.product.category) {
+        if (item.CatalogName == this.product.CatalogName) {
           this.arrProductTogetherCategory.push(item);
         }
       });
@@ -63,9 +58,9 @@ export class CoupleComponent {
   //Lấy chi tiết sản phẩm
   // getProductSingle(data: DTOProduct) {
   //   // data: DTOProduct là giá trị nhận được khi click vào 1 sản phẩm
-  //   this.serviceApi.getProduct(data.id).subscribe((v: any) => {
-  //     // Api getProduct truyền (data.id)
-  //     this.product = v; //Nhận được product detail từ api trả về dựa vào id được truyền là data.id gán vào biến product
+  //   this.serviceApi.getProduct(data._id).subscribe((v: any) => {
+  //     // Api getProduct truyền (data._id)
+  //     this.product = v; //Nhận được product detail từ api trả về dựa vào id được truyền là data._id gán vào biến product
   //     console.log('ProductSingle', this.product); //console ra giá trị hiện tại của product thông qua id
   //   });
   // }
@@ -94,7 +89,7 @@ export class CoupleComponent {
   }
 
   getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+    this.serviceApi.getProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
     });
   }
@@ -106,7 +101,7 @@ export class CoupleComponent {
   // }
 
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data.id);
+    this.mapService.id.next(data._id);
     // this.router.navigate(['/shop-detail']);
   }
 }
