@@ -35,9 +35,12 @@ export class ShopApiService {
 
   //API lấy chi tiết một sản phẩm
   getProduct(id: string) {
+    let a = {
+      id: id,
+    };
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .get<DTOProduct>(`https://fakestoreapi.com/products/${id}`)
+        .post<DTOProduct>(`http://localhost:3000/api/GetProduct/${id}`, a)
         .subscribe(
           (res) => {
             obs.next(res);
@@ -127,6 +130,24 @@ export class ShopApiService {
         );
     });
   }
+
+  DeleteProduct(dataObject: any) {
+    return new Observable<DTOProduct>((obs) => {
+      this.http
+        .post<DTOProduct>(`http://localhost:3000/api/DeleteProduct`, dataObject)
+        .subscribe(
+          (res) => {
+            obs.next(res);
+            obs.complete();
+          },
+          (error) => {
+            obs.error(error);
+            obs.complete();
+          }
+        );
+    });
+  }
+
   //#endregion
 
   //#region category
