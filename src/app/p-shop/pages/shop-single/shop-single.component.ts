@@ -25,12 +25,14 @@ export class ShopSingleComponent {
   productSingle: any;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('productID'));
-    this.serviceApi.getProduct(id).subscribe((v: DTOProduct) => {
-      this.product = v;
-      console.log(this.product);
-    });
-    console.log(this.listProductLimit);
+    const id = this.route.snapshot.paramMap.get('productID');
+    if (id != null || id != undefined) {
+      this.serviceApi.getProduct(id).subscribe((v: DTOProduct) => {
+        this.product = v;
+        console.log(this.product);
+      });
+      console.log(this.listProductLimit);
+    }
     //======================================================================
     this.getData();
     this.getListProductLimit();
@@ -45,14 +47,14 @@ export class ShopSingleComponent {
     this.serviceApi.getListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
-        if (item.category == this.product.category) {
+        if (item.CatalogName == this.product.CatalogName) {
           this.arrProductTogetherCategory.push(item);
         }
       });
     });
   }
   getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+    this.serviceApi.getProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
       window.location.reload();
       //reload() => refresh lại trang khi click vào sản phẩm liên quan
@@ -85,7 +87,7 @@ export class ShopSingleComponent {
   //   this.serviceApi.getListProduct().subscribe((a: any) => {
   //     this.listProductLimit = a;
   //     this.listProductLimit.forEach((item: DTOProduct) => {
-  //       if (item.category == this.product.category) {
+  //       if (item.CatalogName == this.product.CatalogName) {
   //         this.arrProductTogetherCategory.push(item);
   //       }
   //     });
@@ -94,7 +96,7 @@ export class ShopSingleComponent {
   // }
 
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data.id);
+    this.mapService.id.next(data._id);
     // this.router.navigate(['/shop-detail']);
   }
   // onClickRelatedProduct() {
