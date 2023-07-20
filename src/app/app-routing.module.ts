@@ -61,7 +61,7 @@ const routes: Routes = [
   {
     path: 'admin/product',
     component: ManagerProductComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'password-protect',

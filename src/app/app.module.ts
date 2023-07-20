@@ -45,6 +45,7 @@ import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.c
 import { WomenComponent } from './p-shop/pages/women/women.component';
 import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
+import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-block.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
     WomenComponent,
     CoupleComponent,
     CheckoutComponent,
+    GridBlockComponent,
   ],
   imports: [
     BrowserModule,
