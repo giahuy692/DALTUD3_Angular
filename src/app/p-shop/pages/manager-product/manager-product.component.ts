@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { Subscription, interval } from 'rxjs';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
+import { NotificationService } from '@progress/kendo-angular-notification';
 
 @Component({
   selector: 'app-manager-product',
@@ -11,11 +12,15 @@ import { DTOProduct } from '../../share/dtos/DTOProduct';
 })
 export class ManagerProductComponent implements OnInit {
   arrUnsubscribe: Subscription[] = [];
-
-  constructor(private apiService: ShopApiService) {}
-
   data: DTOProduct[];
   listProduct: DTOProduct[];
+
+  constructor(
+    private apiService: ShopApiService,
+    private notificationService: NotificationService
+  ) {}
+
+  private interval: any;
 
   ngOnInit(): void {
     this.GetListProduct(1, 100, undefined);
@@ -40,5 +45,33 @@ export class ManagerProductComponent implements OnInit {
 
   onclick() {
     console.log('click thành công');
+  }
+
+  onDelete(value: any) {
+    console.log(value);
+    let onDelete = this.apiService.DeleteProduct(value).subscribe(
+      (v) => {
+        this.GetListProduct(1, 100, undefined);
+
+        this.notificationService.show({
+          content: 'Delete product success',
+          hideAfter: 600,
+          position: { horizontal: 'left', vertical: 'bottom' },
+          animation: { type: 'fade', duration: 400 },
+          type: { style: 'success', icon: true },
+        });
+      },
+      (errr) => {
+        console.log(errr);
+      }
+    );
+    this.arrUnsubscribe.push(onDelete);
+  }
+
+  public ngOnDestroy(): void {
+    clearInterval(this.interval);
+    this.arrUnsubscribe.forEach((s) => {
+      s?.unsubscribe();
+    });
   }
 }

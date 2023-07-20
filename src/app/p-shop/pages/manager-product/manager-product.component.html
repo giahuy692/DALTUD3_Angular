@@ -12,17 +12,17 @@
                         <kendo-icon name="search"></kendo-icon>
                     </ng-template>
                 </kendo-textbox>
-                <button kendoButton [themeColor]="'primary'" imageUrl="assets/images/search-btn.svg">
+                <button kendoButton [themeColor]="'primary'" iconClass="fas fa-search">
                     Tìm
                 </button>
             </div>
         </div>
         <div class="tool-detail-program">
-            <button kendoButton [themeColor]="'base'" imageUrl="assets/images/upload.svg"></button>
-            <button kendoButton [themeColor]="'base'" imageUrl="assets/images/export.svg">
+            <button kendoButton [themeColor]="'base'" iconClass="fas fa-pencil-alt"></button>
+            <button kendoButton [themeColor]="'base'" iconClass="fab fa-themeisle">
                 Template
             </button>
-            <button kendoButton [themeColor]="'primary'" imageUrl="assets/images/plus.svg">
+            <button kendoButton [themeColor]="'primary'" iconClass="fas fa-plus">
                 THÊM MỚI SẢN PHẨM
             </button>
         </div>
@@ -33,8 +33,8 @@
             <kendo-grid-column [class]="'title'">
                 <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                     <div class="container-product">
-                        <button kendoButton [themeColor]="'base'" imageUrl="assets/images/dustbin.svg" class="dustbin"
-                            (click)="onclick()"></button>
+                        <button kendoButton [themeColor]="'base'" iconClass="fas fa-trash-alt" style="color: red;"
+                            class=" dustbin" (click)="onDelete(dataItem)"></button>
                         <div class="content-product">
                             <img src="{{ 'http://test.lapson.vn/' + dataItem.ImageThumb }}" alt="product"
                                 class="imgProduct" />
