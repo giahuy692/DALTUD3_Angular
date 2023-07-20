@@ -52,15 +52,15 @@ export class ShopComponent {
   // Handle lấy product detail
   getProductSingle(data: DTOProduct) {
     let getProductSingle = this.apiService
-      .getProduct(data._id)
+      .getProduct(data.id)
       .subscribe((v) => {
         this.productSingle = v;
       });
     //=============================================================================
     // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
-    // this.apiService.getProduct(data._id).subscribe((v: any) => {
-    //   // Api getProduct truyền (data._id )
-    //   this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data._id gán vào biến productSingle
+    // this.apiService.getProduct(data.id).subscribe((v: any) => {
+    //   // Api getProduct truyền (data.id )
+    //   this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data.id gán vào biến productSingle
     //   console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
 
     // });
@@ -72,7 +72,7 @@ export class ShopComponent {
     });
   }
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
+    this.mapService.id.next(data.id);
   }
   public onButtonClick(): void {
     console.log('click');
