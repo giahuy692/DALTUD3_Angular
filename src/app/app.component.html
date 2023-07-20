@@ -1,9 +1,9 @@
 <header>
-  <app-header></app-header>
+  <app-header *ngIf=" !isAuth()"></app-header>
 </header>
 <main>
   <router-outlet></router-outlet>
 </main>
 <footer>
-  <app-footer *ngIf="!isAdminPage()"></app-footer>
+  <app-footer *ngIf="!isAdminPage() || isAuth()"></app-footer>
 </footer>

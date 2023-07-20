@@ -9,7 +9,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { Subscription } from 'rxjs';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -29,11 +28,11 @@ export class LoginComponent {
     private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
-      username: new FormControl('', [
+      Email: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
-      password: new FormControl('', [
+      Password: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
@@ -43,24 +42,23 @@ export class LoginComponent {
   ngOnInit() {
     // Get the return URL from the route parameters
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    console.log(history);
   }
 
   get showSuccess() {
     if (this.form.controls) {
-      const formControl = this.form.controls['username'];
+      const formControl = this.form.controls['Email'];
       return formControl.value && formControl.value.length > 3;
     }
   }
 
   handleLogin() {
     if (this.form.valid) {
-      const username = this.form.get('username')?.value;
-      const password = this.form.get('password')?.value;
-      if (username && password) {
-        this.shopApiService.UserLogin(username, password).subscribe(
+      const email = this.form.get('Email')?.value;
+      const password = this.form.get('Password')?.value;
+      if (email && password) {
+        this.shopApiService.UserLogin(email, password).subscribe(
           (v: any) => {
-            console.log(v);
-            localStorage.setItem('token', v.token);
             this.notificationService.show({
               content: 'Login suscess',
               hideAfter: 600,
@@ -68,7 +66,7 @@ export class LoginComponent {
               animation: { type: 'fade', duration: 400 },
               type: { style: 'success', icon: true },
             });
-            this.loginSuccess();
+            this.goBack();
           },
           (error) => {
             console.log(error);
@@ -81,19 +79,6 @@ export class LoginComponent {
           }
         );
       }
-    }
-  }
-
-  loginSuccess() {
-    // Lưu thông tin trang trước đó
-    const previousUrl = sessionStorage.getItem('previousUrl');
-
-    // Nếu có thông tin trang trước đó, điều hướng đến trang đó
-    if (previousUrl) {
-      this.router.navigateByUrl(previousUrl);
-    } else {
-      // Nếu không có thông tin trang trước đó, điều hướng đến trang mặc định
-      this.router.navigateByUrl('/home');
     }
   }
 

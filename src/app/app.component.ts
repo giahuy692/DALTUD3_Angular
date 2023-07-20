@@ -16,4 +16,15 @@ export class AppComponent {
   isAdminPage(): boolean {
     return this.router.url.includes('/admin');
   }
+
+  isAuth(): boolean {
+    if (
+      this.router.url.includes('/login') ||
+      this.router.url.includes('/register')
+    ) {
+      return true;
+    }
+
+    return false;
+  }
 }
