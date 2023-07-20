@@ -52,9 +52,11 @@ export class ErrorComponent implements OnInit {
   }
 
   getProductSingle() {
-    this.apiService.getProduct(1).subscribe((v: any) => {
-      this.productSingle = v;
-    });
+    this.apiService
+      .getProduct('64b157dee27407f744b4bcf7')
+      .subscribe((v: any) => {
+        this.productSingle = v;
+      });
   }
 
   getListProductLimit() {
@@ -64,7 +66,7 @@ export class ErrorComponent implements OnInit {
   }
 
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data.id);
+    this.mapService.id.next(data._id);
     // this.router.navigate(['/shop-detail']);
   }
 }

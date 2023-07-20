@@ -298,15 +298,15 @@ export class ShopApiService {
   //#endregion
 
   //#region login
-  UserLogin(username: string, password: string) {
+  UserLogin(email: string, password: string) {
     var account = {
-      username: username,
-      password: password,
+      Email: email,
+      Password: password,
     };
     return new Observable<any>((obs) => {
       this.http
         .post<any>(
-          `https://fakestoreapi.com/auth/login`,
+          `http://localhost:3000/api/Login`,
           account // Đưa đối tượng account vào JSON.stringify
         )
         .subscribe(
