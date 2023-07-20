@@ -1,93 +1,101 @@
-<div class="wrapper">
-    <div class=searchWrapper>
-        <span class="titlesearch">Tìm kiếm sản phẩm</span>
-        <div class=inputSearch>
-            <div class=searchLeft>
-                <span class="k-icon k-i-zoom"></span>
-                <input placeholder="Tìm theo barcode, tên sản phẩm, người bán, thương hiệu" (ngModel)="''" (change)="''"
-                    (keyup.enter)="''" (keyup)="''" />
-            </div>
-            <button>
-                <span class="k-icon k-i-zoom"></span>
-                Tìm
-            </button>
-        </div>
-    </div>
-    <div class="btnRight">
-        <button>
-            <span class="k-icon k-i-plus"></span>
-            THÊM SẢN PHẨM
-
-        </button>
-    </div>
-</div>
-
-<div class="wrapper_table">
-    <table class="table mt-2">
-        <thead>
-            <tr>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Người bán</th>
-                <th scope="col">Phân nhóm</th>
-                <th scope="col">Xuất xứ</th>
-                <th scope="col">Thương hiệu</th>
-                <th scope="col">Giá bán lẻ</th>
-                <th scope="col">Quản lý date</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white">
-                <td class="title-product">
-                    <img src="./../../../../assets/img/product/1.png" alt="product">
-                    <div class="sub-title">
-                        <span class="title"></span>
-                        <div class="ncode">
-                            <span class="poscode"></span>
-                            <span class="barcode"></span>
+<kendo-drawer-container>
+    <kendo-drawer-content>
+        <div class="wrapper-detail-program">
+            <div class="header-detail-program">
+                <div class="search-detail-program">
+                    <div class="wrapper-search">
+                        <div class="title-detail-program">
+                            <span>Tìm kiếm sản phẩm</span>
                         </div>
-                    </div>
-                </td>
-                <td class="lineHeight ">
-                    <div class="seller">a</div>
-                </td>
-                <td class="subgroups text-start">
-                    <span class="subClass">a</span>
-                </td>
-                <td class="lineHeight">
-                    <div class="origin">a</div>
-                </td>
-                <td class="lineHeight">
-                    <div class="brand">a</div>
-                </td>
-                <td class="text-end lineHeight">
-                    <div class="price">a</div>
-                </td>
-                <td class="lineHeight">
-                    <input type="checkbox" name="Doing business" id="Doingbusiness">
-                </td>
-                <td class="lineHeight dropdown_item">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle ActionInTable"
-                            data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                            <i class="fa-sharp fa-solid fa-ellipsis"></i>
+                        <kendo-textbox [style.width.px]="372" placeholder="Tìm theo barcode, poscode, tên sản phẩm"
+                            type="text" class="search-input" style="border: none; border-radius: 5px;">
+                            <ng-template kendoTextBoxPrefixTemplate>
+                                <kendo-icon name="search"></kendo-icon>
+                            </ng-template>
+                        </kendo-textbox>
+                        <button kendoButton [themeColor]="'primary'">
+                            <kendo-icon name="search"></kendo-icon>
+                            Tìm
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown_item-ul">
-                            <li>
-                                <button class="dropdown-item" type="button">
-                                    <i class="fa-sharp fa-solid fa-eye"></i>
-                                    Xem chi tiết
-                                </button>
-                            </li>
-                            <li>
-                                <button class="dropdown-item " type="button">
-                                    <i class="fa-sharp fa-solid fa-pen"></i> Chỉnh sửa
-                                </button>
-                            </li>
-                        </ul>
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                </div>
+            </div>
+
+            <div class="body-detail-program mt-5">
+                <kendo-grid [data]="gridView" [pageSize]="pageSize" [skip]="skip" [pageable]="{
+                buttonCount: buttonCount,
+                info: info,
+                type: type,
+                pageSizes: pageSizes,
+                previousNext: previousNext,
+                position: position
+                }" [height]="520" (pageChange)="pageChange($event)">
+
+                    <kendo-grid-column field="name" title="Customer">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                            <div class="container-product">
+
+                                <div class="sub-title">
+                                    <span class="title">{{ dataItem.name }}</span>
+                                    <div class="ncode">
+                                        <span class="poscode">{{ dataItem.email }}</span>
+                                        <span class="barcode">{{ dataItem.phonenb }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="quantity" title="Quantity">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="amount" title="Amount">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="status" title="Status">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+
+
+
+                            <span class="statusbtn">
+                                chờ xử lý
+                            </span>
+                            <span class="btnedit">
+
+                                <kendo-dropdownbutton [data]="data">
+                                    <i class="fa-sharp fa-solid fa-ellipsis"></i>
+
+                                    <ng-template kendoDropDownButtonItemTemplate let-items style="padding: 0;">
+
+                                        <button kendoButton (click)="drawer.toggle()">{{items.text}}</button>
+
+
+                                    </ng-template>
+
+                                </kendo-dropdownbutton>
+
+
+
+                            </span>
+
+
+                        </ng-template>
+                    </kendo-grid-column>
+
+                </kendo-grid>
+
+                <!-- <kendo-grid-column [class]="'title'" field='ProductName'>
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+
+            </ng-template>
+        </kendo-grid-column> -->
+
+            </div>
+        </div>
+    </kendo-drawer-content>
+    <kendo-drawer style="width: 440px; margin-top: 105px;" #drawer [items]="item" [expanded]="true">
+        <!-- <ng-template kendoDrawerTemplate>
+
+                                        </ng-template> -->
+    </kendo-drawer>
+</kendo-drawer-container>
