@@ -27,7 +27,7 @@ export class ShopSingleComponent {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('productID');
     if (id != null || id != undefined) {
-      this.serviceApi.getProduct(id).subscribe((v: DTOProduct) => {
+      this.serviceApi.GetProduct(id).subscribe((v: DTOProduct) => {
         this.product = v;
         console.log(this.product);
       });
@@ -44,7 +44,7 @@ export class ShopSingleComponent {
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
   // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
-    this.serviceApi.getListProduct().subscribe((a: any) => {
+    this.serviceApi.GetListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
         if (item.CatalogName == this.product.CatalogName) {
@@ -53,8 +53,8 @@ export class ShopSingleComponent {
       });
     });
   }
-  getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data._id).subscribe((v: any) => {
+  GetProductSingle(data: DTOProduct) {
+    this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
       window.location.reload();
       //reload() => refresh lại trang khi click vào sản phẩm liên quan
@@ -67,7 +67,7 @@ export class ShopSingleComponent {
   }
 
   getData() {
-    this.serviceApi.getListProduct().subscribe(
+    this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
         // this.notificationService.show({

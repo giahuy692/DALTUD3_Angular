@@ -30,7 +30,7 @@ export class ManagerProductComponent implements OnInit {
 
   GetListProduct(page?: number, pageSize?: number, sort?: string) {
     let GetListProduct = this.apiService
-      .getListProduct(page, pageSize, sort)
+      .GetListProduct(page, pageSize, sort)
       .subscribe(
         (v: any) => {
           this.listProduct = v.products;

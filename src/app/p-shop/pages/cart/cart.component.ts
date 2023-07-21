@@ -78,7 +78,7 @@ export class CartComponent {
   }
 
   CreateProduct(dto: any) {
-    let CreateProduct = this.apiService.AddNewProduct(dto).subscribe(
+    let CreateProduct = this.apiService.CreateProduct(dto).subscribe(
       (v) => {
         // this.notificationService.show({
         //   content: 'Thêm sản phẩm thành công',

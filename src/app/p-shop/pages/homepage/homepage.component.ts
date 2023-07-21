@@ -47,7 +47,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    this.getListProductLimit();
     this.GetListProduct(1, 5, undefined);
   }
 
@@ -59,24 +58,11 @@ export class HomepageComponent implements OnInit {
 
   //#region Our product
   getData() {
-    let getData = this.apiService.getListProduct().subscribe(
+    let getData = this.apiService.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        // this.notificationService.show({
-        //   content: 'Get list product success',
-        //   hideAfter: 600,
-        //   position: { horizontal: 'left', vertical: 'bottom' },
-        //   animation: { type: 'fade', duration: 400 },
-        //   type: { style: 'success', icon: true },
-        // });
       },
       (error) => {
-        // this.notificationService.show({
-        //   content: error,
-        //   animation: { type: 'slide', duration: 400 },
-        //   position: { horizontal: 'center', vertical: 'bottom' },
-        //   type: { style: 'error', icon: true },
-        // });
         console.log(error);
       }
     );
@@ -85,28 +71,15 @@ export class HomepageComponent implements OnInit {
   }
 
   // Handle lấy product detail
-  getProductSingle(data: DTOProduct) {
-    let getProductSingle = this.apiService
-      .getProduct(data._id)
+  GetProductSingle(data: DTOProduct) {
+    let GetProductSingle = this.apiService
+      .GetProduct(data._id)
       .subscribe((v) => {
         this.productSingle = v;
       });
-    //=============================================================================
-    // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
-    // this.apiService.getProduct(data._id).subscribe((v: any) => {
-    //   // Api getProduct truyền (data._id )
-    //   this.productSingle = v; // Nhận được product đetail từ api trả về dự vào id được truyền là data._id gán vào biến productSingle
-    //   console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
-
-    // });
-    this.arrUnsubscribe.push(getProductSingle);
+    this.arrUnsubscribe.push(GetProductSingle);
   }
 
-  getListProductLimit() {
-    this.apiService.getListProductLimit(8).subscribe((v: any) => {
-      this.listProductLimit = v;
-    });
-  }
   onClickProduct(data: DTOProduct) {
     this.mapService.id.next(data._id);
   }
@@ -124,7 +97,7 @@ export class HomepageComponent implements OnInit {
   ListProduct = [];
   GetListProduct(page?: number, pageSize?: number, sort?: string) {
     let GetListProduct = this.apiService
-      .getListProduct(page, pageSize, sort)
+      .GetListProduct(page, pageSize, sort)
       .subscribe(
         (v: any) => {
           this.ListProduct = v;
