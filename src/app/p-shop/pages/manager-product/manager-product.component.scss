@@ -1,3 +1,6 @@
+@import '../../../../assets/scss/variable';
+@import '../../../../assets/scss/mixin';
+
 ::ng-deep {
     app-manager-product {
         .wrapper-detail-program {
@@ -16,6 +19,10 @@
                     }
                 }
 
+                .body-detail-program {
+                    height: calc(100vh - 100px - 32px - 52px);
+                }
+
                 .wrapper-search {
                     display: flex;
                     column-gap: 10px;
@@ -32,6 +39,10 @@
             }
         }
 
+        .wrapper-grid {
+            height: calc(100vh - 100px - 32px - 52px);
+        }
+
         .k-table-tbody {
             display: flex;
             justify-content: flex-start;
@@ -39,49 +50,91 @@
             row-gap: 12px;
             column-gap: 20px;
 
-            .container-product {
-                position: relative;
-                padding: 14px 10px;
+            .k-table-row {
+                width: 220px;
+                border: 1px solid transparent;
 
-                .content-product {
-                    display: flex;
-                    justify-content: space-between;
-                    column-gap: 9px;
+                .k-table-td {
+                    padding: 0;
 
-                    .title {
-                        display: -webkit-box;
-                        color: #353935;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
+                    &:hover {
+
+                        .dustbin,
+                        .edit {
+                            display: block;
+                        }
+
+                    }
+
+                    .container-product {
+                        position: relative;
+                        padding: 0 10px;
+
+                        .content-product {
+                            display: flex;
+                            justify-content: space-between;
+                            column-gap: 9px;
+                            overflow: hidden;
+
+                            .sub-title {
+                                @include limitTitle(2);
+
+                                .title {
+                                    color: #353935;
+                                }
+
+                                .ncode {
+                                    position: absolute;
+                                    bottom: 0;
+                                    color: $gray;
+                                    display: flex;
+                                    align-items: center;
+                                    @include limitTitle(1);
+
+                                    span {
+                                        padding: 0 5px;
+                                    }
+                                }
+
+                            }
+                        }
+
+                        .imgProduct {
+                            width: 76px;
+                        }
+
+                    }
+
+                    .dustbin {
+                        display: none;
+                        position: absolute;
+                        top: 4px;
+                        left: 5px;
+                        outline: none;
+                        border: none;
+                        box-shadow: none;
+                        background-color: $white;
+                        color: red;
+                        z-index: 99;
+                        filter: drop-shadow(0 0 14px $gray);
+                    }
+
+                    .edit {
+                        display: none;
+                        position: absolute;
+                        top: 4px;
+                        left: 40px;
+                        outline: none;
+                        border: none;
+                        box-shadow: none;
+                        background-color: $white;
+                        color: $primary;
+                        z-index: 99;
+                        filter: drop-shadow(0 0 14px $gray);
                     }
                 }
-
-                .imgProduct {
-                    width: 76px;
-                    height: 76px;
-                }
-
-                .dustbin {
-                    position: absolute;
-                    top: 4px;
-                    left: 5px;
-                    outline: none;
-                    border: none;
-                    box-shadow: none;
-                    background-color: transparent;
-                }
             }
 
-            .k-table-row {
-                width: 220px !important;
-                border: 1px solid #8dc63f;
-            }
-
-            .k-table-td {
-                padding: 0;
-            }
         }
     }
 }

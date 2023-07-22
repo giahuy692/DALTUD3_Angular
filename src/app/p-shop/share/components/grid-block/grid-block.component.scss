@@ -1,3 +1,5 @@
+@import '../../../../../assets/scss/variable';
+
 tbody tr {
     box-shadow: 2px 2px 5px rgb(0 0 0 / 20%);
 }
@@ -32,6 +34,36 @@ tbody tr {
 
         .k-table {
             border-spacing: 0px 5px;
+
+            .k-grid-header {
+                display: none !important;
+                border: none;
+                background-color: transparent;
+                padding: 0;
+            }
+
+            .k-table-tbody {
+                display: grid;
+                row-gap: 12px;
+                column-gap: 20px;
+                grid-template-columns: repeat(5, 1fr);
+
+                .k-table-row {
+
+                    width: 100%;
+                    filter: drop-shadow(0 0 14px $gray);
+
+                    &:hover {
+                        border: 1px solid $primary-hover;
+                    }
+
+                    .k-table-td {
+                        width: 100%;
+                    }
+                }
+            }
+
+
         }
 
         .k-grid-header-wrap {
@@ -57,12 +89,7 @@ tbody tr {
             background-color: #fff;
         }
 
-        .k-grid-header {
-            display: none !important;
-            border: none;
-            background-color: transparent;
-            padding: 0;
-        }
+
 
         .k-grid-header .k-table-row {
             background-color: #edeff3;

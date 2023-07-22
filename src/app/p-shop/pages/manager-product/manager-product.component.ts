@@ -14,6 +14,7 @@ export class ManagerProductComponent implements OnInit {
   arrUnsubscribe: Subscription[] = [];
   data: DTOProduct[];
   listProduct: DTOProduct[];
+  public CategoryList: Array<string> = ['Man', 'Woman', 'Couple'];
 
   constructor(
     private apiService: ShopApiService,
@@ -41,6 +42,10 @@ export class ManagerProductComponent implements OnInit {
       );
 
     this.arrUnsubscribe.push(GetListProduct);
+  }
+
+  GetProduct(_id: string) {
+    let GetProduct = this.apiService.GetProduct(_id);
   }
 
   onclick() {

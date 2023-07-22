@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/variable';
+
 ::ng-deep {
     body {
         background-color: #EDEFF3;
@@ -38,6 +40,10 @@
                                 &:not(:first-child) {
                                     margin-top: 10px;
                                 }
+                            }
+
+                            .next {
+                                margin-top: 10px;
                             }
                         }
 
@@ -91,6 +97,65 @@
                         //     flex-direction: unset;
                         //     height: 32px;
                         // }
+                    }
+
+                    .wrapper-grid {
+                        margin-top: 10px;
+                        overflow: auto;
+                        height: calc(100vh - 218px);
+
+                        .k-grid {
+                            background-color: transparent;
+                            border: none;
+                            height: 100%;
+
+                            .k-grid-aria-root {
+                                height: calc(100vh - 218px);
+                                overflow: auto;
+
+                                .k-table {
+                                    -webkit-border-vertical-spacing: 10px;
+
+                                    .k-grid-header {
+                                        border: none;
+                                        background-color: $blue-dark;
+                                        position: sticky;
+                                        top: 0;
+
+                                        .k-table-row {
+                                            .k-table-th {
+                                                box-shadow: none;
+                                                border: none;
+
+                                                .k-cell-inner {
+                                                    .k-link {
+                                                        color: $white;
+                                                    }
+                                                }
+                                            }
+
+
+                                        }
+                                    }
+
+                                    .k-table-tbody {
+                                        .k-table-row {
+                                            background-color: #ffff;
+
+                                            .k-table-td {
+                                                box-shadow: none;
+                                                border: none;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            .k-pager {
+                                height: 50px;
+                            }
+                        }
                     }
                 }
             }
