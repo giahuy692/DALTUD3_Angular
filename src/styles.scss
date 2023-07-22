@@ -296,18 +296,37 @@ p {
   }
 }
 
-.k-input-solid {
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid $primary;
-  border-radius: 0;
+.k-button {
+  flex-direction: unset;
+  height: 32px;
 
-  &:hover {
-    border-bottom-color: $secondary;
+  .k-button-icon {
+    font-size: 16px;
   }
 
-  &:focus {
-    border: 2px solid $primary !important;
-    outline: $primary;
+  .k-button-text {
+    font-size: 13px;
   }
 }
+
+.k-textbox {
+  &:hover {
+    border-color: $primary-hover;
+  }
+}
+
+// .k-input-solid {
+//   font-size: 16px;
+//   border: none;
+//   border-bottom: 1px solid $primary;
+//   border-radius: 0;
+
+//   &:hover {
+//     border-bottom-color: $secondary;
+//   }
+
+//   &:focus {
+//     border: 2px solid $primary !important;
+//     outline: $primary;
+//   }
+// }
