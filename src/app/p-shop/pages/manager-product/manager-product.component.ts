@@ -14,6 +14,11 @@ export class ManagerProductComponent implements OnInit {
   arrUnsubscribe: Subscription[] = [];
   data: DTOProduct[];
   listProduct: DTOProduct[];
+  limit: number = 20;
+  limits: number[] = [10, 20, 50];
+  selectedValue: number = 20;
+  currentPage: number = 1;
+  public CategoryList: Array<string> = ['Man', 'Woman', 'Couple'];
 
   constructor(
     private apiService: ShopApiService,

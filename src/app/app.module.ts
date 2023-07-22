@@ -46,6 +46,8 @@ import { WomenComponent } from './p-shop/pages/women/women.component';
 import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-block.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+
 
 @NgModule({
   declarations: [
@@ -95,6 +97,7 @@ import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-bl
     FormsModule,
     ReactiveFormsModule,
     GridModule,
+    DropDownsModule,
   ],
   providers: [MapService, ShopApiService],
   bootstrap: [AppComponent],

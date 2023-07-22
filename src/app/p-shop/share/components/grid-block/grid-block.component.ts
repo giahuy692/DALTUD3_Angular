@@ -26,14 +26,15 @@ export class GridBlockComponent {
   @ViewChild('cumstomGrid') public GridRef: GridComponent;
 
   @Input() dataView: any;
-  pageIndex: number = 1;
-  skip: number = 0;
-  limit: number = 12;
-  limits: number[] = [10, 20, 50];
-  selectedValue: number = 10;
-  currentPage: number = 1;
-  total_Pages: number = 0;
-  public buttonCount = 4;
+  @Input() pageIndex: number = 1;
+  @Input() skip: number = 0;
+  @Input() limit: number = 20;
+  @Input() limits: number[] = [10, 20, 50];
+  @Input() selectedValue: number = 20;
+  @Input() currentPage: number = 1;
+  @Input() total_Pages: number = 0;
+  @Input() buttonCount = 4;
+  @Input() sizes = [10, 20, 50];
 
   arrUnsubscribe: Subscription[] = [];
 

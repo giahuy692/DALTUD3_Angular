@@ -15,12 +15,12 @@
                     <kendo-label text="Email:">
                         <kendo-textbox placeholder="John Smith"></kendo-textbox>
                     </kendo-label>
-                    <div class="d-flex">
+                    <div class="d-flex next align-items-center justify-content-between">
                         <kendo-label text="Address:">
                             <kendo-textbox placeholder="John Smith"></kendo-textbox>
                         </kendo-label>
-                        <kendo-label class="k-checkbox-label" [for]="notification" text="Allow Notifications">
-                            <input type="checkbox" #notification kendoCheckBox />
+                        <kendo-label class="k-checkbox-label" [for]="isAdmin" text="Admin">
+                            <input type="checkbox" #isAdmin kendoCheckBox class="ml-2" />
                         </kendo-label>
                     </div>
                     <kendo-label text="Phone:">
@@ -41,7 +41,7 @@
                     <div class=inputSearch>
                         <kendo-label class="k-form" text="Seach user" class="searchLable">
                             <div style="display: flex;column-gap: 10px;">
-                                <kendo-textbox placeholder="Insert name here" type="text">
+                                <kendo-textbox placeholder="Insert Username here" type="text">
                                     <ng-template kendoTextBoxPrefixTemplate>
                                         <kendo-textbox-separator></kendo-textbox-separator>
                                         <kendo-icon name="search" style="margin: 0 5px;"></kendo-icon>
@@ -55,6 +55,21 @@
                     <kendo-button [themeColor]="'primary'" iconClass="k-icon k-i-plus" class="btnAdd"
                         (click)="drawer.toggle()">ADD NEW
                         USER</kendo-button>
+                </div>
+                <div class="wrapper-grid">
+                    <kendo-grid [data]="gridData" [pageable]="true" [pageSize]="pageSize" scrollable="none">
+                        <kendo-grid-column field="ProductID" title="ID"> </kendo-grid-column>
+                        <kendo-grid-column field="ProductName" title="Name"> </kendo-grid-column>
+                        <kendo-grid-column field="UnitPrice" title="Price"> </kendo-grid-column>
+                        <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+                            <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                            <kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>
+                            <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                            <kendo-pager-input></kendo-pager-input>
+                            <kendo-pager-info></kendo-pager-info>
+                            <kendo-pager-page-sizes [pageSizes]="sizes"></kendo-pager-page-sizes>
+                        </ng-template>
+                    </kendo-grid>
                 </div>
             </div>
         </kendo-drawer-content>
