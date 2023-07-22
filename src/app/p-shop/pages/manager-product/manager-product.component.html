@@ -36,8 +36,7 @@
                         <button kendoButton [themeColor]="'base'" iconClass="fas fa-trash-alt" style="color: red;"
                             class=" dustbin" (click)="onDelete(dataItem)"></button>
                         <div class="content-product">
-                            <img src="{{ 'http://test.lapson.vn/' + dataItem.ImageThumb }}" alt="product"
-                                class="imgProduct" />
+                            <img src="{{ dataItem.Image_link }}" alt="product" class="imgProduct" />
                             <div class="sub-title">
                                 <span class="title">{{ dataItem.ProductName }}</span>
                                 <div class="ncode">
