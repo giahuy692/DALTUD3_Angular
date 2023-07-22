@@ -44,7 +44,7 @@ export class ManagerProductComponent implements OnInit {
   }
 
   GetProduct(_id: string) {
-    let GetProduct = this.apiService.getProduct(_id);
+    let GetProduct = this.apiService.GetProduct(_id);
   }
 
   onclick() {
