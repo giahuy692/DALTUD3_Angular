@@ -43,6 +43,10 @@ export class ManagerProductComponent implements OnInit {
     this.arrUnsubscribe.push(GetListProduct);
   }
 
+  GetProduct(_id: string) {
+    let GetProduct = this.apiService.getProduct(_id);
+  }
+
   onclick() {
     console.log('click thành công');
   }
