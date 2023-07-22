@@ -1,10 +1,9 @@
-export class DTOOrder {
-  _id: string;
+export class DTOTransaction {
   paymentID?: string;
-  paymentName?: string = '';
+  paymentName: string = '';
   ProductId?: string;
   ProductName: string = '';
   Qty: number = 0;
   Amount: number = 0;
-  Status: string = 'Chưa thanh toán';
+  Status: string = 'Chờ xử lý';
 }

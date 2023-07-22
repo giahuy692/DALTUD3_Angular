@@ -1,0 +1,162 @@
+::ng-deep {
+    app-manager-cart {
+        .wrapper-detail-program {
+            padding: 19px 13px;
+            background-color: #edeff3;
+
+            .header-detail-program {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #BDC2D2;
+                padding-bottom: 20px;
+
+                .wrapper-search {
+                    // display: flex;
+                    column-gap: 10px;
+
+                    .title-detail-program {
+                        span {
+                            font-weight: 700;
+                            font-size: 16px;
+                            color: #959DB3;
+
+                        }
+                    }
+
+                    .search-input {
+                        background-color: #fff;
+                    }
+                }
+
+                .tool-detail-program {
+                    display: flex;
+                    column-gap: 10px;
+                }
+            }
+        }
+
+        .k-table-tbody {
+            // display: flex;
+            // justify-content: space-between;
+            flex-wrap: wrap;
+            row-gap: 12px;
+            column-gap: 20px;
+
+            .container-product {
+                position: relative;
+                padding: 14px 10px;
+
+                // .content-product {
+                //     display: flex;
+                //     justify-content: space-between;
+                //     column-gap: 9px;
+
+                .title {
+                    display: -webkit-box;
+                    color: #353935;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .ncode {
+                    display: flex;
+                    position: relative;
+                    color: #5a6276;
+                    font-weight: 700;
+
+                    span {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        align-content: center;
+                    }
+                }
+
+                .ncode span:nth-child(1)::after {
+                    content: "";
+                    width: 2px;
+                    height: 20px;
+                    margin: auto 10px 0;
+                    background-color: #c4c4c4;
+                }
+
+
+                // }
+
+                // .imgProduct {
+                //     width: 76px;
+                //     height: 76px;
+                // }
+
+                // .dustbin {
+                //     position: absolute;
+                //     top: 4px;
+                //     left: 5px;
+                //     outline: none;
+                //     border: none;
+                //     box-shadow: none;
+                //     background-color: transparent;
+                // }
+            }
+
+            // .k-table-row {
+            //     width: 220px !important;
+            //     border: 1px solid #8dc63f;
+            // }
+
+            // .k-table-td {
+            //     padding: 0;
+            // }
+            // }
+            td {
+                border: none;
+            }
+        }
+
+        .k-grid .k-table-th,
+        .k-grid-header,
+        .k-grid td,
+        .k-grid .k-table-td {
+            border: none;
+        }
+
+        .k-button {
+            border: none;
+        }
+
+        .k-button-solid-base {
+            background-image: none;
+            background-color: transparent;
+        }
+
+        .k-button-flat-primary {
+            font-size: 13px;
+            color: inherit;
+        }
+
+        kendo-numerictextbox,
+        kendo-dropdownlist {
+            width: 170px;
+        }
+
+        .statusbtn {
+            margin-right: 10px;
+        }
+
+        my-app {
+            padding: 0;
+        }
+
+        kendo-drawer-container {
+            width: 100%;
+            height: 100%;
+
+        }
+
+    }
+}
+
+// padding: 13px 32px 18px 20px;

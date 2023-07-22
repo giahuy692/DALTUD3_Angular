@@ -556,6 +556,7 @@ ul.navbar-nav li.nav-item.active a.nav-link {
 }
 
 .top-header-area {
+  background-color: #012738;
   position: absolute;
   z-index: 999;
   width: 100%;

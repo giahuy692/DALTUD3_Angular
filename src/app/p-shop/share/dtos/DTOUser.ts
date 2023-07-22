@@ -1,22 +1,9 @@
 export class DTOUser {
-  id?: number;
-  email: string = '';
-  username: string = '';
-  password: string = '';
-  name: {
-    firstname: string;
-    lastname: string;
-  };
-  image: string = '';
-  address: {
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
-    geolocation: {
-      lat: string;
-      long: string;
-    };
-  };
-  phone: string;
+  _id: String;
+  UserName: string = '';
+  Email: string = '';
+  Address: string = '';
+  Phone: string = '';
+  Password: string = '';
+  isAdmin: boolean = false;
 }

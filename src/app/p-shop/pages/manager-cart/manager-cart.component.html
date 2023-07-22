@@ -1,1 +1,101 @@
-<p>manager-cart works!</p>
+<kendo-drawer-container>
+    <kendo-drawer-content>
+        <div class="wrapper-detail-program">
+            <div class="header-detail-program">
+                <div class="search-detail-program">
+                    <div class="wrapper-search">
+                        <div class="title-detail-program">
+                            <span>Tìm kiếm sản phẩm</span>
+                        </div>
+                        <kendo-textbox [style.width.px]="372" placeholder="Tìm theo barcode, poscode, tên sản phẩm"
+                            type="text" class="search-input" style="border: none; border-radius: 5px;">
+                            <ng-template kendoTextBoxPrefixTemplate>
+                                <kendo-icon name="search"></kendo-icon>
+                            </ng-template>
+                        </kendo-textbox>
+                        <button kendoButton [themeColor]="'primary'">
+                            <kendo-icon name="search"></kendo-icon>
+                            Tìm
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="body-detail-program mt-5">
+                <kendo-grid [data]="gridView" [pageSize]="pageSize" [skip]="skip" [pageable]="{
+                buttonCount: buttonCount,
+                info: info,
+                type: type,
+                pageSizes: pageSizes,
+                previousNext: previousNext,
+                position: position
+                }" [height]="520" (pageChange)="pageChange($event)">
+
+                    <kendo-grid-column field="name" title="Customer">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                            <div class="container-product">
+
+                                <div class="sub-title">
+                                    <span class="title">{{ dataItem.name }}</span>
+                                    <div class="ncode">
+                                        <span class="poscode">{{ dataItem.email }}</span>
+                                        <span class="barcode">{{ dataItem.phonenb }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="quantity" title="Quantity">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="amount" title="Amount">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="status" title="Status">
+                        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+
+
+
+                            <span class="statusbtn">
+                                chờ xử lý
+                            </span>
+                            <span class="btnedit">
+
+                                <kendo-dropdownbutton [data]="data">
+                                    <i class="fa-sharp fa-solid fa-ellipsis"></i>
+
+                                    <ng-template kendoDropDownButtonItemTemplate let-items style="padding: 0;">
+
+                                        <button kendoButton (click)="drawer.toggle()">{{items.text}}</button>
+
+
+                                    </ng-template>
+
+                                </kendo-dropdownbutton>
+
+
+
+                            </span>
+
+
+                        </ng-template>
+                    </kendo-grid-column>
+
+                </kendo-grid>
+
+                <!-- <kendo-grid-column [class]="'title'" field='ProductName'>
+            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+
+            </ng-template>
+        </kendo-grid-column> -->
+
+            </div>
+        </div>
+    </kendo-drawer-content>
+    <kendo-drawer style="width: 440px; margin-top: 105px;" #drawer [items]="item" [expanded]="true">
+        <!-- <ng-template kendoDrawerTemplate>
+
+                                        </ng-template> -->
+    </kendo-drawer>
+</kendo-drawer-container>

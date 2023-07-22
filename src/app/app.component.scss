@@ -2,7 +2,7 @@
 
 header {
   width: 100%;
-  // position: fixed;
+  position: fixed;
   top: 0;
   z-index: 99999999999999;
   background-color: $white;
@@ -10,12 +10,13 @@ header {
 
 main {
   width: 100%;
+  height: max-content;
   margin-top: 100px;
 }
 
 footer {
   width: 100%;
-  background-color: $white;
-  margin-top: 20px;
+  // background-color: $white;
+  // margin-top: 20px;
   // box-shadow: 0px 0px 20px 0px $gray;
 }
