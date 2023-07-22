@@ -556,11 +556,13 @@ ul.navbar-nav li.nav-item.active a.nav-link {
 }
 
 .top-header-area {
+  width: 100%;
+  height: 100px;
   background-color: #012738;
   position: absolute;
-  z-index: 999;
-  width: 100%;
+  z-index: 9999999;
   padding: 25px 0;
+  top: 0;
 }
 
 .top-header-area.white ul.navbar-nav li.nav-item a.nav-link,
@@ -1423,11 +1425,6 @@ a.mobile-show.search-bar-icon:hover {
   height: 500px;
   position: relative;
   z-index: 1;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .hero-area:after {
