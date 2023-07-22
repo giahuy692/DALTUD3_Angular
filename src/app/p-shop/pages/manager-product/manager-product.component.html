@@ -42,28 +42,29 @@
                 </div>
                 <div class="search-detail-program">
                     <div class="wrapper-search">
-                        <kendo-textbox [style.width.px]="372" fillMode="solid"
-                            placeholder="Tìm theo barcode, poscode, tên sản phẩm" type="text" class="search-input">
+                        <kendo-textbox [style.width.px]="372" fillMode="solid" placeholder="Find by product name"
+                            type="text" class="search-input">
                             <ng-template kendoTextBoxPrefixTemplate>
                                 <kendo-textbox-separator></kendo-textbox-separator>
                                 <kendo-icon name="search"></kendo-icon>
                             </ng-template>
                         </kendo-textbox>
                         <button kendoButton [themeColor]="'primary'" iconClass="fas fa-search">
-                            Tìm
+                            Search
                         </button>
                     </div>
                 </div>
                 <div class="tool-detail-program">
                     <kendo-dropdownlist [data]="CategoryList" style="width: 200px;"></kendo-dropdownlist>
                     <button kendoButton [themeColor]="'primary'" iconClass="fas fa-plus" (click)="drawer.toggle()">
-                        THÊM MỚI SẢN PHẨM
+                        ADD NEW PRODUCT
                     </button>
                 </div>
             </div>
 
             <div class="body-detail-program mt-3">
-                <app-grid-block [dataView]="listProduct">
+                <app-grid-block [dataView]="listProduct" [limit]="limit" [limits]="limits"
+                    [selectedValue]="selectedValue" [currentPage]="currentPage">
                     <kendo-grid-column [class]="'title'">
                         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                             <button kendoButton [themeColor]="'base'" iconClass="fas fa-trash-alt" class=" dustbin"
