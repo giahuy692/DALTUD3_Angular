@@ -7,16 +7,17 @@
                         <div class="title-detail-program">
                             <span>Tìm kiếm sản phẩm</span>
                         </div>
-                        <kendo-textbox [style.width.px]="372" placeholder="Tìm theo barcode, poscode, tên sản phẩm"
-                            type="text" class="search-input" style="border: none; border-radius: 5px;">
-                            <ng-template kendoTextBoxPrefixTemplate>
-                                <kendo-icon name="search"></kendo-icon>
-                            </ng-template>
-                        </kendo-textbox>
-                        <button kendoButton [themeColor]="'primary'">
-                            <kendo-icon name="search"></kendo-icon>
-                            Tìm
-                        </button>
+
+                        <div style="display: flex;column-gap: 10px;">
+                            <kendo-textbox placeholder="Insert name here" type="text">
+                                <ng-template kendoTextBoxPrefixTemplate>
+                                    <kendo-textbox-separator></kendo-textbox-separator>
+                                    <kendo-icon name="search" style="margin: 0 5px;"></kendo-icon>
+                                </ng-template>
+                            </kendo-textbox>
+                            <kendo-button [themeColor]="'primary'" iconClass="k-icon k-i-search">SEARCH</kendo-button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -84,18 +85,42 @@
 
                 </kendo-grid>
 
-                <!-- <kendo-grid-column [class]="'title'" field='ProductName'>
-            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-
-            </ng-template>
-        </kendo-grid-column> -->
 
             </div>
         </div>
     </kendo-drawer-content>
-    <kendo-drawer style="width: 440px; margin-top: 105px;" #drawer [items]="item" [expanded]="true">
-        <!-- <ng-template kendoDrawerTemplate>
-
-                                        </ng-template> -->
+    <kendo-drawer #drawer [mode]="'overlay'" [position]="'end'">
+        <ng-template kendoDrawerTemplate let-item>
+            <div class="HeaderDrawer">
+                <h4>Edit User</h4>
+            </div>
+            <div class="BodyDrawer">
+                <kendo-label text="Username:">
+                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                </kendo-label>
+                <kendo-label text="Password:">
+                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                </kendo-label>
+                <kendo-label text="Email:">
+                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                </kendo-label>
+                <div class="d-flex">
+                    <kendo-label text="Address:">
+                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label class="k-checkbox-label" [for]="notification" text="Allow Notifications">
+                        <input type="checkbox" #notification kendoCheckBox />
+                    </kendo-label>
+                </div>
+                <kendo-label text="Phone:">
+                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                </kendo-label>
+            </div>
+            <div class="FooterDrawer">
+                <button kendoButton (click)="drawer.toggle()">CLOSE</button>
+                <button kendoButton (click)="drawer.toggle()" iconClass="k-icon k-i-save"
+                    themeColor="primary">SAVE</button>
+            </div>
+        </ng-template>
     </kendo-drawer>
 </kendo-drawer-container>
