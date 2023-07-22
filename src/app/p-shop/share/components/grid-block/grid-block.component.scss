@@ -100,16 +100,16 @@ tbody tr {
         //     }
         // }
 
-        // .pageSize {
-        //     flex-direction: row-reverse;
-        //     column-gap: 10px;
-        // }
+        .pageSize {
+            flex-direction: row-reverse;
+            column-gap: 10px;
+        }
 
-        // .k-label {
-        //     font-weight: 700;
-        //     font-size: 13px;
-        //     color: #959db3;
-        // }
+        .k-label {
+            font-weight: 700;
+            font-size: 13px;
+            color: #959db3;
+        }
 
         // .k-pager .k-pager-sizes .k-dropdownlist {
         //     outline: none !important;
@@ -257,5 +257,9 @@ tbody tr {
 
     .k-picker-solid:focus-within {
         box-shadow: none;
+    }
+
+    .Pager {
+        display: flex;
     }
 }

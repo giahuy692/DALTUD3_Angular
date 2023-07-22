@@ -51,17 +51,17 @@ const routes: Routes = [
   {
     path: 'admin/user',
     component: ManagerUserComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'admin/cart',
     component: ManagerCartComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'admin/product',
     component: ManagerProductComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'password-protect',

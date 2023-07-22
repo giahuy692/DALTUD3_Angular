@@ -25,12 +25,14 @@ export class ShopSingleComponent {
   productSingle: any;
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('productID'));
-    this.serviceApi.getProduct(id).subscribe((v: DTOProduct) => {
-      this.product = v;
-      console.log(this.product);
-    });
-    console.log(this.listProductLimit);
+    const id = this.route.snapshot.paramMap.get('productID');
+    if (id != null || id != undefined) {
+      this.serviceApi.GetProduct(id).subscribe((v: DTOProduct) => {
+        this.product = v;
+        console.log(this.product);
+      });
+      console.log(this.listProductLimit);
+    }
     //======================================================================
     this.getData();
     this.getListProductLimit();
@@ -42,17 +44,17 @@ export class ShopSingleComponent {
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
   // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
-    this.serviceApi.getListProduct().subscribe((a: any) => {
+    this.serviceApi.GetListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
-        if (item.category == this.product.category) {
+        if (item.CatalogName == this.product.CatalogName) {
           this.arrProductTogetherCategory.push(item);
         }
       });
     });
   }
-  getProductSingle(data: DTOProduct) {
-    this.serviceApi.getProduct(data.id).subscribe((v: any) => {
+  GetProductSingle(data: DTOProduct) {
+    this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
       window.location.reload();
       //reload() => refresh lại trang khi click vào sản phẩm liên quan
@@ -65,7 +67,7 @@ export class ShopSingleComponent {
   }
 
   getData() {
-    this.serviceApi.getListProduct().subscribe(
+    this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
         // this.notificationService.show({
@@ -85,7 +87,7 @@ export class ShopSingleComponent {
   //   this.serviceApi.getListProduct().subscribe((a: any) => {
   //     this.listProductLimit = a;
   //     this.listProductLimit.forEach((item: DTOProduct) => {
-  //       if (item.category == this.product.category) {
+  //       if (item.CatalogName == this.product.CatalogName) {
   //         this.arrProductTogetherCategory.push(item);
   //       }
   //     });
@@ -94,7 +96,7 @@ export class ShopSingleComponent {
   // }
 
   onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data.id);
+    this.mapService.id.next(data._id);
     // this.router.navigate(['/shop-detail']);
   }
   // onClickRelatedProduct() {

@@ -1,0 +1,16 @@
+@import "../../../../assets/scss/variable";
+@import "../../../../assets/scss/mixin";
+
+// css của angular dùng để ghi để lên css
+// của các compomnet được sử dụng lại trong phần thực hiện
+// cuả mình
+::ng-deep {
+    app-women {
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+    }
+}

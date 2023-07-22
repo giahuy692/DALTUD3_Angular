@@ -1,22 +1,3 @@
-<!-- search area -->
-<div class="search-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <span class="close-btn"><i class="fas fa-window-close"></i></span>
-        <div class="search-bar">
-          <div class="search-bar-tablecell">
-            <h3>Search For:</h3>
-            <input type="text" placeholder="Keywords">
-            <button type="submit">Search <i class="fas fa-search"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end search arewa -->
-
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
   <div class="container">
@@ -33,18 +14,17 @@
 <!-- end breadcrumb section -->
 
 <div class="main">
-  <div style="
-      display: flex;
-      width: 100%;
-      column-gap: 10px;
-      padding: 40px 20px 20px 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 10px;
-    ">
-    <app-product *ngFor="let i of data" [price]="i.price" [titleProduct]="i.title" [imgProduct]="i.image"
-      [countRate]="i.rating.count" [rate]="i.rating.rate" [id]="i.id"
-      (clickItem)="getProductSingle($event)"></app-product>
+  <div class="col-lg-4 col-md-6 text-center">
+    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
+      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
+  </div>
+  <div class="col-lg-4 col-md-6 text-center">
+    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
+      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
+  </div>
+  <div class="col-lg-4 col-md-6 text-center">
+    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
+      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
   </div>
 </div>
 

@@ -8,14 +8,13 @@
         </div>
         <div id="form_status"></div>
         <div class="contact-form">
-          <form type="POST" id="" onSubmit="return valid_datas( this );">
-
+          <form [formGroup]="form">
             <div class="input-focus-effect">
-              <input type="text" placeholder=" " />
-              <label>Username</label>
+              <input type="text" placeholder=" " formControlName="Email" />
+              <label>Email</label>
             </div>
             <div class="input-focus-effect mt-3">
-              <input type="text" placeholder=" " />
+              <input type="text" placeholder=" " formControlName="Password" />
               <label>Password</label>
             </div>
 
@@ -23,7 +22,7 @@
               <a routerLink="./register">Register</a>
               <a routerLink="#">Forget Password ?</a>
             </div>
-            <input class="submit" type="submit" value="Submit">
+            <input class="submit" type="submit" value="Submit" (click)="handleLogin()">
           </form>
         </div>
       </div>

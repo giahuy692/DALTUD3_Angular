@@ -99,15 +99,16 @@
 
     <div class="row">
       <div class="col-lg-4 col-md-6 text-center">
-        <app-product [titleProduct]="'Woman 1'" [price]="150"
-          [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
+        <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
+          [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"
+          (clickItem)="GetProductSingle($event)"></app-product>
       </div>
       <div class="col-lg-4 col-md-6 text-center">
-        <app-product [titleProduct]="'Woman 1'" [price]="150"
+        <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
           [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
       </div>
       <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-        <app-product [titleProduct]="'Woman 1'" [price]="150"
+        <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
           [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
       </div>
     </div>

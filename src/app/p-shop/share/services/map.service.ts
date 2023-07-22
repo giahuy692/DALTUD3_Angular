@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MapService {
   arrHeader = new Subject<any>();
-  id = new Subject<number>();
+  id = new Subject<string>();
 
   itemDetailProduct = new Subject<any>(); // trao đổi dữ liệu 2 bên
 
