@@ -15,17 +15,25 @@
                     <kendo-label text="Email:">
                         <kendo-textbox placeholder="John Smith"></kendo-textbox>
                     </kendo-label>
-                    <div class="d-flex next align-items-center justify-content-between">
+                    <<<<<<< HEAD <div class="d-flex next align-items-center justify-content-between">
                         <kendo-label text="Address:">
                             <kendo-textbox placeholder="John Smith"></kendo-textbox>
                         </kendo-label>
                         <kendo-label class="k-checkbox-label" [for]="isAdmin" text="Admin">
                             <input type="checkbox" #isAdmin kendoCheckBox class="ml-2" />
-                        </kendo-label>
-                    </div>
-                    <kendo-label text="Phone:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                    </kendo-label>
+                            =======
+                            <div class="d-flex">
+                                <kendo-label text="Address:">
+                                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                                </kendo-label>
+                                <kendo-label class="k-checkbox-label" [for]="notification" text="Allow Notifications">
+                                    <input type="checkbox" #notification kendoCheckBox />
+                                    >>>>>>> dev
+                                </kendo-label>
+                            </div>
+                            <kendo-label text="Phone:">
+                                <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                            </kendo-label>
                 </div>
                 <div class="FooterDrawer">
                     <button kendoButton (click)="drawer.toggle()">CLOSE</button>
