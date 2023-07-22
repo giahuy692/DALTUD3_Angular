@@ -13,7 +13,6 @@ import { PasswordProtectComponent } from './p-shop/pages/password-protect/passwo
 import { LoginComponent } from './p-shop/pages/login/login.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
-import { AuthGuard } from './AuthGuard';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
 import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
 import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';

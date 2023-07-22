@@ -61,6 +61,13 @@
                         <kendo-grid-column field="ProductID" title="ID"> </kendo-grid-column>
                         <kendo-grid-column field="ProductName" title="Name"> </kendo-grid-column>
                         <kendo-grid-column field="UnitPrice" title="Price"> </kendo-grid-column>
+                        <kendo-grid-column>
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                                <kendo-dropdownbutton iconClass="k-icon k-i-more-horizontal"
+                                    [popupSettings]="{ popupClass: 'popupBtbDrop', animate: true, align: 'right', appendTo: 'component' }"
+                                    buttonClass="popupCustom" [data]="OptionList"></kendo-dropdownbutton>
+                            </ng-template>
+                        </kendo-grid-column>
                         <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
                             <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
                             <kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>

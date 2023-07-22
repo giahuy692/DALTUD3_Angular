@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-root',

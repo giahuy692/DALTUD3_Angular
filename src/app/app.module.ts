@@ -48,7 +48,6 @@ import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-block.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
-
 @NgModule({
   declarations: [
     AppComponent,
