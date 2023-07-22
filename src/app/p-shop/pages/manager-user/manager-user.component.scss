@@ -39,6 +39,10 @@
                                     margin-top: 10px;
                                 }
                             }
+
+                            .next {
+                                margin-top: 10px;
+                            }
                         }
 
                         .FooterDrawer {
@@ -91,6 +95,54 @@
                         //     flex-direction: unset;
                         //     height: 32px;
                         // }
+                    }
+
+                    .wrapper-grid {
+                        margin-top: 10px;
+                        overflow: auto;
+                        height: calc(100vh - 218px);
+
+                        .k-grid {
+                            background-color: transparent;
+                            border: none;
+                            height: 100%;
+
+                            .k-grid-aria-root {
+                                .k-table {
+                                    -webkit-border-vertical-spacing: 10px;
+
+                                    .k-grid-header {
+                                        border: none;
+                                        background-color: transparent;
+
+                                        .k-table-row {
+                                            .k-table-th {
+                                                box-shadow: none;
+                                                border: none;
+
+                                                .k-cell-inner {
+                                                    .k-link {}
+                                                }
+                                            }
+
+
+                                        }
+                                    }
+
+                                    .k-table-tbody {
+                                        .k-table-row {
+                                            background-color: #ffff;
+
+                                            .k-table-td {
+                                                box-shadow: none;
+                                                border: none;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -315,18 +315,50 @@ p {
   }
 }
 
-// .k-input-solid {
-//   font-size: 16px;
-//   border: none;
-//   border-bottom: 1px solid $primary;
-//   border-radius: 0;
+.wrapper-grid {
+  margin-top: 10px;
+  overflow: auto;
+  height: calc(100vh - 218px);
 
-//   &:hover {
-//     border-bottom-color: $secondary;
-//   }
+  .k-grid {
+    background-color: transparent;
+    border: none;
+    height: 100%;
 
-//   &:focus {
-//     border: 2px solid $primary !important;
-//     outline: $primary;
-//   }
-// }
+    .k-grid-aria-root {
+      .k-table {
+        -webkit-border-vertical-spacing: 10px;
+
+        .k-grid-header {
+          border: none;
+          background-color: transparent;
+
+          .k-table-row {
+            .k-table-th {
+              box-shadow: none;
+              border: none;
+
+              .k-cell-inner {
+                .k-link {}
+              }
+            }
+
+
+          }
+        }
+
+        .k-table-tbody {
+          .k-table-row {
+            background-color: #ffff;
+
+            .k-table-td {
+              box-shadow: none;
+              border: none;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
