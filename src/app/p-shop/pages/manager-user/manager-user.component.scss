@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/variable';
+
 ::ng-deep {
     body {
         background-color: #EDEFF3;
@@ -108,12 +110,17 @@
                             height: 100%;
 
                             .k-grid-aria-root {
+                                height: calc(100vh - 218px);
+                                overflow: auto;
+
                                 .k-table {
                                     -webkit-border-vertical-spacing: 10px;
 
                                     .k-grid-header {
                                         border: none;
-                                        background-color: transparent;
+                                        background-color: $blue-dark;
+                                        position: sticky;
+                                        top: 0;
 
                                         .k-table-row {
                                             .k-table-th {
@@ -121,7 +128,9 @@
                                                 border: none;
 
                                                 .k-cell-inner {
-                                                    .k-link {}
+                                                    .k-link {
+                                                        color: $white;
+                                                    }
                                                 }
                                             }
 
@@ -141,6 +150,10 @@
                                     }
 
                                 }
+                            }
+
+                            .k-pager {
+                                height: 50px;
                             }
                         }
                     }

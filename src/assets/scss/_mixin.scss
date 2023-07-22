@@ -17,4 +17,6 @@ $clamp: 1;
   -webkit-line-clamp: $clamp;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
