@@ -3,7 +3,7 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
+import { layoutService } from '../../share/services/layout.service';
 
 @Component({
   selector: 'app-man',
@@ -13,9 +13,7 @@ import { MapService } from '../../share/services/map.service';
 export class ManComponent {
   constructor(
     private serviceApi: ShopApiService,
-    private notificationService: NotificationService,
-    private router: Router,
-    private mapService: MapService
+    private layout: layoutService
   ) {}
 
   data: DTOProduct[];
@@ -58,39 +56,14 @@ export class ManComponent {
     return Array(roundedRate).fill(0);
   }
 
-  // onClickProduct(data: DTOProduct) {
-  //   console.log(data);
-  // }
-
-  //Lấy chi tiết sản phẩm
-  // GetProductSingle(data: DTOProduct) {
-  //   // data: DTOProduct là giá trị nhận được khi click vào 1 sản phẩm
-  //   this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
-  //     // Api GetProduct truyền (data._id)
-  //     this.product = v; //Nhận được product detail từ api trả về dựa vào id được truyền là data._id gán vào biến product
-  //     console.log('ProductSingle', this.product); //console ra giá trị hiện tại của product thông qua id
-  //   });
-  // }
-
   getData() {
     this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        // this.notificationService.show({
-        //   content: 'Get list product success',
-        //   hideAfter: 600,
-        //   position: { horizontal: 'left', vertical: 'bottom' },
-        //   animation: { type: 'fade', duration: 400 },
-        //   type: { style: 'success', icon: true },
-        // });
       },
       (error: any) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        console.log(error);
+        this.layout.showError('Get list product failed!');
       }
     );
   }
@@ -106,9 +79,4 @@ export class ManComponent {
   //     this.listProductLimit = v;
   //   });
   // }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-    // this.router.navigate(['/shop-detail']);
-  }
 }

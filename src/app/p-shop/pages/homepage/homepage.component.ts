@@ -9,7 +9,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Route, Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
 import { Subscription } from 'rxjs';
 
 export interface Item {
@@ -41,7 +40,6 @@ export class HomepageComponent implements OnInit {
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
-    private mapService: MapService,
     private router: Router
   ) {}
 
@@ -78,10 +76,6 @@ export class HomepageComponent implements OnInit {
         this.productSingle = v;
       });
     this.arrUnsubscribe.push(GetProductSingle);
-  }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
   }
 
   public onButtonClick(): void {

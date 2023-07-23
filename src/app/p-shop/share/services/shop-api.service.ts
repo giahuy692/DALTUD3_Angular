@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DTOProduct } from '../dtos/DTOProduct';
 import { DTOUser } from '../dtos/DTOUser';
 import { DTOOrder } from '../dtos/DTOOrder';
-import { AuthServiceService } from './auth-service.service';
+import { AuthService } from './auth.service';
 import { DTOCategory } from '../dtos/DTOCategory';
 import { DTOTransaction } from '../dtos/DTOTransaction';
 
@@ -12,10 +12,7 @@ import { DTOTransaction } from '../dtos/DTOTransaction';
   providedIn: 'root',
 })
 export class ShopApiService {
-  constructor(
-    private http: HttpClient,
-    private authService: AuthServiceService
-  ) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   //#region product
   // API lấy tất cả các sản phẩm
@@ -450,6 +447,7 @@ export class ShopApiService {
         .subscribe(
           (res) => {
             this.authService.setAccessToken(res.accessToken);
+            localStorage.setItem('token', res.accessToken);
             obs.next(res);
             obs.complete();
           },
@@ -480,6 +478,28 @@ export class ShopApiService {
         );
     });
   }
+
+  Logout() {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    localStorage.removeItem('token');
+    return new Observable<any>((obs) => {
+      this.http
+        .post<any>(`http://localhost:3000/api/Logout`, {}, { headers })
+        .subscribe(
+          (res) => {
+            obs.next(res);
+            obs.complete();
+          },
+          (error) => {
+            obs.error(error);
+            obs.complete();
+          }
+        );
+    });
+  }
+
   //#endregion
 
   //#region Cart

@@ -9,6 +9,7 @@ import {
   DialogRef,
   DialogService,
 } from '@progress/kendo-angular-dialog';
+import { layoutService } from '../../share/services/layout.service';
 
 @Component({
   selector: 'app-manager-product',
@@ -29,6 +30,7 @@ export class ManagerProductComponent implements OnInit {
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
+    private layout: layoutService,
     private dialogService: DialogService
   ) {}
 
@@ -95,14 +97,7 @@ export class ManagerProductComponent implements OnInit {
     let onDelete = this.apiService.DeleteProduct(value).subscribe(
       (v) => {
         this.GetListProduct(1, 100, undefined);
-
-        this.notificationService.show({
-          content: 'Delete product success',
-          hideAfter: 600,
-          position: { horizontal: 'left', vertical: 'bottom' },
-          animation: { type: 'fade', duration: 400 },
-          type: { style: 'success', icon: true },
-        });
+        this.layout.showSuccess('Delete product success');
       },
       (errr) => {
         console.log(errr);

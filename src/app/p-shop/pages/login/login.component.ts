@@ -9,6 +9,7 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { Subscription } from 'rxjs';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { layoutService } from '../../share/services/layout.service';
 
 @Component({
   selector: 'app-login',
@@ -23,14 +24,13 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private shopApiService: ShopApiService,
-    private notificationService: NotificationService,
-    private router: Router,
-    private route: ActivatedRoute
+    private layout: layoutService
   ) {
     this.form = this.formBuilder.group({
       Email: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
+        Validators.email,
       ]),
       Password: new FormControl('', [
         Validators.required,
@@ -39,11 +39,7 @@ export class LoginComponent {
     });
   }
 
-  ngOnInit() {
-    // Get the return URL from the route parameters
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    console.log(history);
-  }
+  ngOnInit() {}
 
   get showSuccess() {
     if (this.form.controls) {
@@ -59,23 +55,12 @@ export class LoginComponent {
       if (email && password) {
         this.shopApiService.UserLogin(email, password).subscribe(
           (v: any) => {
-            this.notificationService.show({
-              content: 'Login suscess',
-              hideAfter: 600,
-              position: { horizontal: 'left', vertical: 'bottom' },
-              animation: { type: 'fade', duration: 400 },
-              type: { style: 'success', icon: true },
-            });
+            this.layout.showSuccess('Login suscess');
             this.goBack();
           },
           (error) => {
             console.log(error);
-            this.notificationService.show({
-              content: error.error,
-              animation: { type: 'slide', duration: 400 },
-              position: { horizontal: 'center', vertical: 'bottom' },
-              type: { style: 'error', icon: true },
-            });
+            this.layout.showError('Login failed!');
           }
         );
       }

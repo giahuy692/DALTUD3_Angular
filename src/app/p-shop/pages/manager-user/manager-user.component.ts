@@ -39,6 +39,19 @@ export class ManagerUserComponent {
     },
   ];
 
+  OptionList = [
+    {
+      text: 'EDIT',
+      iconClass: 'k-icon k-i-edit',
+      type: 1,
+    },
+    {
+      text: 'DELETE',
+      iconClass: 'k-icon k-i-delete',
+      type: 2,
+    },
+  ];
+
   constructor() {}
   handleSearch() {}
 

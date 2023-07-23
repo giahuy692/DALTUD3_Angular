@@ -9,7 +9,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Route, Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,7 +25,6 @@ export class ShopComponent {
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
-    private mapService: MapService,
     private router: Router
   ) {}
 
@@ -66,9 +64,6 @@ export class ShopComponent {
     this.arrUnsubscribe.push(GetProductSingle);
   }
 
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-  }
   public onButtonClick(): void {
     console.log('click');
   }
