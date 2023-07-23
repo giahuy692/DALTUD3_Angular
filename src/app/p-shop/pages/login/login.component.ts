@@ -64,6 +64,9 @@ export class LoginComponent {
           }
         );
       }
+    } else {
+      this.form.markAllAsTouched();
+      this.layout.showError('Please fill in all the fields.');
     }
   }
 

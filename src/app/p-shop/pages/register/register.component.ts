@@ -58,7 +58,6 @@ export class RegisterComponent implements OnInit {
       this.Register(this.form.value);
     } else {
       this.form.markAllAsTouched();
-      console.log(this.form.errors);
       this.layout.showError('Please fill in all the fields.');
     }
   }
