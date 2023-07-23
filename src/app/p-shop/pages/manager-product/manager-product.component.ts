@@ -4,6 +4,11 @@ import { Subscription, interval } from 'rxjs';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
+import {
+  DialogCloseResult,
+  DialogRef,
+  DialogService,
+} from '@progress/kendo-angular-dialog';
 
 @Component({
   selector: 'app-manager-product',
@@ -19,10 +24,12 @@ export class ManagerProductComponent implements OnInit {
   selectedValue: number = 20;
   currentPage: number = 1;
   public CategoryList: Array<string> = ['Man', 'Woman', 'Couple'];
+  public result: string;
 
   constructor(
     private apiService: ShopApiService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private dialogService: DialogService
   ) {}
 
   private interval: any;
@@ -54,6 +61,33 @@ export class ManagerProductComponent implements OnInit {
 
   onclick() {
     console.log('click thành công');
+  }
+
+  public showConfirmation(): void {
+    const dialog: DialogRef = this.dialogService.open({
+      title: 'Please confirm',
+      content:
+        'Do you want delete {{product.name}}?, You will not restore when you delete, are you sure?',
+      actions: [{ text: 'No' }, { text: 'Yes', themeColor: 'primary' }],
+      width: 450,
+      height: 200,
+      minWidth: 250,
+    });
+
+    dialog.result.subscribe((result) => {
+      if (result instanceof DialogCloseResult) {
+        console.log('close');
+      } else {
+        // Xử lý khi người dùng chọn "Yes"
+        if (result.text === 'Yes') {
+          alert('thuc hien xoa');
+          //this.deleteProduct(); // Gọi phương thức xóa sản phẩm tại đây
+        }
+        console.log('action', result);
+      }
+
+      this.result = JSON.stringify(result);
+    });
   }
 
   onDelete(value: any) {

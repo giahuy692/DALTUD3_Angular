@@ -39,6 +39,14 @@
             <div class="header-detail-program">
                 <div class="title-detail-program">
                     <span>PRODUCT INFORMATION</span>
+                    <div class="example-wrapper">
+                        <div class="example-config" *ngIf="result">
+                            Dialog result: {{ result }}
+                        </div>
+                        <button kendoButton (click)="showConfirmation()">Please confirm</button>
+                    </div>
+
+                    <div kendoDialogContainer></div>
                 </div>
                 <div class="search-detail-program">
                     <div class="wrapper-search">
