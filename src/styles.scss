@@ -172,8 +172,8 @@ p {
   font-size: 16px;
 
   &:hover {
-    background-color: $primary-hover;
-    border-color: $primary-hover;
+    background-color: $primary-300;
+    border-color: $primary-300;
   }
 }
 
@@ -191,11 +191,11 @@ p {
   }
 
   &:hover {
-    background-color: $yellow-hover;
-    border-color: $yellow-hover;
+    background-color: $yellow-300;
+    border-color: $yellow-300;
 
     .k-button-icon {
-      color: $primary-hover;
+      color: $primary-300;
     }
   }
 }
@@ -311,7 +311,7 @@ p {
 
 .k-textbox {
   &:hover {
-    border-color: $primary-hover;
+    border-color: $primary-300;
   }
 }
 
@@ -334,7 +334,7 @@ p {
 
         .k-grid-header {
           border: none;
-          background-color: $blue-dark;
+          background-color: $blue-dark-300;
           position: sticky;
           top: 0;
 
@@ -445,6 +445,6 @@ kendo-drawer-container {
 
 /* Thiết lập màu nền khi di chuột vào phần cuộn */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: $blue-dark-hover;
+  background-color: $blue-dark-300;
   /* Màu nền khi di chuột vào thanh cuộn */
 }
