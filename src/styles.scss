@@ -433,6 +433,7 @@ kendo-drawer-container {
 /* Thiết lập màu nền và kích thước cho thanh cuộn */
 ::-webkit-scrollbar {
   width: 5px;
+  border-radius: 3px;
   /* Chiều rộng thanh cuộn */
 }
 

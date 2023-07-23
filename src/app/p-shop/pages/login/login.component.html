@@ -12,14 +12,22 @@
         <div id="form_status"></div>
         <div class="contact-form">
           <form [formGroup]="form">
-            <div class="input-focus-effect">
-              <input type="text" placeholder=" " formControlName="Email" />
-              <label>Email</label>
-            </div>
-            <div class="input-focus-effect mt-3">
-              <input type="text" placeholder=" " formControlName="Password" />
-              <label>Password</label>
-            </div>
+            <kendo-formfield>
+              <div class="input-focus-effect">
+                <input type="text" placeholder=" " formControlName="Email" />
+                <label>Email</label>
+              </div>
+              <kendo-formerror>Error: Username is required</kendo-formerror>
+            </kendo-formfield>
+
+
+            <kendo-formfield>
+              <div class="input-focus-effect mt-3">
+                <input type="text" placeholder=" " formControlName="Password" />
+                <label>Password</label>
+              </div>
+              <kendo-formerror>Error: Password is required</kendo-formerror>
+            </kendo-formfield>
 
             <div class="text-right p-2 d-flex justify-content-between">
               <a routerLink="./register">Register</a>

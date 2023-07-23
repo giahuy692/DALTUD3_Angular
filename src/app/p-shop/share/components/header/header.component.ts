@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       });
     });
     this.user = null;
+    this.router.navigate(['home']);
   }
   isAdminPage(): boolean {
     return this.router.url.includes('/admin');
