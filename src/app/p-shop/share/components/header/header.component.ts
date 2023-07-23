@@ -4,6 +4,7 @@ import { ShopApiService } from '../../services/shop-api.service';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { DTOUser } from '../../dtos/DTOUser';
 import { AuthService } from '../../services/auth.service';
+import { layoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(
     public router: Router,
     private ApiService: ShopApiService,
-    private noti: NotificationService,
+    private layout: layoutService,
     private auth: AuthService
   ) {
     this.router.events.subscribe((event) => {
@@ -37,15 +38,14 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   onLogout() {
-    this.ApiService.Logout().subscribe((v) => {
-      this.noti.show({
-        content: v.message,
-        cssClass: 'button-notification',
-        animation: { type: 'slide', duration: 400 },
-        position: { horizontal: 'left', vertical: 'bottom' },
-        type: { style: 'success', icon: true },
-      });
-    });
+    this.ApiService.Logout().subscribe(
+      (v) => {
+        this.layout.showSuccess(v.message);
+      },
+      (error) => {
+        this.layout.showError(error);
+      }
+    );
     this.user = null;
     this.router.navigate(['home']);
   }
