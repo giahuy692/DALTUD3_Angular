@@ -3,6 +3,7 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
+import { layoutService } from '../../share/services/layout.service';
 
 @Component({
   selector: 'app-couple',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class CoupleComponent {
   constructor(
     private serviceApi: ShopApiService,
-    private notificationService: NotificationService,
+    private layout: layoutService,
     private router: Router
   ) {}
 
@@ -55,12 +56,7 @@ export class CoupleComponent {
         this.data = v;
       },
       (error: any) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
+        this.layout.showError('Get list product failed!');
       }
     );
   }

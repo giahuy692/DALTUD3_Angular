@@ -4,6 +4,7 @@ import { Subscription, interval } from 'rxjs';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
+import { layoutService } from '../../share/services/layout.service';
 
 @Component({
   selector: 'app-manager-product',
@@ -22,7 +23,8 @@ export class ManagerProductComponent implements OnInit {
 
   constructor(
     private apiService: ShopApiService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private layout: layoutService
   ) {}
 
   private interval: any;
@@ -61,14 +63,7 @@ export class ManagerProductComponent implements OnInit {
     let onDelete = this.apiService.DeleteProduct(value).subscribe(
       (v) => {
         this.GetListProduct(1, 100, undefined);
-
-        this.notificationService.show({
-          content: 'Delete product success',
-          hideAfter: 600,
-          position: { horizontal: 'left', vertical: 'bottom' },
-          animation: { type: 'fade', duration: 400 },
-          type: { style: 'success', icon: true },
-        });
+        this.layout.showSuccess('Delete product success');
       },
       (errr) => {
         console.log(errr);

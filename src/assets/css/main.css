@@ -1498,7 +1498,7 @@ a.mobile-show.search-bar-icon:hover {
 
 input[type="submit"] {
   background-color: #e5342a;
-  color: #051922;
+  color: #fff;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 15px;

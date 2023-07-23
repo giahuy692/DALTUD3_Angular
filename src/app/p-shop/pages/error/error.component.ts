@@ -14,38 +14,7 @@ export class ErrorComponent implements OnInit {
   productSingle: any;
   listProductLimit: any;
 
-  constructor(
-    private apiService: ShopApiService,
-    private notificationService: NotificationService,
-    private router: Router
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.getData();
-    this.GetProductSingle();
-  }
-
-  getData() {
-    this.apiService.GetListProduct().subscribe(
-      (v: any) => {
-        this.data = v;
-      },
-      (error) => {
-        this.notificationService.show({
-          content: error,
-          animation: { type: 'slide', duration: 400 },
-          position: { horizontal: 'center', vertical: 'bottom' },
-          type: { style: 'error', icon: true },
-        });
-      }
-    );
-  }
-
-  GetProductSingle() {
-    this.apiService
-      .GetProduct('64b157dee27407f744b4bcf7')
-      .subscribe((v: any) => {
-        this.productSingle = v;
-      });
-  }
+  ngOnInit(): void {}
 }

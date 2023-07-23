@@ -21,7 +21,14 @@ export class AppComponent implements OnInit {
 
   // Hàm kiểm tra xem trang có phải là trang admin hay không
   isAdminPage(): boolean {
-    return this.router.url.includes('/admin');
+    let isRouterAdmin = this.router.url.includes('/admin');
+    let isRouterRegister = this.router.url.includes('/register');
+    let isRouterLogin = this.router.url.includes('/admin');
+
+    if (isRouterAdmin || isRouterRegister || isRouterLogin) {
+      return true;
+    }
+    return false;
   }
 
   isAuth(): boolean {
