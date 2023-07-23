@@ -39,11 +39,7 @@ export class LoginComponent {
     });
   }
 
-  ngOnInit() {
-    // Get the return URL from the route parameters
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    console.log(history);
-  }
+  ngOnInit() {}
 
   get showSuccess() {
     if (this.form.controls) {

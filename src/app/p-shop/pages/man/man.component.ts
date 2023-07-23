@@ -3,7 +3,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
 
 @Component({
   selector: 'app-man',
@@ -14,8 +13,7 @@ export class ManComponent {
   constructor(
     private serviceApi: ShopApiService,
     private notificationService: NotificationService,
-    private router: Router,
-    private mapService: MapService
+    private router: Router
   ) {}
 
   data: DTOProduct[];
@@ -106,9 +104,4 @@ export class ManComponent {
   //     this.listProductLimit = v;
   //   });
   // }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-    // this.router.navigate(['/shop-detail']);
-  }
 }

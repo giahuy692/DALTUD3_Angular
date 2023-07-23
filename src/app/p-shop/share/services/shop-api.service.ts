@@ -447,6 +447,7 @@ export class ShopApiService {
         .subscribe(
           (res) => {
             this.authService.setAccessToken(res.accessToken);
+            localStorage.setItem('token', res.accessToken);
             obs.next(res);
             obs.complete();
           },
@@ -482,6 +483,7 @@ export class ShopApiService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
+    localStorage.removeItem('token');
     return new Observable<any>((obs) => {
       this.http
         .post<any>(`http://localhost:3000/api/Logout`, {}, { headers })
@@ -497,6 +499,7 @@ export class ShopApiService {
         );
     });
   }
+
   //#endregion
 
   //#region Cart

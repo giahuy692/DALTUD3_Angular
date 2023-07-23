@@ -3,7 +3,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
 
 @Component({
   selector: 'app-couple',
@@ -14,8 +13,7 @@ export class CoupleComponent {
   constructor(
     private serviceApi: ShopApiService,
     private notificationService: NotificationService,
-    private router: Router,
-    private mapService: MapService
+    private router: Router
   ) {}
 
   data: DTOProduct[];
@@ -51,31 +49,10 @@ export class CoupleComponent {
     return Array(roundedRate).fill(0);
   }
 
-  // onClickProduct(data: DTOProduct) {
-  //   console.log(data);
-  // }
-
-  //Lấy chi tiết sản phẩm
-  // GetProductSingle(data: DTOProduct) {
-  //   // data: DTOProduct là giá trị nhận được khi click vào 1 sản phẩm
-  //   this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
-  //     // Api GetProduct truyền (data._id)
-  //     this.product = v; //Nhận được product detail từ api trả về dựa vào id được truyền là data._id gán vào biến product
-  //     console.log('ProductSingle', this.product); //console ra giá trị hiện tại của product thông qua id
-  //   });
-  // }
-
   getData() {
     this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        // this.notificationService.show({
-        //   content: 'Get list product success',
-        //   hideAfter: 600,
-        //   position: { horizontal: 'left', vertical: 'bottom' },
-        //   animation: { type: 'fade', duration: 400 },
-        //   type: { style: 'success', icon: true },
-        // });
       },
       (error: any) => {
         this.notificationService.show({
@@ -92,10 +69,5 @@ export class CoupleComponent {
     this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
     });
-  }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-    // this.router.navigate(['/shop-detail']);
   }
 }

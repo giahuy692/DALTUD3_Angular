@@ -1,28 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { MapService } from 'src/app/p-shop/share/services/map.service';
 import { ShopApiService } from '../../services/shop-api.service';
 import { NotificationService } from '@progress/kendo-angular-notification';
-
-class btnMenu {
-  id: number = 0;
-  text: string = '';
-  img?: string;
-  arrDropDown?: btnMenu[];
-  link?: string;
-}
+import { DTOUser } from '../../dtos/DTOUser';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   isAdmin: boolean = false;
+  user: any;
   constructor(
     public router: Router,
     private ApiService: ShopApiService,
-    private noti: NotificationService
+    private noti: NotificationService,
+    private auth: AuthService
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -37,6 +32,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngAfterViewInit(): void {
+    this.user = this.auth.getInfoUser();
+  }
+
   onLogout() {
     this.ApiService.Logout().subscribe((v) => {
       this.noti.show({
@@ -47,6 +46,7 @@ export class HeaderComponent implements OnInit {
         type: { style: 'success', icon: true },
       });
     });
+    this.user = null;
   }
   isAdminPage(): boolean {
     return this.router.url.includes('/admin');

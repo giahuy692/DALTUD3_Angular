@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
-import { MapService } from '../../share/services/map.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,8 +17,7 @@ export class ErrorComponent implements OnInit {
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
-    private router: Router,
-    private mapService: MapService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -49,10 +47,5 @@ export class ErrorComponent implements OnInit {
       .subscribe((v: any) => {
         this.productSingle = v;
       });
-  }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-    // this.router.navigate(['/shop-detail']);
   }
 }
