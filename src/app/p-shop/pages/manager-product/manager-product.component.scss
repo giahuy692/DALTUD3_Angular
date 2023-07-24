@@ -3,6 +3,100 @@
 
 ::ng-deep {
     app-manager-product {
+        kendo-drawer-container {
+
+            &.k-drawer-expanded {
+                .k-drawer-end {
+                    width: 360px;
+                    margin-top: 100px;
+
+                    .k-drawer-wrapper {
+                        width: 100% !important;
+                        padding: 0 10px;
+
+                        .HeaderDrawer {
+                            height: 50px;
+                            text-align: center;
+                            border-bottom: 1px solid #BDC2D2;
+
+                            h4 {
+                                line-height: 50px;
+                                font-size: 16px;
+                                font-weight: 700;
+                            }
+                        }
+
+                        .BodyDrawer {
+                            height: calc(100vh - 200px);
+                            overflow-y: auto;
+                            padding: 10px 0;
+
+                            kendo-label {
+                                display: block;
+
+                                &:not(:first-child) {
+                                    margin-top: 10px;
+                                }
+                            }
+                        }
+
+                        .FooterDrawer {
+                            height: 50px;
+                            display: flex;
+                            column-gap: 10px;
+                            align-items: center;
+                            border-top: 1px solid #BDC2D2;
+                        }
+                    }
+
+
+                }
+            }
+
+            kendo-drawer {}
+
+            kendo-drawer-content {
+                .wrapper {
+                    padding: 15px 20px;
+
+                    .header1 {
+                        border-bottom: 1px solid #BDC2D2;
+                        padding: 10px 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        overflow-x: auto;
+
+                        .inputSearch {
+                            .searchLable {
+                                display: block;
+
+                                label {
+                                    display: block;
+                                }
+
+                                kendo-textbox {
+                                    height: 32px;
+                                    margin-right: 10px;
+                                }
+
+                                kendo-button {
+                                    height: 32px;
+                                }
+                            }
+                        }
+
+                        // .k-button-solid-primary {
+                        //     flex-direction: unset;
+                        //     height: 32px;
+                        // }
+                    }
+                }
+            }
+        }
+
+
+
         .wrapper-detail-program {
             padding: 19px 13px;
 
@@ -141,6 +235,74 @@
             }
 
         }
+
+        //================================ style dialog=======================================
+
+        // .header-Dialog {
+        //     justify-content: center;
+        // }
+        .k-dialog-title {
+            justify-content: center;
+            color: $primary-300;
+        }
+
+
+        .container-dialog {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 800;
+        }
+
+        .name-dialog-product {
+            display: flex;
+            gap: 10px;
+
+        }
+
+        .text-gray {
+            color: rgb(149, 157, 179);
+        }
+
+        .button-action {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .button-click {
+            width: 100%;
+            height: 50px;
+            border: 0;
+            border-top: ridge;
+        }
+
+        .themecolor-button {
+            background-color: red;
+            color: #FFF
+        }
+
+        .k-window-content:last-child {
+            padding-bottom: clamp(0px, 0px, 0px);
+        }
+
+        .k-window-content,
+        .k-prompt-container {
+            padding-block: 0px;
+            padding-inline: 0px;
+            border-width: 0;
+            border-color: inherit;
+            color: inherit;
+            background: none;
+            outline: 0;
+            overflow: auto;
+            position: relative;
+            flex: 1 1 auto;
+        }
+
+        //================================ end style dialog=======================================
+
+
+
     }
 }
 
