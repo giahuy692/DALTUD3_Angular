@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription, interval } from 'rxjs';
 import { ShopApiService } from '../../share/services/shop-api.service';
@@ -57,54 +57,70 @@ export class ManagerProductComponent implements OnInit {
     this.arrUnsubscribe.push(GetListProduct);
   }
 
-  GetProduct(_id: string) {
-    let GetProduct = this.apiService.GetProduct(_id);
-  }
+  // GetProduct(_id: string) {
+  //   let GetProduct = this.apiService.GetProduct(_id).subscribe((v)=>{
+
+  //   });
+  // }
+
+  //# Delete Product
 
   onclick() {
     console.log('click thành công');
   }
 
-  public showConfirmation(): void {
-    const dialog: DialogRef = this.dialogService.open({
-      title: 'Please confirm',
-      content:
-        'Do you want delete {{product.name}}?, You will not restore when you delete, are you sure?',
-      actions: [{ text: 'No' }, { text: 'Yes', themeColor: 'primary' }],
-      width: 450,
-      height: 200,
-      minWidth: 250,
-    });
+  // onDelete(value: any) {
+  //   console.log(value);
+  // let onDelete = this.apiService.DeleteProduct(value).subscribe(
+  //   (v) => {
+  //     this.GetListProduct(1, 100, undefined);
+  //     this.layout.showSuccess('Delete product success');
+  //   },
+  //   (errr) => {
+  //     console.log(errr);
+  //   }
+  // );
+  // this.arrUnsubscribe.push(onDelete);
+  // }
 
-    dialog.result.subscribe((result) => {
-      if (result instanceof DialogCloseResult) {
-        console.log('close');
-      } else {
-        // Xử lý khi người dùng chọn "Yes"
-        if (result.text === 'Yes') {
-          alert('thuc hien xoa');
-          //this.deleteProduct(); // Gọi phương thức xóa sản phẩm tại đây
-        }
-        console.log('action', result);
-      }
+  //# Dialog thực hiện sau khi cick nút xóa
+  @ViewChild('btn') btnRef: { nativeElement: { focus: () => void } };
 
-      this.result = JSON.stringify(result);
-    });
+  itemProduct: any;
+
+  public opened = false;
+  public close(): void {
+    this.opened = false;
+    this.btnRef.nativeElement.focus();
   }
 
-  onDelete(value: any) {
-    console.log(value);
-    let onDelete = this.apiService.DeleteProduct(value).subscribe(
-      (v) => {
-        this.GetListProduct(1, 100, undefined);
-        this.layout.showSuccess('Delete product success');
-      },
-      (errr) => {
-        console.log(errr);
-      }
-    );
-    this.arrUnsubscribe.push(onDelete);
+  public open(Item: any): void {
+    this.itemProduct = Item;
+    this.opened = true;
   }
+
+  //thực hiện xóa
+  onDelete() {
+    alert('Xóa ' + this.itemProduct.ProductName + ' thành công');
+    // console.log(this.itemProduct);
+
+    // let deleteProduct = this.apiService
+    //   .DeleteProduct(this.itemProduct)
+    //   .subscribe(
+    //     (v) => {
+    //       this.GetListProduct(1, 100, undefined);
+    //       this.layout.showSuccess('Delete product success');
+    //     },
+    //     (errr) => {
+    //       console.log(errr);
+    //     }
+    //   );
+    // this.arrUnsubscribe.push(deleteProduct);
+
+    this.opened = false;
+    this.btnRef.nativeElement.focus();
+  }
+  // # End dialog
 
   public ngOnDestroy(): void {
     clearInterval(this.interval);

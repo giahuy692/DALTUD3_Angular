@@ -39,14 +39,6 @@
             <div class="header-detail-program">
                 <div class="title-detail-program">
                     <span>PRODUCT INFORMATION</span>
-                    <div class="example-wrapper">
-                        <div class="example-config" *ngIf="result">
-                            Dialog result: {{ result }}
-                        </div>
-                        <button kendoButton (click)="showConfirmation()">Please confirm</button>
-                    </div>
-
-                    <div kendoDialogContainer></div>
                 </div>
                 <div class="search-detail-program">
                     <div class="wrapper-search">
@@ -76,7 +68,7 @@
                     <kendo-grid-column [class]="'title'">
                         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                             <button kendoButton [themeColor]="'base'" iconClass="fas fa-trash-alt" class=" dustbin"
-                                (click)="onDelete(dataItem)"></button>
+                                (click)="open(dataItem)"></button>
                             <button kendoButton [themeColor]="'base'" iconClass="k-icon k-i-edit"
                                 class=" edit"></button>
                             <div class="container-product" kendoTooltip>
@@ -95,6 +87,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </ng-template>
                     </kendo-grid-column>
                 </app-grid-block>
@@ -102,3 +95,44 @@
         </div>
     </kendo-drawer-content>
 </kendo-drawer-container>
+
+
+<!-- Dialog -->
+
+<div class="Dialog-Console">
+    <kendo-dialog *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+        <kendo-dialog-titlebar>
+            <div style="font-size: 18px; line-height: 1.3em;"><span class="fas fa-exclamation-triangle"></span> DELETE
+                PRODUCT
+            </div>
+        </kendo-dialog-titlebar>
+        <div class="container-dialog">
+            <div class="name-dialog-product">
+                <p class="text-gray">You are deleting the product:</p>
+                <p style="color: rgb(126, 182, 147);">{{itemProduct.ProductName}}</p>
+            </div>
+            <div class="name-dialog-product">
+                <p class="text-gray">If you click </p>
+                <p style="color: red;">“DELETE”</p>
+            </div>
+
+            <div class="name-dialog-product">
+                <p class="text-gray"> The product will not be able to recover</p>
+            </div>
+
+
+        </div>
+
+        <div class="button-action">
+            <button class="button-click text-gray" (click)="close()">CANCEL</button>
+            <button class="button-click themecolor-button" (click)="onDelete()"> <span class="fas fa-trash-alt"></span>
+                DELETE</button>
+        </div>
+
+        <!-- <kendo-dialog-actions>
+            <button (click)="close()">CANCEL</button>
+            <button (click)="onDelete()" themeColor="primary"> <span class="fas fa-trash-alt"></span>
+                DELETE</button>
+        </kendo-dialog-actions> -->
+    </kendo-dialog>
+</div>
