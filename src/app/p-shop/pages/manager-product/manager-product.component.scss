@@ -54,6 +54,8 @@
                 width: 220px;
                 border: 1px solid transparent;
 
+
+
                 .k-table-td {
                     padding: 0;
 
@@ -69,18 +71,20 @@
                     .container-product {
                         position: relative;
                         padding: 0 10px;
+                        min-width: 265px;
 
                         .content-product {
                             display: flex;
-                            justify-content: space-between;
                             column-gap: 9px;
                             overflow: hidden;
+                            width: 100%;
 
                             .sub-title {
                                 @include limitTitle(2);
 
                                 .title {
                                     color: #353935;
+                                    width: 100%;
                                 }
 
                                 .ncode {
@@ -90,6 +94,7 @@
                                     display: flex;
                                     align-items: center;
                                     @include limitTitle(1);
+                                    flex-wrap: wrap;
 
                                     span {
                                         padding: 0 5px;

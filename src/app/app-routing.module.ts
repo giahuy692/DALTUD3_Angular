@@ -13,7 +13,6 @@ import { PasswordProtectComponent } from './p-shop/pages/password-protect/passwo
 import { LoginComponent } from './p-shop/pages/login/login.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
-import { AuthGuard } from './AuthGuard';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
 import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
 import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
@@ -21,6 +20,7 @@ import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-
 import { RegisterComponent } from './p-shop/pages/register/register.component';
 import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
+import { AuthGuard } from './p-shop/share/services/AuthGuard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -45,23 +45,27 @@ const routes: Routes = [
   { path: 'man', component: ManComponent },
   { path: 'women', component: WomenComponent },
   { path: 'couple', component: CoupleComponent },
-  { path: 'checkout', component: CheckoutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'contact', component: ContactComponent },
   {
+    path: 'cart/checkout',
+    component: CheckoutComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'admin/user',
     component: ManagerUserComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/cart',
     component: ManagerCartComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/product',
     component: ManagerProductComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'password-protect',

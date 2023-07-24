@@ -3,7 +3,6 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MapService } from '../../share/services/map.service';
 @Component({
   selector: 'app-shop-single',
   templateUrl: './shop-single.component.html',
@@ -15,8 +14,7 @@ export class ShopSingleComponent {
     private serviceApi: ShopApiService,
     private notificationService: NotificationService,
     private router: Router,
-    private route: ActivatedRoute,
-    private mapService: MapService
+    private route: ActivatedRoute
   ) {}
   data: DTOProduct[];
   //product: DTOProduct;
@@ -70,36 +68,10 @@ export class ShopSingleComponent {
     this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;
-        // this.notificationService.show({
-        //   content: 'Get list product success',
-        //   hideAfter: 600,
-        //   position: { horizontal: 'left', vertical: 'bottom' },
-        //   animation: { type: 'fade', duration: 400 },
-        //   type: { style: 'success', icon: true },
-        // });
       },
       (error: any) => {
         console.log(error);
       }
     );
   }
-  // refreshPage() {
-  //   this.serviceApi.getListProduct().subscribe((a: any) => {
-  //     this.listProductLimit = a;
-  //     this.listProductLimit.forEach((item: DTOProduct) => {
-  //       if (item.CatalogName == this.product.CatalogName) {
-  //         this.arrProductTogetherCategory.push(item);
-  //       }
-  //     });
-  //   });
-  //   window.location.reload();
-  // }
-
-  onClickProduct(data: DTOProduct) {
-    this.mapService.id.next(data._id);
-    // this.router.navigate(['/shop-detail']);
-  }
-  // onClickRelatedProduct() {
-  //   this.refreshPage();
-  // }
 }

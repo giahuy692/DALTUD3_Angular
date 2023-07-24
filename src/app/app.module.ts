@@ -23,7 +23,6 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconsModule } from '@progress/kendo-angular-icons';
 import { LabelModule } from '@progress/kendo-angular-label';
-import { MapService } from './p-shop/share/services/map.service';
 import { ShopApiService } from './p-shop/share/services/shop-api.service';
 import { ProductComponent } from './p-shop/share/components/product/product.component';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
@@ -47,7 +46,6 @@ import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-block.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-
 
 @NgModule({
   declarations: [
@@ -99,7 +97,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     GridModule,
     DropDownsModule,
   ],
-  providers: [MapService, ShopApiService],
+  providers: [ShopApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

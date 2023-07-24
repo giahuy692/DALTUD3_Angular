@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MapService } from 'src/app/p-shop/share/services/map.service';
 
 @Component({
   selector: 'app-footer',
@@ -25,11 +24,7 @@ export class FooterComponent implements OnInit {
   @Input() ContenConpany: any;
   @Input() arrHeader: any;
 
-  constructor(private mapService: MapService) {
-    this.mapService.arrHeader.subscribe((v) => {
-      this.arrHeader = v;
-    });
-  }
+  constructor() {}
 
   ngOnInit() {}
 

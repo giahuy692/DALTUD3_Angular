@@ -28,9 +28,9 @@ export class GridBlockComponent {
   @Input() dataView: any;
   @Input() pageIndex: number = 1;
   @Input() skip: number = 0;
-  @Input() limit: number = 12;
+  @Input() limit: number = 20;
   @Input() limits: number[] = [10, 20, 50];
-  @Input() selectedValue: number = 10;
+  @Input() selectedValue: number = 20;
   @Input() currentPage: number = 1;
   @Input() total_Pages: number = 0;
   @Input() buttonCount = 4;
