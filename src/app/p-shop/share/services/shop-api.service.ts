@@ -391,7 +391,7 @@ export class ShopApiService {
       'Content-Type': 'application/json',
       token: 'Bearer ' + token,
     });
-    return new Observable<DTOUser>((obs) => {
+    return new Observable<any>((obs) => {
       this.http
         .post<DTOUser>(`http://localhost:3000/api/DeleteUser`, dto, { headers })
         .subscribe(
@@ -413,9 +413,12 @@ export class ShopApiService {
       'Content-Type': 'application/json',
       token: 'Bearer ' + token,
     });
+    let keyword = {
+      UserName: UserName,
+    };
     return new Observable<DTOUser>((obs) => {
       this.http
-        .post<DTOUser>(`http://localhost:3000/api/FindUser`, UserName, {
+        .post<DTOUser>(`http://localhost:3000/api/FindUser`, keyword, {
           headers,
         })
         .subscribe(

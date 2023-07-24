@@ -5,33 +5,36 @@
                 <div class="HeaderDrawer">
                     <h4>Edit User</h4>
                 </div>
-                <div class="BodyDrawer">
-                    <kendo-label text="Username:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                    </kendo-label>
-                    <kendo-label text="Password:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                    </kendo-label>
-                    <kendo-label text="Email:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                    </kendo-label>
-                    <div class="d-flex next align-items-center justify-content-between">
-                        <kendo-label text="Address:">
-                            <kendo-textbox placeholder="John Smith"></kendo-textbox>
+                <form [formGroup]="form">
+                    <div class="BodyDrawer">
+                        <kendo-label text="UserName:">
+                            <kendo-textbox placeholder="Enter username" formControlName="UserName"></kendo-textbox>
                         </kendo-label>
-                        <kendo-label class="k-checkbox-label" [for]="isAdmin" text="Admin">
-                            <input type="checkbox" #isAdmin kendoCheckBox class="ml-2" />
+                        <kendo-label text="Password:">
+                            <kendo-textbox placeholder="Enter Password" type="password"
+                                formControlName="Password"></kendo-textbox>
+                        </kendo-label>
+                        <kendo-label text="Email:">
+                            <kendo-textbox placeholder="Enter email" formControlName="Email"></kendo-textbox>
+                        </kendo-label>
+                        <div class="d-flex next align-items-center justify-content-between">
+                            <kendo-label text="Address:">
+                                <kendo-textbox placeholder="Enter address" formControlName="Address"></kendo-textbox>
+                            </kendo-label>
+                            <kendo-label class="k-checkbox-label" [for]="isAdmin" text="Admin">
+                                <input type="checkbox" #isAdmin kendoCheckBox class="ml-2" formControlName="Admin" />
+                            </kendo-label>
+                        </div>
+                        <kendo-label text="Phone:">
+                            <kendo-textbox placeholder="Enter phone" formControlName="Phone"></kendo-textbox>
                         </kendo-label>
                     </div>
-                    <kendo-label text="Phone:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                    </kendo-label>
-                </div>
-                <div class="FooterDrawer">
-                    <button kendoButton (click)="drawer.toggle()">CLOSE</button>
-                    <button kendoButton (click)="drawer.toggle()" iconClass="k-icon k-i-save"
-                        themeColor="primary">SAVE</button>
-                </div>
+                    <div class="FooterDrawer">
+                        <button kendoButton (click)="drawer.toggle()">CLOSE</button>
+                        <button kendoButton (click)="onUpdateUser()" iconClass="k-icon k-i-save"
+                            themeColor="primary">SAVE</button>
+                    </div>
+                </form>
             </ng-template>
         </kendo-drawer>
 
@@ -41,31 +44,45 @@
                     <div class=inputSearch>
                         <kendo-label class="k-form" text="Seach user" class="searchLable">
                             <div style="display: flex;column-gap: 10px;">
-                                <kendo-textbox placeholder="Insert Username here" type="text">
+                                <kendo-textbox placeholder="Insert Username here" type="text" [(value)]="keyword"
+                                    (keydown.Enter)="handleSearch()">
                                     <ng-template kendoTextBoxPrefixTemplate>
                                         <kendo-textbox-separator></kendo-textbox-separator>
                                         <kendo-icon name="search" style="margin: 0 5px;"></kendo-icon>
                                     </ng-template>
                                 </kendo-textbox>
-                                <kendo-button [themeColor]="'primary'"
-                                    iconClass="k-icon k-i-search">SEARCH</kendo-button>
+                                <kendo-button [themeColor]="'primary'" iconClass="k-icon k-i-search"
+                                    (click)="handleSearch()">SEARCH</kendo-button>
                             </div>
                         </kendo-label>
                     </div>
-                    <kendo-button [themeColor]="'primary'" iconClass="k-icon k-i-plus" class="btnAdd"
-                        (click)="drawer.toggle()">ADD NEW
-                        USER</kendo-button>
                 </div>
                 <div class="wrapper-grid">
-                    <kendo-grid [data]="gridData" [pageable]="true" [pageSize]="pageSize" scrollable="none">
-                        <kendo-grid-column field="ProductID" title="ID"> </kendo-grid-column>
-                        <kendo-grid-column field="ProductName" title="Name"> </kendo-grid-column>
-                        <kendo-grid-column field="UnitPrice" title="Price"> </kendo-grid-column>
-                        <kendo-grid-column>
+                    <kendo-grid [data]="UserList" [pageable]="true" [pageSize]="pageSize" scrollable="none"
+                        [loading]="loading">
+                        <kendo-grid-column field="UserName" title="UserName" [headerClass]="'HeaderUserName'"
+                            [class]="'cellUserName'">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="Email" title="Email" [headerClass]="'HeaderEmail'"
+                            [class]="'cellEmail'"> </kendo-grid-column>
+                        <kendo-grid-column field="Address" title="Address" [headerClass]="'HeaderAddress'"
+                            [class]="'cellAddress'">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="Phone" title="Phone" [headerClass]="'HeaderPhone'"
+                            [class]="'cellPhone'"> </kendo-grid-column>
+                        <kendo-grid-column field="isAdmin" title="Admin" [headerClass]="'HeaderAdmin'"
+                            [class]="'cellAdmin'">
+                            <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                                <input type="checkbox" kendoCheckBox [(ngModel)]="dataItem.isAdmin" />
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column [headerClass]="'HeaderTools'" [class]="'cellTools'">
                             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                                 <kendo-dropdownbutton iconClass="k-icon k-i-more-horizontal"
                                     [popupSettings]="{ popupClass: 'popupBtbDrop', animate: true, align: 'right', appendTo: 'component' }"
-                                    buttonClass="popupCustom" [data]="OptionList"></kendo-dropdownbutton>
+                                    buttonClass="popupCustom" [data]="OptionList"
+                                    (itemClick)="onItemClickTools($event, dataItem)">
+                                </kendo-dropdownbutton>
                             </ng-template>
                         </kendo-grid-column>
                         <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">

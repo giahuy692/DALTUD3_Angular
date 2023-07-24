@@ -22,6 +22,7 @@ export class layoutService {
       position: { horizontal: 'left', vertical: 'bottom' },
       animation: { type: 'fade', duration: 400 },
       type: { style: 'success', icon: true },
+      closable: true,
     });
   }
 

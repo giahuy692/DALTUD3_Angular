@@ -99,6 +99,53 @@
                         // }
                     }
 
+                    .wrapper-grid {
+
+                        .k-grid {
+
+
+                            .k-grid-aria-root {
+                                .k-table {
+                                    .k-grid-header {
+                                        .k-table-row {
+                                            .k-table-th {
+                                                .k-cell-inner {
+                                                    .k-link {}
+                                                }
+                                            }
+
+                                            .HeaderAdmin,
+                                            .HeaderPhone,
+                                            .HeaderAddress {
+                                                .k-cell-inner {
+                                                    .k-link {
+                                                        justify-content: center;
+                                                    }
+                                                }
+                                            }
+
+
+                                        }
+                                    }
+
+                                    .k-table-tbody {
+                                        .k-table-row {
+                                            .k-table-td {}
+
+                                            .cellAdmin,
+                                            .cellPhone,
+                                            .cellAddress {
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            .k-pager {}
+                        }
+                    }
 
                 }
             }

@@ -238,6 +238,7 @@ p {
 .k-notification-container {
   height: 70px;
   padding: 10px;
+  z-index: 99999999999999;
 
   .k-notification {
     .k-icon {
@@ -337,6 +338,7 @@ p {
           background-color: $blue-dark-300;
           position: sticky;
           top: 0;
+          z-index: 100;
 
           .k-table-row {
             .k-table-th {
@@ -348,6 +350,10 @@ p {
                   color: $white;
                   font-weight: 700;
                 }
+              }
+
+              &:last-child {
+                width: 80px;
               }
             }
 
@@ -362,6 +368,11 @@ p {
             .k-table-td {
               box-shadow: none;
               border: none;
+
+              &:last-child {
+                width: 80px;
+                text-align: center;
+              }
             }
           }
         }
