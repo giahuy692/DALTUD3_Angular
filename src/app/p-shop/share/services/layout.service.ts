@@ -21,7 +21,7 @@ export class layoutService {
       hideAfter: 600,
       position: { horizontal: 'left', vertical: 'bottom' },
       animation: { type: 'fade', duration: 400 },
-      type: { style: 'success', icon: false },
+      type: { style: 'success', icon: true },
     });
   }
 
@@ -31,7 +31,7 @@ export class layoutService {
       hideAfter: 600,
       position: { horizontal: 'left', vertical: 'bottom' },
       animation: { type: 'fade', duration: 400 },
-      type: { style: 'warning', icon: false },
+      type: { style: 'warning', icon: true },
     });
   }
 
@@ -43,5 +43,13 @@ export class layoutService {
       animation: { type: 'fade', duration: 400 },
       type: { style: 'error', icon: true },
     });
+  }
+
+  hasValue(value: any) {
+    if (value !== null || value !== undefined || value !== '') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
