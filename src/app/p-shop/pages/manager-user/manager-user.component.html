@@ -95,7 +95,44 @@
                         </ng-template>
                     </kendo-grid>
                 </div>
+                <div class="Dialog-Console">
+                    <kendo-dialog *ngIf="openedDialog" (close)="handleActionDialog(0)" [minWidth]="250" [width]="450">
+                        <kendo-dialog-titlebar>
+                            <div style="font-size: 18px; line-height: 1.3em;"><span
+                                    class="fas fa-exclamation-triangle"></span> DELETE
+                                User
+                            </div>
+                        </kendo-dialog-titlebar>
+                        <div class="container-dialog">
+                            <div class="name-dialog-product">
+                                <p class="text-gray">You are deleting the user:</p>
+                                <p style="color: rgb(126, 182, 147);">{{currentUser.UserName}}</p>
+                            </div>
+                            <div class="name-dialog-product">
+                                <p class="text-gray">If you click </p>
+                                <p style="color: red;">“DELETE”</p>
+                            </div>
+
+                            <div class="name-dialog-product">
+                                <p class="text-gray"> The user will not be able to recover!</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="button-action">
+                            <button class="button-click text-gray" (click)="handleActionDialog(0)">CANCEL</button>
+                            <button class="button-click themecolor-button" (click)="handleActionDialog(1)"> <span
+                                    class="fas fa-trash-alt"></span>
+                                DELETE</button>
+                        </div>
+                    </kendo-dialog>
+                    <!-- Dialog -->
+
+                </div>
             </div>
         </kendo-drawer-content>
     </kendo-drawer-container>
+
+
 </div>

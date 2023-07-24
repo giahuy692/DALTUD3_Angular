@@ -235,21 +235,25 @@ p {
   }
 }
 
-.k-notification-container {
-  height: 70px;
-  padding: 10px;
-  z-index: 99999999999999;
+.k-notification-group {
+  z-index: 9999999999999;
 
-  .k-notification {
-    .k-icon {
-      font-size: 30px;
-      border-right: 1px solid #fff;
-      padding: 20px;
+  .k-notification-container {
+    height: 70px;
+    padding: 10px;
+
+
+    .k-notification {
+      .k-icon {
+        font-size: 30px;
+        border-right: 1px solid #fff;
+        padding: 20px;
+      }
     }
-  }
 
-  .k-notification-content {
-    font-size: 20px;
+    .k-notification-content {
+      font-size: 20px;
+    }
   }
 }
 

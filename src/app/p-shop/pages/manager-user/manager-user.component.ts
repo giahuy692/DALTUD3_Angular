@@ -31,7 +31,6 @@ export class ManagerUserComponent implements OnInit {
   ];
   UserList: DTOUser[] = []; // Biến chưa userlist cho grid
   currentUser = new DTOUser();
-  keyword: string = '';
   constructor(private api: ShopApiService, private layout: layoutService) {
     this.form = new FormGroup({
       _id: new FormControl(this.currentUser._id, [Validators.required]),
@@ -56,6 +55,7 @@ export class ManagerUserComponent implements OnInit {
   }
 
   // Function xử lý logic chức năng search
+  keyword: string = '';
   handleSearch() {
     this.FindUser(this.keyword);
   }
@@ -65,17 +65,29 @@ export class ManagerUserComponent implements OnInit {
   }
 
   onItemClickTools(itemClick: any, dtoUser: DTOUser) {
-    console.log(dtoUser, itemClick);
+    this.currentUser = dtoUser;
     switch (itemClick.type) {
       case 1:
-        this.currentUser = dtoUser;
         this.form.patchValue(this.currentUser);
         this.drawerRef.toggle();
         break;
       case 2:
+        this.openedDialog = true;
         break;
     }
   }
+
+  //#region dialog
+  openedDialog = false;
+  handleActionDialog(status: number) {
+    if (status == 1) {
+      this.DeleteUser(this.currentUser);
+      this.openedDialog = false;
+    } else {
+      this.openedDialog = false;
+    }
+  }
+  //#endregion
 
   //#region function call api
 
@@ -146,6 +158,7 @@ export class ManagerUserComponent implements OnInit {
   DeleteUser(dto: DTOUser) {
     this.api.DeleteUser(dto).subscribe(
       (v) => {
+        this.GetListUser();
         this.layout.showSuccess(v.message);
       },
       (error) => {
