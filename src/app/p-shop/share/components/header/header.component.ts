@@ -1,55 +1,64 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { ShopApiService } from '../../services/shop-api.service';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { DTOUser } from '../../dtos/DTOUser';
 import { AuthService } from '../../services/auth.service';
+import { layoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent
+  implements OnInit, AfterViewInit, AfterContentChecked
+{
   isAdmin: boolean = false;
   user: any;
   constructor(
     public router: Router,
     private ApiService: ShopApiService,
-    private noti: NotificationService,
+    public layout: layoutService,
     private auth: AuthService
   ) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        if (this.isAdminPage()) {
-          this.isAdmin = true;
-        } else {
-          this.isAdmin = false;
-        }
-      }
-    });
+    this.user = this.auth.getInfoUser();
+  }
+  ngAfterContentChecked(): void {
+    const route = location.href;
+    if (route.includes('/admin')) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
+    this.user = this.auth.getInfoUser();
   }
 
   ngOnInit() {}
 
-  ngAfterViewInit(): void {
-    this.user = this.auth.getInfoUser();
-  }
+  ngAfterViewInit(): void {}
 
   onLogout() {
-    this.ApiService.Logout().subscribe((v) => {
-      this.noti.show({
-        content: v.message,
-        cssClass: 'button-notification',
-        animation: { type: 'slide', duration: 400 },
-        position: { horizontal: 'left', vertical: 'bottom' },
-        type: { style: 'success', icon: true },
-      });
-    });
+    this.ApiService.Logout().subscribe(
+      (v) => {
+        this.layout.showSuccess(v.message);
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        this.layout.showError(error);
+      }
+    );
     this.user = null;
-    this.router.navigate(['home']);
+    this.isAdmin = false;
   }
-  isAdminPage(): boolean {
-    return this.router.url.includes('/admin');
+  isAdminPage(route: any): boolean {
+    return route.includes('/admin');
   }
 }

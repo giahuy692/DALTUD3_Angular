@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -10,21 +10,24 @@ import { Subscription } from 'rxjs';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { layoutService } from '../../share/services/layout.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public form: FormGroup;
   arrUnsubscribe: Subscription[] = [];
   returnUrl: string = '';
+  jwtHelper = new JwtHelperService();
 
   constructor(
     private formBuilder: FormBuilder,
     private shopApiService: ShopApiService,
-    private layout: layoutService
+    private layout: layoutService,
+    public router: Router
   ) {
     this.form = this.formBuilder.group({
       Email: new FormControl('', [
@@ -55,8 +58,8 @@ export class LoginComponent {
       if (email && password) {
         this.shopApiService.UserLogin(email, password).subscribe(
           (v: any) => {
+            this.navigate(v.accessToken);
             this.layout.showSuccess('Login suscess');
-            this.goBack();
           },
           (error) => {
             console.log(error);
@@ -66,12 +69,27 @@ export class LoginComponent {
       }
     } else {
       this.form.markAllAsTouched();
-      this.layout.showError('Please fill in all the fields.');
+      if (this.form.get('Email')?.errors?.['required']) {
+        this.layout.showError('Please enter your email.');
+      } else if (this.form.get('Password')?.errors?.['required']) {
+        this.layout.showError('Please enter your password.');
+      } else {
+        this.layout.showError('Please fill in all the fields.');
+      }
     }
   }
 
   goBack() {
     history.back(); // Go back to the previous page
+  }
+
+  navigate(token: any) {
+    const decodedToken = this.jwtHelper.decodeToken(token);
+    if (decodedToken.isAdmin) {
+      this.router.navigate(['/admin/product']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
   public ngOnDestroy(): void {

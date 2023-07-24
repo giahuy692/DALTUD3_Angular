@@ -5,7 +5,7 @@
         <div class="main-menu-wrap">
           <!-- logo -->
           <div class="site-logo">
-            <a routerLink="/home" routerLinkActive="active-link">
+            <a routerLink="/" routerLinkActive="active-link">
               <img src="../../../../../assets/img/logo.png" alt="" />
             </a>
           </div>
@@ -22,14 +22,12 @@
                 <li><a routerLink="admin/cart" routerLinkActive="active-link">Cart</a></li>
                 <li>
                   <div class="header-icons d-flex align-items-center">
-                    <div class="d-flex align-items-center text-light">
-                      <a routerLink="/register" *ngIf="user != null || user != undefined"
-                        class="d-flex align-items-center text-light"><i
-                          class="k-icon k-i-user mr-2"></i>{{user.UserName}}</a>
-                    </div>
-                    <a *ngIf="user != null || user != undefined" class="text-light  d-flex align-items-center"
-                      (click)="onLogout()">
-                      <i class="k-icon k-i-logout text-light mr-2"></i>Logout</a>
+                    <a *ngIf="layout.hasValue(user)" class="d-flex align-items-center text-light">
+                      <i class="k-icon k-i-user mr-2"></i>{{ user.UserName }}
+                    </a>
+                    <a *ngIf="layout.hasValue(user)" class="text-light d-flex align-items-center" (click)="onLogout()">
+                      <i class="k-icon k-i-logout text-light mr-2"></i>Logout
+                    </a>
                   </div>
                 </li>
               </ul>
@@ -38,8 +36,9 @@
           <ng-template #NotLoginTemplate>
             <nav class="main-menu">
               <ul>
+
                 <li>
-                  <a routerLink="/home" routerLinkActive="active-link">Home</a>
+                  <a routerLink="/" routerLinkActive="active-link">Home</a>
                 </li>
                 <li>
                   <a routerLink="/shop" routerLinkActive="active-link">Shop</a>
@@ -47,25 +46,43 @@
                     <li><a routerLink="/man" routerLinkActive="active-link">Man</a></li>
                     <li><a routerLink="/women" routerLinkActive="active-link">Women</a></li>
                     <li><a routerLink="/couple" routerLinkActive="active-link">Couple</a></li>
-                    <li><a routerLink="/admin/product" routerLinkActive="active-link">Admin Product</a></li>
                   </ul>
                 </li>
                 <li><a routerLink="/news" routerLinkActive="active-link">News</a></li>
                 <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
                 <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
-                <li>
+                <li *ngIf="user !== null && user.isAdmin">
+                  <a>Manager</a>
+                  <ul class="sub-menu">
+                    <li><a routerLink="/admin/product"><i class="k-icon k-i-cogs"></i>Manager Product</a></li>
+                    <li><a routerLink="/admin/user"><i class="k-icon k-i-cogs"></i>Manager User</a></li>
+                    <li><a routerLink="/admin/cart"><i class="k-icon k-i-cogs"></i>Manager Cart</a></li>
+                  </ul>
+                </li>
+                <li *ngIf="user === null">
                   <div class="header-icons d-flex align-items-center text-light">
                     <a class="shopping-cart" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
                     <a class="mobile-hide search-bar-icon"><i class="fas fa-search"></i></a>
-                    <a routerLink="/login" *ngIf="user == null || user == undefined">Login</a>
-                    <a routerLink="/register" *ngIf="user == null || user == undefined">Register</a>
-                    <a *ngIf="user != null || user != undefined" class="d-flex align-items-center text-light"><i
-                        class="k-icon k-i-user mr-2"></i>{{user.UserName}}</a>
-                    <a *ngIf="user != null || user != undefined" class="text-light  d-flex align-items-center"
-                      (click)="onLogout()">
-                      <i class="k-icon k-i-logout text-light mr-2"></i>Logout</a>
+                    <!-- Hiển thị các nút "Login" và "Register" khi user null -->
+                    <a routerLink="/login">Login</a>
+                    <a routerLink="/register">Register</a>
                   </div>
                 </li>
+
+                <li *ngIf="user !== null">
+                  <div class="header-icons d-flex align-items-center text-light">
+                    <a class="shopping-cart" routerLink="/cart"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="mobile-hide search-bar-icon"><i class="fas fa-search"></i></a>
+                    <!-- Hiển thị các nút "Login" và "Register" khi user null -->
+                    <a class="d-flex align-items-center text-light" *ngIf="user != null">
+                      <i class="k-icon k-i-user mr-2"></i>{{ user.UserName }}
+                    </a>
+                    <a class="text-light d-flex align-items-center" (click)="onLogout()" *ngIf="user != null">
+                      <i class="k-icon k-i-logout text-light mr-2"></i>Logout
+                    </a>
+                  </div>
+                </li>
+
               </ul>
             </nav>
           </ng-template>
