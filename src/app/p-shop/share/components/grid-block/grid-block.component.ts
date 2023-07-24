@@ -40,30 +40,7 @@ export class GridBlockComponent {
 
   constructor(private ApiService: ShopApiService, private http: HttpClient) {}
 
-  ngOnInit() {
-    $(document).ready(function () {
-      // Runs after the DOM is loaded.
-      // console.log('DOM fully loaded!');
-      // $('.k-pager-first').html('<span>Đầu</span>');
-      // $('.k-pager-last').html('<span>Cuối</span>');
-      // $('.pageSize .k-label').html('<span>Hiển thị mỗi trang</span>');
-      // $('.k_prev button:nth-child(2)').html(
-      //   '<img src="assets/images/chevronleft.svg" alt="chevronleft">'
-      // );
-      // $('.k_next button:nth-child(1)').html(
-      //   '<img src="assets/images/chevronright.svg" alt="chevronright">'
-      // );
-      // $('.k-input-value-text').css({ color: '#26282E' });
-      // $('.k-pager-first, .k-pager-last').css({
-      //   width: '45px',
-      //   height: '29px',
-      //   'border-radius': '3px',
-      //   'font-weight': '400',
-      //   'font-size': '13px',
-      //   color: '#959db3',
-      // });
-    });
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.GridRef.columns.reset([

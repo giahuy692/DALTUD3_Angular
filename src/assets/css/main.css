@@ -1406,7 +1406,7 @@ a.mobile-show.search-bar-icon:hover {
 
 ----------------------------------------------------------------------------- */
 .hero-bg {
-  background-image: url(../container/pexels-rodnae-productions-7035242.jpg);
+  background-image: url(../../assets/img/container/pexels-rodnae-productions-7035242.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -2113,7 +2113,7 @@ a.video-play-btn {
 }
 
 .abt-bg {
-  background-image: url(../img/abt.jpg);
+  background-image: url(../../assets/img/container/2c9_2ec74a1d3bd946698980858e7be1a0f6_18fb125936f04cc38d697071d115ed77_grande.jpg);
   height: 100%;
   width: 100%;
   background-size: cover;

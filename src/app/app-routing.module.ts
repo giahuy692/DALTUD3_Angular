@@ -14,19 +14,19 @@ import { LoginComponent } from './p-shop/pages/login/login.component';
 import { ErrorComponent } from './p-shop/pages/error/error.component';
 import { CanActivate, Router } from '@angular/router';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
-import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
-import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
-import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 import { RegisterComponent } from './p-shop/pages/register/register.component';
 import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 import { AuthGuard } from './p-shop/share/services/AuthGuard.service';
+import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
+import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
+import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomepageComponent },
+  { path: '', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'shop', component: ShopComponent },
   {

@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 import { AuthService } from './auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { layoutService } from './layout.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,22 +15,25 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthGuard implements CanActivate {
   jwtHelper = new JwtHelperService();
   private accessToken: any = localStorage.getItem('token');
-  constructor(public auth: AuthService, public router: Router) {}
+  constructor(
+    public auth: AuthService,
+    public router: Router,
+    private layout: layoutService
+  ) {}
   canActivate(): boolean {
-    const url = location.href; // Lấy URL hiện tại từ RouterStateSnapshot
-    const routeAdmin = url.includes('/admin');
-    const routeChecout = url.includes('/checkout');
     const token = localStorage.getItem('token');
     if (token !== null && token !== undefined && token !== '') {
-      const decodedToken = this.jwtHelper.decodeToken(this.accessToken);
+      const decodedToken = this.jwtHelper.decodeToken(token);
       if (this.jwtHelper.isTokenExpired(token)) {
         localStorage.removeItem('token');
         this.router.navigate(['login']);
       } else {
-        if (decodedToken.isAdmin && routeAdmin) {
+        console.log(decodedToken.isAdmin);
+        if (decodedToken.isAdmin) {
           return true;
-        } else if (!decodedToken.isAdmin && routeChecout) {
-          return true;
+        } else {
+          this.router.navigate(['/']);
+          this.layout.showWarning('You are not authorized to access this site');
         }
       }
     } else {

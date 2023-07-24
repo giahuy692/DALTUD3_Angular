@@ -38,14 +38,14 @@ import { LoginComponent } from './p-shop/pages/login/login.component';
 import { RegisterComponent } from './p-shop/pages/register/register.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { CartComponent } from './p-shop/pages/cart/cart.component';
-import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
-import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
-import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
 import { WomenComponent } from './p-shop/pages/women/women.component';
 import { CoupleComponent } from './p-shop/pages/couple/couple.component';
 import { CheckoutComponent } from './p-shop/pages/checkout/checkout.component';
 import { GridBlockComponent } from './p-shop/share/components/grid-block/grid-block.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
+import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
+import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
 
 @NgModule({
   declarations: [
