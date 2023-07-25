@@ -99,6 +99,112 @@
                         // }
                     }
 
+                    .wrapper-grid {
+
+                        .k-grid {
+
+
+                            .k-grid-aria-root {
+                                .k-table {
+                                    .k-grid-header {
+                                        .k-table-row {
+                                            .k-table-th {
+                                                .k-cell-inner {
+                                                    .k-link {}
+                                                }
+                                            }
+
+                                            .HeaderAdmin,
+                                            .HeaderPhone,
+                                            .HeaderAddress {
+                                                .k-cell-inner {
+                                                    .k-link {
+                                                        justify-content: center;
+                                                    }
+                                                }
+                                            }
+
+
+                                        }
+                                    }
+
+                                    .k-table-tbody {
+                                        .k-table-row {
+                                            .k-table-td {}
+
+                                            .cellAdmin,
+                                            .cellPhone,
+                                            .cellAddress {
+                                                text-align: center;
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            .k-pager {}
+                        }
+                    }
+
+                    .k-dialog-title {
+                        justify-content: center;
+                        color: $primary-300;
+                    }
+
+
+                    .container-dialog {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-weight: 800;
+                    }
+
+                    .name-dialog-product {
+                        display: flex;
+                        gap: 10px;
+
+                    }
+
+                    .text-gray {
+                        color: rgb(149, 157, 179);
+                    }
+
+                    .button-action {
+                        display: flex;
+                        flex-direction: row;
+
+                        .button-click {
+                            width: 100%;
+                            height: 50px;
+                            border: 0;
+                            border-top: ridge;
+                        }
+
+                        .themecolor-button {
+                            background-color: red;
+                            color: #FFF
+                        }
+                    }
+
+
+                    .k-window-content:last-child {
+                        padding-bottom: clamp(0px, 0px, 0px);
+                    }
+
+                    .k-window-content,
+                    .k-prompt-container {
+                        padding-block: 0px;
+                        padding-inline: 0px;
+                        border-width: 0;
+                        border-color: inherit;
+                        color: inherit;
+                        background: none;
+                        outline: 0;
+                        overflow: auto;
+                        position: relative;
+                        flex: 1 1 auto;
+                    }
 
                 }
             }
