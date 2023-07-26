@@ -46,6 +46,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ManagerUserComponent } from './p-shop/pages/manager-user/manager-user.component';
 import { ManagerProductComponent } from './p-shop/pages/manager-product/manager-product.component';
 import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.component';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+
 
 @NgModule({
   declarations: [
@@ -96,6 +98,7 @@ import { ManagerCartComponent } from './p-shop/pages/manager-cart/manager-cart.c
     ReactiveFormsModule,
     GridModule,
     DropDownsModule,
+    DialogsModule,
   ],
   providers: [ShopApiService],
   bootstrap: [AppComponent],

@@ -28,7 +28,6 @@ export class AuthGuard implements CanActivate {
         localStorage.removeItem('token');
         this.router.navigate(['login']);
       } else {
-        console.log(decodedToken.isAdmin);
         if (decodedToken.isAdmin) {
           return true;
         } else {
