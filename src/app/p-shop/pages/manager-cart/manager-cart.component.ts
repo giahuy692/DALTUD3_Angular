@@ -14,7 +14,7 @@ export class ManagerCartComponent {
   productList: any;
 
 
-  public data = [{text: "Cập nhật trạng thái" }];
+  public data = [{text: 'Cập nhật trạng thái', iconClass: 'k-icon k-i-edit' }];
   public expandMode: DrawerMode = "overlay";
   public gridView: GridDataResult;
   public pagerTypes = ["numeric", "input"];
@@ -28,7 +28,7 @@ export class ManagerCartComponent {
 
   public pageSize = 5;
   public skip = 0;
-
+  public sizes = [10, 20, 50];
   
   public gridData = [
     {
