@@ -11,4 +11,5 @@ export class DTOProduct {
   Image_list: string[] = [];
   createdAt: Date;
   updatedAt: Date;
+  quantityCart: number = 0;
 }

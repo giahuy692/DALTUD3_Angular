@@ -44,29 +44,10 @@ export class HomepageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getData();
     this.GetListProduct(1, 5, undefined);
   }
 
-  public ngAfterViewInit(): void {
-    this.interval = setInterval(() => {
-      this.scrollView.next();
-    }, 3000);
-  }
-
-  //#region Our product
-  getData() {
-    let getData = this.apiService.GetListProduct().subscribe(
-      (v: any) => {
-        this.data = v;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    this.arrUnsubscribe.push(getData);
-  }
+  public ngAfterViewInit(): void {}
 
   // Handle lấy product detail
   GetProductSingle(data: DTOProduct) {
@@ -94,7 +75,8 @@ export class HomepageComponent implements OnInit {
       .GetListProduct(page, pageSize, sort)
       .subscribe(
         (v: any) => {
-          this.ListProduct = v;
+          this.ListProduct = v.products;
+          console.log(v);
         },
         (errr) => {
           console.log(errr);
