@@ -31,38 +31,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a routerLink="#"><i class="far fa-window-close"></i></a>
+                            <tr class="table-body-row" *ngFor="let item of cartItems; let i = index">
+                                <td class="product-remove"><a (click)="removeFromCart(i)"><i
+                                            class="far fa-window-close"></i></a>
                                 </td>
-                                <td class="product-image"><img
-                                        src="assets/img/container/fas12519_-_798k__fqb028_-_768k__3__0bf85c29f4a64ee2bb01847b594760a2.jpg"
-                                        alt=""></td>
-                                <td class="product-name">T-Shirt 1</td>
-                                <td class="product-price">$85</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a routerLink="#"><i class="far fa-window-close"></i></a>
-                                </td>
-                                <td class="product-image"><img
-                                        src="assets/img/container/fas32590_-_558k__fjd1718_-_888k__4__00a2607be9d9478094b126622265176c.jpg"
-                                        alt=""></td>
-                                <td class="product-name">skirt</td>
-                                <td class="product-price">$70</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a routerLink="#"><i class="far fa-window-close"></i></a>
-                                </td>
-                                <td class="product-image"><img
-                                        src="assets/img/container/mso5001-768k_mqd5009-738k__4__2f85a992a08047d292878740768801e2_1024x1024.jpg"
-                                        alt=""></td>
-                                <td class="product-name">T-Shirt 2</td>
-                                <td class="product-price">$35</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
+                                <td class="product-image"><img src="{{item.Image_link}}" alt=""></td>
+                                <td class="product-name">{{item.ProductName}}</td>
+                                <td class="product-price">{{item.Price | currency}}</td>
+                                <td class="product-quantity"><input type="number" placeholder="0"
+                                        [(value)]="item.quantityCart"></td>
+                                <td class="product-total">{{item.Price*item.quantityCart}}</td>
                             </tr>
                         </tbody>
                     </table>

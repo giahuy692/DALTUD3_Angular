@@ -10,11 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./women.component.scss'],
 })
 export class WomenComponent {
-  constructor(
-    private serviceApi: ShopApiService,
-    private notificationService: NotificationService,
-    private router: Router
-  ) {}
+  constructor(private serviceApi: ShopApiService) {}
 
   data: DTOProduct[];
   product: DTOProduct;
@@ -23,7 +19,7 @@ export class WomenComponent {
   productSingle: any;
 
   ngOnInit() {
-    this.getData();
+    this.GetListProduct();
     this.getListProductLimit();
   }
 
@@ -49,7 +45,7 @@ export class WomenComponent {
     return Array(roundedRate).fill(0);
   }
 
-  getData() {
+  GetListProduct() {
     this.serviceApi.GetListProduct().subscribe(
       (v: any) => {
         this.data = v;

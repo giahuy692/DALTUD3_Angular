@@ -22,9 +22,12 @@
 
 <div class="single-product-item" kendoTooltip>
   <div class="product-image">
-    <img routerLink="/shopDetail/{{ id }}" src="{{ imgProduct }}" alt="" (click)="onClick()" />
+    <img routerLink="/shopDetail/{{ item._id }}" src="{{ item.Image_link }}" alt="" (click)="onClick()" />
   </div>
-  <h3 title="{{ titleProduct }}" (click)="onClick()">{{ titleProduct }}</h3>
-  <p class="product-price"><span>S M L</span> ${{ price }}</p>
-  <a routerLink="/cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+  <h3 title="{{ item.ProductName }}" (click)="onClick()">{{ item.ProductName }}</h3>
+  <p class="product-price"><span>S M L</span> {{ item.Price | currency:'VND':'symbol':'1.0-0' }}</p>
+
+  <a class="cart-btn" (click)="item.quantityCart = 1; cartService.addToCart(item)">
+    <i class="fas fa-shopping-cart"></i> Add to Cart
+  </a>
 </div>

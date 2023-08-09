@@ -53,11 +53,11 @@
                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="billing-address-form">
-                                        <form action="index">
-                                            <p><input type="text" placeholder="Name"></p>
-                                            <p><input type="email" placeholder="Email"></p>
-                                            <p><input type="text" placeholder="Address"></p>
-                                            <p><input type="tel" placeholder="Phone"></p>
+                                        <form [formGroup]="form">
+                                            <p><input type="text" [value]="user.UserName"></p>
+                                            <p><input type="email" [value]="user.Email"></p>
+                                            <p><input type="text" [value]="user.Address"></p>
+                                            <p><input type="tel" [value]="user.Phone"></p>
                                             <p><textarea name="bill" id="bill" cols="30" rows="10"
                                                     placeholder="Say Something"></textarea></p>
                                         </form>
@@ -78,7 +78,7 @@
                                 data-parent="#accordionExample">
                                 <div class="card-body">
                                     <div class="shipping-address-form">
-                                        <p>Your shipping address form is here.</p>
+                                        <p>{{user.Address}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -112,43 +112,17 @@
                     <table class="order-details">
                         <thead>
                             <tr>
-                                <th>Your order Details</th>
-                                <th>Price</th>
+                                <th style="width: 350px;">Your order Details</th>
+                                <th style="width: 350px;">Price</th>
                             </tr>
                         </thead>
-                        <tbody class="order-details-body">
-                            <tr>
-                                <td>Product</td>
-                                <td>Total</td>
-                            </tr>
-                            <tr>
-                                <td>Strawberry</td>
-                                <td>$85.00</td>
-                            </tr>
-                            <tr>
-                                <td>Berry</td>
-                                <td>$70.00</td>
-                            </tr>
-                            <tr>
-                                <td>Lemon</td>
-                                <td>$35.00</td>
-                            </tr>
-                        </tbody>
-                        <tbody class="checkout-details">
-                            <tr>
-                                <td>Subtotal</td>
-                                <td>$190</td>
-                            </tr>
-                            <tr>
-                                <td>Shipping</td>
-                                <td>$50</td>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td>$240</td>
-                            </tr>
-                        </tbody>
                     </table>
+                    <kendo-grid [data]="Orders">
+                        <kendo-grid-column field="ProductName" title="Product">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="Amount" title="Total: {{totalAmount}}">
+                        </kendo-grid-column>
+                    </kendo-grid>
                     <a routerLink="#" class="boxed-btn">Place Order</a>
                 </div>
             </div>

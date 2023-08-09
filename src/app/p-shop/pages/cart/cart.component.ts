@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DTOOrder } from '../../share/dtos/DTOOrder';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../share/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,90 +10,25 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  inforOrder = new DTOOrder();
-  isCheckout = false;
-  gridData = [
-    {
-      ProductID: 1,
-      ProductName: 'Chai',
-      UnitPrice: 18,
-      Category: {
-        CategoryID: 1,
-        CategoryName: 'Beverages',
-      },
-    },
-    {
-      ProductID: 2,
-      ProductName: 'Chang',
-      UnitPrice: 19,
-      Category: {
-        CategoryID: 1,
-        CategoryName: 'Beverages',
-      },
-    },
-    {
-      ProductID: 3,
-      ProductName: 'Aniseed Syrup',
-      UnitPrice: 10,
-      Category: {
-        CategoryID: 2,
-        CategoryName: 'Condiments',
-      },
-    },
-  ];
-  arrUnsubscribe: Subscription[] = [];
+  cartItems: any[];
 
-  pageSize: number;
-  notificationService: any;
-
-  constructor(private apiService: ShopApiService) {}
-
-  ngOnInit() {
-    this.pageSize = this.gridData.length;
+  constructor(private cartService: CartService) {
+    this.cartItems = this.cartService.getCartItems();
   }
 
-  onCheckout() {
-    this.isCheckout = true;
+  removeFromCart(index: number) {
+    this.cartService.removeFromCart(index);
+    this.cartItems = this.cartService.getCartItems();
   }
 
-  clicks() {
-    console.log(this.inforOrder);
-  }
-
-  arrOrder: DTOOrder[] = [];
-  UpdateOrder(dto: DTOOrder) {
-    let a = { ...dto };
-    this.arrOrder.push(dto);
-    console.log(this.arrOrder);
-    let b = {
-      ProductName: 'Test', // tên sản phẩm
-      CatalogId: '64b157dee27407f744b4bcf6', // ID của categody
-      Discount: 30,
-      Price: 1200000,
-      Description: 'Mô tả',
-      Quantity: 50,
-      Image_link: '',
-      Image_list: [],
-    };
-    this.CreateProduct(b);
-  }
-
-  CreateProduct(dto: any) {
-    let CreateProduct = this.apiService.CreateProduct(dto).subscribe(
-      (v) => {
-        // thêm product mới và mảng chứa listproduct
-      },
-      (err) => {
-        // thông báo bằng showError trong layoutService
-      }
-    );
-
-    this.arrUnsubscribe.push(CreateProduct);
+  clearCart() {
+    this.cartService.clearCart();
+    this.cartItems = [];
   }
 
   public ngOnDestroy(): void {
-    this.arrUnsubscribe.forEach((s) => {
-      s?.unsubscribe();
-    });
+    // this.arrUnsubscribe.forEach((s) => {
+    //   s?.unsubscribe();
+    // });
   }
 }

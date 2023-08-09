@@ -53,14 +53,6 @@ export class ShopComponent {
       .subscribe((v) => {
         this.productSingle = v;
       });
-    //=============================================================================
-    // // data: DTOProduct là giá nhận được khi click vào 1 sản phẩm
-    // this.apiService.GetProduct(data._id).subscribe((v: any) => {
-    //   // Api GetProduct truyền (data._id )
-    //   this.productSingle = v; // Nhận được product đetail từ api trả về dự vào _id được truyền là data._id gán vào biến productSingle
-    //   console.log('productSingle', this.productSingle); // console ra giá trị hiện tại của productSingle
-
-    // });
     this.arrUnsubscribe.push(GetProductSingle);
   }
 

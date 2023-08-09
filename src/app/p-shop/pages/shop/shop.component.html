@@ -15,37 +15,21 @@
 
 <div class="main">
   <div class="col-lg-4 col-md-6 text-center">
-    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
-      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
-  </div>
-  <div class="col-lg-4 col-md-6 text-center">
-    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
-      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
-  </div>
-  <div class="col-lg-4 col-md-6 text-center">
-    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
-      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
-  </div>
-  <div class="col-lg-4 col-md-6 text-center">
-    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
-      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
-  </div>
-  <div class="col-lg-4 col-md-6 text-center">
-    <app-product [titleProduct]="'Woman 1'" [price]="150" [id]="1"
-      [imgProduct]="'../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg'"></app-product>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <div class="pagination-wrap">
-      <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a class="active" href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">Next</a></li>
-      </ul>
+    <div class="col-lg-4 col-md-6 text-center" *ngFor="let item of data">
+      <app-product [item]="item"></app-product>
     </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <div class="pagination-wrap">
+        <ul>
+          <li><a href="#">Prev</a></li>
+          <li><a href="#">1</a></li>
+          <li><a class="active" href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>

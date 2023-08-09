@@ -5,86 +5,101 @@
                 <div class="search-detail-program">
                     <div class="wrapper-search">
                         <div class="title-detail-program">
-                            <span>Tìm kiếm sản phẩm</span>
+                            <span>Thông tin chi tiết</span>
                         </div>
-
-                        <div style="display: flex;column-gap: 10px;">
-                            <kendo-textbox placeholder="Insert name here" type="text">
-                                <ng-template kendoTextBoxPrefixTemplate>
-                                    <kendo-textbox-separator></kendo-textbox-separator>
-                                    <kendo-icon name="search" style="margin: 0 5px;"></kendo-icon>
-                                </ng-template>
-                            </kendo-textbox>
-                            <kendo-button [themeColor]="'primary'" iconClass="k-icon k-i-search">SEARCH</kendo-button>
-                        </div>
-
                     </div>
                 </div>
             </div>
 
-            <div class="body-detail-program mt-5">
-                <kendo-grid [data]="gridView" [pageSize]="pageSize" [skip]="skip" [pageable]="{
-                buttonCount: buttonCount,
-                info: info,
-                type: type,
-                pageSizes: pageSizes,
-                previousNext: previousNext,
-                position: position
-                }" [height]="520" (pageChange)="pageChange($event)">
+            <div class="wrapper-grid">
+                <kendo-grid [data]="Cartlist" [pageable]="true" [pageSize]="pageSize" scrollable="none"
+                    [loading]="loading">
 
-                    <kendo-grid-column field="name" title="Customer">
+                    <kendo-grid-column field="paymentName" title="Customer" [headerClass]="'HeaderUserName'"
+                        [class]="'cellUserName'">
                         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                             <div class="container-product">
 
                                 <div class="sub-title">
-                                    <span class="title">{{ dataItem.name }}</span>
+                                    <span class="title">{{ dataItem.UserName }}</span>
                                     <div class="ncode">
-                                        <span class="poscode">{{ dataItem.email }}</span>
-                                        <span class="barcode">{{ dataItem.phonenb }}</span>
+                                        <span class="poscode">{{ dataItem.UserEmail }}</span>
+                                        <span class="barcode">{{ dataItem.UserPhone }}</span>
                                     </div>
                                 </div>
                             </div>
                         </ng-template>
                     </kendo-grid-column>
 
-                    <kendo-grid-column field="quantity" title="Quantity">
+                    <kendo-grid-column field="Amount" title="Amount" [headerClass]="'HeaderAmout'"
+                        [class]="'cellAmount'">
                     </kendo-grid-column>
 
-                    <kendo-grid-column field="amount" title="Amount">
+                    <kendo-grid-column field="Message" title="Message" [headerClass]="'HeaderMessage'"
+                        [class]="'cellMessage'">
                     </kendo-grid-column>
 
-                    <kendo-grid-column field="status" title="Status">
+                    <kendo-grid-column field="Payment" title="Payment" [headerClass]="'HeaderPayment'"
+                        [class]="'cellPayment'">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column field="Status" title="Status" [headerClass]="'HeaderStatus'"
+                        [class]="'cellStatus'">
+                    </kendo-grid-column>
+
+                    <kendo-grid-column [headerClass]="'HeaderTools'" [class]="'cellTools'">
                         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-
-
-
-                            <span class="statusbtn">
-                                chờ xử lý
-                            </span>
-                            <span class="btnedit">
-
-                                <kendo-dropdownbutton [data]="data">
-                                    <i class="fa-sharp fa-solid fa-ellipsis"></i>
-
-                                    <ng-template kendoDropDownButtonItemTemplate let-items style="padding: 0;">
-
-                                        <button kendoButton (click)="drawer.toggle()">{{items.text}}</button>
-
-
-                                    </ng-template>
-
-                                </kendo-dropdownbutton>
-
-
-
-                            </span>
-
-
+                            <kendo-dropdownbutton iconClass="k-icon k-i-more-horizontal"
+                                [popupSettings]="{ popupClass: 'popupBtbDrop', animate: true, align: 'right', appendTo: 'component' }"
+                                buttonClass="popupCustom" [data]="data"
+                                (itemClick)="onItemClickTools($event, dataItem)">
+                            </kendo-dropdownbutton>
                         </ng-template>
                     </kendo-grid-column>
 
+                    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-numeric-buttons [buttonCount]="buttonCount"></kendo-pager-numeric-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                        <kendo-pager-input></kendo-pager-input>
+                        <kendo-pager-info></kendo-pager-info>
+                        <kendo-pager-page-sizes [pageSizes]="sizes"></kendo-pager-page-sizes>
+                    </ng-template>
                 </kendo-grid>
+            </div>
+            <div class="Dialog-Console">
+                <kendo-dialog *ngIf="openedDialog" (close)="handleActionDialog(0)" [minWidth]="250" [width]="450">
+                    <kendo-dialog-titlebar>
+                        <div style="font-size: 18px; line-height: 1.3em;"><span
+                                class="fas fa-exclamation-triangle"></span> DELETE
+                            User
+                        </div>
+                    </kendo-dialog-titlebar>
+                    <div class="container-dialog">
+                        <div class="name-dialog-product">
+                            <p class="text-gray">You are deleting the user:</p>
+                            <p style="color: rgb(126, 182, 147);">{{currentCart.UserName}}</p>
+                        </div>
+                        <div class="name-dialog-product">
+                            <p class="text-gray">If you click </p>
+                            <p style="color: red;">“DELETE”</p>
+                        </div>
 
+                        <div class="name-dialog-product">
+                            <p class="text-gray"> The user will not be able to recover!</p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="button-action">
+                        <button class="button-click text-gray" (click)="handleActionDialog(0)">CANCEL</button>
+                        <button class="button-click themecolor-button" (click)="handleActionDialog(1)"> <span
+                                class="fas fa-trash-alt"></span>
+                            DELETE</button>
+                    </div>
+                </kendo-dialog>
+                <!-- Dialog -->
 
             </div>
         </div>
@@ -92,35 +107,39 @@
     <kendo-drawer #drawer [mode]="'overlay'" [position]="'end'">
         <ng-template kendoDrawerTemplate let-item>
             <div class="HeaderDrawer">
-                <h4>Edit User</h4>
+                <h4>Edit Cart</h4>
             </div>
-            <div class="BodyDrawer">
-                <kendo-label text="Username:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <kendo-label text="Password:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <kendo-label text="Email:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <div class="d-flex">
-                    <kendo-label text="Address:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
+            <form [formGroup]="form">
+                <div class="BodyDrawer">
+                    <kendo-label text="UserName:">
+                        <kendo-textbox placeholder="Enter username" formControlName="UserName"></kendo-textbox>
                     </kendo-label>
-                    <kendo-label class="k-checkbox-label" [for]="notification" text="Allow Notifications">
-                        <input type="checkbox" #notification kendoCheckBox />
+                    <kendo-label text="Email:">
+                        <kendo-textbox placeholder="Enter email" formControlName="UserEmail"></kendo-textbox>
                     </kendo-label>
+                    <kendo-label text="Phone:">
+                        <kendo-textbox placeholder="Enter phone" formControlName="UserPhone"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Amount:">
+                        <kendo-textbox placeholder="Enter amount" formControlName="Amount"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Message:">
+                        <kendo-textbox placeholder="Enter payment" formControlName="Message"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Payment:">
+                        <kendo-textbox placeholder="Enter payment" formControlName="Payment"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Status:">
+                        <kendo-textbox placeholder="Enter status" formControlName="Status"></kendo-textbox>
+                    </kendo-label>
+
                 </div>
-                <kendo-label text="Phone:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-            </div>
-            <div class="FooterDrawer">
-                <button kendoButton (click)="drawer.toggle()">CLOSE</button>
-                <button kendoButton (click)="drawer.toggle()" iconClass="k-icon k-i-save"
-                    themeColor="primary">SAVE</button>
-            </div>
+                <div class="FooterDrawer">
+                    <button kendoButton (click)="drawer.toggle()">CLOSE</button>
+                    <button kendoButton (click)="onUpdateCart()" iconClass="k-icon k-i-save"
+                        themeColor="primary">SAVE</button>
+                </div>
+            </form>
         </ng-template>
     </kendo-drawer>
 </kendo-drawer-container>
