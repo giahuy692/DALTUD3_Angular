@@ -21,7 +21,7 @@ export class CartService {
 
   addToCart(item: any) {
     const existingItem = this.cartItems.find(
-      (cartItem) => cartItem.id === item.id
+      (cartItem) => cartItem._id === item._id
     );
 
     if (existingItem) {
@@ -45,7 +45,9 @@ export class CartService {
   }
 
   updateQuantity(item: any) {
-    const cartItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
+    const cartItem = this.cartItems.find(
+      (cartItem) => cartItem._id === item._id
+    );
 
     if (cartItem) {
       cartItem.quantityCart = item.quantityCart;

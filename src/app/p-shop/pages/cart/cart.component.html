@@ -38,7 +38,7 @@
                                 <td class="product-image"><img src="{{item.Image_link}}" alt=""></td>
                                 <td class="product-name">{{item.ProductName}}</td>
                                 <td class="product-price">{{item.Price | currency:'VND':'symbol':'1.0-0'}}</td>
-                                <td class="product-quantity"><kendo-numerictextbox placeholder="#" [spinners]="false"
+                                <td class="product-quantity"><kendo-numerictextbox placeholder="#"
                                         [(ngModel)]="item.quantityCart" [min]="0" [max]="item.Quantity"
                                         [style.width.px]="80"
                                         (ngModelChange)="updateQuantityAndSave(item)"></kendo-numerictextbox></td>
