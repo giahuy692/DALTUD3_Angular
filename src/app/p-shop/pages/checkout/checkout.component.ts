@@ -4,6 +4,7 @@ import { ShopApiService } from '../../share/services/shop-api.service';
 import { layoutService } from '../../share/services/layout.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../share/services/auth.service';
+import { CartService } from '../../share/services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,7 +19,7 @@ export class CheckoutComponent {
   Orders: DTOOrder[] = [];
   currentOrder = new DTOOrder();
   totalAmount: number = 0;
-  constructor(private api: ShopApiService, private layout: layoutService, private auth: AuthService) {
+  constructor(private api: ShopApiService, private layout: layoutService, private auth: AuthService, private cartService: CartService) {
     this.user = this.auth.getInfoUser();
     this.form = new FormGroup({
       _id: new FormControl(this.currentOrder._id, [Validators.required]),
@@ -35,24 +36,26 @@ export class CheckoutComponent {
   }
 
   ngOnInit(): void {
-    this.GetListOrder();
+    // this.GetListOrder();
+    this.Orders = this.cartService.getCartItems();
+
   }
 
   //#region lấy api
-  GetListOrder() {
-    this.loading = true;
-    this.api.GetListOrder().subscribe(
-      (v: any) => {
-        this.Orders = v;
-        this.calculateTotalAmount();
-        this.loading = false;
-      },
-      (error) => {
-        this.layout.showError(error);
-        this.loading = false;
-      }
-    );
-  }
+  // GetListOrder() {
+  //   this.loading = true;
+  //   this.api.GetListOrder().subscribe(
+  //     (v: any) => {
+  //       this.Orders = v;
+  //       this.calculateTotalAmount();
+  //       this.loading = false;
+  //     },
+  //     (error) => {
+  //       this.layout.showError(error);
+  //       this.loading = false;
+  //     }
+  //   );
+  // }
   //#endregion
 
   //#region tính tổng giá trị Amount
@@ -60,15 +63,15 @@ export class CheckoutComponent {
     this.totalAmount = this.Orders.reduce((total, order) => total + order.Amount, 0);
   }
 
-  GetOrder(dto: DTOOrder) {
-    this.api.GetOrder(dto).subscribe(
-      (v: DTOOrder) => {
-        this.Orders = [v];
-      },
-      (error) => {
-        this.layout.showError(error);
-        this.loading = false;
-      }
-    );
-  }
+  // GetOrder(dto: DTOOrder) {
+  //   this.api.GetOrder(dto).subscribe(
+  //     (v: DTOOrder) => {
+  //       this.Orders = [v];
+  //     },
+  //     (error) => {
+  //       this.layout.showError(error);
+  //       this.loading = false;
+  //     }
+  //   );
+  // }
 }

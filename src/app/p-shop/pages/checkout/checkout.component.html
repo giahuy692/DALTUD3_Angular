@@ -113,15 +113,19 @@
                         <thead>
                             <tr>
                                 <th style="width: 350px;">Your order Details</th>
-                                <th style="width: 350px;">Price</th>
                             </tr>
                         </thead>
                     </table>
                     <kendo-grid [data]="Orders">
                         <kendo-grid-column field="ProductName" title="Product">
                         </kendo-grid-column>
-                        <kendo-grid-column field="Amount" title="Total: {{totalAmount}}">
+                        <kendo-grid-column field="Shipping" title="Shipping">
                         </kendo-grid-column>
+                        <kendo-grid-column field="Amount" title="Price">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="Total" title="Total">
+                        </kendo-grid-column>
+
                     </kendo-grid>
                     <a routerLink="#" class="boxed-btn">Place Order</a>
                 </div>
