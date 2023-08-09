@@ -53,7 +53,7 @@ export class CartService {
     }
   }
 
-  private saveCart() {
+  saveCart() {
     localStorage.setItem('cart', JSON.stringify(this.cartItems));
   }
 }

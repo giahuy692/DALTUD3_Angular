@@ -141,7 +141,10 @@ export class ShopApiService {
   GetProductByCategoryID(CatalogId: string) {
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .post<DTOProduct>(`http://localhost:3000/api/DeleteProduct`, CatalogId)
+        .post<DTOProduct>(
+          `http://localhost:3000/api/GetProductByCategoryID`,
+          CatalogId
+        )
         .subscribe(
           (res) => {
             obs.next(res);

@@ -37,10 +37,13 @@
                                 </td>
                                 <td class="product-image"><img src="{{item.Image_link}}" alt=""></td>
                                 <td class="product-name">{{item.ProductName}}</td>
-                                <td class="product-price">{{item.Price | currency}}</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"
-                                        [(value)]="item.quantityCart"></td>
-                                <td class="product-total">{{item.Price*item.quantityCart}}</td>
+                                <td class="product-price">{{item.Price | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="product-quantity"><kendo-numerictextbox placeholder="#" [spinners]="false"
+                                        [(ngModel)]="item.quantityCart" [min]="0" [max]="item.Quantity"
+                                        [style.width.px]="80"
+                                        (ngModelChange)="updateQuantityAndSave(item)"></kendo-numerictextbox></td>
+                                <td class="product-total">{{item.Price*item.quantityCart |
+                                    currency:'VND':'symbol':'1.0-0'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,21 +62,21 @@
                         <tbody>
                             <tr class="total-data">
                                 <td><strong>Subtotal: </strong></td>
-                                <td>$500</td>
+                                <td>{{ getTotalPrice() | currency:'VND':'symbol':'1.0-0'}}</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Shipping: </strong></td>
-                                <td>$45</td>
+                                <td>{{30000 | currency:'VND':'symbol':'1.0-0' }}</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Total: </strong></td>
-                                <td>$545</td>
+                                <td>{{getTotalPrice() + 30000 | currency:'VND':'symbol':'1.0-0'}}</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="cart-buttons">
                         <a routerLink="/cart" class="boxed-btn">Update Cart</a>
-                        <a routerLink="/cart/checkout" class="boxed-btn black">Check Out</a>
+                        <a routerLink="/cart/checkout" class="boxed-btn black" (click)="checkOut()">Check Out</a>
                     </div>
                 </div>
 
