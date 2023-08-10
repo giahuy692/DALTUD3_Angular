@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="wrapper-grid">
-                    <kendo-grid [data]="UserList" [pageable]="true" [pageSize]="pageSize" scrollable="none"
+                    <kendo-grid [kendoGridBinding]="UserList" [pageable]="true" [pageSize]="pageSize" scrollable="none"
                         [loading]="loading">
                         <kendo-grid-column field="UserName" title="UserName" [headerClass]="'HeaderUserName'"
                             [class]="'cellUserName'">
@@ -73,7 +73,7 @@
                         <kendo-grid-column field="isAdmin" title="Admin" [headerClass]="'HeaderAdmin'"
                             [class]="'cellAdmin'">
                             <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
-                                <input type="checkbox" kendoCheckBox [(ngModel)]="dataItem.isAdmin" />
+                                <input type="checkbox" kendoCheckBox [(ngModel)]="dataItem.isAdmin" [disabled]="true" />
                             </ng-template>
                         </kendo-grid-column>
                         <kendo-grid-column [headerClass]="'HeaderTools'" [class]="'cellTools'">
@@ -100,7 +100,7 @@
                         <kendo-dialog-titlebar>
                             <div style="font-size: 18px; line-height: 1.3em;"><span
                                     class="fas fa-exclamation-triangle"></span> DELETE
-                                User
+                                USER
                             </div>
                         </kendo-dialog-titlebar>
                         <div class="container-dialog">

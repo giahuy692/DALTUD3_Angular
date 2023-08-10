@@ -14,7 +14,7 @@
 <!-- end breadcrumb section -->
 
 <div class="main">
-  <div class="col-lg-4 col-md-6 text-center"
+  <div class="col-lg-3 col-md-6 text-center"
     *ngFor="let item of data | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
     <!-- Hiển thị sản phẩm ở đây, ví dụ sử dụng component app-product -->
     <app-product [item]="item"></app-product>

@@ -2,73 +2,82 @@ import { Component } from '@angular/core';
 import { DTOOrder } from '../../share/dtos/DTOOrder';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { layoutService } from '../../share/services/layout.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../share/services/auth.service';
+import { CartService } from '../../share/services/cart.service';
+import { CartComponent } from '../cart/cart.component';
+import { Router } from '@angular/router';
+import { DTOTransaction } from '../../share/dtos/DTOTransaction';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent {
   public form: FormGroup;
   public loading = false;
   user: any;
-  
-  Orders: DTOOrder[] = [];
+  localstorage: any;
   currentOrder = new DTOOrder();
   totalAmount: number = 0;
-  constructor(private api: ShopApiService, private layout: layoutService, private auth: AuthService) {
+  constructor(
+    private api: ShopApiService,
+    private layout: layoutService,
+    private auth: AuthService,
+    private cartService: CartService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
     this.user = this.auth.getInfoUser();
-    this.form = new FormGroup({
-      _id: new FormControl(this.currentOrder._id, [Validators.required]),
-      paymentID: new FormControl(this.currentOrder.paymentID),
-      paymentName: new FormControl(this.currentOrder.paymentName),
-      ProductId: new FormControl(this.currentOrder.ProductId),
-      ProductName: new FormControl(this.currentOrder.ProductName), 
-      Qty: new FormControl(this.currentOrder.Qty, [Validators.required]),
-      Amount: new FormControl(this.currentOrder.Amount),
-      Status: new FormControl(this.currentOrder.Status),
-
+    this.form = this.formBuilder.group({
+      UserName: [this.user.UserName, Validators.required],
+      UserEmail: [this.user.Email, Validators.required],
+      Address: [this.user.Address, Validators.required],
+      UserPhone: [this.user.Phone, Validators.required],
+      Message: [''], // Add other form controls if needed
     });
     // console.log(this.currentOrder)
   }
 
   ngOnInit(): void {
-    this.GetListOrder();
+    // this.GetListOrder();
+    const localStorageData = localStorage.getItem('checkout');
+    if (localStorageData) {
+      this.localstorage = JSON.parse(localStorageData);
+      console.log(this.localstorage);
+    } else {
+      console.log('No checkout data in localStorage.');
+    }
   }
 
-  //#region lấy api
-  GetListOrder() {
-    this.loading = true;
-    this.api.GetListOrder().subscribe(
-      (v: any) => {
-        this.Orders = v;
-        this.calculateTotalAmount();
-        this.loading = false;
-      },
-      (error) => {
-        this.layout.showError(error);
-        this.loading = false;
-      }
-    );
-  }
-  //#endregion
+  placeOrder() {
+    // Create a new DTOTransaction with form and localstorage data
+    if (this.form) {
+      const transactionData = new DTOTransaction();
+      transactionData.UserName = this.form.get('UserName')?.value;
+      transactionData.UserEmail = this.form.get('UserEmail')?.value;
+      transactionData.Address = this.form.get('Address')?.value;
+      transactionData.UserPhone = this.form.get('UserPhone')?.value;
+      transactionData.Message = this.form.get('Message')?.value;
+      transactionData.Payment = this.localstorage.Payment;
+      transactionData.Status = this.localstorage.Status;
+      transactionData.Amount = this.localstorage.total;
+      transactionData.Qty = this.localstorage.quantityCart;
 
-  //#region tính tổng giá trị Amount
-  calculateTotalAmount() {
-    this.totalAmount = this.Orders.reduce((total, order) => total + order.Amount, 0);
-  }
+      // Save the transactionData to your data store (e.g., API, database)
 
-  GetOrder(dto: DTOOrder) {
-    this.api.GetOrder(dto).subscribe(
-      (v: DTOOrder) => {
-        this.Orders = [v];
-      },
-      (error) => {
-        this.layout.showError(error);
-        this.loading = false;
-      }
-    );
+      localStorage.removeItem('checkout');
+      this.cartService.clearCart();
+      this.layout.showSuccess('Payment success');
+      this.router.navigate(['/shop']); // Navigate to your cart management page
+    } else {
+      console.error('Form is not initialized.');
+    }
   }
 }

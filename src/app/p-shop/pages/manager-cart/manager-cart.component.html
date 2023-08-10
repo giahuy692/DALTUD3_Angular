@@ -12,8 +12,8 @@
             </div>
 
             <div class="wrapper-grid">
-                <kendo-grid [data]="Cartlist" [pageable]="true" [pageSize]="pageSize" scrollable="none"
-                    [loading]="loading">
+                <kendo-grid [kendoGridBinding]="Cartlist" [pageable]="true" [pageSize]="pageSize" scrollable="none"
+                    [skip]="skip" [loading]="loading">
 
                     <kendo-grid-column field="paymentName" title="Customer" [headerClass]="'HeaderUserName'"
                         [class]="'cellUserName'">

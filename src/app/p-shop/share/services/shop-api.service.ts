@@ -140,14 +140,11 @@ export class ShopApiService {
 
   GetProductByCategoryID(CatalogId: string) {
     let a = {
-      _id: CatalogId,
+      CatalogId: CatalogId,
     };
     return new Observable<DTOProduct>((obs) => {
       this.http
-        .post<DTOProduct>(
-          `http://localhost:3000/api/GetProductByCategoryID`,
-          CatalogId
-        )
+        .post<DTOProduct>(`http://localhost:3000/api/GetProductByCategoryID`, a)
         .subscribe(
           (res) => {
             obs.next(res);

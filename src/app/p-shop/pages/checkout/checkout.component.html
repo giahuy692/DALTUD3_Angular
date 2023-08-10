@@ -54,12 +54,12 @@
                                 <div class="card-body">
                                     <div class="billing-address-form">
                                         <form [formGroup]="form">
-                                            <p><input type="text" [value]="user.UserName"></p>
-                                            <p><input type="email" [value]="user.Email"></p>
-                                            <p><input type="text" [value]="user.Address"></p>
-                                            <p><input type="tel" [value]="user.Phone"></p>
-                                            <p><textarea name="bill" id="bill" cols="30" rows="10"
-                                                    placeholder="Say Something"></textarea></p>
+                                            <p><input type="text" formControlName="UserName"></p>
+                                            <p><input type="email" formControlName="UserEmail"></p>
+                                            <p><input type="text" formControlName="Address"></p>
+                                            <p><input type="tel" formControlName="UserPhone"></p>
+                                            <p><textarea formControlName="Message" name="bill" id="bill" cols="30"
+                                                    rows="10" placeholder="Say Something"></textarea></p>
                                         </form>
                                     </div>
                                 </div>
@@ -109,21 +109,60 @@
 
             <div class="col-lg-4">
                 <div class="order-details-wrap">
-                    <table class="order-details">
+                    <table class="order-details" style="width: 385px;">
                         <thead>
                             <tr>
-                                <th style="width: 350px;">Your order Details</th>
-                                <th style="width: 350px;">Price</th>
+                                <th colspan="4" style="width: 350px;">Your order Details</th>
+
                             </tr>
                         </thead>
+                        <thead>
+                            <tr>
+                                <td style="padding: 15px;">Product Name</td>
+                                <td style="padding: 15px;">Price</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-body-row" *ngFor="let item of localstorage.cartItems; let i = index">
+                                <td class="product-name">{{item.ProductName}}</td>
+                                <td class="product-price">{{item.Price | currency:'VND':'symbol':'1.0-0'}}</td>
+                            </tr>
+                        </tbody>
+                        <!-- <kendo-grid [data]="localstorage.cartItems">
+                            <kendo-grid-column field="ProductName" title="Product">
+                            </kendo-grid-column>
+                            <kendo-grid-column field="Price" title="Price">
+                                <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+                                    <span>{{dataItem.Price | currency:'VND':'symbol':'1.0-0'}}</span>
+                                </ng-template>
+                            </kendo-grid-column>
+                        </kendo-grid> -->
                     </table>
-                    <kendo-grid [data]="Orders">
-                        <kendo-grid-column field="ProductName" title="Product">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="Amount" title="Total: {{totalAmount}}">
-                        </kendo-grid-column>
-                    </kendo-grid>
-                    <a routerLink="#" class="boxed-btn">Place Order</a>
+
+                    <table class="order-details mt-4" style="width: 385px;">
+                        <thead>
+                            <tr>
+                                <th colspan="4" style="width: 350px;">Total order</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>Shipping</th>
+                                <th>Total</th>
+                                <th>Subtotal</th>
+                                <th>Coupon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{localstorage.shipping | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center">{{localstorage.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center">{{localstorage.total | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center"> {{localstorage.coupon ? null : 0}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a (click)="placeOrder()" class="boxed-btn">Place Order</a>
                 </div>
             </div>
         </div>

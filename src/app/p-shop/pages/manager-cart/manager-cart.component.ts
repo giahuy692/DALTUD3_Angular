@@ -1,6 +1,15 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { GridDataResult, PageChangeEvent, PagerPosition, PagerType } from '@progress/kendo-angular-grid';
-import { DrawerComponent, DrawerItem, DrawerMode } from '@progress/kendo-angular-layout';
+import {
+  GridDataResult,
+  PageChangeEvent,
+  PagerPosition,
+  PagerType,
+} from '@progress/kendo-angular-grid';
+import {
+  DrawerComponent,
+  DrawerItem,
+  DrawerMode,
+} from '@progress/kendo-angular-layout';
 import { DTOTransaction } from '../../share/dtos/DTOTransaction';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { layoutService } from '../../share/services/layout.service';
@@ -9,7 +18,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-manager-cart',
   templateUrl: './manager-cart.component.html',
-  styleUrls: ['./manager-cart.component.scss']
+  styleUrls: ['./manager-cart.component.scss'],
 })
 export class ManagerCartComponent {
   @Input() dataView: any;
@@ -17,12 +26,12 @@ export class ManagerCartComponent {
   pageIndex: number = 1;
   productList: any;
   public loading = false;
-  public expandMode: DrawerMode = "overlay";
+  public expandMode: DrawerMode = 'overlay';
   public gridView: GridDataResult;
-  public pagerTypes = ["numeric", "input"];
+  public pagerTypes = ['numeric', 'input'];
 
-  public type: PagerType = "numeric";
-  public buttonCount = 2;
+  public type: PagerType = 'numeric';
+  public buttonCount = 3;
   public info = true;
   public pageSizes = true;
   public previousNext = true;
@@ -30,18 +39,19 @@ export class ManagerCartComponent {
   public skip = 0;
   public sizes = [10, 20, 50];
   public form: FormGroup;
-  public data = [{
-    text: 'EDIT',
-    iconClass: 'k-icon k-i-edit',
-    type: 1,
-  },
-  {
-    text: 'DELETE',
-    iconClass: 'k-icon k-i-delete',
-    type: 2,
-  },
-];
-// Biến gọi listTransaction
+  public data = [
+    {
+      text: 'EDIT',
+      iconClass: 'k-icon k-i-edit',
+      type: 1,
+    },
+    {
+      text: 'DELETE',
+      iconClass: 'k-icon k-i-delete',
+      type: 2,
+    },
+  ];
+  // Biến gọi listTransaction
   Cartlist: DTOTransaction[] = [];
   currentCart = new DTOTransaction();
   constructor(private api: ShopApiService, private layout: layoutService) {
@@ -50,19 +60,21 @@ export class ManagerCartComponent {
       Qty: new FormControl(this.currentCart.Qty),
       Status: new FormControl(this.currentCart.Status),
       Amount: new FormControl(this.currentCart.Amount),
-      UserName: new FormControl(this.currentCart.UserName), 
-      UserEmail: new FormControl(this.currentCart.UserEmail, [Validators.required, Validators.email]),
+      UserName: new FormControl(this.currentCart.UserName),
+      UserEmail: new FormControl(this.currentCart.UserEmail, [
+        Validators.required,
+        Validators.email,
+      ]),
       UserPhone: new FormControl(this.currentCart.UserPhone),
       Payment: new FormControl(this.currentCart.Payment),
       Message: new FormControl(this.currentCart.Payment),
-
     });
   }
 
   ngOnInit(): void {
     this.GetListCart();
   }
-  
+
   onUpdateCart() {
     this.UpdateStatusTransaction(this.form.value);
   }
@@ -95,7 +107,6 @@ export class ManagerCartComponent {
         break;
     }
   }
-  
 
   //#region dialog
   openedDialog = false;
@@ -111,7 +122,7 @@ export class ManagerCartComponent {
 
   UpdateStatusTransaction(dto: DTOTransaction) {
     this.loading = true;
-    this.api. UpdateStatusTransaction(dto).subscribe(
+    this.api.UpdateStatusTransaction(dto).subscribe(
       (v: any) => {
         // Duyệt qua mảng CartList
         for (let i = 0; i < this.Cartlist.length; i++) {
@@ -157,5 +168,4 @@ export class ManagerCartComponent {
       }
     );
   }
-
 }
