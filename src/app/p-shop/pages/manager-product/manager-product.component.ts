@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, from, interval } from 'rxjs';
 import { ShopApiService } from '../../share/services/shop-api.service';
 import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
@@ -9,11 +9,26 @@ import {
   DialogRef,
   DialogService,
 } from '@progress/kendo-angular-dialog';
+import {
+  FileRestrictions,
+  SelectEvent,
+  RemoveEvent,
+  ErrorEvent,
+  CancelEvent,
+  PauseEvent,
+  ResumeEvent,
+  SuccessEvent,
+  UploadEvent,
+  UploadProgressEvent,
+  ChunkSettings,
+  FileInfo,
+} from '@progress/kendo-angular-upload';
 import { layoutService } from '../../share/services/layout.service';
 import { StringFilterMenuComponent } from '@progress/kendo-angular-grid';
 import { DrawerComponent } from '@progress/kendo-angular-layout';
 import { FormControl, FormGroup } from '@angular/forms';
 import { error } from 'jquery';
+import { DTOCategory } from '../../share/dtos/DTOCategory';
 
 @Component({
   selector: 'app-manager-product',
@@ -29,7 +44,7 @@ export class ManagerProductComponent implements OnInit {
   limits: number[] = [10, 20, 50];
   selectedValue: number = 20;
   currentPage: number = 1;
-  public CategoryList: Array<string> = ['Man', 'Woman', 'Couple'];
+  public CategoryList: DTOCategory[];
   public result: string;
   public form: FormGroup;
 
@@ -57,12 +72,16 @@ export class ManagerProductComponent implements OnInit {
     // });
 
     this.form = new FormGroup({
-      productName: new FormControl(),
-      category: new FormControl(),
-      price: new FormControl(),
-      discount: new FormControl(),
-      quantity: new FormControl(),
-      description: new FormControl(),
+      _id: new FormControl(),
+      CatalogId: new FormControl(),
+      CatalogName: new FormControl(),
+      ProductName: new FormControl(),
+      Price: new FormControl(),
+      Discount: new FormControl(),
+      Description: new FormControl(),
+      Quantity: new FormControl(),
+      Image_Link: new FormControl(),
+      Image_List: new FormControl(),
     });
   }
 
@@ -70,7 +89,32 @@ export class ManagerProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetListProduct(1, 100, undefined);
+    this.getCatagory();
   }
+
+  public selectionChange(value: any): void {
+    console.log('selectionChange', value);
+    this.form.patchValue({
+      CatalogId: value._id,
+      CatalogName: value.Name,
+    });
+    console.log(this.form.value);
+  }
+
+  //# Get category
+  getCatagory() {
+    let GetCatagory = this.apiService.GetListCategory().subscribe(
+      (v: any) => {
+        this.CategoryList = v.categorys;
+        console.log(this.CategoryList);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.arrUnsubscribe.push(GetCatagory);
+  }
+  // end get catogory
 
   //#region Our product
 
@@ -89,7 +133,7 @@ export class ManagerProductComponent implements OnInit {
     this.arrUnsubscribe.push(GetListProduct);
   }
 
-  //# Create product
+  //Create product
 
   addNewProduct() {
     this.drawerRef.toggle();
@@ -106,20 +150,20 @@ export class ManagerProductComponent implements OnInit {
     // Đóng drawer sau khi click "SAVE"
     this.drawerRef.toggle();
 
-    this.currentProduct.ProductName = this.form.get('productName')?.value;
-    this.currentProduct.CatalogName = this.form.get('category')?.value;
-    this.currentProduct.Price = this.form.get('price')?.value;
-    this.currentProduct.Discount = this.form.get('discount')?.value;
-    this.currentProduct.Quantity = this.form.get('quantity')?.value;
-    this.currentProduct.Description = this.form.get('description')?.value;
+    this.currentProduct.ProductName = this.form.get('ProductName')?.value;
+    this.currentProduct.CatalogName = this.form.get('Category')?.value;
+    this.currentProduct.Price = this.form.get('Price')?.value;
+    this.currentProduct.Discount = this.form.get('Discount')?.value;
+    this.currentProduct.Quantity = this.form.get('Quantity')?.value;
+    this.currentProduct.Description = this.form.get('Description')?.value;
 
     this.currentProduct.Image_link =
       '../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg';
 
     // console.log('Thông tin sản phẩm:');
-    // console.log(this.currentProduct);
+    console.log(this.form.value);
 
-    this.onCreate(this.currentProduct);
+    // this.onCreate(this.currentProduct);
   }
 
   onCreate(dtoProduct: DTOProduct) {
@@ -191,7 +235,21 @@ export class ManagerProductComponent implements OnInit {
     this.opened = false;
     this.btnRef.nativeElement.focus();
   }
-  // # End dialog
+  //End dialog
+
+  //# upload image
+
+  // uploadSaveUrl = 'saveUrl'; // should represent an actual API endpoint
+  // uploadRemoveUrl = 'removeUrl'; // should represent an actual API endpoint
+  // public uploadRestrictions: FileRestrictions = {
+  //   allowedExtensions: ['.jpg', '.png'],
+  // };
+
+  // public valueChange(e: FileInfo[]): void {
+  //   console.log(`valueChange event ${e[0].name}`);
+  // }
+
+  // end upload
 
   public ngOnDestroy(): void {
     clearInterval(this.interval);
