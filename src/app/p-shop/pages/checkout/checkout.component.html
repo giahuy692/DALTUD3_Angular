@@ -139,7 +139,12 @@
                         </kendo-grid> -->
                     </table>
 
-                    <table class="order-details">
+                    <table class="order-details mt-4" style="width: 385px;">
+                        <thead>
+                            <tr>
+                                <th colspan="4" style="width: 350px;">Total order</th>
+                            </tr>
+                        </thead>
                         <thead>
                             <tr>
                                 <th>Shipping</th>
@@ -150,10 +155,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{localstorage.shipping | currency:'VND':'symbol':'1.0-0'}}</td>
-                                <td>{{localstorage.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
-                                <td>{{localstorage.total | currency:'VND':'symbol':'1.0-0'}}</td>
-                                <td> {{localstorage.coupon ? null : 0}}</td>
+                                <td class="text-center">{{localstorage.shipping | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center">{{localstorage.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center">{{localstorage.total | currency:'VND':'symbol':'1.0-0'}}</td>
+                                <td class="text-center"> {{localstorage.coupon ? null : 0}}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -74,7 +74,7 @@ export class CheckoutComponent {
 
       localStorage.removeItem('checkout');
       this.cartService.clearCart();
-
+      this.layout.showSuccess('Payment success');
       this.router.navigate(['/shop']); // Navigate to your cart management page
     } else {
       console.error('Form is not initialized.');
