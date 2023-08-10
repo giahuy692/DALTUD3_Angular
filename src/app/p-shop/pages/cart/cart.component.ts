@@ -26,6 +26,37 @@ export class CartComponent {
     this.cartItems = [];
   }
 
+  getTotalPrice() {
+    let totalPriceItem = 0;
+    let totalPrice = 0;
+    this.cartItems.forEach((v) => {
+      totalPriceItem = v.Price * v.quantityCart;
+      totalPrice += totalPriceItem;
+    });
+    return totalPrice;
+  }
+
+  updateQuantityAndSave(item: any) {
+    this.cartService.updateQuantity(item); // Cập nhật số lượng trong service
+    this.cartService.saveCart(); // Lưu lại giỏ hàng vào localStorage
+  }
+
+  checkOut() {
+    this.saveCheckoutData();
+  }
+
+  saveCheckoutData() {
+    const checkoutData = {
+      cartItems: this.cartItems,
+      subtotal: this.getTotalPrice(),
+      shipping: 30000,
+      total: this.getTotalPrice() + 30000,
+      coupon: null,
+    };
+
+    localStorage.setItem('checkout', JSON.stringify(checkoutData));
+  }
+
   public ngOnDestroy(): void {
     // this.arrUnsubscribe.forEach((s) => {
     //   s?.unsubscribe();
