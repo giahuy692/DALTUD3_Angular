@@ -8,5 +8,5 @@ export class DTOTransaction {
   UserPhone: string = '';
   Payment: string = '';
   Message: string = '';
-
+  Address: string = '';
 }
