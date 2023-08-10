@@ -74,4 +74,8 @@ export class ShopSingleComponent {
       }
     );
   }
+
+  addToCart() {
+    console.log('Click thanh cong');
+  }
 }

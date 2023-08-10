@@ -1,38 +1,52 @@
 <kendo-drawer-container>
+    <!-- =========================UI create product============================ -->
     <kendo-drawer #drawer [mode]="'overlay'" [position]="'end'">
         <ng-template kendoDrawerTemplate let-item>
             <div class="HeaderDrawer">
-                <h4>Edit User</h4>
+                <h4> Create Product</h4>
             </div>
-            <div class="BodyDrawer">
-                <kendo-label text="Username:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <kendo-label text="Password:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <kendo-label text="Email:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-                <div class="d-flex next align-items-center justify-content-between">
-                    <kendo-label text="Address:">
-                        <kendo-textbox placeholder="John Smith"></kendo-textbox>
+            <form [formGroup]="form">
+                <div class="BodyDrawer">
+                    <kendo-label text="Product Name:">
+                        <kendo-textbox formControlName="productName"></kendo-textbox>
                     </kendo-label>
-                    <kendo-label class="k-checkbox-label" [for]="isAdmin" text="Admin">
-                        <input type="checkbox" #isAdmin kendoCheckBox class="ml-2" />
+                    <!-- <kendo-label text="Category:">
+                        <kendo-textbox placeholder="Men"></kendo-textbox>
+                    </kendo-label> -->
+
+                    <kendo-label text="Category">
+                        <br>
+                        <kendo-dropdownlist [data]="CategoryList" value="Man" formControlName="category">
+                        </kendo-dropdownlist>
+                    </kendo-label>
+
+                    <kendo-label text="Price:">
+                        <kendo-textbox formControlName="price"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Discount:">
+                        <kendo-textbox formControlName="discount"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Quantity:">
+                        <kendo-textbox formControlName="quantity"></kendo-textbox>
+                    </kendo-label>
+                    <kendo-label text="Description:">
+                        <kendo-textbox formControlName="description"></kendo-textbox>
                     </kendo-label>
                 </div>
-                <kendo-label text="Phone:">
-                    <kendo-textbox placeholder="John Smith"></kendo-textbox>
-                </kendo-label>
-            </div>
-            <div class="FooterDrawer">
-                <button kendoButton (click)="drawer.toggle()">CLOSE</button>
-                <button kendoButton (click)="drawer.toggle()" iconClass="k-icon k-i-save"
-                    themeColor="primary">SAVE</button>
-            </div>
+                <div class="FooterDrawer">
+                    <button kendoButton (click)="drawer.toggle()">CLOSE</button>
+                    <button kendoButton (click)="onclick(currentProduct)" iconClass="k-icon k-i-save"
+                        themeColor="primary">SAVE</button>
+                </div>
+            </form>
+
         </ng-template>
     </kendo-drawer>
+    <!-- =========================End UI create product============================ -->
+
+    <!-- =========================UI Edit product============================ -->
+
+    <!-- =========================End UI Edit product============================ -->
 
     <kendo-drawer-content>
         <div class="wrapper-detail-program">
@@ -56,7 +70,7 @@
                 </div>
                 <div class="tool-detail-program">
                     <kendo-dropdownlist [data]="CategoryList" style="width: 200px;"></kendo-dropdownlist>
-                    <button kendoButton [themeColor]="'primary'" iconClass="fas fa-plus" (click)="drawer.toggle()">
+                    <button kendoButton [themeColor]="'primary'" iconClass="fas fa-plus" (click)="addNewProduct()">
                         ADD NEW PRODUCT
                     </button>
                 </div>
@@ -69,8 +83,8 @@
                         <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
                             <button kendoButton [themeColor]="'base'" iconClass="fas fa-trash-alt" class=" dustbin"
                                 (click)="open(dataItem)"></button>
-                            <button kendoButton [themeColor]="'base'" iconClass="k-icon k-i-edit"
-                                class=" edit"></button>
+                            <button kendoButton [themeColor]="'base'" iconClass="k-icon k-i-edit" class=" edit"
+                                (click)="editProduct()"></button>
                             <div class="container-product" kendoTooltip>
                                 <div class="content-product">
                                     <img src="{{ dataItem.Image_link }}" alt="product" class="imgProduct" />

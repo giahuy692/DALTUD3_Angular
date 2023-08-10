@@ -10,6 +10,10 @@ import {
   DialogService,
 } from '@progress/kendo-angular-dialog';
 import { layoutService } from '../../share/services/layout.service';
+import { StringFilterMenuComponent } from '@progress/kendo-angular-grid';
+import { DrawerComponent } from '@progress/kendo-angular-layout';
+import { FormControl, FormGroup } from '@angular/forms';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-manager-product',
@@ -17,6 +21,7 @@ import { layoutService } from '../../share/services/layout.service';
   styleUrls: ['./manager-product.component.scss'],
 })
 export class ManagerProductComponent implements OnInit {
+  @ViewChild('drawer') drawerRef: DrawerComponent;
   arrUnsubscribe: Subscription[] = [];
   data: DTOProduct[];
   listProduct: DTOProduct[];
@@ -26,13 +31,40 @@ export class ManagerProductComponent implements OnInit {
   currentPage: number = 1;
   public CategoryList: Array<string> = ['Man', 'Woman', 'Couple'];
   public result: string;
+  public form: FormGroup;
 
+  // ====================================================================
+  // public expanded = false;
+  // public productName: string = 'Demo';
+  // public category: string = '';
+  // public price: number = 100000;
+  // public description: string = 'This is product demo';
+  // public quantity: number = 10;
+  productList: DTOProduct[] = [];
+  currentProduct = new DTOProduct();
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
     private layout: layoutService,
     private dialogService: DialogService
-  ) {}
+  ) {
+    // this.form = new FormGroup({
+    //   productName: new FormControl(this.currentProduct.ProductName),
+    //   category: new FormControl(this.currentProduct.CatalogName),
+    //   price: new FormControl(this.currentProduct.Price),
+    //   quantity: new FormControl(this.currentProduct.Quantity),
+    //   description: new FormControl(this.currentProduct.Description),
+    // });
+
+    this.form = new FormGroup({
+      productName: new FormControl(),
+      category: new FormControl(),
+      price: new FormControl(),
+      discount: new FormControl(),
+      quantity: new FormControl(),
+      description: new FormControl(),
+    });
+  }
 
   private interval: any;
 
@@ -57,18 +89,57 @@ export class ManagerProductComponent implements OnInit {
     this.arrUnsubscribe.push(GetListProduct);
   }
 
-  // GetProduct(_id: string) {
-  //   let GetProduct = this.apiService.GetProduct(_id).subscribe((v)=>{
+  //# Create product
 
-  //   });
-  // }
-
-  //# Delete Product
-
-  onclick() {
-    console.log('click thành công');
+  addNewProduct() {
+    this.drawerRef.toggle();
+    // this.from = new FormGroup({});
   }
 
+  editProduct() {
+    this.drawerRef.toggle();
+  }
+
+  //# End create product
+
+  onclick(currentProduct: DTOProduct) {
+    // Đóng drawer sau khi click "SAVE"
+    this.drawerRef.toggle();
+
+    this.currentProduct.ProductName = this.form.get('productName')?.value;
+    this.currentProduct.CatalogName = this.form.get('category')?.value;
+    this.currentProduct.Price = this.form.get('price')?.value;
+    this.currentProduct.Discount = this.form.get('discount')?.value;
+    this.currentProduct.Quantity = this.form.get('quantity')?.value;
+    this.currentProduct.Description = this.form.get('description')?.value;
+
+    this.currentProduct.Image_link =
+      '../../../../assets/img/product/ao-polo-cafe-apm3635-gre-9-yodyvn.jpg';
+
+    // console.log('Thông tin sản phẩm:');
+    // console.log(this.currentProduct);
+
+    this.onCreate(this.currentProduct);
+  }
+
+  onCreate(dtoProduct: DTOProduct) {
+    this.apiService.CreateProduct(dtoProduct).subscribe(
+      (v: any) => {
+        if (this.currentProduct.ProductName != null) {
+          this.GetListProduct(1, 100, undefined);
+          this.layout.showSuccess('Create product susscess!');
+          this.form.reset(this.currentProduct);
+        } else {
+          this.layout.showError('Create product is faile!');
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  //# Delete Product
   // onDelete(value: any) {
   //   console.log(value);
   // let onDelete = this.apiService.DeleteProduct(value).subscribe(
@@ -101,21 +172,21 @@ export class ManagerProductComponent implements OnInit {
 
   //thực hiện xóa
   onDelete() {
-    alert('Xóa ' + this.itemProduct.ProductName + ' thành công');
+    // alert('Xóa ' + this.itemProduct.ProductName + ' thành công');
     // console.log(this.itemProduct);
 
-    // let deleteProduct = this.apiService
-    //   .DeleteProduct(this.itemProduct)
-    //   .subscribe(
-    //     (v) => {
-    //       this.GetListProduct(1, 100, undefined);
-    //       this.layout.showSuccess('Delete product success');
-    //     },
-    //     (errr) => {
-    //       console.log(errr);
-    //     }
-    //   );
-    // this.arrUnsubscribe.push(deleteProduct);
+    let deleteProduct = this.apiService
+      .DeleteProduct(this.itemProduct)
+      .subscribe(
+        (v) => {
+          this.GetListProduct(1, 100, undefined);
+          this.layout.showSuccess('Delete product success');
+        },
+        (errr) => {
+          console.log(errr);
+        }
+      );
+    this.arrUnsubscribe.push(deleteProduct);
 
     this.opened = false;
     this.btnRef.nativeElement.focus();
