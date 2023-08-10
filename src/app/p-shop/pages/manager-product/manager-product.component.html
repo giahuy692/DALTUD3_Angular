@@ -94,7 +94,7 @@
                 </div>
                 <div class="tool-detail-program">
                     <kendo-dropdownlist style="width: 200px;" [data]="CategoryList" textField="Name" valueField="_id"
-                        [valuePrimitive]="true" formControlName="CatalogId" (selectionChange)="selectionChange($event)">
+                        (selectionChange)="selectionDdropDown($event)" [(ngModel)]="CatagoryItem">
                         <ng-template kendoDropDownListItemTemplate let-dataItem>
                             {{ dataItem.Name }}
                         </ng-template>

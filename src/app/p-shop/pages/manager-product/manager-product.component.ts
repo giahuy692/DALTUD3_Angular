@@ -47,6 +47,11 @@ export class ManagerProductComponent implements OnInit {
   public CategoryList: DTOCategory[];
   public result: string;
   public form: FormGroup;
+  CatagoryItem = {
+    _id: '64b157dee27407f744b4bcf6',
+    Name: 'Man',
+    Sort_order: 1,
+  };
 
   // ====================================================================
   // public expanded = false;
@@ -73,8 +78,8 @@ export class ManagerProductComponent implements OnInit {
 
     this.form = new FormGroup({
       _id: new FormControl(),
-      CatalogId: new FormControl(),
-      CatalogName: new FormControl(),
+      CatalogId: new FormControl(this.CatagoryItem._id),
+      CatalogName: new FormControl(this.CatagoryItem.Name),
       ProductName: new FormControl(),
       Price: new FormControl(),
       Discount: new FormControl(),
@@ -88,25 +93,35 @@ export class ManagerProductComponent implements OnInit {
   private interval: any;
 
   ngOnInit(): void {
-    this.GetListProduct(1, 100, undefined);
+    this.GetListProduct(this.CatagoryItem._id);
     this.getCatagory();
   }
 
-  public selectionChange(value: any): void {
+  public selectionDdropDown(value: any): void {
     console.log('selectionChange', value);
+    this.GetListProduct(value._id);
+    this.CatagoryItem = value;
+
+    // console.log(this.form.value);
+  }
+
+  public selectionChange(value: any): void {
+    // console.log('selectionChange', value);
     this.form.patchValue({
       CatalogId: value._id,
       CatalogName: value.Name,
     });
-    console.log(this.form.value);
+
+    // console.log(this.form.value);
   }
 
   //# Get category
+
   getCatagory() {
     let GetCatagory = this.apiService.GetListCategory().subscribe(
       (v: any) => {
         this.CategoryList = v.categorys;
-        console.log(this.CategoryList);
+        // console.log(this.CategoryList);
       },
       (error) => {
         console.log(error);
@@ -114,16 +129,18 @@ export class ManagerProductComponent implements OnInit {
     );
     this.arrUnsubscribe.push(GetCatagory);
   }
+
   // end get catogory
 
   //#region Our product
 
-  GetListProduct(page?: number, pageSize?: number, sort?: string) {
+  GetListProduct(CatalogId: string) {
     let GetListProduct = this.apiService
-      .GetListProduct(page, pageSize, sort)
+      .GetProductByCategoryID(CatalogId)
       .subscribe(
         (v: any) => {
-          this.listProduct = v.products;
+          this.listProduct = v;
+          // console.log(v);
         },
         (errr) => {
           console.log(errr);
@@ -170,7 +187,7 @@ export class ManagerProductComponent implements OnInit {
     this.apiService.CreateProduct(dtoProduct).subscribe(
       (v: any) => {
         if (this.currentProduct.ProductName != null) {
-          this.GetListProduct(1, 100, undefined);
+          this.GetListProduct(this.CatagoryItem._id);
           this.layout.showSuccess('Create product susscess!');
           this.form.reset(this.currentProduct);
         } else {
@@ -188,7 +205,7 @@ export class ManagerProductComponent implements OnInit {
   //   console.log(value);
   // let onDelete = this.apiService.DeleteProduct(value).subscribe(
   //   (v) => {
-  //     this.GetListProduct(1, 100, undefined);
+  //     this.GetListProduct(' ');
   //     this.layout.showSuccess('Delete product success');
   //   },
   //   (errr) => {
@@ -223,7 +240,7 @@ export class ManagerProductComponent implements OnInit {
       .DeleteProduct(this.itemProduct)
       .subscribe(
         (v) => {
-          this.GetListProduct(1, 100, undefined);
+          this.GetListProduct(this.CatagoryItem._id);
           this.layout.showSuccess('Delete product success');
         },
         (errr) => {
@@ -235,6 +252,7 @@ export class ManagerProductComponent implements OnInit {
     this.opened = false;
     this.btnRef.nativeElement.focus();
   }
+
   //End dialog
 
   //# upload image
