@@ -8,28 +8,31 @@ import { AuthService } from '../../share/services/auth.service';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+  styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent {
   public form: FormGroup;
   public loading = false;
   user: any;
-  
+
   Orders: DTOOrder[] = [];
   currentOrder = new DTOOrder();
   totalAmount: number = 0;
-  constructor(private api: ShopApiService, private layout: layoutService, private auth: AuthService) {
+  constructor(
+    private api: ShopApiService,
+    private layout: layoutService,
+    private auth: AuthService
+  ) {
     this.user = this.auth.getInfoUser();
     this.form = new FormGroup({
       _id: new FormControl(this.currentOrder._id, [Validators.required]),
       paymentID: new FormControl(this.currentOrder.paymentID),
       paymentName: new FormControl(this.currentOrder.paymentName),
       ProductId: new FormControl(this.currentOrder.ProductId),
-      ProductName: new FormControl(this.currentOrder.ProductName), 
+      ProductName: new FormControl(this.currentOrder.ProductName),
       Qty: new FormControl(this.currentOrder.Qty, [Validators.required]),
       Amount: new FormControl(this.currentOrder.Amount),
       Status: new FormControl(this.currentOrder.Status),
-
     });
     // console.log(this.currentOrder)
   }
@@ -57,7 +60,10 @@ export class CheckoutComponent {
 
   //#region tính tổng giá trị Amount
   calculateTotalAmount() {
-    this.totalAmount = this.Orders.reduce((total, order) => total + order.Amount, 0);
+    this.totalAmount = this.Orders.reduce(
+      (total, order) => total + order.Amount,
+      0
+    );
   }
 
   GetOrder(dto: DTOOrder) {

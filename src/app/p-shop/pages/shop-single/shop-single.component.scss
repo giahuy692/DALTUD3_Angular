@@ -11,6 +11,7 @@
       background-color: aqua;
       margin-bottom: 70px;
     }
+
     .text-main-header {
       text-align: center;
       font-family: "Roboto";
@@ -44,8 +45,7 @@
       background-color: #fee47c;
     }
 
-    .main-footer {
-    }
+    .main-footer {}
 
     //===============================================================
     .example-wrapper {
@@ -54,21 +54,26 @@
       box-shadow: 0px 10px 20px #00000029;
       border-radius: 30px;
     }
+
     .page {
       padding: 20px 10px;
     }
+
     .content {
       background: #f9f9f9;
       height: 470px;
       overflow: auto;
     }
+
     .box {
       padding: 4px;
       //background-color: #87dfce;
     }
+
     .big {
       //background-color: #fea69c;
     }
+
     .rect {
       //background-color: #fee47c;
     }
@@ -78,18 +83,21 @@
       width: 420px;
       border-radius: 30px;
     }
+
     .quantity-mode {
       display: flex;
       align-items: center;
       justify-content: center;
       column-gap: 5%;
     }
+
     .inputQuantMode {
       height: 50px;
       width: 45%;
       border-radius: 16px;
       text-align: center;
     }
+
     .inp-QuantMode {
       display: flex;
       flex-direction: row;
@@ -97,6 +105,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .but-QuantMode {
       border-radius: 16px;
     }
@@ -110,6 +119,7 @@
       justify-content: center;
       /* align-items: center;*/
     }
+
     .buttonMode {
       border-radius: 16px;
     }
@@ -133,6 +143,7 @@
       padding: 0px 20px 0 20px;
       border-radius: 16px;
     }
+
     .text-DesAdd {
       font-family: "Open Sans";
       font-style: normal;
@@ -190,14 +201,24 @@
       //top: 16px;
       //left: 15px;
     }
+
     .review {
       display: block;
       text-align: start;
       padding-top: 5px;
       border-top: 1px solid $gray;
+
       i {
         color: $yellow;
       }
+    }
+
+    .quantity {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      width: 100px;
+      margin-bottom: 15px;
     }
   }
 }

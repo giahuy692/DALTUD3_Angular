@@ -12,7 +12,7 @@ import { CartService } from '../../share/services/cart.service';
 export class CartComponent {
   cartItems: any[];
 
-  constructor(private cartService: CartService) {
+  constructor(public cartService: CartService) {
     this.cartItems = this.cartService.getCartItems();
   }
 
@@ -22,8 +22,8 @@ export class CartComponent {
   }
 
   clearCart() {
-    this.cartService.clearCart();
     this.cartItems = [];
+    this.cartService.clearCart();
   }
 
   getTotalPrice() {

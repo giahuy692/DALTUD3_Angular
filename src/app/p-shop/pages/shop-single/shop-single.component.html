@@ -38,21 +38,21 @@
     <div class="row">
       <div class="col-md-5">
         <div class="single-product-img">
-          <img [src]="product.image" alt="">
+          <img [src]="product.Image_link" alt="">
         </div>
       </div>
       <div class="col-md-7">
         <div class="single-product-content">
-          <h3>Title: {{ product.title }}</h3>
-          <p class="single-product-pricing"><span>S M L</span> {{ product.price }}</p>
-          <p>{{ product.description }}</p>
+          <h3>Title: {{ product.ProductName }}</h3>
+          <p class="single-product-pricing"><span>S M L</span> {{ product.Price | currency:'VND':'symbol':'1.0-0' }}</p>
+          <p>{{ product.Description }}</p>
           <div class="single-product-form">
             <form action="index">
-              <input type="number" placeholder="0">
+              <kendo-numerictextbox format="#" [value]="product.Quantity" class="quantity"></kendo-numerictextbox>
             </form>
-            <a routerLink="/cart" class="cart-btn"><i class="fas fa-shopping-cart" (click)="addToCart()"></i> Add to
+            <a class="cart-btn" (click)="cartService.addToCart(product)"><i class="fas fa-shopping-cart"></i> Add to
               Cart</a>
-            <p><strong>Categories: </strong>{{ product.category }}</p>
+            <p><strong>Categories: </strong>{{ product.CatalogName }}</p>
           </div>
           <h4>Share:</h4>
           <ul class="product-share">
@@ -80,21 +80,21 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div style="overflow-x: auto;">
+      <div class="row" style="flex-wrap: nowrap;">
 
-      <div class="col-lg-4 col-md-6 text-center">
-        <div class="single-product-item">
-          <div class="product-image">
-            <a routerLink="single-product"><img
-                src="assets/img/container/fas12519_-_798k__fqb028_-_768k__3__0bf85c29f4a64ee2bb01847b594760a2.jpg"
-                alt="" /></a>
+        <div class="col-lg-4 col-md-6 text-center" *ngFor="let item of ListProduct">
+          <div class="single-product-item">
+            <div class="product-image">
+              <a routerLink="single-product"><img src="{{item.Image_link}}" alt="" /></a>
+            </div>
+            <h3>{{item.ProductName}}</h3>
+            <p class="product-price"><span>S M L</span> {{ item.Price | currency:'VND':'symbol':'1.0-0' }}</p>
+            <a class="cart-btn" (click)="cartService.addToCart(item)"><i class="fas fa-shopping-cart"></i> Add to
+              Cart</a>
           </div>
-          <h3>Women Product 1</h3>
-          <p class="product-price"><span>S M L</span> 85$</p>
-          <a routerLink="/cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
       </div>
-
     </div>
   </div>
 </div>
