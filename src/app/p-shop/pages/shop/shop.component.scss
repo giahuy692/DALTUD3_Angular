@@ -13,5 +13,38 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
+
+        .pagination-wrap {
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin: 0 5px;
+
+                    a {
+                        text-decoration: none;
+                        color: #333;
+                        transition: color 0.3s;
+
+                        &:hover {
+                            color: #f57224;
+                        }
+                    }
+                }
+
+                .active a {
+                    color: #fff;
+                    background-color: #f57224;
+                    font-weight: bold;
+                }
+
+
+            }
+        }
+
     }
 }

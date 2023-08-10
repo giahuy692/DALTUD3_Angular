@@ -10,6 +10,7 @@ import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-shop',
@@ -22,6 +23,11 @@ export class ShopComponent {
   listProductLimit: any;
   arrUnsubscribe: Subscription[] = [];
 
+  //=========Paging==================
+  currentPage: number = 1; // Trang hiện tại
+  itemsPerPage: number = 9; // Số lượng sản phẩm mỗi trang
+  totalItems: number = 0; // Tổng số sản phẩm
+
   constructor(
     private apiService: ShopApiService,
     private notificationService: NotificationService,
@@ -29,21 +35,73 @@ export class ShopComponent {
   ) {}
 
   ngOnInit(): void {
-    this.getData();
+    // this.getData();
+    this.getData(this.currentPage, undefined, undefined);
   }
 
-  //#region Our product
-  getData() {
-    let getData = this.apiService.GetListProduct().subscribe(
-      (v: any) => {
-        this.data = v;
-      },
-      (error) => {
-        console.log(error);
+  //# paging
+  changePage(page: number | 'prev' | 'next') {
+    if (page === 'prev') {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        this.getData(this.currentPage, undefined, undefined);
       }
-    );
+    } else if (page === 'next') {
+      if (this.currentPage < this.totalPages()) {
+        this.currentPage++;
+        this.getData(this.currentPage, undefined, undefined);
+      }
+    } else {
+      this.currentPage = page;
+      this.getData(this.currentPage, undefined, undefined);
+    }
 
-    this.arrUnsubscribe.push(getData);
+    console.log(page);
+  }
+
+  getPageNumbers(): number[] {
+    this.totalItems = this.data.length;
+    const totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+    // console.log(this.totalItems, totalPages, this.itemsPerPage);
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.totalItems / this.itemsPerPage);
+  }
+
+  updatePageData() {
+    this.totalItems = this.data.length;
+  }
+
+  //# end paging
+
+  // getAllData() {
+  //   let getAllProduct = this.apiService.GetListProduct().subscribe(
+  //     (v: any) => {
+  //       this.data = v.products;
+  //       this.updatePageData();
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  //   this.arrUnsubscribe.push(getAllProduct);
+  // }
+  //#region Our product
+  getData(page?: number, pageSize?: number, sort?: string) {
+    let getProduct = this.apiService
+      .GetListProduct(page, pageSize, sort)
+      .subscribe(
+        (v: any) => {
+          this.data = v.products;
+          this.updatePageData();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    this.arrUnsubscribe.push(getProduct);
   }
 
   // Handle lấy product detail

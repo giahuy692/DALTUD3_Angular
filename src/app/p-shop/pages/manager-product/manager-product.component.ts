@@ -102,7 +102,7 @@ export class ManagerProductComponent implements OnInit {
 
   //# End create product
 
-  onclick(currentProduct: DTOProduct) {
+  onclick() {
     // Đóng drawer sau khi click "SAVE"
     this.drawerRef.toggle();
 
