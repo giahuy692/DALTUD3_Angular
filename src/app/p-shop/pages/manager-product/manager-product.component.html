@@ -8,7 +8,7 @@
             <form [formGroup]="form">
                 <div class="BodyDrawer">
                     <kendo-label text="Product Name:">
-                        <kendo-textbox formControlName="productName"></kendo-textbox>
+                        <kendo-textbox formControlName="ProductName"></kendo-textbox>
                     </kendo-label>
                     <!-- <kendo-label text="Category:">
                         <kendo-textbox placeholder="Men"></kendo-textbox>
@@ -16,21 +16,45 @@
 
                     <kendo-label text="Category">
                         <br>
-                        <kendo-dropdownlist [data]="CategoryList" value="Man" formControlName="category">
+                        <kendo-dropdownlist [data]="CategoryList" textField="Name" valueField="_id"
+                            [valuePrimitive]="true" formControlName="CatalogId"
+                            (selectionChange)="selectionChange($event)">
+                            <ng-template kendoDropDownListItemTemplate let-dataItem>
+                                {{ dataItem.Name }}
+                            </ng-template>
                         </kendo-dropdownlist>
                     </kendo-label>
 
                     <kendo-label text="Price:">
-                        <kendo-textbox formControlName="price"></kendo-textbox>
+                        <kendo-textbox formControlName="Price"></kendo-textbox>
                     </kendo-label>
+
+                    <!-- Upload image -->
+                    <!-- <kendo-label text="Upload image"> -->
+
+                    <!-- <kendo-upload [autoUpload]="false" [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"
+                            (valueChange)="valueChange($event)">
+                            <ng-template kendoUploadFileInfoTemplate let-files>
+                                <div>Name: {{ files[0].name | json}}</div>
+                            </ng-template>
+                        </kendo-upload> -->
+                    <!-- <p>
+                            <kendo-upload  formControl="" [autoUpload]="false" [saveUrl]="uploadSaveUrl" [removeUrl]="uploadRemoveUrl"
+                                [restrictions]="uploadRestrictions" (valueChange)="valueChange($event)">
+                            </kendo-upload>
+                        </p> -->
+
+
+                    <!-- </kendo-label> -->
+                    <!-- end upload -->
                     <kendo-label text="Discount:">
-                        <kendo-textbox formControlName="discount"></kendo-textbox>
+                        <kendo-textbox formControlName="Discount"></kendo-textbox>
                     </kendo-label>
                     <kendo-label text="Quantity:">
-                        <kendo-textbox formControlName="quantity"></kendo-textbox>
+                        <kendo-textbox formControlName="Quantity"></kendo-textbox>
                     </kendo-label>
                     <kendo-label text="Description:">
-                        <kendo-textbox formControlName="description"></kendo-textbox>
+                        <kendo-textbox formControlName="Description"></kendo-textbox>
                     </kendo-label>
                 </div>
                 <div class="FooterDrawer">
@@ -69,7 +93,12 @@
                     </div>
                 </div>
                 <div class="tool-detail-program">
-                    <kendo-dropdownlist [data]="CategoryList" style="width: 200px;"></kendo-dropdownlist>
+                    <kendo-dropdownlist style="width: 200px;" [data]="CategoryList" textField="Name" valueField="_id"
+                        [valuePrimitive]="true" formControlName="CatalogId" (selectionChange)="selectionChange($event)">
+                        <ng-template kendoDropDownListItemTemplate let-dataItem>
+                            {{ dataItem.Name }}
+                        </ng-template>
+                    </kendo-dropdownlist>
                     <button kendoButton [themeColor]="'primary'" iconClass="fas fa-plus" (click)="addNewProduct()">
                         ADD NEW PRODUCT
                     </button>
