@@ -4,6 +4,7 @@ import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
 import { layoutService } from '../../share/services/layout.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-couple',
@@ -12,7 +13,7 @@ import { layoutService } from '../../share/services/layout.service';
 })
 export class CoupleComponent {
   constructor(
-    private serviceApi: ShopApiService,
+    private apiService: ShopApiService,
     private layout: layoutService,
     private router: Router
   ) {}
@@ -22,9 +23,10 @@ export class CoupleComponent {
   listProductLimit: DTOProduct[] = [];
   arrProductTogetherCategory: DTOProduct[] = [];
   productSingle: any;
+  arrUnsubscribe: Subscription[] = [];
 
   ngOnInit() {
-    this.getData();
+    this.getData('64b157dee27407f744b4bcf8');
     this.getListProductLimit();
   }
 
@@ -35,7 +37,7 @@ export class CoupleComponent {
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
   // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
-    this.serviceApi.GetListProduct().subscribe((a: any) => {
+    this.apiService.GetListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
         if (item.CatalogName == this.product.CatalogName) {
@@ -50,19 +52,20 @@ export class CoupleComponent {
     return Array(roundedRate).fill(0);
   }
 
-  getData() {
-    this.serviceApi.GetListProduct().subscribe(
+  getData(_id: string) {
+    let getProduct = this.apiService.GetProductByCategoryID(_id).subscribe(
       (v: any) => {
         this.data = v;
       },
-      (error: any) => {
-        this.layout.showError('Get list product failed!');
+      (error) => {
+        console.log(error);
       }
     );
+    this.arrUnsubscribe.push(getProduct);
   }
 
   GetProductSingle(data: DTOProduct) {
-    this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
+    this.apiService.GetProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
     });
   }

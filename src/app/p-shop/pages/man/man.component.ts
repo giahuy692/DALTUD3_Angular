@@ -4,6 +4,8 @@ import { DTOProduct } from '../../share/dtos/DTOProduct';
 import { NotificationService } from '@progress/kendo-angular-notification';
 import { Router } from '@angular/router';
 import { layoutService } from '../../share/services/layout.service';
+import { error } from 'jquery';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-man',
@@ -12,7 +14,7 @@ import { layoutService } from '../../share/services/layout.service';
 })
 export class ManComponent {
   constructor(
-    private serviceApi: ShopApiService,
+    private apiService: ShopApiService,
     private layout: layoutService
   ) {}
 
@@ -21,27 +23,21 @@ export class ManComponent {
   listProductLimit: DTOProduct[] = [];
   arrProductTogetherCategory: DTOProduct[] = [];
   productSingle: any;
+  arrUnsubscribe: Subscription[] = [];
 
   ngOnInit() {
-    this.serviceApi
-      .GetProduct('64b157dee27407f744b4bcf6')
-      .subscribe((v: DTOProduct) => {
-        this.product = v;
-      });
-    console.log(this.listProductLimit);
-
-    this.getData();
-    this.getListProductLimit();
+    this.getData('64b157dee27407f744b4bcf6');
+    // this.getListProductLimit();
   }
 
   ngAfterContentInit(): void {
-    this.getListProductLimit();
+    // this.getListProductLimit();
   }
 
   // Tạo một mảng để chứa dữ liệu từ api trả về cho listproductlimit[]
   // FoEach mảng listproductlimit[]
   getListProductLimit(): void {
-    this.serviceApi.GetListProduct().subscribe((a: any) => {
+    this.apiService.GetListProduct().subscribe((a: any) => {
       this.listProductLimit = a;
       this.listProductLimit.forEach((item: DTOProduct) => {
         if (item.CatalogName == this.product.CatalogName) {
@@ -56,20 +52,20 @@ export class ManComponent {
     return Array(roundedRate).fill(0);
   }
 
-  getData() {
-    this.serviceApi.GetListProduct().subscribe(
+  getData(_id: string) {
+    let getProduct = this.apiService.GetProductByCategoryID(_id).subscribe(
       (v: any) => {
         this.data = v;
       },
-      (error: any) => {
+      (error) => {
         console.log(error);
-        this.layout.showError('Get list product failed!');
       }
     );
+    this.arrUnsubscribe.push(getProduct);
   }
 
   GetProductSingle(data: DTOProduct) {
-    this.serviceApi.GetProduct(data._id).subscribe((v: any) => {
+    this.apiService.GetProduct(data._id).subscribe((v: any) => {
       this.productSingle = v;
     });
   }
